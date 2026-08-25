@@ -1,0 +1,11 @@
+[20:01:39] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+Traceback (most recent call last):
+  File "/usr/local/bin/ns-process-data", line 8, in <module>
+    sys.exit(entrypoint())
+  File "/usr/local/lib/python3.10/dist-packages/nerfstudio/scripts/process_data.py", line 550, in entrypoint
+    tyro.cli(Commands).main()
+  File "/usr/local/lib/python3.10/dist-packages/nerfstudio/process_data/images_to_nerfstudio_dataset.py", line 117, in main
+    self._run_colmap()
+  File "/usr/local/lib/python3.10/dist-packages/nerfstudio/process_data/colmap_converter_to_nerfstudio_dataset.py", line 205, in _run_colmap
+    assert sfm_tool == "hloc", "not_use_single_camera_mode only works with sfm_tool hloc"
+AssertionError: not_use_single_camera_mode only works with sfm_tool hloc

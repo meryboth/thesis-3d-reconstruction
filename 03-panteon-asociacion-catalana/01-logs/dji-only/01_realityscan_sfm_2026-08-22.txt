@@ -1,0 +1,225 @@
+
+======================================================================
+UPDATE — CAMERA TRAJECTORY / REALITYSCAN
+======================================================================
+
+Fuente adicional:
+int_and_ext_camera_parameters.csv
+
+----------------------------------------------------------------------
+CAMERA REGISTRATION
+----------------------------------------------------------------------
+
+Imágenes de entrada:
+1507
+
+Imágenes registradas:
+1462
+
+Imágenes no registradas:
+45
+
+Registration rate:
+97.014 %
+
+Poses de cámara estimadas:
+1462
+
+NOTA:
+El archivo CSV contiene una fila por pose registrada, confirmando
+1462 cámaras estimadas por RealityScan.
+
+----------------------------------------------------------------------
+DISTRIBUCIÓN DE IMÁGENES NO REGISTRADAS
+----------------------------------------------------------------------
+
+Total:
+45
+
+Bloques de frames no registrados:
+
+frame_00063.jpg - frame_00064.jpg
+Cantidad: 2
+
+frame_00624.jpg - frame_00625.jpg
+Cantidad: 2
+
+frame_00792.jpg - frame_00800.jpg
+Cantidad: 9
+
+frame_01461.jpg - frame_01492.jpg
+Cantidad: 32
+
+NOTA:
+Las pérdidas de registro no se distribuyen uniformemente.
+El bloque más importante ocurre cerca del final de la trayectoria,
+con 32 frames consecutivos sin pose estimada.
+
+----------------------------------------------------------------------
+CAMERA POSITION EXTENT
+----------------------------------------------------------------------
+
+X mínimo:
+-15.657965
+
+X máximo:
+15.140018
+
+Extensión X:
+30.797983
+
+Y mínimo:
+-22.215941
+
+Y máximo:
+17.736244
+
+Extensión Y:
+39.952184
+
+Altitud mínima:
+0.363672
+
+Altitud máxima:
+14.965850
+
+Extensión vertical:
+14.602178
+
+Altitud media:
+5.381986
+
+Altitud mediana:
+4.527646
+
+NOTA:
+Las coordenadas corresponden al sistema de coordenadas exportado
+por RealityScan. No se asume unidad métrica salvo confirmación de
+escala/georreferenciación del proyecto.
+
+----------------------------------------------------------------------
+CAMERA TRAJECTORY
+----------------------------------------------------------------------
+
+Distancia acumulada entre poses consecutivas:
+550.626691
+
+Mediana de desplazamiento entre poses consecutivas:
+0.195832
+
+Percentil 90:
+0.635819
+
+Percentil 95:
+0.812847
+
+Percentil 99:
+1.787829
+
+Máximo salto entre poses consecutivas:
+19.555008
+
+Distancia entre primera y última pose registrada:
+12.045818
+
+NOTA:
+La distancia acumulada incluye saltos producidos por imágenes no
+registradas y, por lo tanto, no debe interpretarse directamente como
+distancia física recorrida por el dron.
+
+La distancia primera-última tampoco debe utilizarse todavía como
+error de loop closure, dado que existe un bloque de frames no
+registrados hacia el final del recorrido.
+
+----------------------------------------------------------------------
+CAMERA INTRINSICS
+----------------------------------------------------------------------
+
+Focal equivalente 35 mm — media:
+20.151813 mm
+
+Focal equivalente 35 mm — mediana:
+20.297440 mm
+
+Focal equivalente 35 mm — desviación estándar:
+1.535164 mm
+
+Focal equivalente mínima:
+3.600000 mm
+
+Focal equivalente máxima:
+23.595865 mm
+
+Principal point X normalizado — media:
+0.000121
+
+Principal point X normalizado — mediana:
+0.000213
+
+Principal point Y normalizado — media:
+-0.000468
+
+Principal point Y normalizado — mediana:
+-0.000546
+
+----------------------------------------------------------------------
+DISTORTION PARAMETERS
+----------------------------------------------------------------------
+
+k1:
+Variable por cámara
+
+k2:
+Variable por cámara
+
+k3:
+Variable por cámara
+
+k4:
+0 para todas las cámaras
+
+t1:
+0 para todas las cámaras
+
+t2:
+0 para todas las cámaras
+
+NOTA:
+Se observan valores extremos en algunos parámetros intrínsecos y
+de distorsión. Para futuras comparaciones con COLMAP se recomienda
+priorizar mediana y dispersión sobre valores mínimos y máximos.
+
+----------------------------------------------------------------------
+SPARSE POINT CLOUD
+----------------------------------------------------------------------
+
+points3D.txt:
+Sin puntos 3D exportados
+
+Points3D:
+N/A
+
+Observations:
+N/A
+
+Mean track length:
+N/A
+
+Median track length:
+N/A
+
+Reprojection error:
+N/A
+
+NOTA:
+La ausencia de información en points3D.txt corresponde al contenido
+del export COLMAP generado por RealityScan. No debe interpretarse
+como una reconstrucción SfM con cero puntos.
+
+Para obtener métricas de tie points será necesario utilizar otra
+exportación o las estadísticas internas de RealityScan.
+
+======================================================================
+END UPDATE — REALITYSCAN
+======================================================================
+

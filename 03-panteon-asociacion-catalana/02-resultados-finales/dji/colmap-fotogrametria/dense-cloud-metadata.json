@@ -1,0 +1,68 @@
+{
+  "case": "03-panteon-asociacion-catalana",
+  "artifact": "dense-point-cloud",
+  "method": "photogrammetry",
+  "source": "RealityScan dense reconstruction export",
+  "generated_analysis_at": "2026-08-25T12:01:42.298426",
+  "file": {
+    "name": "nube-densa.xyz",
+    "path": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\02-resultados-finales\\dji\\colmap-fotogrametria\\nube-densa.xyz",
+    "format": "xyz",
+    "size_bytes": 1193055785,
+    "size_mb": 1137.786660194397,
+    "sha256": "671f2866be9f86d645ae64cd140478947b614c16f686cf3bdc06e0c0cc3633a8"
+  },
+  "geometry": {
+    "point_count": 17871606,
+    "bounding_box": {
+      "min": [
+        -21.978322982788086,
+        -31.495445251464844,
+        -1.4752321243286133
+      ],
+      "max": [
+        27.922536849975586,
+        22.711698532104492,
+        17.596145629882812
+      ],
+      "range": [
+        49.90085983276367,
+        54.207143783569336,
+        19.071377754211426
+      ],
+      "diagonal": 76.10668629408008,
+      "volume": 51587.75421139597
+    },
+    "centroid": [
+      -0.18302885444224953,
+      -1.0094027650654263,
+      3.3640728813439282
+    ]
+  },
+  "attributes": {
+    "has_rgb": true,
+    "has_normals": false,
+    "detected_column_count": 6
+  },
+  "local_geometry_sample": {
+    "sample_points": 150000,
+    "nearest_neighbor": {
+      "mean": 0.05777155619018839,
+      "median": 0.03718277948282163,
+      "std": 0.09072668975841663,
+      "min": 0.001121427967681979,
+      "p05": 0.008001312327113149,
+      "p25": 0.02061464513983905,
+      "p75": 0.06442649144030584,
+      "p95": 0.1765630369158134,
+      "max": 10.668360615588224
+    },
+    "statistical_outlier_indicator": {
+      "method": "NN > Q3 + 1.5*IQR",
+      "threshold": 0.130144260891006,
+      "sample_outliers": 11996,
+      "sample_outlier_percentage": 7.997333333333333
+    }
+  },
+  "important_note": "Nearest-neighbor and outlier metrics were calculated from a deterministic random sample, not from every point, to keep memory usage bounded. Full point count and bounding box use the complete cloud."
+}

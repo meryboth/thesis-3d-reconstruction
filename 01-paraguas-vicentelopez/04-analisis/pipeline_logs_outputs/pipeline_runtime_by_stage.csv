@@ -1,0 +1,9 @@
+stage,real_seconds,minutes
+render_spiral_attempt,53.649,0.89415
+export_gaussian_splat,60.5,1.0083333333333333
+render_splatfacto_dataset,152.914,2.5485666666666664
+colmap_image_undistorter,217.4,3.6233333333333335
+colmap_stereo_fusion,857.039,14.283983333333333
+render_nerfacto_dataset,1170.245,19.50408333333333
+ns_process_data_colmap_sparse,5837.799,97.29665
+colmap_patch_match_stereo,24598.691,409.97818333333333

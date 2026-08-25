@@ -1,0 +1,7 @@
+NERFACTO
+========
+-rw-r--r-- 1 root root 168M Aug 23 20:49 /workspace/outputs-djionly-nerf300/colmap-nerfstudio-nerf300/nerfacto/2026-08-23_191033/nerfstudio_models/step-000029999.ckpt
+
+SPLATFACTO
+===========
+-rw-r--r-- 1 root root 226M Aug 24 01:21 /workspace/outputs-djionly-splat/panteon-asociacion-catalana-dji-splatfacto-full-ds8/splatfacto/2026-08-24_004501/nerfstudio_models/step-000029999.ckpt

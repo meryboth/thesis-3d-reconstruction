@@ -1,0 +1,10 @@
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs-djionly-splat/panteon-asociacion-catalana-dji-splatfacto-full-ds8/splatfacto/2026-08-24_004501/nerfst
+udio_models/step-000029999.ckpt
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1356/1356(100.0%) 7.38 fps 0:00:00 0:03:12
+╭──────────────────────── 🎉 Render on split {} Complete 🎉 ─────────────────────────╮
+│                 ╷                                                                  │
+│   Outputs train │ /workspace/renders/splat/panteon-catalan-splat-ds8-train/train   │
+│                 ╵                                                                  │
+╰────────────────────────────────────────────────────────────────────────────────────╯

@@ -1,0 +1,84 @@
+{
+  "case": "03-panteon-asociacion-catalana",
+  "artifact": {
+    "type": "textured-mesh",
+    "format": "obj"
+  },
+  "analysis": {
+    "generated_at": "2026-08-25T12:13:57.457979"
+  },
+  "file": {
+    "name": "textured-mesh.obj",
+    "path": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\02-resultados-finales\\dji\\colmap-fotogrametria\\textured-mesh.obj",
+    "size_bytes": 4187913449,
+    "size_mb": 3993.9054956436157,
+    "sha256": "0370ff5b31d8a1dd4146e397d94c2b3ef4de150961d6d474984bad6b3bd1e291"
+  },
+  "geometry": {
+    "vertices": 17871606,
+    "faces": 35742636,
+    "triangles": 35742636,
+    "bounding_box": {
+      "min": [
+        -21.978322982788086,
+        -31.495445251464844,
+        -1.4752321243286133
+      ],
+      "max": [
+        27.922536849975586,
+        22.711698532104492,
+        17.596145629882812
+      ],
+      "range": [
+        49.90085983276367,
+        54.207143783569336,
+        19.071377754211426
+      ],
+      "diagonal": 76.10668629408008,
+      "volume": 51587.75421139597
+    },
+    "centroid": [
+      -0.18302885444224953,
+      -1.0094027650654263,
+      3.3640728813439282
+    ]
+  },
+  "attributes": {
+    "normal_records": 0,
+    "uv_records": 19224339,
+    "has_normals": false,
+    "has_uvs": true
+  },
+  "materials": {
+    "mtl_files": [
+      "textured-mesh.mtl"
+    ],
+    "used_materials": [
+      "textured-mesh_u1_v1"
+    ],
+    "materials_defined_in_mtl": [
+      "textured-mesh_u1_v1"
+    ]
+  },
+  "textures": {
+    "referenced_count": 1,
+    "existing_count": 1,
+    "total_size_bytes": 87652411,
+    "total_size_mb": 83.59185314178467,
+    "files": [
+      {
+        "referenced_from": "textured-mesh.mtl",
+        "name": "textured-mesh_u1_v1_diffuse.png",
+        "path": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\02-resultados-finales\\dji\\colmap-fotogrametria\\textured-mesh_u1_v1_diffuse.png",
+        "exists": true,
+        "size_bytes": 87652411,
+        "size_mb": 83.59185314178467,
+        "sha256": "3f7de2e3ae88115a1d79d002bf5b5c2e6d0c4f14da0e596ab399ee0a98838ac3",
+        "width": 8192,
+        "height": 8192,
+        "mode": "RGBA"
+      }
+    ]
+  },
+  "methodological_note": "The OBJ was analyzed without modifying geometry or texture files. Triangle count is derived from OBJ faces assuming standard fan triangulation for polygons containing more than three vertices."
+}

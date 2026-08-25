@@ -1,0 +1,21 @@
+# Datasets de imágenes usados para entrenar (~14 GB, miles de archivos) — quedan solo en la copia local.
+# Ver 0X-*/README.md para el detalle de qué dataset corresponde a cada modelo.
+03-datasets/
+
+# Checkpoints entrenados de Nerfstudio (150-270 MB c/u, superan el límite de 100MB de GitHub sin Git LFS)
+*.ckpt
+
+# Mallas texturizadas de fotogrametría clásica (RealityScan) y sus assets — hasta ~4GB, superan
+# incluso el límite de Git LFS (2GB). Los .ply de nube densa/Poisson (más livianos) SÍ se suben.
+textured-mesh.obj
+textured-mesh.mtl
+textured-mesh.obj.rsInfo
+textured-mesh_u1_v1_diffuse.png
+
+# Nube de puntos densa sin procesar de RealityScan (~1.1 GB c/u)
+nube-densa.xyz
+nube-densa.xyz.rsInfo
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+filename,size,line,log_name,stage,size_mb
+1,Killed,bash: line 1: 29695 Killed                  colmap stereo_fusion --workspace_path . --workspace_format COLMAP --input_type geometric --output_type PLY --output_path ./fused_high_safe.ply --StereoFusion.cache_size 1 --StereoFusion.max_image_size 1000 --StereoFusion.check_num_images 12 --StereoFusion.min_num_pixels 6 --StereoFusion.max_num_pixels 9000 --StereoFusion.num_threads 1,12_colmap_stereo_fusion_high_safe_nohup.log,colmap_stereo_fusion,
+directory,No,ls: cannot access './fused_high_safe.ply': No such file or directory,12_colmap_stereo_fusion_high_safe_nohup.log,colmap_stereo_fusion,
+./fused_medium_high.ply,55M,-rw-r--r-- 1 root root 55M Jun 22 17:53 ./fused_medium_high.ply,12_colmap_stereo_fusion_medium_high_nohup.log,colmap_stereo_fusion,55.0
+./fused_medium.ply,41M,-rw-r--r-- 1 root root 41M Jun 22 17:26 ./fused_medium.ply,12_colmap_stereo_fusion_medium_nohup.log,colmap_stereo_fusion,41.0
+./meshed-poisson-clean-trim5.ply,30M,-rw-r--r-- 1 root root 30M Jun 22 22:40 ./meshed-poisson-clean-trim5.ply,13_colmap_poisson_clean_trim5.log,colmap_poisson_meshing,30.0
+colmap_dense_clean/fused_low.ply,22M,-rw-r--r-- 1 root root 22M Jun 22 16:59 colmap_dense_clean/fused_low.ply,15_colmap_photogrammetry_report.txt,photogrammetry_summary_report,22.0
+colmap_dense_clean/fused_medium.ply,41M,-rw-r--r-- 1 root root 41M Jun 22 17:26 colmap_dense_clean/fused_medium.ply,15_colmap_photogrammetry_report.txt,photogrammetry_summary_report,41.0
+colmap_dense_clean/fused_medium_high.ply,55M,-rw-r--r-- 1 root root 55M Jun 22 17:53 colmap_dense_clean/fused_medium_high.ply,15_colmap_photogrammetry_report.txt,photogrammetry_summary_report,55.0
+colmap_dense_clean/meshed-poisson-medium-high.ply,15M,-rw-r--r-- 1 root root 15M Jun 22 18:25 colmap_dense_clean/meshed-poisson-medium-high.ply,15_colmap_photogrammetry_report.txt,photogrammetry_summary_report,15.0

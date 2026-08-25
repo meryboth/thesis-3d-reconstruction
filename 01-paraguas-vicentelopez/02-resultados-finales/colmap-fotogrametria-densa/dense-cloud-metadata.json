@@ -1,0 +1,79 @@
+{
+  "case": "01-paraguas-vicentelopez",
+  "artifact": "dense-point-cloud",
+  "method": "photogrammetry",
+  "source": "COLMAP dense reconstruction",
+  "generated_analysis_at": "2026-08-25T11:56:58.164473",
+  "file": {
+    "name": "fused_medium_high_clean.ply",
+    "path": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\02-resultados-finales\\colmap-fotogrametria-densa\\fused_medium_high_clean.ply",
+    "format": "ply",
+    "size_bytes": 13576422,
+    "size_mb": 12.947484970092773,
+    "sha256": "81d543b2ab79b0346b63cad7654d2bcf30bad2b5f88975c463fe33806e548058"
+  },
+  "geometry": {
+    "point_count": 502817,
+    "bounding_box": {
+      "min": [
+        -3.198848009109497,
+        -0.5651125907897949,
+        -4.473099708557129
+      ],
+      "max": [
+        4.564765453338623,
+        2.693826198577881,
+        2.2606492042541504
+      ],
+      "range": [
+        7.76361346244812,
+        3.258938789367676,
+        6.733748912811279
+      ],
+      "diagonal": 10.781361252083988,
+      "volume": 170.3715310950829
+    },
+    "centroid": [
+      0.5522094957822584,
+      1.0611105234660552,
+      -1.1715580100178873
+    ],
+    "face_count": 0
+  },
+  "attributes": {
+    "has_rgb": true,
+    "has_normals": true,
+    "ply_properties": [
+      "x",
+      "y",
+      "z",
+      "red",
+      "green",
+      "blue",
+      "nx",
+      "ny",
+      "nz"
+    ]
+  },
+  "local_geometry_sample": {
+    "sample_points": 150000,
+    "nearest_neighbor": {
+      "mean": 0.008834591589285167,
+      "median": 0.007685209884435445,
+      "std": 0.006581499547839764,
+      "min": 0.00015621712486096098,
+      "p05": 0.002447672958091988,
+      "p25": 0.0050106482563458616,
+      "p75": 0.011253330779657693,
+      "p95": 0.018348326202910714,
+      "max": 0.6217489376467733
+    },
+    "statistical_outlier_indicator": {
+      "method": "NN > Q3 + 1.5*IQR",
+      "threshold": 0.02061735456462544,
+      "sample_outliers": 4687,
+      "sample_outlier_percentage": 3.1246666666666667
+    }
+  },
+  "important_note": "Nearest-neighbor and outlier metrics were calculated from a deterministic random sample, not from every point, to keep memory usage bounded. Full point count and bounding box use the complete cloud."
+}

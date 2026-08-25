@@ -1,0 +1,84 @@
+{
+  "case": "01-paraguas-vicentelopez",
+  "artifact": {
+    "type": "textured-mesh",
+    "format": "obj"
+  },
+  "analysis": {
+    "generated_at": "2026-08-25T12:10:11.800539"
+  },
+  "file": {
+    "name": "textured-mesh.obj",
+    "path": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\02-resultados-finales\\colmap-fotogrametria-densa\\textured-mesh.obj",
+    "size_bytes": 792623156,
+    "size_mb": 755.9043464660645,
+    "sha256": "32b0c42aaebee2ed1da91eb7c3ac2fde55d59f4e0a13e1ae488007e8d5fe9a8f"
+  },
+  "geometry": {
+    "vertices": 3467152,
+    "faces": 6934120,
+    "triangles": 6934120,
+    "bounding_box": {
+      "min": [
+        -121.86797332763672,
+        -140.65927124023438,
+        -12.135172843933105
+      ],
+      "max": [
+        115.65281677246094,
+        180.18089294433594,
+        21.638525009155273
+      ],
+      "range": [
+        237.52079010009766,
+        320.8401641845703,
+        33.77369785308838
+      ],
+      "diagonal": 400.6185209777855,
+      "volume": 2573765.4871897884
+    },
+    "centroid": [
+      -0.38436360809366815,
+      0.2567685701861675,
+      -1.9076260752936849
+    ]
+  },
+  "attributes": {
+    "normal_records": 0,
+    "uv_records": 3798559,
+    "has_normals": false,
+    "has_uvs": true
+  },
+  "materials": {
+    "mtl_files": [
+      "textured-mesh.mtl"
+    ],
+    "used_materials": [
+      "textured-mesh_u1_v1"
+    ],
+    "materials_defined_in_mtl": [
+      "textured-mesh_u1_v1"
+    ]
+  },
+  "textures": {
+    "referenced_count": 1,
+    "existing_count": 1,
+    "total_size_bytes": 49356839,
+    "total_size_mb": 47.07034969329834,
+    "files": [
+      {
+        "referenced_from": "textured-mesh.mtl",
+        "name": "textured-mesh_u1_v1_diffuse.png",
+        "path": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\02-resultados-finales\\colmap-fotogrametria-densa\\textured-mesh_u1_v1_diffuse.png",
+        "exists": true,
+        "size_bytes": 49356839,
+        "size_mb": 47.07034969329834,
+        "sha256": "2f3d6f6b68140e4207d0f0ab7ccd5e1cd02f73279098e2833965b0226a59e2d0",
+        "width": 8192,
+        "height": 8192,
+        "mode": "RGBA"
+      }
+    ]
+  },
+  "methodological_note": "The OBJ was analyzed without modifying geometry or texture files. Triangle count is derived from OBJ faces assuming standard fan triangulation for polygons containing more than three vertices."
+}

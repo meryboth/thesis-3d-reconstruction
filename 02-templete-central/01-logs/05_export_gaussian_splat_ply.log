@@ -1,0 +1,8 @@
+[11:23:56]  Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Warning: load_3D_points set to true but no point cloud found. splatfacto will use random point cloud initialization.
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs/templete-central-insta360-realityscan-splatfacto/splatfacto/2026-08-13_014408/nerfstudio_models/step-
+000029999.ckpt
+0 Gaussians have NaN/Inf and 4466 have low opacity, only export 384350/388816

@@ -1,0 +1,7 @@
+Variable resolution, using variable_res_collate
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs-templete-nerf308/templete-central-realityscan-nerf308/nerfacto/2026-08-24_220201/nerfstudio_models/st
+ep-000029999.ckpt
+[10:27:09] Auto image downscale factor of 1                                                 nerfstudio_dataparser.py:484
+Variable resolution, using variable_res_collate

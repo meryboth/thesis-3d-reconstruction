@@ -1,0 +1,64 @@
+============================================================
+REALITYSCAN ALIGNMENT
+============================================================
+
+Dataset:
+dataset-insta360
+
+Inicio:
+2026-08-13 09:40:16
+
+Ruta dataset:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-insta360
+
+------------------------------------------------------------
+CONFIGURACION ALIGNMENT
+------------------------------------------------------------
+
+Image downscale factor: 1
+Max feature reprojection error: 2.0 px
+Image overlap: High
+
+GPU acceleration: Enabled
+Force component rematch: Yes
+Preselector features: 20000
+Detector sensitivity: High
+Distortion model: Brown3
+
+------------------------------------------------------------
+RESULTADOS
+------------------------------------------------------------
+
+Fin:
+
+Tiempo total:
+
+Imágenes de entrada:
+
+Cámaras registradas:
+
+Cámaras no registradas:
+
+Registration rate:
+
+Número de componentes:
+
+Componente 0:
+
+Componente 1:
+
+Componente 2:
+
+Notas:
+
+============================================================
+
+------------------------------------------------------------
+RESULTADO FINAL
+------------------------------------------------------------
+
+Imagenes de entrada: 365
+Camaras registradas: 311
+Camaras no registradas: 54
+Registration rate: 85.21 %
+

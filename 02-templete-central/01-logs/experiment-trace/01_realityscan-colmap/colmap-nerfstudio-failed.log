@@ -1,0 +1,8 @@
+[11:59:00] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+[12:17:24] 🎉 Done extracting COLMAP features.                                                       colmap_utils.py:137
+[12:43:13] 🎉 Done matching COLMAP features.                                                         colmap_utils.py:151
+──────────────────────────────────────────────  💀 💀 💀 ERROR 💀 💀 💀  ───────────────────────────────────────────────
+Error running command: colmap mapper --database_path /workspace/sfm-djionly/colmap-nerfstudio/colmap/database.db 
+--image_path /workspace/sfm-djionly/colmap-nerfstudio/images --output_path 
+/workspace/sfm-djionly/colmap-nerfstudio/colmap/sparse --Mapper.ba_global_function_tolerance=1e-6
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

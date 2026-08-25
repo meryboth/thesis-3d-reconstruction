@@ -1,0 +1,136 @@
+TEMPLETE CENTRAL — PIPELINE DE RECONSTRUCCIÓN 3D
+================================================
+
+CASO
+----
+Templete Central
+Panteón Chacarita
+
+INPUT ORIGINAL
+--------------
+Dataset DJI: 1234 imágenes
+
+REALITYSCAN / COLMAP
+--------------------
+COLMAP exportado desde RealityScan.
+Imágenes exportadas: 1232
+Imágenes registradas: 1232 / 1232 (100%)
+
+Cameras: 1232
+Points 3D: 1,687,582
+Observations: 5,491,039
+Mean track length: 3.253791
+Mean observations/image: 4,457.012175
+
+Nota:
+RealityScan exportó reprojection error = 0.000000 px.
+Este valor no se considera una medición válida de precisión, sino una
+característica/limitación del modelo COLMAP exportado.
+
+PREPARACIÓN NERFSTUDIO
+----------------------
+Dataset completo:
+  /workspace/ns-from-realityscan
+
+Frames: 1232
+transforms.json generado desde COLMAP de RealityScan.
+sparse_pc.ply generado correctamente.
+
+NERFACTO
+--------
+Dataset reducido: 308 vistas
+Sampling: aproximadamente 1 imagen cada 4
+Resolución: 954 x 535 px
+Referencias faltantes: 0
+
+Modelo: Nerfacto
+Iteraciones: 30,000
+Estado: COMPLETADO
+
+Config:
+  /workspace/outputs-templete-nerf308/templete-central-realityscan-nerf308/nerfacto/2026-08-24_220201/config.yml
+
+Checkpoint:
+  step-000029999.ckpt
+
+SPLATFACTO
+----------
+Dataset: 1232 vistas
+Resolución usada para entrenamiento: downscale 8
+Resolución aproximada: 477 x 267 px
+
+Modelo: Splatfacto
+Iteraciones: 30,000
+Estado: COMPLETADO
+
+Config:
+  /workspace/outputs-templete-splat/templete-central-realityscan-splat-ds8/splatfacto/2026-08-24_232220/config.yml
+
+Checkpoint:
+  step-000029999.ckpt
+
+EXPORT GAUSSIAN SPLATTING
+-------------------------
+Gaussianas totales: 328,801
+NaN / Inf: 0
+Descartadas por baja opacidad: 13,014
+Exportadas: 315,787
+Porcentaje exportado: ~96.04%
+
+RENDER SPLATFACTO
+-----------------
+Split: train
+Frames: 1,109
+Velocidad media: 1.92 fps
+Tiempo: 10 min 07 s
+Estado: COMPLETADO
+
+Frames RGB originales:
+  477 x 267 px
+
+Video H.264:
+  redimensionado a 476 x 266 px para compatibilidad yuv420p.
+
+Video:
+  /workspace/renders/videos/templete-central-splat-ds8-train.mp4
+
+NERFACTO RENDER
+---------------
+Estado: EN PROCESO / completar al finalizar.
+
+INCIDENTES / DECISIONES
+-----------------------
+1. COLMAP ejecutado directamente con Nerfstudio sobre las 1234 imágenes
+   consiguió inicialmente sólo 8 imágenes registradas.
+
+2. Los matches eran abundantes:
+   17,457 pares verificados.
+   Promedio aproximado de 1,495 inliers/par.
+
+3. Un segundo mapper más permisivo alcanzó Global Bundle Adjustment,
+   pero fue terminado por OOM con 6 GB asignados al contenedor.
+
+4. Se decidió utilizar el COLMAP generado por RealityScan, que consiguió
+   registrar 1232 / 1232 imágenes.
+
+5. Nerfacto se entrenó con un subset conservador de 308 vistas debido a
+   limitaciones de memoria del ParallelDataManager.
+
+6. Splatfacto pudo utilizar las 1232 vistas completas mediante downscale 8.
+
+
+NERFACTO RENDER
+---------------
+Split: train
+Frames renderizados: 278
+Velocidad media: 0.18 fps
+Tiempo total: 23 min 30 s
+Auto image downscale factor: 1
+Checkpoint: step-000029999.ckpt
+Estado: COMPLETADO
+
+Salida de frames:
+  /workspace/renders/nerf/templete-central-nerfacto-train/train
+
+Video final:
+  /workspace/renders/videos/templete-central-nerfacto-train.mp4

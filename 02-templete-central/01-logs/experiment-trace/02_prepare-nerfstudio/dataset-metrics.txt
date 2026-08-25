@@ -1,0 +1,12 @@
+======================================================================
+DATASET: /workspace/ns-from-realityscan
+Frames: 1232
+Images: 1232
+Example resolution: (3819, 2142)
+Missing references: 0
+======================================================================
+DATASET: /workspace/ns-from-realityscan-nerf308
+Frames: 308
+Images: 308
+Example resolution: (954, 535)
+Missing references: 0

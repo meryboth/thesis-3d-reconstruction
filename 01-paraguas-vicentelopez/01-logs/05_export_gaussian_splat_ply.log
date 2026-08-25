@@ -1,0 +1,9 @@
+Train dataset has over 500 images, overriding cache_images to cpu
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/paraguas-vicentelopez-drone-splatfacto/splatfacto/2026-06-20_191333/nerfstudio_models/step-000029999.ckpt
+0 Gaussians have NaN/Inf and 4200 have low opacity, only export 221331/225531
+
+real	1m0.500s
+user	0m38.016s
+sys	0m8.890s

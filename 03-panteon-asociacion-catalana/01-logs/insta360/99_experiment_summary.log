@@ -1,0 +1,28 @@
+============================================================
+PANTEON CATALANA - DATASET INSTA360
+EXPERIMENT SUMMARY
+============================================================
+
+RealityScan / Nerfstudio conversion
+- Started with 365 images
+- Missing camera data for 54 frames
+- Final dataset is 311 frames
+- Registration rate: 85.21 %
+
+Nerfacto
+- Trained successfully
+- Dataset render completed
+- Video generated
+
+Splatfacto
+- Trained successfully
+- Dataset render completed
+- Video generated
+
+Gaussian Splat export
+- Total gaussians: 357796
+- NaN/Inf gaussians: 0
+- Low opacity discarded: 3902
+- Exported gaussians: 353894
+- Output file: /workspace/exports/panteon-catalana-insta360-splatfacto/splat.ply
+

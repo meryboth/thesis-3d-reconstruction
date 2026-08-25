@@ -1,0 +1,8 @@
+I0825 11:17:13.208846   111 model.cc:429] Cameras: 1
+I0825 11:17:13.209095   111 model.cc:430] Images: 1506
+I0825 11:17:13.209116   111 model.cc:431] Registered images: 1506
+I0825 11:17:13.209126   111 model.cc:433] Points: 532339
+I0825 11:17:13.209133   111 model.cc:434] Observations: 5820948
+I0825 11:17:13.209370   111 model.cc:436] Mean track length: 10.934664
+I0825 11:17:13.209498   111 model.cc:438] Mean observations per image: 3865.171315
+I0825 11:17:13.209718   111 model.cc:441] Mean reprojection error: 0.948046px

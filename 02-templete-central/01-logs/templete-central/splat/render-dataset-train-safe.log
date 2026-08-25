@@ -1,0 +1,11 @@
+Train dataset has over 500 images, overriding cache_images to cpu
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs-templete-splat/templete-central-realityscan-splat-ds8/splatfacto/2026-08-24_232220/nerfstudio_models/
+step-000029999.ckpt
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1109/1109(100.0%) 1.92 fps 0:00:00 0:10:07
+╭─────────────────────────────── 🎉 Render on split {} Complete 🎉 ────────────────────────────────╮
+│                 ╷                                                                                │
+│   Outputs train │ /workspace/renders-templete-splat-ds8/templete-splat-dataset-train.mp4/train   │
+│                 ╵                                                                                │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯

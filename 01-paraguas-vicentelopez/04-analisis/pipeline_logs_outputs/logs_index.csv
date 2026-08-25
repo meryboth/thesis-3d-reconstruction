@@ -1,0 +1,21 @@
+log_name,path,size_kb
+00_system_dataset_info.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/00_system_dataset_info.log,4.74
+01_ns_process_data_sequential.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/01_ns_process_data_sequential.log,1.13
+02_train_splatfacto.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/02_train_splatfacto.log,4582.93
+03_render_dataset_trajectory.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/03_render_dataset_trajectory.log,1.21
+04_render_spiral_rgb.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/04_render_spiral_rgb.log,0.79
+04_render_spiral_simple.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/04_render_spiral_simple.log,0.79
+05_export_gaussian_splat_ply.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/05_export_gaussian_splat_ply.log,0.37
+06_train_nerfacto.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/06_train_nerfacto.log,12.43
+06_train_nerfacto_v2.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/06_train_nerfacto_v2.log,4422.13
+08_render_nerfacto_dataset_traj.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/08_render_nerfacto_dataset_traj.log,1.18
+10_colmap_image_undistorter_clean.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/10_colmap_image_undistorter_clean.log,54.6
+11_colmap_patch_match_stereo_clean.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/11_colmap_patch_match_stereo_clean.log,6943.35
+12_colmap_stereo_fusion_clean.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_clean.log,1.11
+12_colmap_stereo_fusion_clean_v2.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_clean_v2.log,106.01
+12_colmap_stereo_fusion_high_safe_nohup.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_high_safe_nohup.log,106.39
+12_colmap_stereo_fusion_medium_high_nohup.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_medium_high_nohup.log,106.03
+12_colmap_stereo_fusion_medium_nohup.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_medium_nohup.log,105.91
+12_colmap_stereo_fusion_tmp.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/12_colmap_stereo_fusion_tmp.log,106.01
+13_colmap_poisson_clean_trim5.log,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/13_colmap_poisson_clean_trim5.log,0.13
+15_colmap_photogrammetry_report.txt,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/datasets/logs/15_colmap_photogrammetry_report.txt,1.06

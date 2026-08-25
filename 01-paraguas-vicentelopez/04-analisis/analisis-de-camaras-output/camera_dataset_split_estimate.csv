@@ -1,0 +1,5 @@
+metric,value
+dataset_total,707.0
+train_fraction_estimada,0.9
+train_frames_estimados,637.0
+eval_frames_estimados,70.0

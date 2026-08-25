@@ -1,0 +1,23 @@
+===== COLMAP PHOTOGRAMMETRY REPORT =====
+Mon Jun 22 18:44:52 UTC 2026
+
+Dense point clouds:
+-rw-r--r-- 1 root root 22M Jun 22 16:59 colmap_dense_clean/fused_low.ply
+-rw-r--r-- 1 root root 41M Jun 22 17:26 colmap_dense_clean/fused_medium.ply
+-rw-r--r-- 1 root root 55M Jun 22 17:53 colmap_dense_clean/fused_medium_high.ply
+
+Poisson mesh:
+-rw-r--r-- 1 root root 15M Jun 22 18:25 colmap_dense_clean/meshed-poisson-medium-high.ply
+
+Stereo Fusion points:
+logs/12_colmap_stereo_fusion_high_safe_nohup.log:I0622 18:19:07.997812 29696 fusion.cc:341] Number of fused points: 2821930
+logs/12_colmap_stereo_fusion_medium_high_nohup.log:I0622 17:52:56.498817 29688 fusion.cc:341] Number of fused points: 2107280
+logs/12_colmap_stereo_fusion_medium_nohup.log:I0622 17:25:57.697724 29680 fusion.cc:341] Number of fused points: 1589360
+
+Stereo Fusion status:
+logs/12_colmap_stereo_fusion_high_safe_nohup.log:STATUS=137
+logs/12_colmap_stereo_fusion_medium_high_nohup.log:STATUS=0
+logs/12_colmap_stereo_fusion_medium_nohup.log:STATUS=0
+
+Poisson status:
+logs/13_colmap_poisson_medium_high_nohup.log:STATUS=0

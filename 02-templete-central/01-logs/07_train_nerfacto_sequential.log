@@ -1,0 +1,248 @@
+[17:29:54] Using --data alias for --data.pipeline.datamanager.data                                          train.py:230
+──────────────────────────────────────────────────────── Config ────────────────────────────────────────────────────────
+TrainerConfig(
+    _target=<class 'nerfstudio.engine.trainer.Trainer'>,
+    output_dir=PosixPath('/workspace/outputs'),
+    method_name='nerfacto',
+    experiment_name='templete-central-sequential-nerfacto',
+    project_name='nerfstudio-project',
+    timestamp='2026-08-12_172954',
+    machine=MachineConfig(seed=42, num_devices=1, num_machines=1, machine_rank=0, dist_url='auto', device_type='cuda'),
+    logging=LoggingConfig(
+        relative_log_dir=PosixPath('.'),
+        steps_per_log=10,
+        max_buffer_size=20,
+        local_writer=LocalWriterConfig(
+            _target=<class 'nerfstudio.utils.writer.LocalWriter'>,
+            enable=True,
+            stats_to_track=(
+                <EventName.ITER_TRAIN_TIME: 'Train Iter (time)'>,
+                <EventName.TRAIN_RAYS_PER_SEC: 'Train Rays / Sec'>,
+                <EventName.CURR_TEST_PSNR: 'Test PSNR'>,
+                <EventName.VIS_RAYS_PER_SEC: 'Vis Rays / Sec'>,
+                <EventName.TEST_RAYS_PER_SEC: 'Test Rays / Sec'>,
+                <EventName.ETA: 'ETA (time)'>
+            ),
+            max_log_size=10
+        ),
+        profiler='basic'
+    ),
+    viewer=ViewerConfig(
+        relative_log_filename='viewer_log_filename.txt',
+        websocket_port=None,
+        websocket_port_default=7007,
+        websocket_host='0.0.0.0',
+        num_rays_per_chunk=32768,
+        max_num_display_images=512,
+        quit_on_train_completion=False,
+        image_format='jpeg',
+        jpeg_quality=75,
+        make_share_url=False,
+        camera_frustum_scale=0.1,
+        default_composite_depth=True
+    ),
+    pipeline=VanillaPipelineConfig(
+        _target=<class 'nerfstudio.pipelines.base_pipeline.VanillaPipeline'>,
+        datamanager=ParallelDataManagerConfig(
+            _target=<class 'nerfstudio.data.datamanagers.parallel_datamanager.ParallelDataManager'>,
+            data=PosixPath('/workspace/sfm/sfm-templete-central-sequential'),
+            masks_on_gpu=False,
+            images_on_gpu=False,
+            dataparser=NerfstudioDataParserConfig(
+                _target=<class 'nerfstudio.data.dataparsers.nerfstudio_dataparser.Nerfstudio'>,
+                data=PosixPath('.'),
+                scale_factor=1.0,
+                downscale_factor=None,
+                scene_scale=1.0,
+                orientation_method='up',
+                center_method='poses',
+                auto_scale_poses=True,
+                eval_mode='fraction',
+                train_split_fraction=0.9,
+                eval_interval=8,
+                depth_unit_scale_factor=0.001,
+                mask_color=None,
+                load_3D_points=False
+            ),
+            train_num_rays_per_batch=4096,
+            train_num_images_to_sample_from=-1,
+            train_num_times_to_repeat_images=-1,
+            eval_num_rays_per_batch=4096,
+            eval_num_images_to_sample_from=-1,
+            eval_num_times_to_repeat_images=-1,
+            eval_image_indices=(0,),
+            collate_fn=<function nerfstudio_collate at 0x7bd148dddfc0>,
+            camera_res_scale_factor=1.0,
+            patch_size=1,
+            camera_optimizer=None,
+            pixel_sampler=PixelSamplerConfig(
+                _target=<class 'nerfstudio.data.pixel_samplers.PixelSampler'>,
+                num_rays_per_batch=4096,
+                keep_full_image=False,
+                is_equirectangular=False,
+                ignore_mask=False,
+                fisheye_crop_radius=None,
+                rejection_sample_mask=True,
+                max_num_iterations=100
+            ),
+            num_processes=1,
+            queue_size=2,
+            max_thread_workers=None
+        ),
+        model=NerfactoModelConfig(
+            _target=<class 'nerfstudio.models.nerfacto.NerfactoModel'>,
+            enable_collider=True,
+            collider_params={'near_plane': 2.0, 'far_plane': 6.0},
+            loss_coefficients={'rgb_loss_coarse': 1.0, 'rgb_loss_fine': 1.0},
+            eval_num_rays_per_chunk=32768,
+            prompt=None,
+            near_plane=0.05,
+            far_plane=1000.0,
+            background_color='last_sample',
+            hidden_dim=64,
+            hidden_dim_color=64,
+            hidden_dim_transient=64,
+            num_levels=16,
+            base_res=16,
+            max_res=2048,
+            log2_hashmap_size=19,
+            features_per_level=2,
+            num_proposal_samples_per_ray=(256, 96),
+            num_nerf_samples_per_ray=48,
+            proposal_update_every=5,
+            proposal_warmup=5000,
+            num_proposal_iterations=2,
+            use_same_proposal_network=False,
+            proposal_net_args_list=[
+                {'hidden_dim': 16, 'log2_hashmap_size': 17, 'num_levels': 5, 'max_res': 128, 'use_linear': False},
+                {'hidden_dim': 16, 'log2_hashmap_size': 17, 'num_levels': 5, 'max_res': 256, 'use_linear': False}
+            ],
+            proposal_initial_sampler='piecewise',
+            interlevel_loss_mult=1.0,
+            distortion_loss_mult=0.002,
+            orientation_loss_mult=0.0001,
+            pred_normal_loss_mult=0.001,
+            use_proposal_weight_anneal=True,
+            use_appearance_embedding=True,
+            use_average_appearance_embedding=True,
+            proposal_weights_anneal_slope=10.0,
+            proposal_weights_anneal_max_num_iters=1000,
+            use_single_jitter=True,
+            predict_normals=False,
+            disable_scene_contraction=False,
+            use_gradient_scaling=False,
+            implementation='tcnn',
+            appearance_embed_dim=32,
+            average_init_density=0.01,
+            camera_optimizer=CameraOptimizerConfig(
+                _target=<class 'nerfstudio.cameras.camera_optimizers.CameraOptimizer'>,
+                mode='SO3xR3',
+                trans_l2_penalty=0.01,
+                rot_l2_penalty=0.001,
+                optimizer=None,
+                scheduler=None
+            )
+        )
+    ),
+    optimizers={
+        'proposal_networks': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.01,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=1e-08,
+                lr_final=0.0001,
+                warmup_steps=0,
+                max_steps=200000,
+                ramp='cosine'
+            )
+        },
+        'fields': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.01,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=1e-08,
+                lr_final=0.0001,
+                warmup_steps=0,
+                max_steps=200000,
+                ramp='cosine'
+            )
+        },
+        'camera_opt': {
+            'optimizer': AdamOptimizerConfig(
+                _target=<class 'torch.optim.adam.Adam'>,
+                lr=0.001,
+                eps=1e-15,
+                max_norm=None,
+                weight_decay=0
+            ),
+            'scheduler': ExponentialDecaySchedulerConfig(
+                _target=<class 'nerfstudio.engine.schedulers.ExponentialDecayScheduler'>,
+                lr_pre_warmup=1e-08,
+                lr_final=0.0001,
+                warmup_steps=0,
+                max_steps=5000,
+                ramp='cosine'
+            )
+        }
+    },
+    vis='viewer',
+    data=PosixPath('/workspace/sfm/sfm-templete-central-sequential'),
+    prompt=None,
+    relative_model_dir=PosixPath('nerfstudio_models'),
+    load_scheduler=True,
+    steps_per_save=2000,
+    steps_per_eval_batch=500,
+    steps_per_eval_image=500,
+    steps_per_eval_all_images=25000,
+    max_num_iterations=30000,
+    mixed_precision=True,
+    use_grad_scaler=False,
+    save_only_latest_checkpoint=True,
+    load_dir=None,
+    load_step=None,
+    load_config=None,
+    load_checkpoint=None,
+    log_gradients=False,
+    gradient_accumulation_steps={},
+    start_paused=False
+)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[17:29:55] Saving config to:                                                                    experiment_config.py:136
+           /workspace/outputs/templete-central-sequential-nerfacto/nerfacto/2026-08-12_172954/c                         
+           onfig.yml                                                                                                    
+           Saving checkpoints to:                                                                         trainer.py:142
+           /workspace/outputs/templete-central-sequential-nerfacto/nerfacto/2026-08-12_172954/nerfstudio_               
+           models                                                                                                       
+           Auto image downscale factor of 4                                                 nerfstudio_dataparser.py:484
+Started threads
+Setting up evaluation dataset...
+Caching all 79 images.
+
+Loading data batch ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:11
+Downloading: "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth" to /root/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth
+  0%|          | 0.00/233M [00:00<?, ?B/s]  0%|          | 120k/233M [00:00<03:27, 1.18MB/s]  0%|          | 240k/233M [00:00<04:33, 894kB/s]   0%|          | 336k/233M [00:00<04:53, 830kB/s]  0%|          | 464k/233M [00:00<04:15, 953kB/s]  0%|          | 600k/233M [00:00<03:48, 1.06MB/s]  0%|          | 712k/233M [00:00<04:03, 1.00MB/s]  0%|          | 816k/233M [00:00<04:05, 991kB/s]   0%|          | 944k/233M [00:00<03:53, 1.04MB/s]  0%|          | 1.08M/233M [00:01<03:25, 1.19MB/s]  1%|          | 1.23M/233M [00:01<03:07, 1.29MB/s]  1%|          | 1.38M/233M [00:01<03:00, 1.35MB/s]  1%|          | 1.53M/233M [00:01<02:50, 1.42MB/s]  1%|          | 1.69M/233M [00:01<02:44, 1.48MB/s]  1%|          | 1.84M/233M [00:01<02:42, 1.49MB/s]  1%|          | 2.03M/233M [00:01<02:29, 1.62MB/s]  1%|          | 2.25M/233M [00:01<02:14, 1.80MB/s]  1%|          | 2.52M/233M [00:01<01:57, 2.06MB/s]  1%|          | 2.79M/233M [00:02<01:46, 2.26MB/s]  1%|▏         | 3.09M/233M [00:02<01:37, 2.48MB/s]  1%|▏         | 3.34M/233M [00:02<01:37, 2.48MB/s]  2%|▏         | 3.62M/233M [00:02<01:31, 2.64MB/s]  2%|▏         | 3.92M/233M [00:02<01:27, 2.74MB/s]  2%|▏         | 4.21M/233M [00:02<01:26, 2.79MB/s]  2%|▏         | 4.54M/233M [00:02<01:21, 2.92MB/s]  2%|▏         | 4.84M/233M [00:02<01:21, 2.95MB/s]  2%|▏         | 5.14M/233M [00:02<01:19, 3.01MB/s]  2%|▏         | 5.47M/233M [00:02<01:16, 3.11MB/s]  3%|▎         | 5.85M/233M [00:03<01:10, 3.37MB/s]  3%|▎         | 6.23M/233M [00:03<01:31, 2.60MB/s]  3%|▎         | 6.55M/233M [00:03<01:25, 2.78MB/s]  3%|▎         | 6.85M/233M [00:03<01:23, 2.84MB/s]  3%|▎         | 7.16M/233M [00:03<01:20, 2.95MB/s]  3%|▎         | 7.46M/233M [00:03<01:22, 2.87MB/s]  3%|▎         | 7.75M/233M [00:03<01:51, 2.12MB/s]  3%|▎         | 7.99M/233M [00:06<09:47, 402kB/s]   4%|▎         | 8.16M/233M [00:06<08:58, 438kB/s]  4%|▎         | 8.30M/233M [00:06<08:03, 487kB/s]  4%|▎         | 8.43M/233M [00:06<07:20, 534kB/s]  4%|▍         | 8.98M/233M [00:06<03:39, 1.07MB/s]  4%|▍         | 9.23M/233M [00:06<03:39, 1.07MB/s]  4%|▍         | 9.43M/233M [00:07<03:30, 1.11MB/s]  4%|▍         | 9.61M/233M [00:07<03:27, 1.13MB/s]  4%|▍         | 9.77M/233M [00:07<03:22, 1.16MB/s]  4%|▍         | 9.91M/233M [00:07<04:05, 954kB/s]   4%|▍         | 9.91M/233M [00:24<04:05, 954kB/s]  4%|▍         | 9.92M/233M [00:24<2:24:20, 27.0kB/s]  4%|▍         | 10.1M/233M [00:25<1:29:07, 43.7kB/s]  4%|▍         | 10.3M/233M [00:25<1:06:10, 58.9kB/s]  4%|▍         | 10.4M/233M [00:25<48:53, 79.6kB/s]    5%|▍         | 10.5M/233M [00:25<36:30, 107kB/s]   5%|▍         | 10.6M/233M [00:25<27:09, 143kB/s]  5%|▍         | 10.8M/233M [00:25<19:57, 195kB/s]  5%|▍         | 10.9M/233M [00:25<15:28, 251kB/s]  5%|▍         | 11.2M/233M [00:25<08:23, 463kB/s]  5%|▌         | 11.7M/233M [00:25<04:18, 896kB/s]  5%|▌         | 12.0M/233M [00:26<04:05, 943kB/s]  5%|▌         | 12.2M/233M [00:26<03:47, 1.02MB/s]  5%|▌         | 12.5M/233M [00:26<02:46, 1.39MB/s]  6%|▌         | 12.9M/233M [00:26<02:03, 1.87MB/s]  6%|▌         | 13.9M/233M [00:26<01:06, 3.47MB/s]  6%|▌         | 14.5M/233M [00:26<00:56, 4.09MB/s]  7%|▋         | 15.2M/233M [00:26<00:48, 4.70MB/s]  7%|▋         | 16.1M/233M [00:27<00:37, 6.02MB/s]  7%|▋         | 17.1M/233M [00:27<00:31, 7.17MB/s]  8%|▊         | 17.9M/233M [00:27<00:48, 4.62MB/s]  8%|▊         | 18.9M/233M [00:27<00:38, 5.76MB/s]  9%|▊         | 19.9M/233M [00:27<00:34, 6.57MB/s]  9%|▉         | 21.5M/233M [00:27<00:24, 8.95MB/s] 10%|▉         | 22.8M/233M [00:27<00:21, 10.1MB/s] 10%|█         | 23.9M/233M [00:27<00:21, 10.3MB/s] 11%|█         | 25.5M/233M [00:28<00:18, 12.0MB/s] 11%|█▏        | 26.7M/233M [00:28<00:17, 12.0MB/s] 12%|█▏        | 28.3M/233M [00:28<00:16, 13.3MB/s] 13%|█▎        | 29.7M/233M [00:28<00:17, 12.1MB/s] 13%|█▎        | 31.1M/233M [00:28<00:16, 13.0MB/s] 14%|█▍        | 32.6M/233M [00:28<00:15, 13.5MB/s] 15%|█▍        | 33.9M/233M [00:28<00:15, 13.4MB/s] 15%|█▌        | 35.2M/233M [00:28<00:15, 13.3MB/s] 16%|█▌        | 36.8M/233M [00:28<00:14, 14.4MB/s] 16%|█▋        | 38.4M/233M [00:29<00:13, 14.8MB/s] 17%|█▋        | 39.8M/233M [00:29<00:13, 14.8MB/s] 18%|█▊        | 41.2M/233M [00:29<00:14, 14.4MB/s] 18%|█▊        | 42.7M/233M [00:29<00:13, 14.6MB/s] 19%|█▉        | 44.3M/233M [00:29<00:12, 15.3MB/s] 20%|█▉        | 45.9M/233M [00:29<00:12, 15.8MB/s] 20%|██        | 47.5M/233M [00:29<00:12, 15.6MB/s] 21%|██        | 48.9M/233M [00:29<00:12, 15.5MB/s] 22%|██▏       | 50.4M/233M [00:29<00:14, 13.5MB/s] 22%|██▏       | 52.0M/233M [00:29<00:13, 14.2MB/s] 23%|██▎       | 53.4M/233M [00:30<00:14, 13.3MB/s] 23%|██▎       | 54.7M/233M [00:30<00:14, 13.0MB/s] 24%|██▍       | 56.6M/233M [00:30<00:12, 14.9MB/s] 25%|██▍       | 58.1M/233M [00:30<00:12, 14.9MB/s] 26%|██▌       | 59.6M/233M [00:30<00:11, 15.2MB/s] 26%|██▌       | 61.1M/233M [00:30<00:11, 15.4MB/s] 27%|██▋       | 62.8M/233M [00:30<00:11, 16.1MB/s] 28%|██▊       | 64.4M/233M [00:30<00:10, 16.2MB/s] 28%|██▊       | 66.0M/233M [00:30<00:10, 16.4MB/s] 29%|██▉       | 67.6M/233M [00:31<00:11, 14.9MB/s] 30%|██▉       | 69.4M/233M [00:31<00:10, 16.0MB/s] 31%|███       | 71.1M/233M [00:31<00:10, 16.6MB/s] 31%|███       | 72.7M/233M [00:31<00:10, 16.5MB/s] 32%|███▏      | 74.3M/233M [00:31<00:10, 16.6MB/s] 33%|███▎      | 75.9M/233M [00:31<00:10, 16.0MB/s] 33%|███▎      | 77.6M/233M [00:31<00:09, 16.4MB/s] 34%|███▍      | 79.3M/233M [00:31<00:09, 16.8MB/s] 35%|███▍      | 80.9M/233M [00:31<00:09, 16.6MB/s] 35%|███▌      | 82.5M/233M [00:32<00:10, 15.7MB/s] 36%|███▌      | 84.1M/233M [00:32<00:09, 15.9MB/s] 37%|███▋      | 86.0M/233M [00:32<00:09, 17.0MB/s] 38%|███▊      | 87.6M/233M [00:32<00:10, 15.2MB/s] 38%|███▊      | 89.4M/233M [00:32<00:09, 16.1MB/s] 39%|███▉      | 91.0M/233M [00:32<00:09, 15.8MB/s] 40%|███▉      | 92.5M/233M [00:32<00:09, 15.3MB/s] 40%|████      | 94.1M/233M [00:32<00:09, 15.7MB/s] 41%|████      | 96.1M/233M [00:32<00:08, 16.2MB/s] 42%|████▏     | 97.7M/233M [00:33<00:08, 15.9MB/s] 43%|████▎     | 99.2M/233M [00:33<00:10, 13.5MB/s] 43%|████▎     | 101M/233M [00:33<00:10, 13.6MB/s]  44%|████▎     | 102M/233M [00:33<00:10, 13.4MB/s] 44%|████▍     | 104M/233M [00:33<00:09, 14.3MB/s] 45%|████▌     | 105M/233M [00:33<00:09, 14.8MB/s] 46%|████▌     | 107M/233M [00:33<00:08, 14.8MB/s] 46%|████▋     | 108M/233M [00:33<00:13, 9.38MB/s] 47%|████▋     | 110M/233M [00:34<00:11, 11.1MB/s] 48%|████▊     | 111M/233M [00:34<00:11, 11.1MB/s] 48%|████▊     | 113M/233M [00:34<00:09, 12.9MB/s] 49%|████▉     | 115M/233M [00:34<00:08, 15.1MB/s] 50%|████▉     | 116M/233M [00:34<00:08, 14.2MB/s] 51%|█████     | 118M/233M [00:34<00:08, 15.1MB/s] 51%|█████▏    | 120M/233M [00:34<00:07, 15.7MB/s] 52%|█████▏    | 121M/233M [00:34<00:07, 15.0MB/s] 53%|█████▎    | 123M/233M [00:34<00:07, 15.0MB/s] 53%|█████▎    | 124M/233M [00:35<00:07, 14.5MB/s] 54%|█████▍    | 126M/233M [00:35<00:07, 14.3MB/s] 55%|█████▍    | 127M/233M [00:35<00:07, 14.0MB/s] 55%|█████▌    | 129M/233M [00:35<00:07, 15.0MB/s] 56%|█████▌    | 130M/233M [00:35<00:07, 14.6MB/s] 57%|█████▋    | 132M/233M [00:35<00:07, 13.4MB/s] 57%|█████▋    | 133M/233M [00:35<00:07, 13.7MB/s] 58%|█████▊    | 134M/233M [00:35<00:07, 13.4MB/s] 59%|█████▊    | 137M/233M [00:35<00:06, 15.8MB/s] 59%|█████▉    | 138M/233M [00:36<00:06, 15.9MB/s] 60%|█████▉    | 140M/233M [00:36<00:06, 15.3MB/s] 61%|██████    | 141M/233M [00:36<00:06, 15.8MB/s] 61%|██████▏   | 143M/233M [00:36<00:05, 15.9MB/s] 62%|██████▏   | 145M/233M [00:36<00:05, 16.9MB/s] 63%|██████▎   | 146M/233M [00:36<00:05, 17.3MB/s] 64%|██████▎   | 148M/233M [00:36<00:05, 17.2MB/s] 64%|██████▍   | 150M/233M [00:36<00:05, 16.1MB/s] 65%|██████▍   | 151M/233M [00:36<00:05, 16.1MB/s] 66%|██████▌   | 153M/233M [00:37<00:04, 17.6MB/s] 67%|██████▋   | 155M/233M [00:37<00:04, 18.5MB/s] 67%|██████▋   | 157M/233M [00:37<00:04, 18.8MB/s] 68%|██████▊   | 159M/233M [00:37<00:04, 17.7MB/s] 69%|██████▉   | 161M/233M [00:37<00:04, 17.5MB/s] 70%|██████▉   | 162M/233M [00:37<00:04, 16.4MB/s] 70%|███████   | 164M/233M [00:37<00:04, 15.6MB/s] 71%|███████   | 165M/233M [00:37<00:04, 15.4MB/s] 72%|███████▏  | 167M/233M [00:37<00:04, 14.8MB/s] 72%|███████▏  | 168M/233M [00:38<00:04, 15.2MB/s] 73%|███████▎  | 170M/233M [00:38<00:04, 15.8MB/s] 74%|███████▎  | 172M/233M [00:38<00:04, 15.4MB/s] 74%|███████▍  | 174M/233M [00:38<00:03, 16.4MB/s] 75%|███████▌  | 175M/233M [00:38<00:03, 16.8MB/s] 76%|███████▌  | 177M/233M [00:38<00:03, 16.8MB/s] 77%|███████▋  | 179M/233M [00:38<00:03, 17.7MB/s] 77%|███████▋  | 181M/233M [00:38<00:02, 18.4MB/s] 78%|███████▊  | 182M/233M [00:38<00:03, 16.8MB/s] 79%|███████▉  | 184M/233M [00:38<00:03, 15.5MB/s] 80%|███████▉  | 186M/233M [00:39<00:03, 14.9MB/s] 80%|████████  | 187M/233M [00:39<00:03, 15.6MB/s] 81%|████████  | 189M/233M [00:39<00:02, 16.7MB/s] 82%|████████▏ | 191M/233M [00:39<00:02, 17.6MB/s] 83%|████████▎ | 193M/233M [00:39<00:02, 18.2MB/s] 83%|████████▎ | 195M/233M [00:39<00:02, 18.1MB/s] 84%|████████▍ | 196M/233M [00:39<00:02, 17.5MB/s] 85%|████████▍ | 198M/233M [00:39<00:02, 17.2MB/s] 86%|████████▌ | 200M/233M [00:39<00:02, 16.6MB/s] 86%|████████▋ | 201M/233M [00:40<00:02, 16.5MB/s] 87%|████████▋ | 203M/233M [00:40<00:01, 16.5MB/s] 88%|████████▊ | 204M/233M [00:40<00:01, 15.5MB/s] 88%|████████▊ | 206M/233M [00:40<00:01, 15.3MB/s] 89%|████████▉ | 208M/233M [00:40<00:01, 16.5MB/s] 90%|████████▉ | 209M/233M [00:40<00:01, 14.4MB/s] 90%|█████████ | 211M/233M [00:40<00:01, 14.5MB/s] 91%|█████████ | 212M/233M [00:40<00:01, 14.9MB/s] 92%|█████████▏| 214M/233M [00:40<00:01, 15.0MB/s] 92%|█████████▏| 215M/233M [00:41<00:01, 15.4MB/s] 93%|█████████▎| 217M/233M [00:41<00:01, 15.1MB/s] 94%|█████████▎| 218M/233M [00:41<00:01, 14.4MB/s] 94%|█████████▍| 220M/233M [00:41<00:00, 15.3MB/s] 95%|█████████▌| 222M/233M [00:41<00:00, 13.0MB/s] 96%|█████████▌| 223M/233M [00:41<00:00, 13.4MB/s] 96%|█████████▌| 224M/233M [00:41<00:00, 12.9MB/s] 97%|█████████▋| 226M/233M [00:41<00:00, 12.1MB/s] 97%|█████████▋| 227M/233M [00:41<00:00, 12.7MB/s] 98%|█████████▊| 228M/233M [00:42<00:00, 13.0MB/s] 99%|█████████▊| 230M/233M [00:42<00:00, 13.7MB/s] 99%|█████████▉| 231M/233M [00:42<00:00, 13.2MB/s]100%|█████████▉| 232M/233M [00:42<00:00, 13.5MB/s]100%|██████████| 233M/233M [00:42<00:00, 5.75MB/s]
+╭─────────────── viser ───────────────╮
+│             ╷                       │
+│   HTTP      │ http://0.0.0.0:7007   │
+│   Websocket │ ws://0.0.0.0:7007     │
+│             ╵                       │
+╰─────────────────────────────────────╯
+[NOTE] Not running eval iterations since only viewer is enabled.
+Use --vis {wandb, tensorboard, viewer+wandb, viewer+tensorboard} to run with eval.
+No Nerfstudio checkpoint to load, so training from scratch.
+Disabled comet/tensorboard/wandb event writers
+(viser) Connection opened (0, 1 total), 2656 persistent messages
+(viser) Connection closed (0, 0 total)
+(viser) Connection opened (1, 1 total), 2657 persistent messages

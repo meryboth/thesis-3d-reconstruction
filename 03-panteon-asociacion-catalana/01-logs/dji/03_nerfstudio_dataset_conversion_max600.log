@@ -1,0 +1,9 @@
+[19:49:25] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+────────────────────────────────────────────── 🎉 🎉 🎉 All DONE 🎉 🎉 🎉 ──────────────────────────────────────────────
+                                        Started with 600 images out of 608 total                                        
+ To change the size of the dataset add the argument --max_dataset_size to larger than the current value (600), or -1 to 
+                                                    use all images.                                                     
+                                           Missing image data for 6 cameras.                                            
+                                          Missing camera data for 116 frames.                                           
+                                              Final dataset is 484 frames.                                              
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

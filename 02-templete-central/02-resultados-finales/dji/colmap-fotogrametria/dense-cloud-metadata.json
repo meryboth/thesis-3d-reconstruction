@@ -1,0 +1,68 @@
+{
+  "case": "02-templete-central",
+  "artifact": "dense-point-cloud",
+  "method": "photogrammetry",
+  "source": "RealityScan dense reconstruction export",
+  "generated_analysis_at": "2026-08-25T11:59:14.893671",
+  "file": {
+    "name": "nube-densa.xyz",
+    "path": "C:\\nerfstudio_work\\thesis\\02-templete-central\\02-resultados-finales\\dji\\colmap-fotogrametria\\nube-densa.xyz",
+    "format": "xyz",
+    "size_bytes": 1199369134,
+    "size_mb": 1143.807538986206,
+    "sha256": "2aa53b8a1e061ab3744ba6dfe3c6db07f2da9e2961d08e1ac2869c28d9ab1831"
+  },
+  "geometry": {
+    "point_count": 17688149,
+    "bounding_box": {
+      "min": [
+        -17.498882293701172,
+        -18.52094078063965,
+        -0.24232697486877441
+      ],
+      "max": [
+        18.40281105041504,
+        16.16095733642578,
+        4.472562789916992
+      ],
+      "range": [
+        35.90169334411621,
+        34.68189811706543,
+        4.714889764785767
+      ],
+      "diagonal": 50.13976293792728,
+      "volume": 5870.692517628283
+    },
+    "centroid": [
+      0.33218981953521626,
+      -0.5992528227863676,
+      1.056863610114276
+    ]
+  },
+  "attributes": {
+    "has_rgb": true,
+    "has_normals": false,
+    "detected_column_count": 6
+  },
+  "local_geometry_sample": {
+    "sample_points": 150000,
+    "nearest_neighbor": {
+      "mean": 0.038281929312111176,
+      "median": 0.027893521590970596,
+      "std": 0.04209824466267382,
+      "min": 0.0008586710912141853,
+      "p05": 0.007410641825132065,
+      "p25": 0.017151279908279533,
+      "p75": 0.044239458282265685,
+      "p95": 0.10233908463318736,
+      "max": 2.7513610828291957
+    },
+    "statistical_outlier_indicator": {
+      "method": "NN > Q3 + 1.5*IQR",
+      "threshold": 0.08487172584324491,
+      "sample_outliers": 10852,
+      "sample_outlier_percentage": 7.2346666666666675
+    }
+  },
+  "important_note": "Nearest-neighbor and outlier metrics were calculated from a deterministic random sample, not from every point, to keep memory usage bounded. Full point count and bounding box use the complete cloud."
+}

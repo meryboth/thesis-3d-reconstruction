@@ -1,0 +1,5 @@
+ply_name,path,size_mb
+fused_low.ply,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/pointclouds/fused_low.ply,21.38
+fused_medium.ply,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/pointclouds/fused_medium.ply,40.92
+fused_medium_high.ply,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/pointclouds/fused_medium_high.ply,54.26
+fused_medium_high_clean.ply,/content/drive/MyDrive/Tesis: Tecnicas de CV para Reconstruccion Arquitectonica/notebooks/pointclouds/fused_medium_high_clean.ply,12.95

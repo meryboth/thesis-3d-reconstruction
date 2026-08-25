@@ -1,0 +1,65 @@
+DENSE POINT CLOUD ANALYSIS
+======================================================================
+
+Case: 01-paraguas-vicentelopez
+Source: COLMAP dense reconstruction
+
+FILE
+----
+Path: C:\nerfstudio_work\thesis\01-paraguas-vicentelopez\02-resultados-finales\colmap-fotogrametria-densa\fused_medium_high_clean.ply
+Format: .ply
+Size bytes: 13576422
+Size MB: 12.947
+SHA256: 81d543b2ab79b0346b63cad7654d2bcf30bad2b5f88975c463fe33806e548058
+
+POINT CLOUD
+-----------
+Points: 502817
+Has RGB: True
+Has normals: True
+
+BOUNDING BOX
+------------
+X min: -3.198848009
+X max: 4.564765453
+X range: 7.763613462
+Y min: -0.565112591
+Y max: 2.693826199
+Y range: 3.258938789
+Z min: -4.473099709
+Z max: 2.260649204
+Z range: 6.733748913
+BBox diagonal: 10.781361252
+BBox volume: 170.371531095
+
+CENTROID
+--------
+X: 0.552209496
+Y: 1.061110523
+Z: -1.171558010
+
+LOCAL POINT DISTRIBUTION
+------------------------
+Sample size: 150000
+NN mean: 0.008834592
+NN median: 0.007685210
+NN std: 0.006581500
+NN P05: 0.002447673
+NN P25: 0.005010648
+NN P75: 0.011253331
+NN P95: 0.018348326
+
+OUTLIER INDICATOR
+-----------------
+Method: NN > Q3 + 1.5*IQR
+Threshold: 0.020617355
+Sample outliers: 4687
+Sample outlier %: 3.1247
+
+METHODOLOGICAL NOTE
+-------------------
+Point count, centroid and bounding box are computed from the full cloud.
+Nearest-neighbor statistics and the outlier indicator are computed from
+a deterministic random sample of at most 150,000 points.
+
+No points were modified or deleted during this analysis.

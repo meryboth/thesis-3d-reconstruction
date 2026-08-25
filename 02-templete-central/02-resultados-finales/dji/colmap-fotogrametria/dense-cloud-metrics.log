@@ -1,0 +1,65 @@
+DENSE POINT CLOUD ANALYSIS
+======================================================================
+
+Case: 02-templete-central
+Source: RealityScan dense reconstruction export
+
+FILE
+----
+Path: C:\nerfstudio_work\thesis\02-templete-central\02-resultados-finales\dji\colmap-fotogrametria\nube-densa.xyz
+Format: .xyz
+Size bytes: 1199369134
+Size MB: 1143.808
+SHA256: 2aa53b8a1e061ab3744ba6dfe3c6db07f2da9e2961d08e1ac2869c28d9ab1831
+
+POINT CLOUD
+-----------
+Points: 17688149
+Has RGB: True
+Has normals: False
+
+BOUNDING BOX
+------------
+X min: -17.498882294
+X max: 18.402811050
+X range: 35.901693344
+Y min: -18.520940781
+Y max: 16.160957336
+Y range: 34.681898117
+Z min: -0.242326975
+Z max: 4.472562790
+Z range: 4.714889765
+BBox diagonal: 50.139762938
+BBox volume: 5870.692517628
+
+CENTROID
+--------
+X: 0.332189820
+Y: -0.599252823
+Z: 1.056863610
+
+LOCAL POINT DISTRIBUTION
+------------------------
+Sample size: 150000
+NN mean: 0.038281929
+NN median: 0.027893522
+NN std: 0.042098245
+NN P05: 0.007410642
+NN P25: 0.017151280
+NN P75: 0.044239458
+NN P95: 0.102339085
+
+OUTLIER INDICATOR
+-----------------
+Method: NN > Q3 + 1.5*IQR
+Threshold: 0.084871726
+Sample outliers: 10852
+Sample outlier %: 7.2347
+
+METHODOLOGICAL NOTE
+-------------------
+Point count, centroid and bounding box are computed from the full cloud.
+Nearest-neighbor statistics and the outlier indicator are computed from
+a deterministic random sample of at most 150,000 points.
+
+No points were modified or deleted during this analysis.

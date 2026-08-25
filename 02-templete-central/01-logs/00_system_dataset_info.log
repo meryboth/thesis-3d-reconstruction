@@ -1,0 +1,258 @@
+===== DATE =====
+Thu Aug 13 11:23:22 UTC 2026
+
+===== HOSTNAME =====
+1a8cbfa346c1
+
+===== GPU =====
+Thu Aug 13 11:23:22 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.62        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 2060 ...    On  |   00000000:01:00.0 Off |                  N/A |
+| N/A   58C    P8              9W /   65W |      98MiB /   6144MiB |     29%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A              47      G   /Xwayland                             N/A      |
++-----------------------------------------------------------------------------------------+
+
+===== PYTHON =====
+Python 3.10.12
+
+===== PYTORCH / CUDA =====
+torch: 2.1.2+cu118
+cuda available: True
+cuda version: 11.8
+gpu: NVIDIA GeForce RTX 2060 with Max-Q Design
+gpu memory GB: 5.99969482421875
+
+===== NERFSTUDIO =====
+usage: ns-train [-h]
+                {depth-nerfacto,dnerf,generfacto,instant-ngp,instant-ngp-bound
+ed,mipnerf,nerfacto,nerfacto-big,nerfacto-huge,neus,neus-facto,phototourism,se
+mantic-nerfw,splatfacto,splatfacto-big,tensorf,vanilla-nerf,BioNeRF,igs2gs,in2
+n,in2n-small,in2n-tiny,kplanes,kplanes-dynamic,lerf,lerf-big,lerf-lite,nerfgs,
+nerfplayer-nerfacto,nerfplayer-ngp,nerfsh,pynerf,pynerf-occupancy-grid,pynerf-
+synthetic,seathru-nerf,seathru-nerf-lite,signerf,signerf_nerfacto,splatfacto-w
+,tetra-nerf,tetra-nerf-original,volinga,zipnerf}
+
+Train a radiance field with nerfstudio. For real captures, we recommend using 
+the nerfacto model.
+
+Nerfstudio allows for customizing your training and eval configs from the CLI 
+in a powerful way, but there are some things to understand.
+
+The most demonstrative and helpful example of the CLI structure is the 
+difference in output between the following commands:
+
+    ns-train -h
+    ns-train nerfacto -h nerfstudio-data
+    ns-train nerfacto nerfstudio-data -h
+
+In each of these examples, the -h applies to the previous subcommand 
+(ns-train, nerfacto, and nerfstudio-data).
+
+In the first example, we get the help menu for the ns-train script. In the 
+second example, we get the help menu for the nerfacto model. In the third 
+example, we get the help menu for the nerfstudio-data dataparser.
+
+With our scripts, your arguments will apply to the preceding subcommand in 
+your command, and thus where you put your arguments matters! Any optional 
+arguments you discover from running
+
+    ns-train nerfacto -h nerfstudio-data
+
+need to come directly after the nerfacto subcommand, since these optional 
+arguments only belong to the nerfacto subcommand:
+
+    ns-train nerfacto {nerfacto optional args} nerfstudio-data
+
+╭─ options ──────────────────────────────────────────────────────────────────╮
+│ -h, --help        show this help message and exit                          │
+╰────────────────────────────────────────────────────────────────────────────╯
+╭─ subcommands ──────────────────────────────────────────────────────────────╮
+│ {depth-nerfacto,dnerf,generfacto,instant-ngp,instant-ngp-bounded,mipnerf,… │
+│     depth-nerfacto                                                         │
+│                   Nerfacto with depth supervision.                         │
+│     dnerf         Dynamic-NeRF model. (slow)                               │
+│     generfacto    Generative Text to NeRF model                            │
+│     instant-ngp   Implementation of Instant-NGP. Recommended real-time     │
+│                   model for unbounded scenes.                              │
+│     instant-ngp-bounded                                                    │
+│                   Implementation of Instant-NGP. Recommended for bounded   │
+│                   real and synthetic scenes                                │
+│     mipnerf       High quality model for bounded scenes. (slow)            │
+│     nerfacto      Recommended real-time model tuned for real captures.     │
+│                   This model will be continually updated.                  │
+│     nerfacto-big                                                           │
+│     nerfacto-huge                                                          │
+│                   Larger version of Nerfacto with higher quality.          │
+│     neus          Implementation of NeuS. (slow)                           │
+│     neus-facto    Implementation of NeuS-Facto. (slow)                     │
+│     phototourism  Uses the Phototourism data.                              │
+│     semantic-nerfw                                                         │
+│                   Predicts semantic segmentations and filters out          │
+│                   transient objects.                                       │
+│     splatfacto    Gaussian Splatting model                                 │
+│     splatfacto-big                                                         │
+│                   Larger version of Splatfacto with higher quality.        │
+│     tensorf       tensorf                                                  │
+│     vanilla-nerf  Original NeRF model. (slow)                              │
+│     BioNeRF       [External, run 'ns-train BioNeRF' to install] BioNeRF.   │
+│                   Nerfstudio implementation                                │
+│     igs2gs        [External, run 'ns-train igs2gs' to install]             │
+│                   Instruct-GS2GS. Full model, used in paper                │
+│     in2n          [External, run 'ns-train in2n' to install]               │
+│                   Instruct-NeRF2NeRF. Full model, used in paper            │
+│     in2n-small    [External, run 'ns-train in2n-small' to install]         │
+│                   Instruct-NeRF2NeRF. Half precision model                 │
+│     in2n-tiny     [External, run 'ns-train in2n-tiny' to install]          │
+│                   Instruct-NeRF2NeRF. Half prevision with no LPIPS         │
+│     kplanes       [External, run 'ns-train kplanes' to install] K-Planes   │
+│                   model tuned to static blender scenes                     │
+│     kplanes-dynamic                                                        │
+│                   [External, run 'ns-train kplanes-dynamic' to install]    │
+│                   K-Planes model tuned to dynamic DNeRF scenes             │
+│     lerf          [External, run 'ns-train lerf' to install] LERF with     │
+│                   OpenCLIP ViT-B/16, used in paper                         │
+│     lerf-big      [External, run 'ns-train lerf-big' to install] LERF with │
+│                   OpenCLIP ViT-L/14                                        │
+│     lerf-lite     [External, run 'ns-train lerf-lite' to install] LERF     │
+│                   with smaller network and less LERF samples               │
+│     nerfgs        [External, run 'ns-train nerfgs' to install] NeRFGS,     │
+│                   used in paper                                            │
+│     nerfplayer-nerfacto                                                    │
+│                   [External, run 'ns-train nerfplayer-nerfacto' to         │
+│                   install] NeRFPlayer with nerfacto backbone               │
+│     nerfplayer-ngp                                                         │
+│                   [External, run 'ns-train nerfplayer-ngp' to install]     │
+│                   NeRFPlayer with instang-ngp-bounded backbone             │
+│     nerfsh        [External, run 'ns-train nerfsh' to install] NeRF-SH,    │
+│                   used in paper                                            │
+│     pynerf        [External, run 'ns-train pynerf' to install] PyNeRF with │
+│                   proposal network. The default parameters are suited for  │
+│                   outdoor scenes.                                          │
+│     pynerf-occupancy-grid                                                  │
+│                   [External, run 'ns-train pynerf-occupancy-grid' to       │
+│                   install] PyNeRF with occupancy grid. The default         │
+│                   parameters are suited for synthetic scenes.              │
+│     pynerf-synthetic                                                       │
+│                   [External, run 'ns-train pynerf-synthetic' to install]   │
+│                   PyNeRF with proposal network. The default parameters are │
+│                   suited for synthetic scenes.                             │
+│     seathru-nerf  [External, run 'ns-train seathru-nerf' to install]       │
+│                   SeaThru-NeRF for underwater scenes.                      │
+│     seathru-nerf-lite                                                      │
+│                   [External, run 'ns-train seathru-nerf-lite' to install]  │
+│                   SeaThru-NeRF for underwater scenes (smaller networks and │
+│                   batches).                                                │
+│     signerf       [External, run 'ns-train signerf' to install] SIGNeRF    │
+│                   method (high quality) used in paper                      │
+│     signerf_nerfacto                                                       │
+│                   [External, run 'ns-train signerf_nerfacto' to install]   │
+│                   SIGNeRF method combined with Nerfacto (faster training   │
+│                   less quality)                                            │
+│     splatfacto-w  [External, run 'ns-train splatfacto-w' to install]       │
+│                   Splatfacto in the wild                                   │
+│     tetra-nerf    [External, run 'ns-train tetra-nerf' to install]         │
+│                   Tetra-NeRF. Different sampler - faster and better        │
+│     tetra-nerf-original                                                    │
+│                   [External, run 'ns-train tetra-nerf-original' to         │
+│                   install] Tetra-NeRF. Official implementation from the    │
+│                   paper                                                    │
+│     volinga       [External, run 'ns-train volinga' to install] Real-time  │
+│                   rendering model from Volinga. Directly exportable to     │
+│                   NVOL format at https://volinga.ai/                       │
+│     zipnerf       [External, run 'ns-train zipnerf' to install] A pytorch  │
+│                   implementation of 'Zip-NeRF: Anti-Aliased Grid-Based     │
+│                   Neural Radiance Fields'                                  │
+╰────────────────────────────────────────────────────────────────────────────╯
+
+===== COLMAP =====
+COLMAP 3.9.1 -- Structure-from-Motion and Multi-View Stereo
+(Commit e9903641 on 2024-01-08 with CUDA)
+
+Usage:
+  colmap [command] [options]
+
+Documentation:
+  https://colmap.github.io/
+
+Example usage:
+  colmap help [ -h, --help ]
+  colmap gui
+  colmap gui -h [ --help ]
+  colmap automatic_reconstructor -h [ --help ]
+  colmap automatic_reconstructor --image_path IMAGES --workspace_path WORKSPACE
+  colmap feature_extractor --image_path IMAGES --database_path DATABASE
+  colmap exhaustive_matcher --database_path DATABASE
+  colmap mapper --image_path IMAGES --database_path DATABASE --output_path MODEL
+  ...
+
+Available commands:
+  help
+  gui
+  automatic_reconstructor
+  bundle_adjuster
+  color_extractor
+  database_cleaner
+  database_creator
+  database_merger
+  delaunay_mesher
+  exhaustive_matcher
+  feature_extractor
+  feature_importer
+  hierarchical_mapper
+  image_deleter
+  image_filterer
+  image_rectifier
+  image_registrator
+  image_undistorter
+  image_undistorter_standalone
+  mapper
+  matches_importer
+  model_aligner
+  model_analyzer
+  model_comparer
+  model_converter
+  model_cropper
+  model_merger
+  model_orientation_aligner
+  model_splitter
+  model_transformer
+  patch_match_stereo
+  point_filtering
+  point_triangulator
+  poisson_mesher
+  project_generator
+  rig_bundle_adjuster
+  sequential_matcher
+  spatial_matcher
+  stereo_fusion
+  transitive_matcher
+  vocab_tree_builder
+  vocab_tree_matcher
+  vocab_tree_retriever
+
+
+===== ORIGINAL DATASET IMAGE COUNT =====
+307
+
+===== ORIGINAL DATASET SIZE =====
+325M	/workspace/dataset-only360
+
+===== REALITYSCAN / NERFSTUDIO DATASET IMAGE COUNT =====
+307
+
+===== REALITYSCAN / NERFSTUDIO DATASET SIZE =====
+473M	/workspace/sfm-realitycapture/nerfstudio-insta360

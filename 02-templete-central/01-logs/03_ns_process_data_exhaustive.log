@@ -1,0 +1,11 @@
+[11:10:51] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+[11:25:50] 🎉 Done extracting COLMAP features.                                                       colmap_utils.py:137
+[15:23:08] 🎉 Done matching COLMAP features.                                                         colmap_utils.py:151
+[22:12:28] 🎉 Done COLMAP bundle adjustment.                                                         colmap_utils.py:173
+[22:12:30] 🎉 Done refining intrinsics.                                                              colmap_utils.py:184
+[22:12:31] 🎉 🎉 🎉 All DONE 🎉 🎉 🎉                                                images_to_nerfstudio_dataset.py:135
+           Starting with 794 images                                                  images_to_nerfstudio_dataset.py:138
+           Colmap matched 3 images                                                   images_to_nerfstudio_dataset.py:138
+           COLMAP only found poses for 0.38% of the images. This is low.             images_to_nerfstudio_dataset.py:138
+           This can be caused by a variety of reasons, such poor scene coverage,                                        
+           blurry images, or large exposure changes.                                                                    

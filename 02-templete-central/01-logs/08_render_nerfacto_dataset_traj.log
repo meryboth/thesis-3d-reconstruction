@@ -1,0 +1,17 @@
+[01:18:46]  Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs/templete-central-insta360-realityscan-nerfacto/nerfacto/2026-08-12_233328/nerfstudio_models/step-0000
+29999.ckpt
+[01:18:51] Auto image downscale factor of 4                                                 nerfstudio_dataparser.py:484
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 276/276(100.0%) 0.38 fps 0:00:00 0:21:31
+╭───────────────────────────── 🎉 Render on split {} Complete 🎉 ──────────────────────────────╮
+│                 ╷                                                                            │
+│   Outputs train │ /workspace/renders/templete-central-insta360-nerfacto-dataset-traj/train   │
+│                 ╵                                                                            │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯

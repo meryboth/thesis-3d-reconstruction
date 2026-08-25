@@ -1,0 +1,14 @@
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/paraguas-vicentelopez-drone-nerfacto-v2/nerfacto/2026-06-20_233157/nerfstudio_models/step-000029999.ckpt
+[01:26:42] Auto image downscale factor of 4                                                 nerfstudio_dataparser.py:484
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 637/637(100.0%) 0.37 fps 0:00:00 0:19:05
+╭────────────────────── 🎉 Render on split {} Complete 🎉 ──────────────────────╮
+│                 ╷                                                             │
+│   Outputs train │ renders/paraguas-vicentelopez-nerfacto-dataset-traj/train   │
+│                 ╵                                                             │
+╰───────────────────────────────────────────────────────────────────────────────╯
+
+real	19m30.245s
+user	20m6.189s
+sys	3m47.303s

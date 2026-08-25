@@ -1,0 +1,13 @@
+[17:35:14] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+[17:48:30] 🎉 Done extracting COLMAP features.                                                       colmap_utils.py:137
+[18:09:06] 🎉 Done matching COLMAP features.                                                         colmap_utils.py:151
+[18:58:11] 🎉 Done COLMAP bundle adjustment.                                                         colmap_utils.py:173
+[19:10:33] 🎉 Done refining intrinsics.                                                              colmap_utils.py:184
+[19:10:50] 🎉 🎉 🎉 All DONE 🎉 🎉 🎉                                                images_to_nerfstudio_dataset.py:135
+           Starting with 707 images                                                  images_to_nerfstudio_dataset.py:138
+           Colmap matched 707 images                                                 images_to_nerfstudio_dataset.py:138
+           COLMAP found poses for all images, CONGRATS!                              images_to_nerfstudio_dataset.py:138
+
+real	97m17.799s
+user	288m13.059s
+sys	18m40.677s

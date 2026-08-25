@@ -1,0 +1,3 @@
+raw_cloud,clean_cloud,raw_points,clean_points,points_removed,points_retained_pct,raw_size_mb,clean_size_mb,size_retained_pct
+fused_medium_high.ply,fused_medium_high_clean.ply,2107280,502817,1604463,23.860948711134732,54.26,12.95,23.86656837449318
+fused_medium.ply,fused_medium_high_clean.ply,1589360,502817,1086543,31.636444858307748,40.92,12.95,31.647116324535677

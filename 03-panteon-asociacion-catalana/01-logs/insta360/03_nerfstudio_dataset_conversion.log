@@ -1,0 +1,6 @@
+[13:24:22] 🎉 Done copying images with prefix 'frame_'.                                        process_data_utils.py:348
+────────────────────────────────────────────── 🎉 🎉 🎉 All DONE 🎉 🎉 🎉 ──────────────────────────────────────────────
+                                                Started with 365 images                                                 
+                                           Missing camera data for 54 frames.                                           
+                                              Final dataset is 311 frames.                                              
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────

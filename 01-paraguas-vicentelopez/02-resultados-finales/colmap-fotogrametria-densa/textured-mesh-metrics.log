@@ -1,0 +1,69 @@
+TEXTURED MESH ANALYSIS
+========================================================================
+
+Case: 01-paraguas-vicentelopez
+
+FILE
+----
+Path: C:\nerfstudio_work\thesis\01-paraguas-vicentelopez\02-resultados-finales\colmap-fotogrametria-densa\textured-mesh.obj
+Format: OBJ
+Size bytes: 792623156
+Size MB: 755.904
+SHA256: 32b0c42aaebee2ed1da91eb7c3ac2fde55d59f4e0a13e1ae488007e8d5fe9a8f
+
+GEOMETRY
+--------
+Vertices: 3467152
+Faces: 6934120
+Triangles: 6934120
+
+ATTRIBUTES
+----------
+Normal records: 0
+UV records: 3798559
+Has normals: False
+Has UVs: True
+
+BOUNDING BOX
+------------
+X min: -121.867973328
+X max: 115.652816772
+X range: 237.520790100
+Y min: -140.659271240
+Y max: 180.180892944
+Y range: 320.840164185
+Z min: -12.135172844
+Z max: 21.638525009
+Z range: 33.773697853
+BBox diagonal: 400.618520978
+BBox volume: 2573765.487189788
+
+CENTROID
+--------
+X: -0.384363608
+Y: 0.256768570
+Z: -1.907626075
+
+MATERIALS
+---------
+MTL references: 1
+Used materials: 1
+Defined materials: 1
+
+TEXTURES
+--------
+Referenced textures: 1
+Existing textures: 1
+Total texture size MB: 47.070
+
+Texture 1: textured-mesh_u1_v1_diffuse.png
+  Exists: True
+  Size MB: 47.070
+  Resolution: 8192 x 8192
+  Mode: RGBA
+  SHA256: 2f3d6f6b68140e4207d0f0ab7ccd5e1cd02f73279098e2833965b0226a59e2d0
+
+METHODOLOGICAL NOTE
+-------------------
+The OBJ, MTL and texture files were analyzed without modification.
+Triangle count is derived from OBJ face definitions; polygons with more than three vertices are counted as n-2 triangles.

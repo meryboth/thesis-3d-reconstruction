@@ -1,0 +1,1441 @@
+nohup: ignoring input
+I0622 17:13:55.371476 29680 misc.cc:205] 
+StereoFusion::Options
+---------------------
+I0622 17:13:55.372471 29680 fusion.cc:87] mask_path: 
+I0622 17:13:55.373119 29680 fusion.cc:88] max_image_size: 800
+I0622 17:13:55.373816 29680 fusion.cc:89] min_num_pixels: 8
+I0622 17:13:55.374437 29680 fusion.cc:90] max_num_pixels: 7000
+I0622 17:13:55.374886 29680 fusion.cc:91] max_traversal_depth: 100
+I0622 17:13:55.375419 29680 fusion.cc:92] max_reproj_error: 2
+I0622 17:13:55.376223 29680 fusion.cc:93] max_depth_error: 0.01
+I0622 17:13:55.376798 29680 fusion.cc:94] max_normal_error: 10
+I0622 17:13:55.377279 29680 fusion.cc:95] check_num_images: 8
+I0622 17:13:55.377780 29680 fusion.cc:96] use_cache: 0
+I0622 17:13:55.378196 29680 fusion.cc:97] cache_size: 1
+I0622 17:13:55.378801 29680 fusion.cc:100] bbox_min: -3.40282e+38 -3.40282e+38 -3.40282e+38
+I0622 17:13:55.379360 29680 fusion.cc:101] bbox_max: 3.40282e+38 3.40282e+38 3.40282e+38
+I0622 17:13:55.379828 29680 fusion.cc:148] Reading workspace...
+I0622 17:14:01.621851 29680 workspace.cc:97] Loading workspace data with 1 threads...
+I0622 17:23:47.614959 29680 timer.cc:91] Elapsed time: 9.767 [minutes]
+I0622 17:23:47.616575 29680 fusion.cc:183] Reading configuration...
+I0622 17:24:05.004753 29680 fusion.cc:251] Starting fusion with 1 threads
+I0622 17:24:05.005931 29680 fusion.cc:287] Fusing image [1/707] with index 0
+I0622 17:24:06.205090 29680 fusion.cc:314]  in 1.199s (39358 points)
+I0622 17:24:06.206228 29680 fusion.cc:287] Fusing image [2/707] with index 4
+I0622 17:24:06.403765 29680 fusion.cc:314]  in 0.198s (44055 points)
+I0622 17:24:06.405230 29680 fusion.cc:287] Fusing image [3/707] with index 5
+I0622 17:24:06.579787 29680 fusion.cc:314]  in 0.175s (48329 points)
+I0622 17:24:06.580921 29680 fusion.cc:287] Fusing image [4/707] with index 6
+I0622 17:24:06.777772 29680 fusion.cc:314]  in 0.197s (54388 points)
+I0622 17:24:06.778824 29680 fusion.cc:287] Fusing image [5/707] with index 8
+I0622 17:24:06.962594 29680 fusion.cc:314]  in 0.184s (60769 points)
+I0622 17:24:06.963755 29680 fusion.cc:287] Fusing image [6/707] with index 9
+I0622 17:24:07.090926 29680 fusion.cc:314]  in 0.127s (62823 points)
+I0622 17:24:07.091958 29680 fusion.cc:287] Fusing image [7/707] with index 10
+I0622 17:24:07.310240 29680 fusion.cc:314]  in 0.218s (69668 points)
+I0622 17:24:07.311360 29680 fusion.cc:287] Fusing image [8/707] with index 11
+I0622 17:24:07.547490 29680 fusion.cc:314]  in 0.236s (76640 points)
+I0622 17:24:07.548599 29680 fusion.cc:287] Fusing image [9/707] with index 12
+I0622 17:24:07.762658 29680 fusion.cc:314]  in 0.214s (82287 points)
+I0622 17:24:07.763898 29680 fusion.cc:287] Fusing image [10/707] with index 13
+I0622 17:24:07.971550 29680 fusion.cc:314]  in 0.208s (87215 points)
+I0622 17:24:07.972532 29680 fusion.cc:287] Fusing image [11/707] with index 17
+I0622 17:24:08.184624 29680 fusion.cc:314]  in 0.212s (94577 points)
+I0622 17:24:08.185868 29680 fusion.cc:287] Fusing image [12/707] with index 16
+I0622 17:24:08.313134 29680 fusion.cc:314]  in 0.127s (95889 points)
+I0622 17:24:08.314185 29680 fusion.cc:287] Fusing image [13/707] with index 18
+I0622 17:24:08.413412 29680 fusion.cc:314]  in 0.099s (96338 points)
+I0622 17:24:08.414544 29680 fusion.cc:287] Fusing image [14/707] with index 19
+I0622 17:24:08.524992 29680 fusion.cc:314]  in 0.110s (97886 points)
+I0622 17:24:08.525969 29680 fusion.cc:287] Fusing image [15/707] with index 21
+I0622 17:24:08.663892 29680 fusion.cc:314]  in 0.138s (101654 points)
+I0622 17:24:08.665278 29680 fusion.cc:287] Fusing image [16/707] with index 24
+I0622 17:24:08.751286 29680 fusion.cc:314]  in 0.086s (101956 points)
+I0622 17:24:08.752277 29680 fusion.cc:287] Fusing image [17/707] with index 27
+I0622 17:24:08.828878 29680 fusion.cc:314]  in 0.077s (101980 points)
+I0622 17:24:08.829803 29680 fusion.cc:287] Fusing image [18/707] with index 25
+I0622 17:24:08.895529 29680 fusion.cc:314]  in 0.066s (101982 points)
+I0622 17:24:08.896730 29680 fusion.cc:287] Fusing image [19/707] with index 26
+I0622 17:24:08.956967 29680 fusion.cc:314]  in 0.060s (101982 points)
+I0622 17:24:08.957868 29680 fusion.cc:287] Fusing image [20/707] with index 23
+I0622 17:24:09.011073 29680 fusion.cc:314]  in 0.053s (101982 points)
+I0622 17:24:09.011926 29680 fusion.cc:287] Fusing image [21/707] with index 22
+I0622 17:24:09.058050 29680 fusion.cc:314]  in 0.046s (101982 points)
+I0622 17:24:09.059041 29680 fusion.cc:287] Fusing image [22/707] with index 1
+I0622 17:24:09.145241 29680 fusion.cc:314]  in 0.086s (102187 points)
+I0622 17:24:09.146268 29680 fusion.cc:287] Fusing image [23/707] with index 2
+I0622 17:24:09.215245 29680 fusion.cc:314]  in 0.069s (102218 points)
+I0622 17:24:09.216118 29680 fusion.cc:287] Fusing image [24/707] with index 230
+I0622 17:24:09.287495 29680 fusion.cc:314]  in 0.071s (102282 points)
+I0622 17:24:09.288497 29680 fusion.cc:287] Fusing image [25/707] with index 232
+I0622 17:24:09.354420 29680 fusion.cc:314]  in 0.066s (102314 points)
+I0622 17:24:09.355319 29680 fusion.cc:287] Fusing image [26/707] with index 234
+I0622 17:24:09.449160 29680 fusion.cc:314]  in 0.094s (102314 points)
+I0622 17:24:09.450089 29680 fusion.cc:287] Fusing image [27/707] with index 236
+I0622 17:24:09.550868 29680 fusion.cc:314]  in 0.101s (102314 points)
+I0622 17:24:09.552054 29680 fusion.cc:287] Fusing image [28/707] with index 238
+I0622 17:24:09.632611 29680 fusion.cc:314]  in 0.081s (102314 points)
+I0622 17:24:09.633666 29680 fusion.cc:287] Fusing image [29/707] with index 3
+I0622 17:24:09.750607 29680 fusion.cc:314]  in 0.117s (102314 points)
+I0622 17:24:09.751842 29680 fusion.cc:287] Fusing image [30/707] with index 7
+I0622 17:24:09.805671 29680 fusion.cc:314]  in 0.054s (102314 points)
+I0622 17:24:09.806793 29680 fusion.cc:287] Fusing image [31/707] with index 14
+I0622 17:24:09.892923 29680 fusion.cc:314]  in 0.086s (102314 points)
+I0622 17:24:09.894054 29680 fusion.cc:287] Fusing image [32/707] with index 15
+I0622 17:24:09.961788 29680 fusion.cc:314]  in 0.068s (102314 points)
+I0622 17:24:09.962683 29680 fusion.cc:287] Fusing image [33/707] with index 20
+I0622 17:24:10.084761 29680 fusion.cc:314]  in 0.122s (102314 points)
+I0622 17:24:10.085745 29680 fusion.cc:287] Fusing image [34/707] with index 28
+I0622 17:24:10.209544 29680 fusion.cc:314]  in 0.124s (102314 points)
+I0622 17:24:10.210536 29680 fusion.cc:287] Fusing image [35/707] with index 29
+I0622 17:24:10.823689 29680 fusion.cc:314]  in 0.613s (137800 points)
+I0622 17:24:10.824599 29680 fusion.cc:287] Fusing image [36/707] with index 30
+I0622 17:24:11.006071 29680 fusion.cc:314]  in 0.181s (143683 points)
+I0622 17:24:11.007211 29680 fusion.cc:287] Fusing image [37/707] with index 31
+I0622 17:24:11.129266 29680 fusion.cc:314]  in 0.122s (145671 points)
+I0622 17:24:11.130232 29680 fusion.cc:287] Fusing image [38/707] with index 34
+I0622 17:24:11.241262 29680 fusion.cc:314]  in 0.111s (147016 points)
+I0622 17:24:11.242390 29680 fusion.cc:287] Fusing image [39/707] with index 37
+I0622 17:24:11.327960 29680 fusion.cc:314]  in 0.086s (147154 points)
+I0622 17:24:11.328908 29680 fusion.cc:287] Fusing image [40/707] with index 38
+I0622 17:24:11.414330 29680 fusion.cc:314]  in 0.085s (147168 points)
+I0622 17:24:11.415380 29680 fusion.cc:287] Fusing image [41/707] with index 39
+I0622 17:24:11.480922 29680 fusion.cc:314]  in 0.066s (147168 points)
+I0622 17:24:11.481868 29680 fusion.cc:287] Fusing image [42/707] with index 33
+I0622 17:24:11.541779 29680 fusion.cc:314]  in 0.060s (147168 points)
+I0622 17:24:11.542761 29680 fusion.cc:287] Fusing image [43/707] with index 35
+I0622 17:24:11.593310 29680 fusion.cc:314]  in 0.051s (147168 points)
+I0622 17:24:11.594388 29680 fusion.cc:287] Fusing image [44/707] with index 36
+I0622 17:24:11.650149 29680 fusion.cc:314]  in 0.056s (147168 points)
+I0622 17:24:11.651036 29680 fusion.cc:287] Fusing image [45/707] with index 32
+I0622 17:24:11.770759 29680 fusion.cc:314]  in 0.120s (147168 points)
+I0622 17:24:11.771677 29680 fusion.cc:287] Fusing image [46/707] with index 40
+I0622 17:24:13.375708 29680 fusion.cc:314]  in 1.604s (179645 points)
+I0622 17:24:13.376827 29680 fusion.cc:287] Fusing image [47/707] with index 41
+I0622 17:24:13.669737 29680 fusion.cc:314]  in 0.293s (185609 points)
+I0622 17:24:13.670876 29680 fusion.cc:287] Fusing image [48/707] with index 42
+I0622 17:24:13.868899 29680 fusion.cc:314]  in 0.198s (188944 points)
+I0622 17:24:13.869994 29680 fusion.cc:287] Fusing image [49/707] with index 43
+I0622 17:24:14.011943 29680 fusion.cc:314]  in 0.142s (191025 points)
+I0622 17:24:14.013625 29680 fusion.cc:287] Fusing image [50/707] with index 45
+I0622 17:24:14.246592 29680 fusion.cc:314]  in 0.233s (197256 points)
+I0622 17:24:14.247493 29680 fusion.cc:287] Fusing image [51/707] with index 44
+I0622 17:24:14.370244 29680 fusion.cc:314]  in 0.123s (198325 points)
+I0622 17:24:14.371644 29680 fusion.cc:287] Fusing image [52/707] with index 52
+I0622 17:24:14.539233 29680 fusion.cc:314]  in 0.168s (201353 points)
+I0622 17:24:14.540616 29680 fusion.cc:287] Fusing image [53/707] with index 49
+I0622 17:24:14.637930 29680 fusion.cc:314]  in 0.097s (201738 points)
+I0622 17:24:14.638887 29680 fusion.cc:287] Fusing image [54/707] with index 50
+I0622 17:24:14.718816 29680 fusion.cc:314]  in 0.080s (201882 points)
+I0622 17:24:14.719965 29680 fusion.cc:287] Fusing image [55/707] with index 51
+I0622 17:24:14.788909 29680 fusion.cc:314]  in 0.069s (201960 points)
+I0622 17:24:14.789839 29680 fusion.cc:287] Fusing image [56/707] with index 53
+I0622 17:24:14.859402 29680 fusion.cc:314]  in 0.070s (202165 points)
+I0622 17:24:14.860440 29680 fusion.cc:287] Fusing image [57/707] with index 54
+I0622 17:24:14.969532 29680 fusion.cc:314]  in 0.109s (203164 points)
+I0622 17:24:14.970853 29680 fusion.cc:287] Fusing image [58/707] with index 56
+I0622 17:24:15.241416 29680 fusion.cc:314]  in 0.271s (209359 points)
+I0622 17:24:15.242518 29680 fusion.cc:287] Fusing image [59/707] with index 55
+I0622 17:24:15.377003 29680 fusion.cc:314]  in 0.135s (210685 points)
+I0622 17:24:15.378134 29680 fusion.cc:287] Fusing image [60/707] with index 57
+I0622 17:24:15.518090 29680 fusion.cc:314]  in 0.140s (212903 points)
+I0622 17:24:15.518961 29680 fusion.cc:287] Fusing image [61/707] with index 58
+I0622 17:24:15.654809 29680 fusion.cc:314]  in 0.136s (215352 points)
+I0622 17:24:15.655719 29680 fusion.cc:287] Fusing image [62/707] with index 59
+I0622 17:24:15.948253 29680 fusion.cc:314]  in 0.293s (225720 points)
+I0622 17:24:15.949185 29680 fusion.cc:287] Fusing image [63/707] with index 62
+I0622 17:24:16.132676 29680 fusion.cc:314]  in 0.184s (229791 points)
+I0622 17:24:16.133668 29680 fusion.cc:287] Fusing image [64/707] with index 63
+I0622 17:24:16.268443 29680 fusion.cc:314]  in 0.135s (231532 points)
+I0622 17:24:16.269361 29680 fusion.cc:287] Fusing image [65/707] with index 60
+I0622 17:24:16.392264 29680 fusion.cc:314]  in 0.123s (232926 points)
+I0622 17:24:16.393500 29680 fusion.cc:287] Fusing image [66/707] with index 61
+I0622 17:24:16.499104 29680 fusion.cc:314]  in 0.106s (233957 points)
+I0622 17:24:16.500182 29680 fusion.cc:287] Fusing image [67/707] with index 64
+I0622 17:24:16.592046 29680 fusion.cc:314]  in 0.092s (234605 points)
+I0622 17:24:16.593303 29680 fusion.cc:287] Fusing image [68/707] with index 65
+I0622 17:24:16.867376 29680 fusion.cc:314]  in 0.274s (243993 points)
+I0622 17:24:16.868571 29680 fusion.cc:287] Fusing image [69/707] with index 86
+I0622 17:24:17.118717 29680 fusion.cc:314]  in 0.250s (251986 points)
+I0622 17:24:17.119625 29680 fusion.cc:287] Fusing image [70/707] with index 77
+I0622 17:24:17.291735 29680 fusion.cc:314]  in 0.172s (254766 points)
+I0622 17:24:17.292822 29680 fusion.cc:287] Fusing image [71/707] with index 76
+I0622 17:24:17.428056 29680 fusion.cc:314]  in 0.135s (255567 points)
+I0622 17:24:17.429204 29680 fusion.cc:287] Fusing image [72/707] with index 80
+I0622 17:24:17.551589 29680 fusion.cc:314]  in 0.122s (255860 points)
+I0622 17:24:17.552651 29680 fusion.cc:287] Fusing image [73/707] with index 81
+I0622 17:24:17.657866 29680 fusion.cc:314]  in 0.105s (255924 points)
+I0622 17:24:17.658847 29680 fusion.cc:287] Fusing image [74/707] with index 82
+I0622 17:24:17.755348 29680 fusion.cc:314]  in 0.097s (255945 points)
+I0622 17:24:17.756421 29680 fusion.cc:287] Fusing image [75/707] with index 83
+I0622 17:24:17.851861 29680 fusion.cc:314]  in 0.095s (255954 points)
+I0622 17:24:17.852835 29680 fusion.cc:287] Fusing image [76/707] with index 85
+I0622 17:24:17.964392 29680 fusion.cc:314]  in 0.112s (255961 points)
+I0622 17:24:17.965337 29680 fusion.cc:287] Fusing image [77/707] with index 78
+I0622 17:24:18.043000 29680 fusion.cc:314]  in 0.078s (255964 points)
+I0622 17:24:18.044090 29680 fusion.cc:287] Fusing image [78/707] with index 79
+I0622 17:24:18.116096 29680 fusion.cc:314]  in 0.072s (255965 points)
+I0622 17:24:18.116945 29680 fusion.cc:287] Fusing image [79/707] with index 69
+I0622 17:24:18.201953 29680 fusion.cc:314]  in 0.085s (255976 points)
+I0622 17:24:18.202950 29680 fusion.cc:287] Fusing image [80/707] with index 67
+I0622 17:24:18.302850 29680 fusion.cc:314]  in 0.100s (255976 points)
+I0622 17:24:18.303891 29680 fusion.cc:287] Fusing image [81/707] with index 66
+I0622 17:24:18.378404 29680 fusion.cc:314]  in 0.075s (255976 points)
+I0622 17:24:18.379724 29680 fusion.cc:287] Fusing image [82/707] with index 46
+I0622 17:24:18.471609 29680 fusion.cc:314]  in 0.092s (255976 points)
+I0622 17:24:18.472507 29680 fusion.cc:287] Fusing image [83/707] with index 47
+I0622 17:24:18.600198 29680 fusion.cc:314]  in 0.128s (255976 points)
+I0622 17:24:18.601297 29680 fusion.cc:287] Fusing image [84/707] with index 48
+I0622 17:24:18.693754 29680 fusion.cc:314]  in 0.092s (255976 points)
+I0622 17:24:18.694803 29680 fusion.cc:287] Fusing image [85/707] with index 68
+I0622 17:24:18.821458 29680 fusion.cc:314]  in 0.127s (255976 points)
+I0622 17:24:18.822839 29680 fusion.cc:287] Fusing image [86/707] with index 70
+I0622 17:24:18.952396 29680 fusion.cc:314]  in 0.130s (255976 points)
+I0622 17:24:18.953445 29680 fusion.cc:287] Fusing image [87/707] with index 71
+I0622 17:24:19.140827 29680 fusion.cc:314]  in 0.187s (255976 points)
+I0622 17:24:19.142011 29680 fusion.cc:287] Fusing image [88/707] with index 72
+I0622 17:24:19.279838 29680 fusion.cc:314]  in 0.138s (255976 points)
+I0622 17:24:19.280763 29680 fusion.cc:287] Fusing image [89/707] with index 73
+I0622 17:24:19.368713 29680 fusion.cc:314]  in 0.088s (255976 points)
+I0622 17:24:19.369903 29680 fusion.cc:287] Fusing image [90/707] with index 74
+I0622 17:24:19.526257 29680 fusion.cc:314]  in 0.156s (255976 points)
+I0622 17:24:19.527242 29680 fusion.cc:287] Fusing image [91/707] with index 75
+I0622 17:24:19.643258 29680 fusion.cc:314]  in 0.116s (255976 points)
+I0622 17:24:19.644332 29680 fusion.cc:287] Fusing image [92/707] with index 84
+I0622 17:24:19.774889 29680 fusion.cc:314]  in 0.131s (255976 points)
+I0622 17:24:19.775938 29680 fusion.cc:287] Fusing image [93/707] with index 87
+I0622 17:24:19.955263 29680 fusion.cc:314]  in 0.179s (260467 points)
+I0622 17:24:19.956288 29680 fusion.cc:287] Fusing image [94/707] with index 88
+I0622 17:24:20.193701 29680 fusion.cc:314]  in 0.237s (267224 points)
+I0622 17:24:20.194907 29680 fusion.cc:287] Fusing image [95/707] with index 90
+I0622 17:24:20.507329 29680 fusion.cc:314]  in 0.312s (277946 points)
+I0622 17:24:20.508656 29680 fusion.cc:287] Fusing image [96/707] with index 105
+I0622 17:24:20.693567 29680 fusion.cc:314]  in 0.185s (280900 points)
+I0622 17:24:20.694756 29680 fusion.cc:287] Fusing image [97/707] with index 106
+I0622 17:24:20.830086 29680 fusion.cc:314]  in 0.135s (281447 points)
+I0622 17:24:20.831022 29680 fusion.cc:287] Fusing image [98/707] with index 101
+I0622 17:24:20.995443 29680 fusion.cc:314]  in 0.164s (283378 points)
+I0622 17:24:20.996376 29680 fusion.cc:287] Fusing image [99/707] with index 98
+I0622 17:24:21.147241 29680 fusion.cc:314]  in 0.151s (284334 points)
+I0622 17:24:21.148313 29680 fusion.cc:287] Fusing image [100/707] with index 96
+I0622 17:24:21.275113 29680 fusion.cc:314]  in 0.127s (284524 points)
+I0622 17:24:21.276149 29680 fusion.cc:287] Fusing image [101/707] with index 95
+I0622 17:24:21.380965 29680 fusion.cc:314]  in 0.105s (284559 points)
+I0622 17:24:21.381966 29680 fusion.cc:287] Fusing image [102/707] with index 93
+I0622 17:24:21.483175 29680 fusion.cc:314]  in 0.101s (284566 points)
+I0622 17:24:21.484236 29680 fusion.cc:287] Fusing image [103/707] with index 94
+I0622 17:24:21.572482 29680 fusion.cc:314]  in 0.088s (284566 points)
+I0622 17:24:21.573598 29680 fusion.cc:287] Fusing image [104/707] with index 91
+I0622 17:24:21.655519 29680 fusion.cc:314]  in 0.082s (284566 points)
+I0622 17:24:21.656626 29680 fusion.cc:287] Fusing image [105/707] with index 99
+I0622 17:24:21.728850 29680 fusion.cc:314]  in 0.072s (284566 points)
+I0622 17:24:21.730177 29680 fusion.cc:287] Fusing image [106/707] with index 92
+I0622 17:24:21.794685 29680 fusion.cc:314]  in 0.065s (284566 points)
+I0622 17:24:21.795835 29680 fusion.cc:287] Fusing image [107/707] with index 89
+I0622 17:24:21.890765 29680 fusion.cc:314]  in 0.095s (284566 points)
+I0622 17:24:21.891781 29680 fusion.cc:287] Fusing image [108/707] with index 97
+I0622 17:24:21.999822 29680 fusion.cc:314]  in 0.108s (284566 points)
+I0622 17:24:22.000887 29680 fusion.cc:287] Fusing image [109/707] with index 100
+I0622 17:24:22.096266 29680 fusion.cc:314]  in 0.095s (284566 points)
+I0622 17:24:22.097429 29680 fusion.cc:287] Fusing image [110/707] with index 102
+I0622 17:24:22.184865 29680 fusion.cc:314]  in 0.087s (284566 points)
+I0622 17:24:22.185930 29680 fusion.cc:287] Fusing image [111/707] with index 103
+I0622 17:24:22.258518 29680 fusion.cc:314]  in 0.073s (284566 points)
+I0622 17:24:22.259368 29680 fusion.cc:287] Fusing image [112/707] with index 104
+I0622 17:24:22.340878 29680 fusion.cc:314]  in 0.082s (284566 points)
+I0622 17:24:22.341882 29680 fusion.cc:287] Fusing image [113/707] with index 107
+I0622 17:24:23.059257 29680 fusion.cc:314]  in 0.717s (342035 points)
+I0622 17:24:23.060302 29680 fusion.cc:287] Fusing image [114/707] with index 108
+I0622 17:24:23.297827 29680 fusion.cc:314]  in 0.238s (352045 points)
+I0622 17:24:23.298767 29680 fusion.cc:287] Fusing image [115/707] with index 110
+I0622 17:24:23.437471 29680 fusion.cc:314]  in 0.139s (354114 points)
+I0622 17:24:23.438516 29680 fusion.cc:287] Fusing image [116/707] with index 113
+I0622 17:24:23.542698 29680 fusion.cc:314]  in 0.104s (354499 points)
+I0622 17:24:23.543720 29680 fusion.cc:287] Fusing image [117/707] with index 114
+I0622 17:24:23.628911 29680 fusion.cc:314]  in 0.085s (354551 points)
+I0622 17:24:23.630116 29680 fusion.cc:287] Fusing image [118/707] with index 111
+I0622 17:24:23.710273 29680 fusion.cc:314]  in 0.080s (354565 points)
+I0622 17:24:23.711404 29680 fusion.cc:287] Fusing image [119/707] with index 112
+I0622 17:24:23.779117 29680 fusion.cc:314]  in 0.068s (354566 points)
+I0622 17:24:23.780074 29680 fusion.cc:287] Fusing image [120/707] with index 115
+I0622 17:24:23.839242 29680 fusion.cc:314]  in 0.059s (354566 points)
+I0622 17:24:23.840330 29680 fusion.cc:287] Fusing image [121/707] with index 116
+I0622 17:24:23.895567 29680 fusion.cc:314]  in 0.055s (354566 points)
+I0622 17:24:23.896613 29680 fusion.cc:287] Fusing image [122/707] with index 117
+I0622 17:24:23.948967 29680 fusion.cc:314]  in 0.052s (354566 points)
+I0622 17:24:23.949827 29680 fusion.cc:287] Fusing image [123/707] with index 109
+I0622 17:24:24.059983 29680 fusion.cc:314]  in 0.110s (354579 points)
+I0622 17:24:24.061012 29680 fusion.cc:287] Fusing image [124/707] with index 120
+I0622 17:24:24.161778 29680 fusion.cc:314]  in 0.101s (354579 points)
+I0622 17:24:24.162869 29680 fusion.cc:287] Fusing image [125/707] with index 121
+I0622 17:24:24.248440 29680 fusion.cc:314]  in 0.086s (354579 points)
+I0622 17:24:24.249572 29680 fusion.cc:287] Fusing image [126/707] with index 118
+I0622 17:24:24.320158 29680 fusion.cc:314]  in 0.071s (354579 points)
+I0622 17:24:24.321228 29680 fusion.cc:287] Fusing image [127/707] with index 119
+I0622 17:24:24.436360 29680 fusion.cc:314]  in 0.115s (354579 points)
+I0622 17:24:24.437515 29680 fusion.cc:287] Fusing image [128/707] with index 122
+I0622 17:24:24.551999 29680 fusion.cc:314]  in 0.115s (354579 points)
+I0622 17:24:24.553452 29680 fusion.cc:287] Fusing image [129/707] with index 123
+I0622 17:24:24.777120 29680 fusion.cc:314]  in 0.224s (359221 points)
+I0622 17:24:24.778352 29680 fusion.cc:287] Fusing image [130/707] with index 125
+I0622 17:24:24.867376 29680 fusion.cc:314]  in 0.089s (359221 points)
+I0622 17:24:24.869240 29680 fusion.cc:287] Fusing image [131/707] with index 124
+I0622 17:24:24.951135 29680 fusion.cc:314]  in 0.082s (359221 points)
+I0622 17:24:24.952216 29680 fusion.cc:287] Fusing image [132/707] with index 126
+I0622 17:24:25.693753 29680 fusion.cc:314]  in 0.742s (395680 points)
+I0622 17:24:25.695102 29680 fusion.cc:287] Fusing image [133/707] with index 127
+I0622 17:24:25.949872 29680 fusion.cc:314]  in 0.255s (404060 points)
+I0622 17:24:25.951028 29680 fusion.cc:287] Fusing image [134/707] with index 131
+I0622 17:24:26.120329 29680 fusion.cc:314]  in 0.169s (407444 points)
+I0622 17:24:26.121593 29680 fusion.cc:287] Fusing image [135/707] with index 130
+I0622 17:24:26.247746 29680 fusion.cc:314]  in 0.126s (408296 points)
+I0622 17:24:26.248739 29680 fusion.cc:287] Fusing image [136/707] with index 129
+I0622 17:24:26.362789 29680 fusion.cc:314]  in 0.114s (408687 points)
+I0622 17:24:26.363976 29680 fusion.cc:287] Fusing image [137/707] with index 132
+I0622 17:24:26.483953 29680 fusion.cc:314]  in 0.120s (410693 points)
+I0622 17:24:26.485046 29680 fusion.cc:287] Fusing image [138/707] with index 134
+I0622 17:24:26.602610 29680 fusion.cc:314]  in 0.118s (412840 points)
+I0622 17:24:26.603600 29680 fusion.cc:287] Fusing image [139/707] with index 136
+I0622 17:24:26.705484 29680 fusion.cc:314]  in 0.102s (413496 points)
+I0622 17:24:26.706545 29680 fusion.cc:287] Fusing image [140/707] with index 138
+I0622 17:24:26.789654 29680 fusion.cc:314]  in 0.083s (413662 points)
+I0622 17:24:26.790589 29680 fusion.cc:287] Fusing image [141/707] with index 139
+I0622 17:24:26.864189 29680 fusion.cc:314]  in 0.074s (413673 points)
+I0622 17:24:26.865228 29680 fusion.cc:287] Fusing image [142/707] with index 140
+I0622 17:24:26.933622 29680 fusion.cc:314]  in 0.068s (413673 points)
+I0622 17:24:26.934576 29680 fusion.cc:287] Fusing image [143/707] with index 137
+I0622 17:24:27.006477 29680 fusion.cc:314]  in 0.072s (413673 points)
+I0622 17:24:27.007411 29680 fusion.cc:287] Fusing image [144/707] with index 135
+I0622 17:24:27.072444 29680 fusion.cc:314]  in 0.065s (413673 points)
+I0622 17:24:27.073199 29680 fusion.cc:287] Fusing image [145/707] with index 133
+I0622 17:24:27.127040 29680 fusion.cc:314]  in 0.054s (413673 points)
+I0622 17:24:27.127842 29680 fusion.cc:287] Fusing image [146/707] with index 128
+I0622 17:24:27.203969 29680 fusion.cc:314]  in 0.076s (413673 points)
+I0622 17:24:27.204932 29680 fusion.cc:287] Fusing image [147/707] with index 141
+I0622 17:24:27.356352 29680 fusion.cc:314]  in 0.151s (413673 points)
+I0622 17:24:27.357347 29680 fusion.cc:287] Fusing image [148/707] with index 142
+I0622 17:24:27.423208 29680 fusion.cc:314]  in 0.066s (413673 points)
+I0622 17:24:27.424165 29680 fusion.cc:287] Fusing image [149/707] with index 143
+I0622 17:24:27.530011 29680 fusion.cc:314]  in 0.106s (413673 points)
+I0622 17:24:27.530843 29680 fusion.cc:287] Fusing image [150/707] with index 144
+I0622 17:24:27.643419 29680 fusion.cc:314]  in 0.113s (413673 points)
+I0622 17:24:27.644402 29680 fusion.cc:287] Fusing image [151/707] with index 145
+I0622 17:24:28.278687 29680 fusion.cc:314]  in 0.634s (437184 points)
+I0622 17:24:28.279428 29680 fusion.cc:287] Fusing image [152/707] with index 146
+I0622 17:24:28.401072 29680 fusion.cc:314]  in 0.122s (439150 points)
+I0622 17:24:28.402019 29680 fusion.cc:287] Fusing image [153/707] with index 147
+I0622 17:24:28.535787 29680 fusion.cc:314]  in 0.134s (441591 points)
+I0622 17:24:28.536696 29680 fusion.cc:287] Fusing image [154/707] with index 148
+I0622 17:24:28.673802 29680 fusion.cc:314]  in 0.137s (443876 points)
+I0622 17:24:28.674659 29680 fusion.cc:287] Fusing image [155/707] with index 149
+I0622 17:24:28.797262 29680 fusion.cc:314]  in 0.123s (445428 points)
+I0622 17:24:28.798097 29680 fusion.cc:287] Fusing image [156/707] with index 151
+I0622 17:24:28.909292 29680 fusion.cc:314]  in 0.111s (446478 points)
+I0622 17:24:28.910303 29680 fusion.cc:287] Fusing image [157/707] with index 152
+I0622 17:24:29.025656 29680 fusion.cc:314]  in 0.115s (447277 points)
+I0622 17:24:29.026475 29680 fusion.cc:287] Fusing image [158/707] with index 153
+I0622 17:24:29.160118 29680 fusion.cc:314]  in 0.134s (448411 points)
+I0622 17:24:29.161093 29680 fusion.cc:287] Fusing image [159/707] with index 154
+I0622 17:24:29.273600 29680 fusion.cc:314]  in 0.113s (449018 points)
+I0622 17:24:29.274588 29680 fusion.cc:287] Fusing image [160/707] with index 156
+I0622 17:24:29.438226 29680 fusion.cc:314]  in 0.164s (450395 points)
+I0622 17:24:29.439194 29680 fusion.cc:287] Fusing image [161/707] with index 159
+I0622 17:24:29.655632 29680 fusion.cc:314]  in 0.216s (453674 points)
+I0622 17:24:29.656620 29680 fusion.cc:287] Fusing image [162/707] with index 161
+I0622 17:24:29.836194 29680 fusion.cc:314]  in 0.180s (454240 points)
+I0622 17:24:29.837144 29680 fusion.cc:287] Fusing image [163/707] with index 164
+I0622 17:24:29.989251 29680 fusion.cc:314]  in 0.152s (454345 points)
+I0622 17:24:29.990253 29680 fusion.cc:287] Fusing image [164/707] with index 165
+I0622 17:24:30.137802 29680 fusion.cc:314]  in 0.148s (454363 points)
+I0622 17:24:30.138923 29680 fusion.cc:287] Fusing image [165/707] with index 162
+I0622 17:24:30.268292 29680 fusion.cc:314]  in 0.129s (454364 points)
+I0622 17:24:30.269253 29680 fusion.cc:287] Fusing image [166/707] with index 160
+I0622 17:24:30.385835 29680 fusion.cc:314]  in 0.117s (454364 points)
+I0622 17:24:30.386848 29680 fusion.cc:287] Fusing image [167/707] with index 163
+I0622 17:24:30.491233 29680 fusion.cc:314]  in 0.104s (454364 points)
+I0622 17:24:30.492268 29680 fusion.cc:287] Fusing image [168/707] with index 158
+I0622 17:24:30.592315 29680 fusion.cc:314]  in 0.100s (454364 points)
+I0622 17:24:30.593552 29680 fusion.cc:287] Fusing image [169/707] with index 157
+I0622 17:24:30.689862 29680 fusion.cc:314]  in 0.096s (454364 points)
+I0622 17:24:30.690665 29680 fusion.cc:287] Fusing image [170/707] with index 150
+I0622 17:24:30.772330 29680 fusion.cc:314]  in 0.082s (454364 points)
+I0622 17:24:30.773360 29680 fusion.cc:287] Fusing image [171/707] with index 155
+I0622 17:24:30.856769 29680 fusion.cc:314]  in 0.083s (454364 points)
+I0622 17:24:30.857827 29680 fusion.cc:287] Fusing image [172/707] with index 166
+I0622 17:24:31.418993 29680 fusion.cc:314]  in 0.561s (473681 points)
+I0622 17:24:31.419904 29680 fusion.cc:287] Fusing image [173/707] with index 167
+I0622 17:24:31.568398 29680 fusion.cc:314]  in 0.149s (476465 points)
+I0622 17:24:31.569289 29680 fusion.cc:287] Fusing image [174/707] with index 173
+I0622 17:24:31.689793 29680 fusion.cc:314]  in 0.121s (477667 points)
+I0622 17:24:31.690801 29680 fusion.cc:287] Fusing image [175/707] with index 174
+I0622 17:24:31.800973 29680 fusion.cc:314]  in 0.110s (478295 points)
+I0622 17:24:31.802034 29680 fusion.cc:287] Fusing image [176/707] with index 175
+I0622 17:24:31.894034 29680 fusion.cc:314]  in 0.092s (478654 points)
+I0622 17:24:31.895138 29680 fusion.cc:287] Fusing image [177/707] with index 168
+I0622 17:24:31.968870 29680 fusion.cc:314]  in 0.074s (478671 points)
+I0622 17:24:31.969929 29680 fusion.cc:287] Fusing image [178/707] with index 172
+I0622 17:24:32.034143 29680 fusion.cc:314]  in 0.064s (478671 points)
+I0622 17:24:32.035386 29680 fusion.cc:287] Fusing image [179/707] with index 401
+I0622 17:24:32.111143 29680 fusion.cc:314]  in 0.076s (478691 points)
+I0622 17:24:32.112053 29680 fusion.cc:287] Fusing image [180/707] with index 398
+I0622 17:24:32.176430 29680 fusion.cc:314]  in 0.064s (478691 points)
+I0622 17:24:32.177556 29680 fusion.cc:287] Fusing image [181/707] with index 404
+I0622 17:24:32.245536 29680 fusion.cc:314]  in 0.068s (478691 points)
+I0622 17:24:32.246699 29680 fusion.cc:287] Fusing image [182/707] with index 169
+I0622 17:24:32.626345 29680 fusion.cc:314]  in 0.380s (491148 points)
+I0622 17:24:32.627432 29680 fusion.cc:287] Fusing image [183/707] with index 171
+I0622 17:24:32.850042 29680 fusion.cc:314]  in 0.223s (496368 points)
+I0622 17:24:32.850992 29680 fusion.cc:287] Fusing image [184/707] with index 181
+I0622 17:24:33.162732 29680 fusion.cc:314]  in 0.312s (509689 points)
+I0622 17:24:33.163720 29680 fusion.cc:287] Fusing image [185/707] with index 183
+I0622 17:24:33.311408 29680 fusion.cc:314]  in 0.148s (513063 points)
+I0622 17:24:33.312590 29680 fusion.cc:287] Fusing image [186/707] with index 184
+I0622 17:24:33.428512 29680 fusion.cc:314]  in 0.116s (514234 points)
+I0622 17:24:33.429571 29680 fusion.cc:287] Fusing image [187/707] with index 185
+I0622 17:24:33.527520 29680 fusion.cc:314]  in 0.098s (514787 points)
+I0622 17:24:33.528439 29680 fusion.cc:287] Fusing image [188/707] with index 182
+I0622 17:24:33.614953 29680 fusion.cc:314]  in 0.087s (515109 points)
+I0622 17:24:33.615931 29680 fusion.cc:287] Fusing image [189/707] with index 193
+I0622 17:24:33.710611 29680 fusion.cc:314]  in 0.095s (515537 points)
+I0622 17:24:33.711971 29680 fusion.cc:287] Fusing image [190/707] with index 195
+I0622 17:24:33.805083 29680 fusion.cc:314]  in 0.093s (515719 points)
+I0622 17:24:33.806133 29680 fusion.cc:287] Fusing image [191/707] with index 196
+I0622 17:24:33.905792 29680 fusion.cc:314]  in 0.100s (515785 points)
+I0622 17:24:33.906863 29680 fusion.cc:287] Fusing image [192/707] with index 194
+I0622 17:24:33.996577 29680 fusion.cc:314]  in 0.090s (515798 points)
+I0622 17:24:33.997695 29680 fusion.cc:287] Fusing image [193/707] with index 192
+I0622 17:24:34.073029 29680 fusion.cc:314]  in 0.075s (515803 points)
+I0622 17:24:34.073994 29680 fusion.cc:287] Fusing image [194/707] with index 191
+I0622 17:24:34.146378 29680 fusion.cc:314]  in 0.072s (515803 points)
+I0622 17:24:34.147365 29680 fusion.cc:287] Fusing image [195/707] with index 190
+I0622 17:24:34.205930 29680 fusion.cc:314]  in 0.059s (515803 points)
+I0622 17:24:34.207101 29680 fusion.cc:287] Fusing image [196/707] with index 187
+I0622 17:24:34.271289 29680 fusion.cc:314]  in 0.064s (515803 points)
+I0622 17:24:34.272356 29680 fusion.cc:287] Fusing image [197/707] with index 186
+I0622 17:24:34.335326 29680 fusion.cc:314]  in 0.063s (515803 points)
+I0622 17:24:34.336607 29680 fusion.cc:287] Fusing image [198/707] with index 188
+I0622 17:24:34.407212 29680 fusion.cc:314]  in 0.071s (515803 points)
+I0622 17:24:34.408177 29680 fusion.cc:287] Fusing image [199/707] with index 170
+I0622 17:24:34.494947 29680 fusion.cc:314]  in 0.087s (515803 points)
+I0622 17:24:34.495937 29680 fusion.cc:287] Fusing image [200/707] with index 176
+I0622 17:24:34.581063 29680 fusion.cc:314]  in 0.085s (515804 points)
+I0622 17:24:34.582098 29680 fusion.cc:287] Fusing image [201/707] with index 177
+I0622 17:24:34.660830 29680 fusion.cc:314]  in 0.079s (515804 points)
+I0622 17:24:34.661928 29680 fusion.cc:287] Fusing image [202/707] with index 179
+I0622 17:24:34.746033 29680 fusion.cc:314]  in 0.084s (515804 points)
+I0622 17:24:34.747404 29680 fusion.cc:287] Fusing image [203/707] with index 180
+I0622 17:24:34.808187 29680 fusion.cc:314]  in 0.061s (515804 points)
+I0622 17:24:34.809177 29680 fusion.cc:287] Fusing image [204/707] with index 178
+I0622 17:24:34.892133 29680 fusion.cc:314]  in 0.083s (515804 points)
+I0622 17:24:34.893157 29680 fusion.cc:287] Fusing image [205/707] with index 189
+I0622 17:24:34.992427 29680 fusion.cc:314]  in 0.099s (515804 points)
+I0622 17:24:34.994033 29680 fusion.cc:287] Fusing image [206/707] with index 197
+I0622 17:24:35.060685 29680 fusion.cc:314]  in 0.067s (515804 points)
+I0622 17:24:35.062132 29680 fusion.cc:287] Fusing image [207/707] with index 198
+I0622 17:24:35.164635 29680 fusion.cc:314]  in 0.103s (515804 points)
+I0622 17:24:35.165664 29680 fusion.cc:287] Fusing image [208/707] with index 199
+I0622 17:24:35.278594 29680 fusion.cc:314]  in 0.113s (515804 points)
+I0622 17:24:35.279458 29680 fusion.cc:287] Fusing image [209/707] with index 200
+I0622 17:24:35.949632 29680 fusion.cc:314]  in 0.670s (532242 points)
+I0622 17:24:35.950640 29680 fusion.cc:287] Fusing image [210/707] with index 201
+I0622 17:24:36.132684 29680 fusion.cc:314]  in 0.182s (535324 points)
+I0622 17:24:36.133790 29680 fusion.cc:287] Fusing image [211/707] with index 202
+I0622 17:24:36.311477 29680 fusion.cc:314]  in 0.178s (538394 points)
+I0622 17:24:36.312531 29680 fusion.cc:287] Fusing image [212/707] with index 203
+I0622 17:24:36.533036 29680 fusion.cc:314]  in 0.221s (544156 points)
+I0622 17:24:36.534082 29680 fusion.cc:287] Fusing image [213/707] with index 205
+I0622 17:24:36.724725 29680 fusion.cc:314]  in 0.191s (547806 points)
+I0622 17:24:36.725955 29680 fusion.cc:287] Fusing image [214/707] with index 206
+I0622 17:24:36.861469 29680 fusion.cc:314]  in 0.136s (548902 points)
+I0622 17:24:36.862529 29680 fusion.cc:287] Fusing image [215/707] with index 207
+I0622 17:24:36.986572 29680 fusion.cc:314]  in 0.124s (549772 points)
+I0622 17:24:36.987613 29680 fusion.cc:287] Fusing image [216/707] with index 209
+I0622 17:24:37.117784 29680 fusion.cc:314]  in 0.130s (551242 points)
+I0622 17:24:37.118736 29680 fusion.cc:287] Fusing image [217/707] with index 208
+I0622 17:24:37.233700 29680 fusion.cc:314]  in 0.115s (551913 points)
+I0622 17:24:37.234603 29680 fusion.cc:287] Fusing image [218/707] with index 210
+I0622 17:24:37.352936 29680 fusion.cc:314]  in 0.118s (552802 points)
+I0622 17:24:37.354271 29680 fusion.cc:287] Fusing image [219/707] with index 211
+I0622 17:24:37.514197 29680 fusion.cc:314]  in 0.160s (554730 points)
+I0622 17:24:37.515049 29680 fusion.cc:287] Fusing image [220/707] with index 212
+I0622 17:24:37.687602 29680 fusion.cc:314]  in 0.173s (559062 points)
+I0622 17:24:37.688680 29680 fusion.cc:287] Fusing image [221/707] with index 215
+I0622 17:24:37.821089 29680 fusion.cc:314]  in 0.132s (560477 points)
+I0622 17:24:37.822629 29680 fusion.cc:287] Fusing image [222/707] with index 216
+I0622 17:24:37.921837 29680 fusion.cc:314]  in 0.099s (560844 points)
+I0622 17:24:37.922911 29680 fusion.cc:287] Fusing image [223/707] with index 217
+I0622 17:24:38.009256 29680 fusion.cc:314]  in 0.086s (561059 points)
+I0622 17:24:38.010119 29680 fusion.cc:287] Fusing image [224/707] with index 214
+I0622 17:24:38.092207 29680 fusion.cc:314]  in 0.082s (561154 points)
+I0622 17:24:38.093202 29680 fusion.cc:287] Fusing image [225/707] with index 219
+I0622 17:24:38.174944 29680 fusion.cc:314]  in 0.082s (561462 points)
+I0622 17:24:38.176010 29680 fusion.cc:287] Fusing image [226/707] with index 218
+I0622 17:24:38.251780 29680 fusion.cc:314]  in 0.076s (561711 points)
+I0622 17:24:38.252749 29680 fusion.cc:287] Fusing image [227/707] with index 220
+I0622 17:24:38.349651 29680 fusion.cc:314]  in 0.097s (563261 points)
+I0622 17:24:38.350769 29680 fusion.cc:287] Fusing image [228/707] with index 221
+I0622 17:24:38.572916 29680 fusion.cc:314]  in 0.222s (570246 points)
+I0622 17:24:38.573791 29680 fusion.cc:287] Fusing image [229/707] with index 223
+I0622 17:24:38.757139 29680 fusion.cc:314]  in 0.183s (573395 points)
+I0622 17:24:38.758113 29680 fusion.cc:287] Fusing image [230/707] with index 224
+I0622 17:24:38.902400 29680 fusion.cc:314]  in 0.144s (574163 points)
+I0622 17:24:38.903519 29680 fusion.cc:287] Fusing image [231/707] with index 225
+I0622 17:24:39.030928 29680 fusion.cc:314]  in 0.127s (574601 points)
+I0622 17:24:39.031771 29680 fusion.cc:287] Fusing image [232/707] with index 228
+I0622 17:24:39.187429 29680 fusion.cc:314]  in 0.156s (575476 points)
+I0622 17:24:39.188755 29680 fusion.cc:287] Fusing image [233/707] with index 229
+I0622 17:24:39.313356 29680 fusion.cc:314]  in 0.125s (575543 points)
+I0622 17:24:39.314363 29680 fusion.cc:287] Fusing image [234/707] with index 227
+I0622 17:24:39.419590 29680 fusion.cc:314]  in 0.105s (575564 points)
+I0622 17:24:39.420631 29680 fusion.cc:287] Fusing image [235/707] with index 589
+I0622 17:24:39.528877 29680 fusion.cc:314]  in 0.108s (575588 points)
+I0622 17:24:39.530020 29680 fusion.cc:287] Fusing image [236/707] with index 591
+I0622 17:24:39.687345 29680 fusion.cc:314]  in 0.157s (575600 points)
+I0622 17:24:39.688653 29680 fusion.cc:287] Fusing image [237/707] with index 590
+I0622 17:24:39.795902 29680 fusion.cc:314]  in 0.107s (575600 points)
+I0622 17:24:39.797155 29680 fusion.cc:287] Fusing image [238/707] with index 226
+I0622 17:24:39.870932 29680 fusion.cc:314]  in 0.074s (575600 points)
+I0622 17:24:39.872115 29680 fusion.cc:287] Fusing image [239/707] with index 204
+I0622 17:24:39.936681 29680 fusion.cc:314]  in 0.065s (575600 points)
+I0622 17:24:39.937705 29680 fusion.cc:287] Fusing image [240/707] with index 213
+I0622 17:24:40.035900 29680 fusion.cc:314]  in 0.098s (575600 points)
+I0622 17:24:40.036978 29680 fusion.cc:287] Fusing image [241/707] with index 222
+I0622 17:24:40.148221 29680 fusion.cc:314]  in 0.111s (575600 points)
+I0622 17:24:40.149192 29680 fusion.cc:287] Fusing image [242/707] with index 231
+I0622 17:24:40.961556 29680 fusion.cc:314]  in 0.812s (598038 points)
+I0622 17:24:40.962594 29680 fusion.cc:287] Fusing image [243/707] with index 233
+I0622 17:24:41.201436 29680 fusion.cc:314]  in 0.239s (604583 points)
+I0622 17:24:41.202813 29680 fusion.cc:287] Fusing image [244/707] with index 235
+I0622 17:24:41.810882 29680 fusion.cc:314]  in 0.608s (622072 points)
+I0622 17:24:41.811810 29680 fusion.cc:287] Fusing image [245/707] with index 237
+I0622 17:24:41.982440 29680 fusion.cc:314]  in 0.171s (623281 points)
+I0622 17:24:41.983712 29680 fusion.cc:287] Fusing image [246/707] with index 241
+I0622 17:24:42.241779 29680 fusion.cc:314]  in 0.258s (627072 points)
+I0622 17:24:42.242736 29680 fusion.cc:287] Fusing image [247/707] with index 239
+I0622 17:24:42.362031 29680 fusion.cc:314]  in 0.119s (627484 points)
+I0622 17:24:42.363212 29680 fusion.cc:287] Fusing image [248/707] with index 249
+I0622 17:24:42.980882 29680 fusion.cc:314]  in 0.618s (644112 points)
+I0622 17:24:42.981809 29680 fusion.cc:287] Fusing image [249/707] with index 251
+I0622 17:24:43.275516 29680 fusion.cc:314]  in 0.294s (651368 points)
+I0622 17:24:43.276468 29680 fusion.cc:287] Fusing image [250/707] with index 255
+I0622 17:24:43.557736 29680 fusion.cc:314]  in 0.281s (658117 points)
+I0622 17:24:43.558625 29680 fusion.cc:287] Fusing image [251/707] with index 257
+I0622 17:24:43.728688 29680 fusion.cc:314]  in 0.170s (659651 points)
+I0622 17:24:43.729812 29680 fusion.cc:287] Fusing image [252/707] with index 253
+I0622 17:24:43.860440 29680 fusion.cc:314]  in 0.131s (660244 points)
+I0622 17:24:43.861593 29680 fusion.cc:287] Fusing image [253/707] with index 261
+I0622 17:24:44.039139 29680 fusion.cc:314]  in 0.178s (663228 points)
+I0622 17:24:44.040387 29680 fusion.cc:287] Fusing image [254/707] with index 263
+I0622 17:24:44.233901 29680 fusion.cc:314]  in 0.194s (665664 points)
+I0622 17:24:44.234923 29680 fusion.cc:287] Fusing image [255/707] with index 267
+I0622 17:24:44.407940 29680 fusion.cc:314]  in 0.173s (668641 points)
+I0622 17:24:44.409070 29680 fusion.cc:287] Fusing image [256/707] with index 273
+I0622 17:24:44.551026 29680 fusion.cc:314]  in 0.142s (669407 points)
+I0622 17:24:44.552117 29680 fusion.cc:287] Fusing image [257/707] with index 275
+I0622 17:24:44.680510 29680 fusion.cc:314]  in 0.128s (669588 points)
+I0622 17:24:44.681524 29680 fusion.cc:287] Fusing image [258/707] with index 277
+I0622 17:24:44.802775 29680 fusion.cc:314]  in 0.121s (669644 points)
+I0622 17:24:44.803920 29680 fusion.cc:287] Fusing image [259/707] with index 281
+I0622 17:24:44.910470 29680 fusion.cc:314]  in 0.107s (669654 points)
+I0622 17:24:44.911393 29680 fusion.cc:287] Fusing image [260/707] with index 279
+I0622 17:24:45.014047 29680 fusion.cc:314]  in 0.103s (669655 points)
+I0622 17:24:45.015115 29680 fusion.cc:287] Fusing image [261/707] with index 283
+I0622 17:24:45.117576 29680 fusion.cc:314]  in 0.102s (669655 points)
+I0622 17:24:45.118695 29680 fusion.cc:287] Fusing image [262/707] with index 265
+I0622 17:24:45.197059 29680 fusion.cc:314]  in 0.078s (669655 points)
+I0622 17:24:45.197999 29680 fusion.cc:287] Fusing image [263/707] with index 271
+I0622 17:24:45.285822 29680 fusion.cc:314]  in 0.088s (669655 points)
+I0622 17:24:45.286772 29680 fusion.cc:287] Fusing image [264/707] with index 269
+I0622 17:24:45.371713 29680 fusion.cc:314]  in 0.085s (669655 points)
+I0622 17:24:45.372678 29680 fusion.cc:287] Fusing image [265/707] with index 240
+I0622 17:24:45.980522 29680 fusion.cc:314]  in 0.608s (686458 points)
+I0622 17:24:45.981503 29680 fusion.cc:287] Fusing image [266/707] with index 242
+I0622 17:24:46.133088 29680 fusion.cc:314]  in 0.152s (688398 points)
+I0622 17:24:46.134116 29680 fusion.cc:287] Fusing image [267/707] with index 244
+I0622 17:24:46.417527 29680 fusion.cc:314]  in 0.283s (693795 points)
+I0622 17:24:46.418455 29680 fusion.cc:287] Fusing image [268/707] with index 246
+I0622 17:24:46.822695 29680 fusion.cc:314]  in 0.404s (703938 points)
+I0622 17:24:46.823818 29680 fusion.cc:287] Fusing image [269/707] with index 250
+I0622 17:24:47.144076 29680 fusion.cc:314]  in 0.320s (709378 points)
+I0622 17:24:47.145423 29680 fusion.cc:287] Fusing image [270/707] with index 252
+I0622 17:24:47.324203 29680 fusion.cc:314]  in 0.179s (711714 points)
+I0622 17:24:47.325248 29680 fusion.cc:287] Fusing image [271/707] with index 254
+I0622 17:24:47.475889 29680 fusion.cc:314]  in 0.151s (713017 points)
+I0622 17:24:47.476830 29680 fusion.cc:287] Fusing image [272/707] with index 260
+I0622 17:24:47.618710 29680 fusion.cc:314]  in 0.142s (714751 points)
+I0622 17:24:47.619827 29680 fusion.cc:287] Fusing image [273/707] with index 262
+I0622 17:24:47.816231 29680 fusion.cc:314]  in 0.196s (719336 points)
+I0622 17:24:47.817517 29680 fusion.cc:287] Fusing image [274/707] with index 264
+I0622 17:24:48.149586 29680 fusion.cc:314]  in 0.332s (730590 points)
+I0622 17:24:48.150462 29680 fusion.cc:287] Fusing image [275/707] with index 266
+I0622 17:24:48.361280 29680 fusion.cc:314]  in 0.211s (737050 points)
+I0622 17:24:48.362303 29680 fusion.cc:287] Fusing image [276/707] with index 280
+I0622 17:24:48.543179 29680 fusion.cc:314]  in 0.181s (741329 points)
+I0622 17:24:48.544009 29680 fusion.cc:287] Fusing image [277/707] with index 278
+I0622 17:24:48.645107 29680 fusion.cc:314]  in 0.101s (741937 points)
+I0622 17:24:48.646155 29680 fusion.cc:287] Fusing image [278/707] with index 276
+I0622 17:24:48.729959 29680 fusion.cc:314]  in 0.084s (742106 points)
+I0622 17:24:48.731148 29680 fusion.cc:287] Fusing image [279/707] with index 272
+I0622 17:24:48.808579 29680 fusion.cc:314]  in 0.077s (742303 points)
+I0622 17:24:48.809899 29680 fusion.cc:287] Fusing image [280/707] with index 274
+I0622 17:24:48.881637 29680 fusion.cc:314]  in 0.072s (742417 points)
+I0622 17:24:48.882951 29680 fusion.cc:287] Fusing image [281/707] with index 268
+I0622 17:24:48.944523 29680 fusion.cc:314]  in 0.062s (742450 points)
+I0622 17:24:48.945693 29680 fusion.cc:287] Fusing image [282/707] with index 282
+I0622 17:24:49.022746 29680 fusion.cc:314]  in 0.077s (743076 points)
+I0622 17:24:49.023831 29680 fusion.cc:287] Fusing image [283/707] with index 290
+I0622 17:24:49.387754 29680 fusion.cc:314]  in 0.364s (756983 points)
+I0622 17:24:49.388581 29680 fusion.cc:287] Fusing image [284/707] with index 292
+I0622 17:24:49.643898 29680 fusion.cc:314]  in 0.255s (766685 points)
+I0622 17:24:49.644944 29680 fusion.cc:287] Fusing image [285/707] with index 296
+I0622 17:24:49.802397 29680 fusion.cc:314]  in 0.157s (770951 points)
+I0622 17:24:49.803793 29680 fusion.cc:287] Fusing image [286/707] with index 294
+I0622 17:24:49.916342 29680 fusion.cc:314]  in 0.113s (772573 points)
+I0622 17:24:49.917488 29680 fusion.cc:287] Fusing image [287/707] with index 302
+I0622 17:24:50.038925 29680 fusion.cc:314]  in 0.121s (774615 points)
+I0622 17:24:50.040076 29680 fusion.cc:287] Fusing image [288/707] with index 304
+I0622 17:24:50.160791 29680 fusion.cc:314]  in 0.121s (775977 points)
+I0622 17:24:50.161926 29680 fusion.cc:287] Fusing image [289/707] with index 585
+I0622 17:24:50.294433 29680 fusion.cc:314]  in 0.133s (777995 points)
+I0622 17:24:50.295744 29680 fusion.cc:287] Fusing image [290/707] with index 583
+I0622 17:24:50.408334 29680 fusion.cc:314]  in 0.113s (779101 points)
+I0622 17:24:50.409569 29680 fusion.cc:287] Fusing image [291/707] with index 581
+I0622 17:24:50.513936 29680 fusion.cc:314]  in 0.104s (779311 points)
+I0622 17:24:50.514966 29680 fusion.cc:287] Fusing image [292/707] with index 579
+I0622 17:24:50.592763 29680 fusion.cc:314]  in 0.078s (779317 points)
+I0622 17:24:50.594009 29680 fusion.cc:287] Fusing image [293/707] with index 577
+I0622 17:24:50.664964 29680 fusion.cc:314]  in 0.071s (779317 points)
+I0622 17:24:50.665757 29680 fusion.cc:287] Fusing image [294/707] with index 575
+I0622 17:24:50.733667 29680 fusion.cc:314]  in 0.068s (779317 points)
+I0622 17:24:50.734722 29680 fusion.cc:287] Fusing image [295/707] with index 243
+I0622 17:24:50.823463 29680 fusion.cc:314]  in 0.089s (779335 points)
+I0622 17:24:50.824379 29680 fusion.cc:287] Fusing image [296/707] with index 247
+I0622 17:24:50.921074 29680 fusion.cc:314]  in 0.097s (779337 points)
+I0622 17:24:50.922055 29680 fusion.cc:287] Fusing image [297/707] with index 245
+I0622 17:24:51.007685 29680 fusion.cc:314]  in 0.086s (779349 points)
+I0622 17:24:51.008812 29680 fusion.cc:287] Fusing image [298/707] with index 259
+I0622 17:24:51.138475 29680 fusion.cc:314]  in 0.130s (780080 points)
+I0622 17:24:51.139498 29680 fusion.cc:287] Fusing image [299/707] with index 291
+I0622 17:24:51.489140 29680 fusion.cc:314]  in 0.350s (789446 points)
+I0622 17:24:51.490217 29680 fusion.cc:287] Fusing image [300/707] with index 289
+I0622 17:24:51.657140 29680 fusion.cc:314]  in 0.167s (790803 points)
+I0622 17:24:51.658178 29680 fusion.cc:287] Fusing image [301/707] with index 287
+I0622 17:24:51.770454 29680 fusion.cc:314]  in 0.112s (790803 points)
+I0622 17:24:51.771549 29680 fusion.cc:287] Fusing image [302/707] with index 285
+I0622 17:24:51.858170 29680 fusion.cc:314]  in 0.087s (790803 points)
+I0622 17:24:51.859545 29680 fusion.cc:287] Fusing image [303/707] with index 248
+I0622 17:24:51.926188 29680 fusion.cc:314]  in 0.067s (790803 points)
+I0622 17:24:51.927120 29680 fusion.cc:287] Fusing image [304/707] with index 258
+I0622 17:24:51.978565 29680 fusion.cc:314]  in 0.051s (790803 points)
+I0622 17:24:51.979717 29680 fusion.cc:287] Fusing image [305/707] with index 256
+I0622 17:24:52.099970 29680 fusion.cc:314]  in 0.120s (790803 points)
+I0622 17:24:52.101271 29680 fusion.cc:287] Fusing image [306/707] with index 270
+I0622 17:24:52.225505 29680 fusion.cc:314]  in 0.124s (790803 points)
+I0622 17:24:52.226678 29680 fusion.cc:287] Fusing image [307/707] with index 284
+I0622 17:24:52.361654 29680 fusion.cc:314]  in 0.135s (790803 points)
+I0622 17:24:52.362777 29680 fusion.cc:287] Fusing image [308/707] with index 286
+I0622 17:24:52.452656 29680 fusion.cc:314]  in 0.090s (790803 points)
+I0622 17:24:52.453806 29680 fusion.cc:287] Fusing image [309/707] with index 288
+I0622 17:24:52.517535 29680 fusion.cc:314]  in 0.064s (790803 points)
+I0622 17:24:52.518590 29680 fusion.cc:287] Fusing image [310/707] with index 293
+I0622 17:24:52.816243 29680 fusion.cc:314]  in 0.298s (798600 points)
+I0622 17:24:52.817277 29680 fusion.cc:287] Fusing image [311/707] with index 295
+I0622 17:24:53.088560 29680 fusion.cc:314]  in 0.271s (805614 points)
+I0622 17:24:53.089418 29680 fusion.cc:287] Fusing image [312/707] with index 297
+I0622 17:24:53.257954 29680 fusion.cc:314]  in 0.169s (807358 points)
+I0622 17:24:53.258855 29680 fusion.cc:287] Fusing image [313/707] with index 299
+I0622 17:24:53.387804 29680 fusion.cc:314]  in 0.129s (807837 points)
+I0622 17:24:53.388818 29680 fusion.cc:287] Fusing image [314/707] with index 301
+I0622 17:24:53.537333 29680 fusion.cc:314]  in 0.149s (809013 points)
+I0622 17:24:53.538354 29680 fusion.cc:287] Fusing image [315/707] with index 303
+I0622 17:24:53.669111 29680 fusion.cc:314]  in 0.131s (809813 points)
+I0622 17:24:53.670419 29680 fusion.cc:287] Fusing image [316/707] with index 305
+I0622 17:24:53.806418 29680 fusion.cc:314]  in 0.136s (810497 points)
+I0622 17:24:53.807508 29680 fusion.cc:287] Fusing image [317/707] with index 307
+I0622 17:24:53.922145 29680 fusion.cc:314]  in 0.115s (810976 points)
+I0622 17:24:53.923100 29680 fusion.cc:287] Fusing image [318/707] with index 586
+I0622 17:24:54.079830 29680 fusion.cc:314]  in 0.157s (812408 points)
+I0622 17:24:54.080766 29680 fusion.cc:287] Fusing image [319/707] with index 588
+I0622 17:24:54.184115 29680 fusion.cc:314]  in 0.103s (812662 points)
+I0622 17:24:54.185111 29680 fusion.cc:287] Fusing image [320/707] with index 584
+I0622 17:24:54.370890 29680 fusion.cc:314]  in 0.186s (815449 points)
+I0622 17:24:54.372013 29680 fusion.cc:287] Fusing image [321/707] with index 582
+I0622 17:24:54.788558 29680 fusion.cc:314]  in 0.417s (825396 points)
+I0622 17:24:54.789413 29680 fusion.cc:287] Fusing image [322/707] with index 580
+I0622 17:24:55.104645 29680 fusion.cc:314]  in 0.315s (834127 points)
+I0622 17:24:55.105563 29680 fusion.cc:287] Fusing image [323/707] with index 578
+I0622 17:24:55.367909 29680 fusion.cc:314]  in 0.262s (840333 points)
+I0622 17:24:55.368948 29680 fusion.cc:287] Fusing image [324/707] with index 576
+I0622 17:24:55.635103 29680 fusion.cc:314]  in 0.266s (847627 points)
+I0622 17:24:55.636153 29680 fusion.cc:287] Fusing image [325/707] with index 572
+I0622 17:24:55.912545 29680 fusion.cc:314]  in 0.276s (856269 points)
+I0622 17:24:55.913794 29680 fusion.cc:287] Fusing image [326/707] with index 564
+I0622 17:24:56.144155 29680 fusion.cc:314]  in 0.230s (862493 points)
+I0622 17:24:56.145253 29680 fusion.cc:287] Fusing image [327/707] with index 562
+I0622 17:24:56.285876 29680 fusion.cc:314]  in 0.141s (863847 points)
+I0622 17:24:56.287040 29680 fusion.cc:287] Fusing image [328/707] with index 570
+I0622 17:24:56.431612 29680 fusion.cc:314]  in 0.145s (864724 points)
+I0622 17:24:56.432771 29680 fusion.cc:287] Fusing image [329/707] with index 558
+I0622 17:24:56.582609 29680 fusion.cc:314]  in 0.150s (865882 points)
+I0622 17:24:56.583506 29680 fusion.cc:287] Fusing image [330/707] with index 560
+I0622 17:24:56.707556 29680 fusion.cc:314]  in 0.124s (866423 points)
+I0622 17:24:56.708673 29680 fusion.cc:287] Fusing image [331/707] with index 556
+I0622 17:24:56.835192 29680 fusion.cc:314]  in 0.127s (867237 points)
+I0622 17:24:56.836442 29680 fusion.cc:287] Fusing image [332/707] with index 554
+I0622 17:24:57.003386 29680 fusion.cc:314]  in 0.167s (869769 points)
+I0622 17:24:57.004772 29680 fusion.cc:287] Fusing image [333/707] with index 552
+I0622 17:24:57.146136 29680 fusion.cc:314]  in 0.141s (870943 points)
+I0622 17:24:57.147168 29680 fusion.cc:287] Fusing image [334/707] with index 550
+I0622 17:24:57.279228 29680 fusion.cc:314]  in 0.132s (871509 points)
+I0622 17:24:57.280248 29680 fusion.cc:287] Fusing image [335/707] with index 546
+I0622 17:24:57.396266 29680 fusion.cc:314]  in 0.116s (871686 points)
+I0622 17:24:57.397164 29680 fusion.cc:287] Fusing image [336/707] with index 548
+I0622 17:24:57.503347 29680 fusion.cc:314]  in 0.106s (871747 points)
+I0622 17:24:57.504273 29680 fusion.cc:287] Fusing image [337/707] with index 532
+I0622 17:24:57.618130 29680 fusion.cc:314]  in 0.114s (872136 points)
+I0622 17:24:57.624315 29680 fusion.cc:287] Fusing image [338/707] with index 534
+I0622 17:24:57.723189 29680 fusion.cc:314]  in 0.099s (872152 points)
+I0622 17:24:57.724201 29680 fusion.cc:287] Fusing image [339/707] with index 536
+I0622 17:24:57.814028 29680 fusion.cc:314]  in 0.090s (872156 points)
+I0622 17:24:57.814872 29680 fusion.cc:287] Fusing image [340/707] with index 538
+I0622 17:24:57.896687 29680 fusion.cc:314]  in 0.082s (872156 points)
+I0622 17:24:57.897653 29680 fusion.cc:287] Fusing image [341/707] with index 530
+I0622 17:24:57.970031 29680 fusion.cc:314]  in 0.072s (872156 points)
+I0622 17:24:57.970985 29680 fusion.cc:287] Fusing image [342/707] with index 542
+I0622 17:24:58.035625 29680 fusion.cc:314]  in 0.065s (872156 points)
+I0622 17:24:58.036672 29680 fusion.cc:287] Fusing image [343/707] with index 298
+I0622 17:24:58.182015 29680 fusion.cc:314]  in 0.145s (872156 points)
+I0622 17:24:58.183158 29680 fusion.cc:287] Fusing image [344/707] with index 306
+I0622 17:24:58.254369 29680 fusion.cc:314]  in 0.071s (872156 points)
+I0622 17:24:58.255276 29680 fusion.cc:287] Fusing image [345/707] with index 587
+I0622 17:24:58.327294 29680 fusion.cc:314]  in 0.072s (872156 points)
+I0622 17:24:58.328287 29680 fusion.cc:287] Fusing image [346/707] with index 300
+I0622 17:24:58.400072 29680 fusion.cc:314]  in 0.072s (872156 points)
+I0622 17:24:58.401089 29680 fusion.cc:287] Fusing image [347/707] with index 308
+I0622 17:24:59.388157 29680 fusion.cc:314]  in 0.987s (901882 points)
+I0622 17:24:59.389091 29680 fusion.cc:287] Fusing image [348/707] with index 312
+I0622 17:24:59.595258 29680 fusion.cc:314]  in 0.206s (903757 points)
+I0622 17:24:59.596262 29680 fusion.cc:287] Fusing image [349/707] with index 310
+I0622 17:24:59.766997 29680 fusion.cc:314]  in 0.171s (904251 points)
+I0622 17:24:59.768262 29680 fusion.cc:287] Fusing image [350/707] with index 316
+I0622 17:24:59.954496 29680 fusion.cc:314]  in 0.186s (905287 points)
+I0622 17:24:59.955435 29680 fusion.cc:287] Fusing image [351/707] with index 318
+I0622 17:25:00.127832 29680 fusion.cc:314]  in 0.172s (905894 points)
+I0622 17:25:00.129069 29680 fusion.cc:287] Fusing image [352/707] with index 320
+I0622 17:25:00.285187 29680 fusion.cc:314]  in 0.156s (906197 points)
+I0622 17:25:00.286127 29680 fusion.cc:287] Fusing image [353/707] with index 314
+I0622 17:25:00.402467 29680 fusion.cc:314]  in 0.116s (906198 points)
+I0622 17:25:00.403806 29680 fusion.cc:287] Fusing image [354/707] with index 455
+I0622 17:25:00.535917 29680 fusion.cc:314]  in 0.132s (906857 points)
+I0622 17:25:00.537004 29680 fusion.cc:287] Fusing image [355/707] with index 453
+I0622 17:25:00.640458 29680 fusion.cc:314]  in 0.103s (906857 points)
+I0622 17:25:00.641412 29680 fusion.cc:287] Fusing image [356/707] with index 457
+I0622 17:25:00.745110 29680 fusion.cc:314]  in 0.104s (906857 points)
+I0622 17:25:00.746138 29680 fusion.cc:287] Fusing image [357/707] with index 309
+I0622 17:25:02.699666 29680 fusion.cc:314]  in 1.954s (935564 points)
+I0622 17:25:02.700690 29680 fusion.cc:287] Fusing image [358/707] with index 311
+I0622 17:25:03.026444 29680 fusion.cc:314]  in 0.326s (940508 points)
+I0622 17:25:03.027453 29680 fusion.cc:287] Fusing image [359/707] with index 313
+I0622 17:25:03.295842 29680 fusion.cc:314]  in 0.268s (943793 points)
+I0622 17:25:03.296712 29680 fusion.cc:287] Fusing image [360/707] with index 315
+I0622 17:25:03.535468 29680 fusion.cc:314]  in 0.239s (947658 points)
+I0622 17:25:03.536757 29680 fusion.cc:287] Fusing image [361/707] with index 319
+I0622 17:25:03.781389 29680 fusion.cc:314]  in 0.245s (950961 points)
+I0622 17:25:03.782444 29680 fusion.cc:287] Fusing image [362/707] with index 321
+I0622 17:25:03.976963 29680 fusion.cc:314]  in 0.195s (952455 points)
+I0622 17:25:03.978171 29680 fusion.cc:287] Fusing image [363/707] with index 323
+I0622 17:25:04.144637 29680 fusion.cc:314]  in 0.166s (953096 points)
+I0622 17:25:04.145663 29680 fusion.cc:287] Fusing image [364/707] with index 317
+I0622 17:25:04.282179 29680 fusion.cc:314]  in 0.137s (953373 points)
+I0622 17:25:04.283116 29680 fusion.cc:287] Fusing image [365/707] with index 325
+I0622 17:25:04.443969 29680 fusion.cc:314]  in 0.161s (954488 points)
+I0622 17:25:04.445381 29680 fusion.cc:287] Fusing image [366/707] with index 333
+I0622 17:25:04.681876 29680 fusion.cc:314]  in 0.237s (958526 points)
+I0622 17:25:04.682855 29680 fusion.cc:287] Fusing image [367/707] with index 337
+I0622 17:25:04.860635 29680 fusion.cc:314]  in 0.178s (959540 points)
+I0622 17:25:04.861821 29680 fusion.cc:287] Fusing image [368/707] with index 343
+I0622 17:25:05.058542 29680 fusion.cc:314]  in 0.197s (961676 points)
+I0622 17:25:05.059850 29680 fusion.cc:287] Fusing image [369/707] with index 341
+I0622 17:25:05.219003 29680 fusion.cc:314]  in 0.159s (961971 points)
+I0622 17:25:05.220129 29680 fusion.cc:287] Fusing image [370/707] with index 345
+I0622 17:25:05.453195 29680 fusion.cc:314]  in 0.233s (966127 points)
+I0622 17:25:05.454473 29680 fusion.cc:287] Fusing image [371/707] with index 361
+I0622 17:25:05.671319 29680 fusion.cc:314]  in 0.217s (969912 points)
+I0622 17:25:05.672358 29680 fusion.cc:287] Fusing image [372/707] with index 359
+I0622 17:25:05.842470 29680 fusion.cc:314]  in 0.170s (971803 points)
+I0622 17:25:05.843763 29680 fusion.cc:287] Fusing image [373/707] with index 347
+I0622 17:25:05.997627 29680 fusion.cc:314]  in 0.154s (972942 points)
+I0622 17:25:05.998519 29680 fusion.cc:287] Fusing image [374/707] with index 357
+I0622 17:25:06.146862 29680 fusion.cc:314]  in 0.148s (973325 points)
+I0622 17:25:06.147877 29680 fusion.cc:287] Fusing image [375/707] with index 349
+I0622 17:25:06.286166 29680 fusion.cc:314]  in 0.138s (973607 points)
+I0622 17:25:06.287216 29680 fusion.cc:287] Fusing image [376/707] with index 355
+I0622 17:25:06.413632 29680 fusion.cc:314]  in 0.126s (973658 points)
+I0622 17:25:06.414621 29680 fusion.cc:287] Fusing image [377/707] with index 351
+I0622 17:25:06.540573 29680 fusion.cc:314]  in 0.126s (973712 points)
+I0622 17:25:06.541567 29680 fusion.cc:287] Fusing image [378/707] with index 353
+I0622 17:25:06.655534 29680 fusion.cc:314]  in 0.114s (973745 points)
+I0622 17:25:06.656582 29680 fusion.cc:287] Fusing image [379/707] with index 363
+I0622 17:25:06.791105 29680 fusion.cc:314]  in 0.135s (974316 points)
+I0622 17:25:06.792106 29680 fusion.cc:287] Fusing image [380/707] with index 367
+I0622 17:25:07.029049 29680 fusion.cc:314]  in 0.237s (978077 points)
+I0622 17:25:07.030156 29680 fusion.cc:287] Fusing image [381/707] with index 452
+I0622 17:25:07.224937 29680 fusion.cc:314]  in 0.195s (979152 points)
+I0622 17:25:07.226045 29680 fusion.cc:287] Fusing image [382/707] with index 450
+I0622 17:25:07.399243 29680 fusion.cc:314]  in 0.173s (980260 points)
+I0622 17:25:07.400420 29680 fusion.cc:287] Fusing image [383/707] with index 442
+I0622 17:25:07.595826 29680 fusion.cc:314]  in 0.195s (983922 points)
+I0622 17:25:07.596982 29680 fusion.cc:287] Fusing image [384/707] with index 439
+I0622 17:25:07.780900 29680 fusion.cc:314]  in 0.184s (986315 points)
+I0622 17:25:07.782186 29680 fusion.cc:287] Fusing image [385/707] with index 436
+I0622 17:25:07.946775 29680 fusion.cc:314]  in 0.165s (987999 points)
+I0622 17:25:07.948101 29680 fusion.cc:287] Fusing image [386/707] with index 433
+I0622 17:25:08.096900 29680 fusion.cc:314]  in 0.149s (989547 points)
+I0622 17:25:08.097736 29680 fusion.cc:287] Fusing image [387/707] with index 415
+I0622 17:25:08.243963 29680 fusion.cc:314]  in 0.146s (989670 points)
+I0622 17:25:08.244774 29680 fusion.cc:287] Fusing image [388/707] with index 418
+I0622 17:25:08.362815 29680 fusion.cc:314]  in 0.118s (989677 points)
+I0622 17:25:08.363833 29680 fusion.cc:287] Fusing image [389/707] with index 424
+I0622 17:25:08.475054 29680 fusion.cc:314]  in 0.111s (989683 points)
+I0622 17:25:08.476128 29680 fusion.cc:287] Fusing image [390/707] with index 427
+I0622 17:25:08.572957 29680 fusion.cc:314]  in 0.097s (989683 points)
+I0622 17:25:08.574003 29680 fusion.cc:287] Fusing image [391/707] with index 430
+I0622 17:25:08.658928 29680 fusion.cc:314]  in 0.085s (989683 points)
+I0622 17:25:08.659808 29680 fusion.cc:287] Fusing image [392/707] with index 322
+I0622 17:25:08.829638 29680 fusion.cc:314]  in 0.170s (991161 points)
+I0622 17:25:08.830559 29680 fusion.cc:287] Fusing image [393/707] with index 328
+I0622 17:25:09.154872 29680 fusion.cc:314]  in 0.324s (998294 points)
+I0622 17:25:09.155848 29680 fusion.cc:287] Fusing image [394/707] with index 326
+I0622 17:25:09.372244 29680 fusion.cc:314]  in 0.216s (1000536 points)
+I0622 17:25:09.373154 29680 fusion.cc:287] Fusing image [395/707] with index 334
+I0622 17:25:09.616247 29680 fusion.cc:314]  in 0.243s (1006887 points)
+I0622 17:25:09.617597 29680 fusion.cc:287] Fusing image [396/707] with index 332
+I0622 17:25:09.758519 29680 fusion.cc:314]  in 0.141s (1007924 points)
+I0622 17:25:09.759457 29680 fusion.cc:287] Fusing image [397/707] with index 330
+I0622 17:25:09.869331 29680 fusion.cc:314]  in 0.110s (1008460 points)
+I0622 17:25:09.870234 29680 fusion.cc:287] Fusing image [398/707] with index 336
+I0622 17:25:10.016261 29680 fusion.cc:314]  in 0.146s (1010491 points)
+I0622 17:25:10.017526 29680 fusion.cc:287] Fusing image [399/707] with index 338
+I0622 17:25:10.307092 29680 fusion.cc:314]  in 0.290s (1017298 points)
+I0622 17:25:10.308329 29680 fusion.cc:287] Fusing image [400/707] with index 342
+I0622 17:25:10.480465 29680 fusion.cc:314]  in 0.172s (1019336 points)
+I0622 17:25:10.481451 29680 fusion.cc:287] Fusing image [401/707] with index 344
+I0622 17:25:10.616591 29680 fusion.cc:314]  in 0.135s (1020099 points)
+I0622 17:25:10.617833 29680 fusion.cc:287] Fusing image [402/707] with index 350
+I0622 17:25:10.777403 29680 fusion.cc:314]  in 0.160s (1021060 points)
+I0622 17:25:10.778442 29680 fusion.cc:287] Fusing image [403/707] with index 358
+I0622 17:25:10.928122 29680 fusion.cc:314]  in 0.150s (1021781 points)
+I0622 17:25:10.929327 29680 fusion.cc:287] Fusing image [404/707] with index 366
+I0622 17:25:11.154381 29680 fusion.cc:314]  in 0.225s (1027262 points)
+I0622 17:25:11.155359 29680 fusion.cc:287] Fusing image [405/707] with index 408
+I0622 17:25:11.386005 29680 fusion.cc:314]  in 0.231s (1035201 points)
+I0622 17:25:11.387328 29680 fusion.cc:287] Fusing image [406/707] with index 369
+I0622 17:25:11.526302 29680 fusion.cc:314]  in 0.139s (1036300 points)
+I0622 17:25:11.527244 29680 fusion.cc:287] Fusing image [407/707] with index 372
+I0622 17:25:11.645078 29680 fusion.cc:314]  in 0.118s (1036539 points)
+I0622 17:25:11.646116 29680 fusion.cc:287] Fusing image [408/707] with index 375
+I0622 17:25:11.753808 29680 fusion.cc:314]  in 0.108s (1036625 points)
+I0622 17:25:11.754776 29680 fusion.cc:287] Fusing image [409/707] with index 378
+I0622 17:25:11.856637 29680 fusion.cc:314]  in 0.102s (1036684 points)
+I0622 17:25:11.857689 29680 fusion.cc:287] Fusing image [410/707] with index 414
+I0622 17:25:11.938463 29680 fusion.cc:314]  in 0.081s (1036706 points)
+I0622 17:25:11.939523 29680 fusion.cc:287] Fusing image [411/707] with index 411
+I0622 17:25:12.007831 29680 fusion.cc:314]  in 0.068s (1036706 points)
+I0622 17:25:12.008801 29680 fusion.cc:287] Fusing image [412/707] with index 381
+I0622 17:25:12.079640 29680 fusion.cc:314]  in 0.071s (1036706 points)
+I0622 17:25:12.080608 29680 fusion.cc:287] Fusing image [413/707] with index 384
+I0622 17:25:12.153687 29680 fusion.cc:314]  in 0.073s (1036706 points)
+I0622 17:25:12.154615 29680 fusion.cc:287] Fusing image [414/707] with index 324
+I0622 17:25:12.269910 29680 fusion.cc:314]  in 0.115s (1036706 points)
+I0622 17:25:12.271121 29680 fusion.cc:287] Fusing image [415/707] with index 327
+I0622 17:25:12.422235 29680 fusion.cc:314]  in 0.151s (1036716 points)
+I0622 17:25:12.423259 29680 fusion.cc:287] Fusing image [416/707] with index 329
+I0622 17:25:12.549809 29680 fusion.cc:314]  in 0.127s (1036722 points)
+I0622 17:25:12.550770 29680 fusion.cc:287] Fusing image [417/707] with index 331
+I0622 17:25:12.662000 29680 fusion.cc:314]  in 0.111s (1036722 points)
+I0622 17:25:12.662902 29680 fusion.cc:287] Fusing image [418/707] with index 335
+I0622 17:25:12.768710 29680 fusion.cc:314]  in 0.106s (1036722 points)
+I0622 17:25:12.769850 29680 fusion.cc:287] Fusing image [419/707] with index 339
+I0622 17:25:12.868287 29680 fusion.cc:314]  in 0.098s (1036722 points)
+I0622 17:25:12.869118 29680 fusion.cc:287] Fusing image [420/707] with index 340
+I0622 17:25:13.028199 29680 fusion.cc:314]  in 0.159s (1036732 points)
+I0622 17:25:13.029083 29680 fusion.cc:287] Fusing image [421/707] with index 354
+I0622 17:25:13.143986 29680 fusion.cc:314]  in 0.115s (1036736 points)
+I0622 17:25:13.144910 29680 fusion.cc:287] Fusing image [422/707] with index 360
+I0622 17:25:13.248154 29680 fusion.cc:314]  in 0.103s (1036736 points)
+I0622 17:25:13.249300 29680 fusion.cc:287] Fusing image [423/707] with index 356
+I0622 17:25:13.337046 29680 fusion.cc:314]  in 0.088s (1036736 points)
+I0622 17:25:13.338096 29680 fusion.cc:287] Fusing image [424/707] with index 346
+I0622 17:25:13.502470 29680 fusion.cc:314]  in 0.164s (1036736 points)
+I0622 17:25:13.503476 29680 fusion.cc:287] Fusing image [425/707] with index 348
+I0622 17:25:13.586236 29680 fusion.cc:314]  in 0.083s (1036736 points)
+I0622 17:25:13.587199 29680 fusion.cc:287] Fusing image [426/707] with index 352
+I0622 17:25:13.694110 29680 fusion.cc:314]  in 0.107s (1036736 points)
+I0622 17:25:13.695024 29680 fusion.cc:287] Fusing image [427/707] with index 362
+I0622 17:25:13.860641 29680 fusion.cc:314]  in 0.166s (1036736 points)
+I0622 17:25:13.861675 29680 fusion.cc:287] Fusing image [428/707] with index 364
+I0622 17:25:14.002873 29680 fusion.cc:314]  in 0.141s (1036736 points)
+I0622 17:25:14.003916 29680 fusion.cc:287] Fusing image [429/707] with index 432
+I0622 17:25:14.110244 29680 fusion.cc:314]  in 0.106s (1036736 points)
+I0622 17:25:14.111339 29680 fusion.cc:287] Fusing image [430/707] with index 365
+I0622 17:25:14.215144 29680 fusion.cc:314]  in 0.104s (1036736 points)
+I0622 17:25:14.216104 29680 fusion.cc:287] Fusing image [431/707] with index 368
+I0622 17:25:14.899502 29680 fusion.cc:314]  in 0.683s (1058412 points)
+I0622 17:25:14.900719 29680 fusion.cc:287] Fusing image [432/707] with index 407
+I0622 17:25:15.049672 29680 fusion.cc:314]  in 0.149s (1061259 points)
+I0622 17:25:15.050716 29680 fusion.cc:287] Fusing image [433/707] with index 410
+I0622 17:25:15.182089 29680 fusion.cc:314]  in 0.131s (1062755 points)
+I0622 17:25:15.183192 29680 fusion.cc:287] Fusing image [434/707] with index 413
+I0622 17:25:15.333134 29680 fusion.cc:314]  in 0.150s (1064453 points)
+I0622 17:25:15.334242 29680 fusion.cc:287] Fusing image [435/707] with index 419
+I0622 17:25:15.468075 29680 fusion.cc:314]  in 0.134s (1066071 points)
+I0622 17:25:15.469578 29680 fusion.cc:287] Fusing image [436/707] with index 422
+I0622 17:25:15.576537 29680 fusion.cc:314]  in 0.107s (1067074 points)
+I0622 17:25:15.577581 29680 fusion.cc:287] Fusing image [437/707] with index 425
+I0622 17:25:15.675161 29680 fusion.cc:314]  in 0.098s (1067806 points)
+I0622 17:25:15.676151 29680 fusion.cc:287] Fusing image [438/707] with index 428
+I0622 17:25:15.854739 29680 fusion.cc:314]  in 0.179s (1072647 points)
+I0622 17:25:15.855865 29680 fusion.cc:287] Fusing image [439/707] with index 431
+I0622 17:25:15.994043 29680 fusion.cc:314]  in 0.138s (1074341 points)
+I0622 17:25:15.995132 29680 fusion.cc:287] Fusing image [440/707] with index 437
+I0622 17:25:16.125276 29680 fusion.cc:314]  in 0.130s (1075794 points)
+I0622 17:25:16.126658 29680 fusion.cc:287] Fusing image [441/707] with index 440
+I0622 17:25:16.236474 29680 fusion.cc:314]  in 0.110s (1076158 points)
+I0622 17:25:16.237545 29680 fusion.cc:287] Fusing image [442/707] with index 443
+I0622 17:25:16.344892 29680 fusion.cc:314]  in 0.107s (1076320 points)
+I0622 17:25:16.346009 29680 fusion.cc:287] Fusing image [443/707] with index 446
+I0622 17:25:16.447834 29680 fusion.cc:314]  in 0.102s (1076563 points)
+I0622 17:25:16.449004 29680 fusion.cc:287] Fusing image [444/707] with index 406
+I0622 17:25:16.529781 29680 fusion.cc:314]  in 0.081s (1076581 points)
+I0622 17:25:16.530791 29680 fusion.cc:287] Fusing image [445/707] with index 403
+I0622 17:25:16.620173 29680 fusion.cc:314]  in 0.089s (1076581 points)
+I0622 17:25:16.621186 29680 fusion.cc:287] Fusing image [446/707] with index 397
+I0622 17:25:16.705806 29680 fusion.cc:314]  in 0.085s (1076581 points)
+I0622 17:25:16.706936 29680 fusion.cc:287] Fusing image [447/707] with index 400
+I0622 17:25:16.790808 29680 fusion.cc:314]  in 0.084s (1076581 points)
+I0622 17:25:16.791841 29680 fusion.cc:287] Fusing image [448/707] with index 434
+I0622 17:25:16.861559 29680 fusion.cc:314]  in 0.070s (1076581 points)
+I0622 17:25:16.862535 29680 fusion.cc:287] Fusing image [449/707] with index 370
+I0622 17:25:17.312131 29680 fusion.cc:314]  in 0.450s (1103946 points)
+I0622 17:25:17.313011 29680 fusion.cc:287] Fusing image [450/707] with index 373
+I0622 17:25:17.469758 29680 fusion.cc:314]  in 0.157s (1104783 points)
+I0622 17:25:17.470744 29680 fusion.cc:287] Fusing image [451/707] with index 376
+I0622 17:25:17.615077 29680 fusion.cc:314]  in 0.144s (1105174 points)
+I0622 17:25:17.616186 29680 fusion.cc:287] Fusing image [452/707] with index 385
+I0622 17:25:17.755383 29680 fusion.cc:314]  in 0.139s (1106350 points)
+I0622 17:25:17.756402 29680 fusion.cc:287] Fusing image [453/707] with index 391
+I0622 17:25:17.867697 29680 fusion.cc:314]  in 0.111s (1106350 points)
+I0622 17:25:17.868841 29680 fusion.cc:287] Fusing image [454/707] with index 388
+I0622 17:25:17.971678 29680 fusion.cc:314]  in 0.103s (1106350 points)
+I0622 17:25:17.972682 29680 fusion.cc:287] Fusing image [455/707] with index 379
+I0622 17:25:18.071316 29680 fusion.cc:314]  in 0.099s (1106350 points)
+I0622 17:25:18.072312 29680 fusion.cc:287] Fusing image [456/707] with index 409
+I0622 17:25:18.164603 29680 fusion.cc:314]  in 0.092s (1106350 points)
+I0622 17:25:18.165555 29680 fusion.cc:287] Fusing image [457/707] with index 371
+I0622 17:25:18.258756 29680 fusion.cc:314]  in 0.093s (1107032 points)
+I0622 17:25:18.259827 29680 fusion.cc:287] Fusing image [458/707] with index 380
+I0622 17:25:18.416214 29680 fusion.cc:314]  in 0.156s (1112017 points)
+I0622 17:25:18.417179 29680 fusion.cc:287] Fusing image [459/707] with index 377
+I0622 17:25:18.507452 29680 fusion.cc:314]  in 0.090s (1112336 points)
+I0622 17:25:18.508312 29680 fusion.cc:287] Fusing image [460/707] with index 383
+I0622 17:25:18.589306 29680 fusion.cc:314]  in 0.081s (1112430 points)
+I0622 17:25:18.590337 29680 fusion.cc:287] Fusing image [461/707] with index 386
+I0622 17:25:18.664608 29680 fusion.cc:314]  in 0.074s (1112451 points)
+I0622 17:25:18.665866 29680 fusion.cc:287] Fusing image [462/707] with index 389
+I0622 17:25:18.752313 29680 fusion.cc:314]  in 0.086s (1112455 points)
+I0622 17:25:18.753485 29680 fusion.cc:287] Fusing image [463/707] with index 392
+I0622 17:25:18.832018 29680 fusion.cc:314]  in 0.079s (1112455 points)
+I0622 17:25:18.832964 29680 fusion.cc:287] Fusing image [464/707] with index 395
+I0622 17:25:18.902727 29680 fusion.cc:314]  in 0.070s (1112455 points)
+I0622 17:25:18.903887 29680 fusion.cc:287] Fusing image [465/707] with index 374
+I0622 17:25:18.956193 29680 fusion.cc:314]  in 0.052s (1112455 points)
+I0622 17:25:18.957142 29680 fusion.cc:287] Fusing image [466/707] with index 382
+I0622 17:25:19.090610 29680 fusion.cc:314]  in 0.133s (1112455 points)
+I0622 17:25:19.091802 29680 fusion.cc:287] Fusing image [467/707] with index 387
+I0622 17:25:19.227559 29680 fusion.cc:314]  in 0.136s (1112455 points)
+I0622 17:25:19.228458 29680 fusion.cc:287] Fusing image [468/707] with index 390
+I0622 17:25:19.349067 29680 fusion.cc:314]  in 0.121s (1112455 points)
+I0622 17:25:19.350184 29680 fusion.cc:287] Fusing image [469/707] with index 393
+I0622 17:25:19.630576 29680 fusion.cc:314]  in 0.280s (1131411 points)
+I0622 17:25:19.631644 29680 fusion.cc:287] Fusing image [470/707] with index 396
+I0622 17:25:19.755265 29680 fusion.cc:314]  in 0.124s (1131920 points)
+I0622 17:25:19.756132 29680 fusion.cc:287] Fusing image [471/707] with index 402
+I0622 17:25:19.857148 29680 fusion.cc:314]  in 0.101s (1131935 points)
+I0622 17:25:19.858428 29680 fusion.cc:287] Fusing image [472/707] with index 399
+I0622 17:25:19.943753 29680 fusion.cc:314]  in 0.085s (1131935 points)
+I0622 17:25:19.944891 29680 fusion.cc:287] Fusing image [473/707] with index 405
+I0622 17:25:20.016620 29680 fusion.cc:314]  in 0.072s (1131935 points)
+I0622 17:25:20.017709 29680 fusion.cc:287] Fusing image [474/707] with index 394
+I0622 17:25:20.114946 29680 fusion.cc:314]  in 0.097s (1131935 points)
+I0622 17:25:20.115963 29680 fusion.cc:287] Fusing image [475/707] with index 412
+I0622 17:25:20.244616 29680 fusion.cc:314]  in 0.129s (1131935 points)
+I0622 17:25:20.245617 29680 fusion.cc:287] Fusing image [476/707] with index 416
+I0622 17:25:20.308090 29680 fusion.cc:314]  in 0.062s (1131935 points)
+I0622 17:25:20.309031 29680 fusion.cc:287] Fusing image [477/707] with index 417
+I0622 17:25:20.437939 29680 fusion.cc:314]  in 0.129s (1131935 points)
+I0622 17:25:20.438983 29680 fusion.cc:287] Fusing image [478/707] with index 420
+I0622 17:25:20.562302 29680 fusion.cc:314]  in 0.123s (1131935 points)
+I0622 17:25:20.562978 29680 fusion.cc:287] Fusing image [479/707] with index 421
+I0622 17:25:20.688022 29680 fusion.cc:314]  in 0.125s (1131935 points)
+I0622 17:25:20.689349 29680 fusion.cc:287] Fusing image [480/707] with index 423
+I0622 17:25:20.827502 29680 fusion.cc:314]  in 0.138s (1131935 points)
+I0622 17:25:20.828613 29680 fusion.cc:287] Fusing image [481/707] with index 426
+I0622 17:25:20.927999 29680 fusion.cc:314]  in 0.099s (1131935 points)
+I0622 17:25:20.929087 29680 fusion.cc:287] Fusing image [482/707] with index 429
+I0622 17:25:21.063031 29680 fusion.cc:314]  in 0.134s (1131935 points)
+I0622 17:25:21.063961 29680 fusion.cc:287] Fusing image [483/707] with index 435
+I0622 17:25:21.271167 29680 fusion.cc:314]  in 0.207s (1137828 points)
+I0622 17:25:21.272156 29680 fusion.cc:287] Fusing image [484/707] with index 438
+I0622 17:25:21.420550 29680 fusion.cc:314]  in 0.148s (1143033 points)
+I0622 17:25:21.421520 29680 fusion.cc:287] Fusing image [485/707] with index 441
+I0622 17:25:21.544101 29680 fusion.cc:314]  in 0.123s (1144384 points)
+I0622 17:25:21.545135 29680 fusion.cc:287] Fusing image [486/707] with index 447
+I0622 17:25:21.644812 29680 fusion.cc:314]  in 0.100s (1144425 points)
+I0622 17:25:21.645714 29680 fusion.cc:287] Fusing image [487/707] with index 449
+I0622 17:25:21.719357 29680 fusion.cc:314]  in 0.074s (1144425 points)
+I0622 17:25:21.720567 29680 fusion.cc:287] Fusing image [488/707] with index 444
+I0622 17:25:21.789676 29680 fusion.cc:314]  in 0.069s (1144425 points)
+I0622 17:25:21.790670 29680 fusion.cc:287] Fusing image [489/707] with index 445
+I0622 17:25:21.902813 29680 fusion.cc:314]  in 0.112s (1144425 points)
+I0622 17:25:21.903694 29680 fusion.cc:287] Fusing image [490/707] with index 448
+I0622 17:25:21.998317 29680 fusion.cc:314]  in 0.095s (1144425 points)
+I0622 17:25:21.999333 29680 fusion.cc:287] Fusing image [491/707] with index 451
+I0622 17:25:22.113273 29680 fusion.cc:314]  in 0.114s (1144425 points)
+I0622 17:25:22.114245 29680 fusion.cc:287] Fusing image [492/707] with index 454
+I0622 17:25:22.310175 29680 fusion.cc:314]  in 0.196s (1145688 points)
+I0622 17:25:22.311292 29680 fusion.cc:287] Fusing image [493/707] with index 462
+I0622 17:25:22.486974 29680 fusion.cc:314]  in 0.176s (1146666 points)
+I0622 17:25:22.487974 29680 fusion.cc:287] Fusing image [494/707] with index 464
+I0622 17:25:22.729972 29680 fusion.cc:314]  in 0.242s (1150212 points)
+I0622 17:25:22.730700 29680 fusion.cc:287] Fusing image [495/707] with index 466
+I0622 17:25:22.978679 29680 fusion.cc:314]  in 0.248s (1154602 points)
+I0622 17:25:22.979707 29680 fusion.cc:287] Fusing image [496/707] with index 468
+I0622 17:25:23.269668 29680 fusion.cc:314]  in 0.290s (1161702 points)
+I0622 17:25:23.270682 29680 fusion.cc:287] Fusing image [497/707] with index 472
+I0622 17:25:23.549363 29680 fusion.cc:314]  in 0.279s (1169629 points)
+I0622 17:25:23.550534 29680 fusion.cc:287] Fusing image [498/707] with index 470
+I0622 17:25:23.690863 29680 fusion.cc:314]  in 0.140s (1170700 points)
+I0622 17:25:23.691943 29680 fusion.cc:287] Fusing image [499/707] with index 480
+I0622 17:25:23.915042 29680 fusion.cc:314]  in 0.223s (1174967 points)
+I0622 17:25:23.915980 29680 fusion.cc:287] Fusing image [500/707] with index 476
+I0622 17:25:24.060828 29680 fusion.cc:314]  in 0.145s (1175815 points)
+I0622 17:25:24.061847 29680 fusion.cc:287] Fusing image [501/707] with index 486
+I0622 17:25:24.259452 29680 fusion.cc:314]  in 0.198s (1178348 points)
+I0622 17:25:24.260360 29680 fusion.cc:287] Fusing image [502/707] with index 490
+I0622 17:25:24.430017 29680 fusion.cc:314]  in 0.170s (1179901 points)
+I0622 17:25:24.431203 29680 fusion.cc:287] Fusing image [503/707] with index 496
+I0622 17:25:24.618125 29680 fusion.cc:314]  in 0.187s (1181651 points)
+I0622 17:25:24.619346 29680 fusion.cc:287] Fusing image [504/707] with index 498
+I0622 17:25:24.770293 29680 fusion.cc:314]  in 0.151s (1181974 points)
+I0622 17:25:24.771188 29680 fusion.cc:287] Fusing image [505/707] with index 514
+I0622 17:25:24.914022 29680 fusion.cc:314]  in 0.143s (1182372 points)
+I0622 17:25:24.915122 29680 fusion.cc:287] Fusing image [506/707] with index 502
+I0622 17:25:25.043169 29680 fusion.cc:314]  in 0.128s (1182520 points)
+I0622 17:25:25.044564 29680 fusion.cc:287] Fusing image [507/707] with index 504
+I0622 17:25:25.157445 29680 fusion.cc:314]  in 0.113s (1182537 points)
+I0622 17:25:25.158434 29680 fusion.cc:287] Fusing image [508/707] with index 506
+I0622 17:25:25.258977 29680 fusion.cc:314]  in 0.101s (1182537 points)
+I0622 17:25:25.259974 29680 fusion.cc:287] Fusing image [509/707] with index 510
+I0622 17:25:25.356977 29680 fusion.cc:314]  in 0.097s (1182537 points)
+I0622 17:25:25.357849 29680 fusion.cc:287] Fusing image [510/707] with index 512
+I0622 17:25:25.437784 29680 fusion.cc:314]  in 0.080s (1182537 points)
+I0622 17:25:25.438800 29680 fusion.cc:287] Fusing image [511/707] with index 456
+I0622 17:25:25.553800 29680 fusion.cc:314]  in 0.115s (1182545 points)
+I0622 17:25:25.554713 29680 fusion.cc:287] Fusing image [512/707] with index 458
+I0622 17:25:25.659006 29680 fusion.cc:314]  in 0.104s (1182545 points)
+I0622 17:25:25.659986 29680 fusion.cc:287] Fusing image [513/707] with index 460
+I0622 17:25:25.750761 29680 fusion.cc:314]  in 0.091s (1182545 points)
+I0622 17:25:25.751706 29680 fusion.cc:287] Fusing image [514/707] with index 459
+I0622 17:25:26.844298 29680 fusion.cc:314]  in 1.093s (1207893 points)
+I0622 17:25:26.845335 29680 fusion.cc:287] Fusing image [515/707] with index 463
+I0622 17:25:27.161985 29680 fusion.cc:314]  in 0.317s (1212675 points)
+I0622 17:25:27.163021 29680 fusion.cc:287] Fusing image [516/707] with index 471
+I0622 17:25:27.639057 29680 fusion.cc:314]  in 0.476s (1224609 points)
+I0622 17:25:27.640079 29680 fusion.cc:287] Fusing image [517/707] with index 475
+I0622 17:25:27.883291 29680 fusion.cc:314]  in 0.243s (1227285 points)
+I0622 17:25:27.884232 29680 fusion.cc:287] Fusing image [518/707] with index 479
+I0622 17:25:28.241590 29680 fusion.cc:314]  in 0.357s (1234160 points)
+I0622 17:25:28.242731 29680 fusion.cc:287] Fusing image [519/707] with index 481
+I0622 17:25:28.539244 29680 fusion.cc:314]  in 0.297s (1242031 points)
+I0622 17:25:28.540803 29680 fusion.cc:287] Fusing image [520/707] with index 483
+I0622 17:25:28.790165 29680 fusion.cc:314]  in 0.249s (1246058 points)
+I0622 17:25:28.791034 29680 fusion.cc:287] Fusing image [521/707] with index 485
+I0622 17:25:29.066282 29680 fusion.cc:314]  in 0.275s (1252216 points)
+I0622 17:25:29.067440 29680 fusion.cc:287] Fusing image [522/707] with index 487
+I0622 17:25:29.269771 29680 fusion.cc:314]  in 0.202s (1254930 points)
+I0622 17:25:29.270646 29680 fusion.cc:287] Fusing image [523/707] with index 489
+I0622 17:25:29.438228 29680 fusion.cc:314]  in 0.168s (1256992 points)
+I0622 17:25:29.439428 29680 fusion.cc:287] Fusing image [524/707] with index 491
+I0622 17:25:29.607530 29680 fusion.cc:314]  in 0.168s (1259341 points)
+I0622 17:25:29.608556 29680 fusion.cc:287] Fusing image [525/707] with index 495
+I0622 17:25:29.780535 29680 fusion.cc:314]  in 0.172s (1261580 points)
+I0622 17:25:29.781400 29680 fusion.cc:287] Fusing image [526/707] with index 493
+I0622 17:25:29.897379 29680 fusion.cc:314]  in 0.116s (1262153 points)
+I0622 17:25:29.898489 29680 fusion.cc:287] Fusing image [527/707] with index 497
+I0622 17:25:30.032883 29680 fusion.cc:314]  in 0.134s (1263251 points)
+I0622 17:25:30.034170 29680 fusion.cc:287] Fusing image [528/707] with index 499
+I0622 17:25:30.160974 29680 fusion.cc:314]  in 0.127s (1264227 points)
+I0622 17:25:30.162061 29680 fusion.cc:287] Fusing image [529/707] with index 501
+I0622 17:25:30.312988 29680 fusion.cc:314]  in 0.151s (1266110 points)
+I0622 17:25:30.313773 29680 fusion.cc:287] Fusing image [530/707] with index 503
+I0622 17:25:30.487468 29680 fusion.cc:314]  in 0.174s (1269355 points)
+I0622 17:25:30.488481 29680 fusion.cc:287] Fusing image [531/707] with index 507
+I0622 17:25:30.755342 29680 fusion.cc:314]  in 0.267s (1275484 points)
+I0622 17:25:30.756366 29680 fusion.cc:287] Fusing image [532/707] with index 509
+I0622 17:25:30.978575 29680 fusion.cc:314]  in 0.222s (1279569 points)
+I0622 17:25:30.979527 29680 fusion.cc:287] Fusing image [533/707] with index 511
+I0622 17:25:31.171332 29680 fusion.cc:314]  in 0.192s (1282353 points)
+I0622 17:25:31.172401 29680 fusion.cc:287] Fusing image [534/707] with index 515
+I0622 17:25:31.355677 29680 fusion.cc:314]  in 0.183s (1285937 points)
+I0622 17:25:31.356703 29680 fusion.cc:287] Fusing image [535/707] with index 513
+I0622 17:25:31.478583 29680 fusion.cc:314]  in 0.122s (1286394 points)
+I0622 17:25:31.479682 29680 fusion.cc:287] Fusing image [536/707] with index 521
+I0622 17:25:31.591884 29680 fusion.cc:314]  in 0.112s (1286630 points)
+I0622 17:25:31.592996 29680 fusion.cc:287] Fusing image [537/707] with index 523
+I0622 17:25:31.687809 29680 fusion.cc:314]  in 0.095s (1286685 points)
+I0622 17:25:31.688791 29680 fusion.cc:287] Fusing image [538/707] with index 519
+I0622 17:25:31.772231 29680 fusion.cc:314]  in 0.083s (1286727 points)
+I0622 17:25:31.773255 29680 fusion.cc:287] Fusing image [539/707] with index 525
+I0622 17:25:31.888487 29680 fusion.cc:314]  in 0.115s (1288397 points)
+I0622 17:25:31.889822 29680 fusion.cc:287] Fusing image [540/707] with index 527
+I0622 17:25:32.034308 29680 fusion.cc:314]  in 0.144s (1291596 points)
+I0622 17:25:32.035410 29680 fusion.cc:287] Fusing image [541/707] with index 529
+I0622 17:25:32.331593 29680 fusion.cc:314]  in 0.296s (1302045 points)
+I0622 17:25:32.332741 29680 fusion.cc:287] Fusing image [542/707] with index 531
+I0622 17:25:32.503551 29680 fusion.cc:314]  in 0.171s (1306772 points)
+I0622 17:25:32.504529 29680 fusion.cc:287] Fusing image [543/707] with index 533
+I0622 17:25:32.706507 29680 fusion.cc:314]  in 0.202s (1314987 points)
+I0622 17:25:32.707577 29680 fusion.cc:287] Fusing image [544/707] with index 535
+I0622 17:25:32.912047 29680 fusion.cc:314]  in 0.204s (1322627 points)
+I0622 17:25:32.913244 29680 fusion.cc:287] Fusing image [545/707] with index 539
+I0622 17:25:33.103596 29680 fusion.cc:314]  in 0.190s (1326876 points)
+I0622 17:25:33.104470 29680 fusion.cc:287] Fusing image [546/707] with index 541
+I0622 17:25:33.280959 29680 fusion.cc:314]  in 0.177s (1330533 points)
+I0622 17:25:33.282168 29680 fusion.cc:287] Fusing image [547/707] with index 543
+I0622 17:25:33.489094 29680 fusion.cc:314]  in 0.207s (1334335 points)
+I0622 17:25:33.490154 29680 fusion.cc:287] Fusing image [548/707] with index 549
+I0622 17:25:33.673641 29680 fusion.cc:314]  in 0.184s (1338996 points)
+I0622 17:25:33.674780 29680 fusion.cc:287] Fusing image [549/707] with index 547
+I0622 17:25:33.811293 29680 fusion.cc:314]  in 0.137s (1339418 points)
+I0622 17:25:33.812336 29680 fusion.cc:287] Fusing image [550/707] with index 545
+I0622 17:25:33.918061 29680 fusion.cc:314]  in 0.106s (1339483 points)
+I0622 17:25:33.919030 29680 fusion.cc:287] Fusing image [551/707] with index 563
+I0622 17:25:34.038193 29680 fusion.cc:314]  in 0.119s (1339903 points)
+I0622 17:25:34.039113 29680 fusion.cc:287] Fusing image [552/707] with index 559
+I0622 17:25:34.168526 29680 fusion.cc:314]  in 0.129s (1340393 points)
+I0622 17:25:34.169808 29680 fusion.cc:287] Fusing image [553/707] with index 557
+I0622 17:25:34.256743 29680 fusion.cc:314]  in 0.087s (1340399 points)
+I0622 17:25:34.257853 29680 fusion.cc:287] Fusing image [554/707] with index 555
+I0622 17:25:34.349117 29680 fusion.cc:314]  in 0.091s (1340399 points)
+I0622 17:25:34.350075 29680 fusion.cc:287] Fusing image [555/707] with index 553
+I0622 17:25:34.416371 29680 fusion.cc:314]  in 0.066s (1340399 points)
+I0622 17:25:34.417263 29680 fusion.cc:287] Fusing image [556/707] with index 551
+I0622 17:25:34.479833 29680 fusion.cc:314]  in 0.063s (1340399 points)
+I0622 17:25:34.480952 29680 fusion.cc:287] Fusing image [557/707] with index 461
+I0622 17:25:34.612651 29680 fusion.cc:314]  in 0.132s (1340405 points)
+I0622 17:25:34.613745 29680 fusion.cc:287] Fusing image [558/707] with index 467
+I0622 17:25:34.737641 29680 fusion.cc:314]  in 0.124s (1340411 points)
+I0622 17:25:34.738549 29680 fusion.cc:287] Fusing image [559/707] with index 469
+I0622 17:25:34.846351 29680 fusion.cc:314]  in 0.108s (1340414 points)
+I0622 17:25:34.847337 29680 fusion.cc:287] Fusing image [560/707] with index 473
+I0622 17:25:34.940372 29680 fusion.cc:314]  in 0.093s (1340414 points)
+I0622 17:25:34.941370 29680 fusion.cc:287] Fusing image [561/707] with index 477
+I0622 17:25:35.029680 29680 fusion.cc:314]  in 0.088s (1340414 points)
+I0622 17:25:35.030571 29680 fusion.cc:287] Fusing image [562/707] with index 465
+I0622 17:25:35.124883 29680 fusion.cc:314]  in 0.094s (1340414 points)
+I0622 17:25:35.126089 29680 fusion.cc:287] Fusing image [563/707] with index 474
+I0622 17:25:35.308738 29680 fusion.cc:314]  in 0.183s (1340436 points)
+I0622 17:25:35.309612 29680 fusion.cc:287] Fusing image [564/707] with index 478
+I0622 17:25:35.431411 29680 fusion.cc:314]  in 0.122s (1340438 points)
+I0622 17:25:35.432439 29680 fusion.cc:287] Fusing image [565/707] with index 482
+I0622 17:25:35.563094 29680 fusion.cc:314]  in 0.131s (1340439 points)
+I0622 17:25:35.564273 29680 fusion.cc:287] Fusing image [566/707] with index 484
+I0622 17:25:35.681824 29680 fusion.cc:314]  in 0.118s (1340440 points)
+I0622 17:25:35.682698 29680 fusion.cc:287] Fusing image [567/707] with index 488
+I0622 17:25:35.782876 29680 fusion.cc:314]  in 0.100s (1340440 points)
+I0622 17:25:35.783934 29680 fusion.cc:287] Fusing image [568/707] with index 492
+I0622 17:25:35.876868 29680 fusion.cc:314]  in 0.093s (1340440 points)
+I0622 17:25:35.878221 29680 fusion.cc:287] Fusing image [569/707] with index 494
+I0622 17:25:36.017752 29680 fusion.cc:314]  in 0.140s (1340440 points)
+I0622 17:25:36.018648 29680 fusion.cc:287] Fusing image [570/707] with index 500
+I0622 17:25:36.161049 29680 fusion.cc:314]  in 0.142s (1340440 points)
+I0622 17:25:36.162091 29680 fusion.cc:287] Fusing image [571/707] with index 505
+I0622 17:25:36.259696 29680 fusion.cc:314]  in 0.098s (1340440 points)
+I0622 17:25:36.260946 29680 fusion.cc:287] Fusing image [572/707] with index 508
+I0622 17:25:36.406674 29680 fusion.cc:314]  in 0.146s (1340440 points)
+I0622 17:25:36.407734 29680 fusion.cc:287] Fusing image [573/707] with index 516
+I0622 17:25:36.546452 29680 fusion.cc:314]  in 0.139s (1340440 points)
+I0622 17:25:36.547348 29680 fusion.cc:287] Fusing image [574/707] with index 517
+I0622 17:25:36.646257 29680 fusion.cc:314]  in 0.099s (1340440 points)
+I0622 17:25:36.647405 29680 fusion.cc:287] Fusing image [575/707] with index 518
+I0622 17:25:36.934993 29680 fusion.cc:314]  in 0.288s (1340529 points)
+I0622 17:25:36.936080 29680 fusion.cc:287] Fusing image [576/707] with index 520
+I0622 17:25:37.056125 29680 fusion.cc:314]  in 0.120s (1340529 points)
+I0622 17:25:37.057798 29680 fusion.cc:287] Fusing image [577/707] with index 522
+I0622 17:25:37.175400 29680 fusion.cc:314]  in 0.118s (1340529 points)
+I0622 17:25:37.176424 29680 fusion.cc:287] Fusing image [578/707] with index 526
+I0622 17:25:37.266052 29680 fusion.cc:314]  in 0.090s (1340529 points)
+I0622 17:25:37.267161 29680 fusion.cc:287] Fusing image [579/707] with index 524
+I0622 17:25:37.424551 29680 fusion.cc:314]  in 0.157s (1340529 points)
+I0622 17:25:37.425870 29680 fusion.cc:287] Fusing image [580/707] with index 528
+I0622 17:25:37.507203 29680 fusion.cc:314]  in 0.081s (1340529 points)
+I0622 17:25:37.508127 29680 fusion.cc:287] Fusing image [581/707] with index 537
+I0622 17:25:37.584302 29680 fusion.cc:314]  in 0.076s (1340529 points)
+I0622 17:25:37.585299 29680 fusion.cc:287] Fusing image [582/707] with index 540
+I0622 17:25:37.726493 29680 fusion.cc:314]  in 0.141s (1340529 points)
+I0622 17:25:37.727811 29680 fusion.cc:287] Fusing image [583/707] with index 544
+I0622 17:25:37.867156 29680 fusion.cc:314]  in 0.139s (1340529 points)
+I0622 17:25:37.868171 29680 fusion.cc:287] Fusing image [584/707] with index 561
+I0622 17:25:38.005961 29680 fusion.cc:314]  in 0.138s (1340529 points)
+I0622 17:25:38.007102 29680 fusion.cc:287] Fusing image [585/707] with index 565
+I0622 17:25:38.085995 29680 fusion.cc:314]  in 0.079s (1340529 points)
+I0622 17:25:38.087168 29680 fusion.cc:287] Fusing image [586/707] with index 566
+I0622 17:25:38.166706 29680 fusion.cc:314]  in 0.080s (1340529 points)
+I0622 17:25:38.167685 29680 fusion.cc:287] Fusing image [587/707] with index 568
+I0622 17:25:38.237545 29680 fusion.cc:314]  in 0.070s (1340529 points)
+I0622 17:25:38.238541 29680 fusion.cc:287] Fusing image [588/707] with index 567
+I0622 17:25:38.397472 29680 fusion.cc:314]  in 0.159s (1340529 points)
+I0622 17:25:38.398777 29680 fusion.cc:287] Fusing image [589/707] with index 569
+I0622 17:25:38.485723 29680 fusion.cc:314]  in 0.087s (1340529 points)
+I0622 17:25:38.486770 29680 fusion.cc:287] Fusing image [590/707] with index 571
+I0622 17:25:38.655805 29680 fusion.cc:314]  in 0.169s (1340529 points)
+I0622 17:25:38.656853 29680 fusion.cc:287] Fusing image [591/707] with index 573
+I0622 17:25:38.741029 29680 fusion.cc:314]  in 0.084s (1340529 points)
+I0622 17:25:38.742082 29680 fusion.cc:287] Fusing image [592/707] with index 574
+I0622 17:25:38.820920 29680 fusion.cc:314]  in 0.079s (1340529 points)
+I0622 17:25:38.821856 29680 fusion.cc:287] Fusing image [593/707] with index 592
+I0622 17:25:38.940975 29680 fusion.cc:314]  in 0.119s (1340529 points)
+I0622 17:25:38.942114 29680 fusion.cc:287] Fusing image [594/707] with index 593
+I0622 17:25:39.577059 29680 fusion.cc:314]  in 0.635s (1368907 points)
+I0622 17:25:39.578271 29680 fusion.cc:287] Fusing image [595/707] with index 596
+I0622 17:25:39.820109 29680 fusion.cc:314]  in 0.242s (1374468 points)
+I0622 17:25:39.821048 29680 fusion.cc:287] Fusing image [596/707] with index 595
+I0622 17:25:39.975600 29680 fusion.cc:314]  in 0.155s (1375795 points)
+I0622 17:25:39.976562 29680 fusion.cc:287] Fusing image [597/707] with index 594
+I0622 17:25:40.119354 29680 fusion.cc:314]  in 0.143s (1376731 points)
+I0622 17:25:40.120162 29680 fusion.cc:287] Fusing image [598/707] with index 597
+I0622 17:25:40.274657 29680 fusion.cc:314]  in 0.155s (1378534 points)
+I0622 17:25:40.275835 29680 fusion.cc:287] Fusing image [599/707] with index 598
+I0622 17:25:40.476505 29680 fusion.cc:314]  in 0.201s (1383231 points)
+I0622 17:25:40.477706 29680 fusion.cc:287] Fusing image [600/707] with index 602
+I0622 17:25:40.655573 29680 fusion.cc:314]  in 0.178s (1388465 points)
+I0622 17:25:40.656772 29680 fusion.cc:287] Fusing image [601/707] with index 604
+I0622 17:25:40.782563 29680 fusion.cc:314]  in 0.126s (1389114 points)
+I0622 17:25:40.783577 29680 fusion.cc:287] Fusing image [602/707] with index 603
+I0622 17:25:40.886962 29680 fusion.cc:314]  in 0.103s (1389204 points)
+I0622 17:25:40.887830 29680 fusion.cc:287] Fusing image [603/707] with index 600
+I0622 17:25:40.982585 29680 fusion.cc:314]  in 0.095s (1389246 points)
+I0622 17:25:40.983752 29680 fusion.cc:287] Fusing image [604/707] with index 601
+I0622 17:25:41.060892 29680 fusion.cc:314]  in 0.077s (1389255 points)
+I0622 17:25:41.062081 29680 fusion.cc:287] Fusing image [605/707] with index 605
+I0622 17:25:41.147981 29680 fusion.cc:314]  in 0.086s (1389261 points)
+I0622 17:25:41.149020 29680 fusion.cc:287] Fusing image [606/707] with index 606
+I0622 17:25:41.220207 29680 fusion.cc:314]  in 0.071s (1389261 points)
+I0622 17:25:41.221045 29680 fusion.cc:287] Fusing image [607/707] with index 607
+I0622 17:25:41.283795 29680 fusion.cc:314]  in 0.063s (1389261 points)
+I0622 17:25:41.284754 29680 fusion.cc:287] Fusing image [608/707] with index 608
+I0622 17:25:41.366160 29680 fusion.cc:314]  in 0.081s (1389261 points)
+I0622 17:25:41.367192 29680 fusion.cc:287] Fusing image [609/707] with index 599
+I0622 17:25:41.431938 29680 fusion.cc:314]  in 0.065s (1389261 points)
+I0622 17:25:41.432936 29680 fusion.cc:287] Fusing image [610/707] with index 609
+I0622 17:25:42.165488 29680 fusion.cc:314]  in 0.733s (1418097 points)
+I0622 17:25:42.166710 29680 fusion.cc:287] Fusing image [611/707] with index 611
+I0622 17:25:42.522975 29680 fusion.cc:314]  in 0.356s (1431942 points)
+I0622 17:25:42.523947 29680 fusion.cc:287] Fusing image [612/707] with index 610
+I0622 17:25:42.702277 29680 fusion.cc:314]  in 0.178s (1435492 points)
+I0622 17:25:42.703495 29680 fusion.cc:287] Fusing image [613/707] with index 623
+I0622 17:25:42.830528 29680 fusion.cc:314]  in 0.127s (1437292 points)
+I0622 17:25:42.831553 29680 fusion.cc:287] Fusing image [614/707] with index 624
+I0622 17:25:42.951439 29680 fusion.cc:314]  in 0.120s (1438372 points)
+I0622 17:25:42.952494 29680 fusion.cc:287] Fusing image [615/707] with index 629
+I0622 17:25:43.061803 29680 fusion.cc:314]  in 0.109s (1438900 points)
+I0622 17:25:43.063297 29680 fusion.cc:287] Fusing image [616/707] with index 628
+I0622 17:25:43.154985 29680 fusion.cc:314]  in 0.092s (1439143 points)
+I0622 17:25:43.155983 29680 fusion.cc:287] Fusing image [617/707] with index 630
+I0622 17:25:43.244786 29680 fusion.cc:314]  in 0.089s (1439413 points)
+I0622 17:25:43.245669 29680 fusion.cc:287] Fusing image [618/707] with index 633
+I0622 17:25:43.349905 29680 fusion.cc:314]  in 0.104s (1439806 points)
+I0622 17:25:43.351125 29680 fusion.cc:287] Fusing image [619/707] with index 632
+I0622 17:25:43.431598 29680 fusion.cc:314]  in 0.080s (1439851 points)
+I0622 17:25:43.432931 29680 fusion.cc:287] Fusing image [620/707] with index 634
+I0622 17:25:43.523720 29680 fusion.cc:314]  in 0.091s (1439901 points)
+I0622 17:25:43.524691 29680 fusion.cc:287] Fusing image [621/707] with index 636
+I0622 17:25:43.618285 29680 fusion.cc:314]  in 0.094s (1439930 points)
+I0622 17:25:43.619230 29680 fusion.cc:287] Fusing image [622/707] with index 637
+I0622 17:25:43.701819 29680 fusion.cc:314]  in 0.083s (1439930 points)
+I0622 17:25:43.703059 29680 fusion.cc:287] Fusing image [623/707] with index 635
+I0622 17:25:43.774211 29680 fusion.cc:314]  in 0.071s (1439930 points)
+I0622 17:25:43.775156 29680 fusion.cc:287] Fusing image [624/707] with index 638
+I0622 17:25:43.873755 29680 fusion.cc:314]  in 0.099s (1439930 points)
+I0622 17:25:43.874923 29680 fusion.cc:287] Fusing image [625/707] with index 639
+I0622 17:25:43.970739 29680 fusion.cc:314]  in 0.096s (1439930 points)
+I0622 17:25:43.971836 29680 fusion.cc:287] Fusing image [626/707] with index 612
+I0622 17:25:44.263424 29680 fusion.cc:314]  in 0.292s (1450677 points)
+I0622 17:25:44.264511 29680 fusion.cc:287] Fusing image [627/707] with index 621
+I0622 17:25:44.393920 29680 fusion.cc:314]  in 0.129s (1451886 points)
+I0622 17:25:44.394928 29680 fusion.cc:287] Fusing image [628/707] with index 620
+I0622 17:25:44.552094 29680 fusion.cc:314]  in 0.157s (1454362 points)
+I0622 17:25:44.552958 29680 fusion.cc:287] Fusing image [629/707] with index 613
+I0622 17:25:44.696856 29680 fusion.cc:314]  in 0.144s (1456285 points)
+I0622 17:25:44.697803 29680 fusion.cc:287] Fusing image [630/707] with index 619
+I0622 17:25:44.841367 29680 fusion.cc:314]  in 0.144s (1458714 points)
+I0622 17:25:44.842788 29680 fusion.cc:287] Fusing image [631/707] with index 618
+I0622 17:25:44.987200 29680 fusion.cc:314]  in 0.144s (1461834 points)
+I0622 17:25:44.988220 29680 fusion.cc:287] Fusing image [632/707] with index 614
+I0622 17:25:45.108201 29680 fusion.cc:314]  in 0.120s (1462329 points)
+I0622 17:25:45.109534 29680 fusion.cc:287] Fusing image [633/707] with index 615
+I0622 17:25:45.213887 29680 fusion.cc:314]  in 0.104s (1462344 points)
+I0622 17:25:45.214769 29680 fusion.cc:287] Fusing image [634/707] with index 616
+I0622 17:25:45.300782 29680 fusion.cc:314]  in 0.086s (1462344 points)
+I0622 17:25:45.301710 29680 fusion.cc:287] Fusing image [635/707] with index 617
+I0622 17:25:45.376382 29680 fusion.cc:314]  in 0.075s (1462344 points)
+I0622 17:25:45.377336 29680 fusion.cc:287] Fusing image [636/707] with index 622
+I0622 17:25:45.440517 29680 fusion.cc:314]  in 0.063s (1462344 points)
+I0622 17:25:45.441612 29680 fusion.cc:287] Fusing image [637/707] with index 625
+I0622 17:25:45.498523 29680 fusion.cc:314]  in 0.057s (1462344 points)
+I0622 17:25:45.499557 29680 fusion.cc:287] Fusing image [638/707] with index 626
+I0622 17:25:45.637926 29680 fusion.cc:314]  in 0.138s (1462344 points)
+I0622 17:25:45.639359 29680 fusion.cc:287] Fusing image [639/707] with index 631
+I0622 17:25:45.714704 29680 fusion.cc:314]  in 0.075s (1462344 points)
+I0622 17:25:45.715766 29680 fusion.cc:287] Fusing image [640/707] with index 627
+I0622 17:25:45.823356 29680 fusion.cc:314]  in 0.108s (1462344 points)
+I0622 17:25:45.824317 29680 fusion.cc:287] Fusing image [641/707] with index 640
+I0622 17:25:46.150461 29680 fusion.cc:314]  in 0.326s (1473327 points)
+I0622 17:25:46.151360 29680 fusion.cc:287] Fusing image [642/707] with index 641
+I0622 17:25:46.317004 29680 fusion.cc:314]  in 0.166s (1477475 points)
+I0622 17:25:46.318109 29680 fusion.cc:287] Fusing image [643/707] with index 642
+I0622 17:25:46.738006 29680 fusion.cc:314]  in 0.420s (1495725 points)
+I0622 17:25:46.739073 29680 fusion.cc:287] Fusing image [644/707] with index 643
+I0622 17:25:46.981842 29680 fusion.cc:314]  in 0.243s (1502677 points)
+I0622 17:25:46.983062 29680 fusion.cc:287] Fusing image [645/707] with index 644
+I0622 17:25:47.366362 29680 fusion.cc:314]  in 0.383s (1517236 points)
+I0622 17:25:47.367718 29680 fusion.cc:287] Fusing image [646/707] with index 645
+I0622 17:25:47.562974 29680 fusion.cc:314]  in 0.195s (1519657 points)
+I0622 17:25:47.563902 29680 fusion.cc:287] Fusing image [647/707] with index 648
+I0622 17:25:47.756394 29680 fusion.cc:314]  in 0.193s (1521557 points)
+I0622 17:25:47.757316 29680 fusion.cc:287] Fusing image [648/707] with index 647
+I0622 17:25:47.925869 29680 fusion.cc:314]  in 0.169s (1523290 points)
+I0622 17:25:47.927266 29680 fusion.cc:287] Fusing image [649/707] with index 649
+I0622 17:25:48.141566 29680 fusion.cc:314]  in 0.214s (1524244 points)
+I0622 17:25:48.142961 29680 fusion.cc:287] Fusing image [650/707] with index 650
+I0622 17:25:48.378705 29680 fusion.cc:314]  in 0.236s (1528489 points)
+I0622 17:25:48.379720 29680 fusion.cc:287] Fusing image [651/707] with index 651
+I0622 17:25:48.556790 29680 fusion.cc:314]  in 0.177s (1529989 points)
+I0622 17:25:48.557834 29680 fusion.cc:287] Fusing image [652/707] with index 653
+I0622 17:25:48.702934 29680 fusion.cc:314]  in 0.145s (1530608 points)
+I0622 17:25:48.704211 29680 fusion.cc:287] Fusing image [653/707] with index 652
+I0622 17:25:48.831444 29680 fusion.cc:314]  in 0.127s (1530838 points)
+I0622 17:25:48.832439 29680 fusion.cc:287] Fusing image [654/707] with index 657
+I0622 17:25:48.951026 29680 fusion.cc:314]  in 0.119s (1530979 points)
+I0622 17:25:48.952241 29680 fusion.cc:287] Fusing image [655/707] with index 658
+I0622 17:25:49.070691 29680 fusion.cc:314]  in 0.118s (1530999 points)
+I0622 17:25:49.071687 29680 fusion.cc:287] Fusing image [656/707] with index 659
+I0622 17:25:49.173692 29680 fusion.cc:314]  in 0.102s (1531001 points)
+I0622 17:25:49.174894 29680 fusion.cc:287] Fusing image [657/707] with index 660
+I0622 17:25:49.270043 29680 fusion.cc:314]  in 0.095s (1531001 points)
+I0622 17:25:49.271380 29680 fusion.cc:287] Fusing image [658/707] with index 654
+I0622 17:25:49.344683 29680 fusion.cc:314]  in 0.073s (1531001 points)
+I0622 17:25:49.345659 29680 fusion.cc:287] Fusing image [659/707] with index 655
+I0622 17:25:49.420018 29680 fusion.cc:314]  in 0.074s (1531001 points)
+I0622 17:25:49.420868 29680 fusion.cc:287] Fusing image [660/707] with index 661
+I0622 17:25:49.502205 29680 fusion.cc:314]  in 0.081s (1531001 points)
+I0622 17:25:49.503275 29680 fusion.cc:287] Fusing image [661/707] with index 646
+I0622 17:25:49.634624 29680 fusion.cc:314]  in 0.131s (1531001 points)
+I0622 17:25:49.635514 29680 fusion.cc:287] Fusing image [662/707] with index 656
+I0622 17:25:49.772207 29680 fusion.cc:314]  in 0.137s (1531001 points)
+I0622 17:25:49.773310 29680 fusion.cc:287] Fusing image [663/707] with index 662
+I0622 17:25:49.907564 29680 fusion.cc:314]  in 0.134s (1531001 points)
+I0622 17:25:49.908564 29680 fusion.cc:287] Fusing image [664/707] with index 663
+I0622 17:25:50.227950 29680 fusion.cc:314]  in 0.319s (1539852 points)
+I0622 17:25:50.228911 29680 fusion.cc:287] Fusing image [665/707] with index 664
+I0622 17:25:50.362577 29680 fusion.cc:314]  in 0.134s (1539852 points)
+I0622 17:25:50.363487 29680 fusion.cc:287] Fusing image [666/707] with index 665
+I0622 17:25:50.462360 29680 fusion.cc:314]  in 0.099s (1539852 points)
+I0622 17:25:50.463142 29680 fusion.cc:287] Fusing image [667/707] with index 666
+I0622 17:25:50.691361 29680 fusion.cc:314]  in 0.228s (1542971 points)
+I0622 17:25:50.692302 29680 fusion.cc:287] Fusing image [668/707] with index 667
+I0622 17:25:50.893380 29680 fusion.cc:314]  in 0.201s (1545462 points)
+I0622 17:25:50.894225 29680 fusion.cc:287] Fusing image [669/707] with index 668
+I0622 17:25:51.049197 29680 fusion.cc:314]  in 0.155s (1546422 points)
+I0622 17:25:51.050135 29680 fusion.cc:287] Fusing image [670/707] with index 669
+I0622 17:25:51.250586 29680 fusion.cc:314]  in 0.200s (1549589 points)
+I0622 17:25:51.251462 29680 fusion.cc:287] Fusing image [671/707] with index 670
+I0622 17:25:51.464916 29680 fusion.cc:314]  in 0.213s (1553480 points)
+I0622 17:25:51.465822 29680 fusion.cc:287] Fusing image [672/707] with index 671
+I0622 17:25:51.695567 29680 fusion.cc:314]  in 0.230s (1558151 points)
+I0622 17:25:51.696540 29680 fusion.cc:287] Fusing image [673/707] with index 672
+I0622 17:25:51.853281 29680 fusion.cc:314]  in 0.157s (1559198 points)
+I0622 17:25:51.854177 29680 fusion.cc:287] Fusing image [674/707] with index 673
+I0622 17:25:52.008641 29680 fusion.cc:314]  in 0.154s (1559962 points)
+I0622 17:25:52.009639 29680 fusion.cc:287] Fusing image [675/707] with index 674
+I0622 17:25:52.169297 29680 fusion.cc:314]  in 0.160s (1560833 points)
+I0622 17:25:52.170222 29680 fusion.cc:287] Fusing image [676/707] with index 675
+I0622 17:25:52.343750 29680 fusion.cc:314]  in 0.174s (1561944 points)
+I0622 17:25:52.344832 29680 fusion.cc:287] Fusing image [677/707] with index 676
+I0622 17:25:52.515636 29680 fusion.cc:314]  in 0.171s (1562511 points)
+I0622 17:25:52.516783 29680 fusion.cc:287] Fusing image [678/707] with index 677
+I0622 17:25:52.647657 29680 fusion.cc:314]  in 0.131s (1562513 points)
+I0622 17:25:52.648699 29680 fusion.cc:287] Fusing image [679/707] with index 678
+I0622 17:25:52.758464 29680 fusion.cc:314]  in 0.110s (1562513 points)
+I0622 17:25:52.759563 29680 fusion.cc:287] Fusing image [680/707] with index 679
+I0622 17:25:52.851140 29680 fusion.cc:314]  in 0.092s (1562513 points)
+I0622 17:25:52.852458 29680 fusion.cc:287] Fusing image [681/707] with index 680
+I0622 17:25:52.960229 29680 fusion.cc:314]  in 0.108s (1562513 points)
+I0622 17:25:52.961127 29680 fusion.cc:287] Fusing image [682/707] with index 681
+I0622 17:25:53.100281 29680 fusion.cc:314]  in 0.139s (1562513 points)
+I0622 17:25:53.101475 29680 fusion.cc:287] Fusing image [683/707] with index 682
+I0622 17:25:53.213951 29680 fusion.cc:314]  in 0.112s (1562513 points)
+I0622 17:25:53.215003 29680 fusion.cc:287] Fusing image [684/707] with index 683
+I0622 17:25:53.311764 29680 fusion.cc:314]  in 0.097s (1562513 points)
+I0622 17:25:53.312911 29680 fusion.cc:287] Fusing image [685/707] with index 684
+I0622 17:25:53.664315 29680 fusion.cc:314]  in 0.351s (1569590 points)
+I0622 17:25:53.665292 29680 fusion.cc:287] Fusing image [686/707] with index 685
+I0622 17:25:53.931015 29680 fusion.cc:314]  in 0.266s (1574739 points)
+I0622 17:25:53.932265 29680 fusion.cc:287] Fusing image [687/707] with index 686
+I0622 17:25:54.166195 29680 fusion.cc:314]  in 0.234s (1577467 points)
+I0622 17:25:54.167140 29680 fusion.cc:287] Fusing image [688/707] with index 687
+I0622 17:25:54.367848 29680 fusion.cc:314]  in 0.201s (1578935 points)
+I0622 17:25:54.368754 29680 fusion.cc:287] Fusing image [689/707] with index 694
+I0622 17:25:54.649006 29680 fusion.cc:314]  in 0.280s (1582904 points)
+I0622 17:25:54.649876 29680 fusion.cc:287] Fusing image [690/707] with index 695
+I0622 17:25:54.862010 29680 fusion.cc:314]  in 0.212s (1584410 points)
+I0622 17:25:54.863055 29680 fusion.cc:287] Fusing image [691/707] with index 697
+I0622 17:25:55.068094 29680 fusion.cc:314]  in 0.205s (1585976 points)
+I0622 17:25:55.069120 29680 fusion.cc:287] Fusing image [692/707] with index 699
+I0622 17:25:55.281167 29680 fusion.cc:314]  in 0.212s (1587622 points)
+I0622 17:25:55.282198 29680 fusion.cc:287] Fusing image [693/707] with index 698
+I0622 17:25:55.455143 29680 fusion.cc:314]  in 0.173s (1587786 points)
+I0622 17:25:55.456358 29680 fusion.cc:287] Fusing image [694/707] with index 696
+I0622 17:25:55.613508 29680 fusion.cc:314]  in 0.157s (1587813 points)
+I0622 17:25:55.615010 29680 fusion.cc:287] Fusing image [695/707] with index 693
+I0622 17:25:55.769631 29680 fusion.cc:314]  in 0.155s (1587852 points)
+I0622 17:25:55.770646 29680 fusion.cc:287] Fusing image [696/707] with index 692
+I0622 17:25:55.928678 29680 fusion.cc:314]  in 0.158s (1587872 points)
+I0622 17:25:55.929553 29680 fusion.cc:287] Fusing image [697/707] with index 688
+I0622 17:25:56.071141 29680 fusion.cc:314]  in 0.142s (1587938 points)
+I0622 17:25:56.072232 29680 fusion.cc:287] Fusing image [698/707] with index 689
+I0622 17:25:56.199673 29680 fusion.cc:314]  in 0.127s (1587938 points)
+I0622 17:25:56.200721 29680 fusion.cc:287] Fusing image [699/707] with index 691
+I0622 17:25:56.330986 29680 fusion.cc:314]  in 0.130s (1587938 points)
+I0622 17:25:56.332131 29680 fusion.cc:287] Fusing image [700/707] with index 690
+I0622 17:25:56.449544 29680 fusion.cc:314]  in 0.117s (1587938 points)
+I0622 17:25:56.450739 29680 fusion.cc:287] Fusing image [701/707] with index 700
+I0622 17:25:56.625826 29680 fusion.cc:314]  in 0.175s (1588555 points)
+I0622 17:25:56.627086 29680 fusion.cc:287] Fusing image [702/707] with index 701
+I0622 17:25:56.786901 29680 fusion.cc:314]  in 0.160s (1588861 points)
+I0622 17:25:56.788159 29680 fusion.cc:287] Fusing image [703/707] with index 702
+I0622 17:25:56.953692 29680 fusion.cc:314]  in 0.166s (1589093 points)
+I0622 17:25:56.954602 29680 fusion.cc:287] Fusing image [704/707] with index 704
+I0622 17:25:57.123502 29680 fusion.cc:314]  in 0.169s (1589360 points)
+I0622 17:25:57.124848 29680 fusion.cc:287] Fusing image [705/707] with index 703
+I0622 17:25:57.266386 29680 fusion.cc:314]  in 0.142s (1589360 points)
+I0622 17:25:57.267541 29680 fusion.cc:287] Fusing image [706/707] with index 706
+I0622 17:25:57.389494 29680 fusion.cc:314]  in 0.122s (1589360 points)
+I0622 17:25:57.390583 29680 fusion.cc:287] Fusing image [707/707] with index 705
+I0622 17:25:57.504415 29680 fusion.cc:314]  in 0.114s (1589360 points)
+I0622 17:25:57.697724 29680 fusion.cc:341] Number of fused points: 1589360
+I0622 17:25:57.698794 29680 timer.cc:91] Elapsed time: 12.039 [minutes]
+I0622 17:26:08.367189 29679 mvs.cc:204] Writing output: ./fused_medium.ply
+STATUS=0
+-rw-r--r-- 1 root root 41M Jun 22 17:26 ./fused_medium.ply

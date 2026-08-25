@@ -1,0 +1,15 @@
+Train dataset has over 500 images, overriding cache_images to cpu
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+outputs/paraguas-vicentelopez-drone-splatfacto/splatfacto/2026-06-20_191333/nerfstudio_models/step-000029999.ckpt
+[21:42:12] Auto image downscale factor of 4                                                 nerfstudio_dataparser.py:484
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 637/637(100.0%) 5.74 fps 0:00:00 0:02:03
+╭─────────────────── 🎉 Render on split {} Complete 🎉 ────────────────────╮
+│                 ╷                                                        │
+│   Outputs train │ renders/paraguas-vicentelopez-dataset-traj.mp4/train   │
+│                 ╵                                                        │
+╰──────────────────────────────────────────────────────────────────────────╯
+
+real	2m32.914s
+user	1m26.622s
+sys	0m18.189s

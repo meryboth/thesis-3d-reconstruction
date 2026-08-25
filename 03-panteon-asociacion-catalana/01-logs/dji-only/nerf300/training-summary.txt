@@ -1,0 +1,82 @@
+============================================================
+NERF - RESUMEN DE ENTRENAMIENTO
+============================================================
+
+Caso de estudio:
+Panteón Asociación Catalana - Chacarita
+
+Método:
+Nerfacto / Nerfstudio
+
+Dataset de entrenamiento:
+colmap-nerfstudio-nerf300
+
+Origen del dataset:
+Subset derivado del SfM completo generado previamente con COLMAP.
+Las poses de cámara se conservaron del COLMAP exitoso y se redujo
+la densidad de vistas para disminuir los requerimientos de memoria.
+
+Estrategia de reducción:
+Selección aproximada de 1 cámara cada 5 poses del dataset completo.
+
+Resolución utilizada:
+Imágenes reducidas provenientes de images_4.
+Resolución aproximada: 960 x 540 px.
+
+SfM de referencia:
+COLMAP completo previo.
+
+Cámaras registradas en SfM original:
+1506
+
+Entrenamiento:
+Completado correctamente.
+
+Iteraciones:
+30000
+
+Último step:
+29999
+
+Checkpoint final:
+step-000029999.ckpt
+
+Config Nerfstudio:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs-djionly-nerf300\colmap-nerfstudio-nerf300\nerfacto\2026-08-23_191033\config.yml
+
+Checkpoint directory:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs-djionly-nerf300\colmap-nerfstudio-nerf300\nerfacto\2026-08-23_191033\nerfstudio_models
+
+Evaluación cuantitativa:
+Se intentó ejecutar ns-eval sobre el conjunto de evaluación.
+
+Cantidad de imágenes de evaluación detectadas:
+30
+
+Comportamiento de ns-eval:
+El checkpoint se cargó correctamente y comenzó la evaluación de las
+30 imágenes, pero el proceso fue abortado debido a saturación de
+recursos del equipo y congelamiento del sistema.
+
+Resultado de ns-eval:
+No disponible / evaluación completa no finalizada.
+
+Observación metodológica:
+La ausencia de métricas de ns-eval no corresponde a un fallo del
+entrenamiento NeRF. El entrenamiento alcanzó correctamente las
+30000 iteraciones y generó el checkpoint final.
+
+Limitación computacional observada:
+El procesamiento con datasets de mayor tamaño presentó problemas de
+memoria asociados al sistema de carga de imágenes de Nerfstudio.
+La reducción de cantidad de vistas y resolución permitió completar
+exitosamente el entrenamiento.
+
+Estado final:
+ENTRENAMIENTO NERF COMPLETADO
+EVALUACIÓN COMPLETA ABORTADA POR LIMITACIÓN DE RECURSOS
+
+Fecha:
+2026-08-23
+
+============================================================

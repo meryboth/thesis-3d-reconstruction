@@ -1,0 +1,138 @@
+======================================================================
+SFM BENCHMARK — REALITYSCAN
+======================================================================
+
+Proyecto:
+Panteón Asociación Española / Catalana - Chacarita
+
+Dataset:
+dataset-onlydji
+
+Fecha de análisis:
+2026-08-22 16:46:21
+
+Pipeline:
+RealityScan / RealityCapture SfM
+
+Formato analizado:
+COLMAP TXT
+
+Modelo:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\sfm-djionly\colmap-realityscan\sparse\0
+
+----------------------------------------------------------------------
+CAMERA REGISTRATION
+----------------------------------------------------------------------
+
+Imágenes de entrada:
+1507
+
+Imágenes registradas:
+1462
+
+Imágenes no registradas:
+45
+
+Tasa de registro:
+97.014 %
+
+Poses de cámara estimadas:
+1462
+
+Calibraciones / cámaras intrínsecas:
+1462
+
+----------------------------------------------------------------------
+SPARSE POINT CLOUD
+----------------------------------------------------------------------
+
+Points3D:
+0
+
+Observaciones totales:
+0
+
+Mean track length:
+0
+
+Median track length:
+0
+
+Puntos con track = 2:
+0
+
+Puntos con track >= 3:
+0
+
+Puntos con track >= 5:
+0
+
+Puntos con track >= 10:
+0
+
+----------------------------------------------------------------------
+REPROJECTION ERROR
+----------------------------------------------------------------------
+
+Mean reprojection error:
+0
+
+Median reprojection error:
+0
+
+NOTA:
+La unidad del campo ERROR se conserva según el export COLMAP
+producido por RealityScan.
+
+----------------------------------------------------------------------
+SPARSE CLOUD EXTENT
+----------------------------------------------------------------------
+
+X min:
+
+
+X max:
+
+
+X extent:
+0
+
+Y min:
+
+
+Y max:
+
+
+Y extent:
+0
+
+Z min:
+
+
+Z max:
+
+
+Z extent:
+0
+
+NOTA:
+Estas dimensiones están expresadas en el sistema de coordenadas
+del modelo exportado. No asumir metros salvo que el modelo haya
+sido correctamente escalado/georreferenciado.
+
+----------------------------------------------------------------------
+FILES
+----------------------------------------------------------------------
+
+cameras.txt:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\sfm-djionly\colmap-realityscan\sparse\0\cameras.txt
+
+images.txt:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\sfm-djionly\colmap-realityscan\sparse\0\images.txt
+
+points3D.txt:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\sfm-djionly\colmap-realityscan\sparse\0\points3D.txt
+
+======================================================================
+END LOG
+======================================================================

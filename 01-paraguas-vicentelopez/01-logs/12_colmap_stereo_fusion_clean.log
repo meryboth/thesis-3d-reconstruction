@@ -1,0 +1,22 @@
+I0622 11:41:00.685688 29547 misc.cc:205] 
+StereoFusion::Options
+---------------------
+I0622 11:41:00.685797 29547 fusion.cc:87] mask_path: 
+I0622 11:41:00.685802 29547 fusion.cc:88] max_image_size: -1
+I0622 11:41:00.685804 29547 fusion.cc:89] min_num_pixels: 5
+I0622 11:41:00.685806 29547 fusion.cc:90] max_num_pixels: 10000
+I0622 11:41:00.685807 29547 fusion.cc:91] max_traversal_depth: 100
+I0622 11:41:00.685808 29547 fusion.cc:92] max_reproj_error: 2
+I0622 11:41:00.685824 29547 fusion.cc:93] max_depth_error: 0.01
+I0622 11:41:00.685827 29547 fusion.cc:94] max_normal_error: 10
+I0622 11:41:00.685830 29547 fusion.cc:95] check_num_images: 50
+I0622 11:41:00.685832 29547 fusion.cc:96] use_cache: 0
+I0622 11:41:00.685833 29547 fusion.cc:97] cache_size: 32
+I0622 11:41:00.685835 29547 fusion.cc:100] bbox_min: -3.40282e+38 -3.40282e+38 -3.40282e+38
+I0622 11:41:00.685843 29547 fusion.cc:101] bbox_max: 3.40282e+38 3.40282e+38 3.40282e+38
+I0622 11:41:00.685849 29547 fusion.cc:148] Reading workspace...
+I0622 11:41:10.833851 29547 workspace.cc:97] Loading workspace data with 16 threads...
+
+real	1m7.170s
+user	0m37.919s
+sys	2m17.036s
