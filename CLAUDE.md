@@ -27,6 +27,47 @@ Esta carpeta es la versión **curada y duplicada** (no los originales) de los re
 
 Antes de citar una métrica o afirmar "esta fue la versión final", **revisar el README del proyecto correspondiente** — ya tiene la evidencia (path de log, config, o cálculo) de por qué esa corrida específica se tomó como definitiva y no otra (varios sitios tuvieron 2-3 intentos de la misma corrida antes de la buena).
 
+`02-templete-central/03-datasets/hibrido/` — dataset DJI+Insta360 combinado (794 imágenes, 100% registradas), rescatado el 25/08 de un componente COLMAP que el wrapper de Nerfstudio había reportado como fallo casi total (ver `00-auditoria/`). Panteón no tiene su equivalente todavía (esa corrida se está re-haciendo).
+
+`02-templete-central/01-experimentos/hybrid-dji-insta360-colmap/` — corridas propias de la usuaria (no forman parte de la estructura curada `01-logs/02-resultados-finales/03-datasets`) de COLMAP nativo sobre el mismo dataset híbrido de 794 imágenes, para investigar H4 en profundidad. La corrida `run-20260825-183608` dio un resultado real de solo 5/794 imágenes registradas (0,63%, verificado leyendo `images.bin` directamente) — a diferencia del rescate de arriba, acá no hay componente oculto exitoso, es un fallo real. El análisis de `database.db` de esa corrida (`analyze_hybrid_cross_camera_matching.py`, ver `00-auditoria/hybrid-cross-camera-matching/`) muestra que los matches DJI↔Insta360 son sistemáticamente mucho más débiles (43 inliers promedio, máximo 183) que los matches dentro de un mismo dispositivo (689 DJI-DJI, 189 Insta360-Insta360) — el hallazgo geométrico central que explica por qué el dataset híbrido da resultados tan distintos entre corridas (100% vs. 0,63% de registro). Integrado en `thesis/05-tesis/capitulo5_analisis_resultados/` (sección 5.5, H4).
+
+## Scripts de análisis y auditoría
+
+Todos los scripts de análisis viven en **[04-notebooks/scripts/](04-notebooks/scripts/)** (junto a los notebooks Colab originales que replican) — no dejar scripts sueltos en la raíz de `thesis/`. Corren con el Python local (`C:\Users\mboth\AppData\Local\Programs\Python\Python313\python.exe`; solo tiene numpy/scipy/plyfile/PIL/opencv + torch/lpips/scikit-image instalados para el benchmark de renders — no pandas/matplotlib, por eso la salida es JSON+log en vez de gráficos/PDF).
+
+| Script | Qué hace | Salida |
+|---|---|---|
+| `analyze_dense_clouds.py` | Métricas geométricas de nubes de puntos densas (COLMAP/RealityScan) | junto a cada nube, en `02-resultados-finales/` |
+| `analyze_textured_meshes.py` | Métricas de mallas texturizadas (.obj) | junto a cada malla |
+| `analyze_camera_trajectories.py` | Trayectoria de cámaras por dataset (`03-datasets/`) | junto a cada `transforms.json` |
+| `analyze_gaussian_splats.py` | Métricas de cada `splat.ply` (gaussianas, opacidad, escala) | junto a cada export |
+| `analyze_render_benchmark.py` | PSNR/SSIM/LPIPS render vs. ground truth — **pausado**, bug de alineación en Paraguas/Nerfacto sin arreglar | `02-resultados-finales/*/render/` |
+| `analyze_sfm_registration_comparison.py` | Tabla comparativa de registro SfM (DJI/Insta360/híbrido, Templete+Panteón), incluye el hallazgo de componentes COLMAP mal reportados | `00-auditoria/sfm-registration-comparison/` |
+| `analyze_output_weights.py` | Peso de archivo final por técnica (Cap. 4, 4.3.5 / Cap. 2, 2.6.2) | `00-auditoria/output-weights/` |
+| `analyze_failure_rate.py` | Tasa de fallos (catastrófico/inestabilidad) por patrones en logs (Cap. 4, 4.9) | `00-auditoria/failure-rate/` |
+| `analyze_processing_time.py` | Tiempo de procesamiento por etapa, vía mtime de `config.yml`→checkpoint en las carpetas **originales** (no `thesis/`, que tiene fechas de copia) | `00-auditoria/processing-time/` |
+| `parse_colmap_images_bin.py` / `colmap_component_to_nerfstudio.py` | Utilidades para leer/exportar componentes COLMAP fragmentados sin Nerfstudio/COLMAP instalado | usados ad-hoc |
+
+`00-auditoria/` acumula las tablas comparativas cross-sitio (no específicas de un solo caso de estudio) — todas regenerables corriendo el script correspondiente.
+
+Dos scripts adicionales generan gráficos puntuales para los capítulos de tesis (no cross-sitio en el sentido de `build_comparison_charts.py`, se corren aparte): `build_psnr_vs_complejidad.py` (→ `00-auditoria/charts/07_psnr_vs_complejidad.png`, usado en Cap. 5) y `build_pipeline_diagram.py` (→ `05-tesis/capitulo6_pipeline_definitivo/media/pipeline-definitivo.png`).
+
+## Capítulos de tesis (`05-tesis/`)
+
+Cap. 1–3 fueron redactados/editados con la usuaria. **Cap. 4 (Diseño Experimental) fue completado el 25/08** rellenando todos los placeholders `[Completar]` con datos reales de `00-auditoria/` (quedan abiertos solo: valor exacto de fps de extracción, detalle de zonas de acceso restringido del Panteón, y la coordinación de la validación de reproducibilidad externa de B5 — genuinamente pendientes de la usuaria, no inventados). **Cap. 5 (Análisis de Resultados) y Cap. 6 (Pipeline Definitivo y Propuesta HBIM) son borradores nuevos, generados el 25/08** a partir de la evidencia ya recopilada en `00-auditoria/` y en cada caso — la usuaria los va a reescribir/editar y sumarles citas; **B1 (preprocesamiento ComfyUI) nunca se ejecutó y así está documentado explícitamente en ambos capítulos**, sin resultados inventados.
+
+**Regla de separación entre capítulos (corregida el 25/08, no romper de nuevo):** el Cap. 4 se completó en una primera pasada volcando resultados, imágenes e interpretación directamente dentro de cada benchmark (B1–B5) — la usuaria marcó correctamente que eso rompe la estructura estándar de tesis (diseño vs. resultados) y duplicaba contenido con el Cap. 5. Se corrigió: **Cap. 4 = solo diseño** (hipótesis, variables, protocolo de cada benchmark, qué se va a medir) **sin tablas de resultados, sin imágenes de resultados, sin interpretación** — cada benchmark cierra con una línea "Resultados: ver Capítulo 5, sección X". **Cap. 5 = todos los resultados**, con las tablas, las ~19 imágenes/gráficos y toda la interpretación. La única tabla de datos que se dejó en el Cap. 4 es la Tabla 4.6 (conteo de imágenes train/eval por dataset, sección 4.7) porque describe la composición del dataset/setup del experimento, no un resultado del mismo. Al escribir o editar estos capítulos en el futuro, mantener esa separación.
+
+Cap. 7 (Conclusiones) todavía no existe.
+
+## ⚠️ Regla no-negociable: capítulos y sitio web SIEMPRE sincronizados
+
+Cada vez que se cree, edite o reescriba cualquier `.md` dentro de `05-tesis/`, correr la skill **`sync-tesis-web`** (o directamente `06-sitio-web/scripts/prepare_content.py`) antes de dar la tarea por terminada — sin que la usuaria tenga que pedirlo. `06-sitio-web/public/content/` es 100% derivado de `05-tesis/`, nunca se edita a mano ahí. Pedido explícito de la usuaria (26/08): que ambos queden siempre completamente sincronizados.
+
+## Sitio web (`06-sitio-web/`)
+
+App Vite + React (solo frontend) creada el 26/08, versión online de la tesis: lectura continua de los 6 capítulos con nav de capítulos a la izquierda y la conclusión del capítulo activo en el margen derecho (sticky, se actualiza con `IntersectionObserver` al scrollear). El contenido **no está pegado a mano** — `06-sitio-web/scripts/prepare_content.py` lee los `.md` de `05-tesis/` directamente, copia imágenes a `public/content/assets/` (namespaced por capítulo, sin colisiones) y arma `manifest.json`. **Volver a correr ese script después de editar cualquier capítulo.** Ver `06-sitio-web/README.md` para el detalle completo. Node.js se instaló en esta sesión (no estaba, `winget install OpenJS.NodeJS.LTS`) — en Bash/PowerShell hay que refrescar el PATH manualmente en cada llamada (`$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")`), el proceso persistente de la terminal no lo recoge solo. Pendiente explícito de la usuaria: sumar GIFs de los videos de captura para dar contexto de cada relevamiento.
+
 ## Qué falta / qué no está acá
 
 - Pirámides de resolución (`images_2/4/8`) — regenerables automáticamente por Nerfstudio, no se duplicaron.

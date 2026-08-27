@@ -1,0 +1,37 @@
+COLMAP DJI + INSTA360 FAILURE AUDIT
+========================================================================
+
+Dataset híbrido:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-clean
+
+Generated: 2026-08-25 16:40:20
+
+COUNTS
+------
+Base log files found: 226
+Relevant candidate logs: 189
+Confirmed dataset-clean logs: 4
+Failure events detected: 0
+Extracted numeric metrics: 0
+
+FAILURE TYPES
+-------------
+No explicit failure patterns detected.
+
+DERIVED REGISTRATION METRICS
+----------------------------
+No registration rates could be derived.
+
+CONFIRMED HYBRID LOGS
+---------------------
+[Score 22] [CONTENT_HYBRID_DATASET;CONTENT_INSTA360] C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-logs\project\00_project_info.log
+[Score 22] [CONTENT_HYBRID_DATASET;CONTENT_INSTA360] C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\logs\project\00_project_info.log
+[Score 20] [CONTENT_HYBRID_DATASET] C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-logs\clean\00_dataset_info.log
+[Score 20] [CONTENT_HYBRID_DATASET] C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\logs\clean\00_dataset_info.log
+
+IMPORTANT NOTE
+--------------
+Only logs linked to dataset-clean are treated as confirmed hybrid DJI + Insta360 evidence.
+Failure counts represent log occurrences, not necessarily independent experimental runs.
+Use 03_failure-context.txt to inspect the exact mechanism behind each detected failure.
+This audit does not modify, delete, move or rerun any reconstruction.

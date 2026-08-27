@@ -1,0 +1,52 @@
+TIEMPO DE PROCESAMIENTO — por sitio / metodo de captura / etapa
+====================================================================================================
+
+Entrenamiento: mtime(checkpoint final) - mtime(config.yml), leido de las
+carpetas de trabajo originales (no de thesis/, que tiene fechas de copia).
+Render: duracion ya declarada explicitamente en el log/resumen de esa corrida.
+
+
+### 01-paraguas-vicentelopez
+----------------------------------------------------------------------------------------------------
+  [dji     ] entrenamiento-nerfacto 55m 32s
+      inicio: 2026-06-20T20:31:57.351928  fin: 2026-06-20T21:27:29.553414
+      fuente: C:\nerfstudio_work\paraguas-vicentelopez\outputs\paraguas-vicentelopez-drone-nerfacto-v2\nerfacto\2026-06-20_233157
+  [dji     ] entrenamiento-splatfacto 1h 13m 17s
+      inicio: 2026-06-20T16:13:33.190671  fin: 2026-06-20T17:26:50.473016
+      fuente: C:\nerfstudio_work\paraguas-vicentelopez\outputs\paraguas-vicentelopez-drone-splatfacto\splatfacto\2026-06-20_191333
+
+### 02-templete-central
+----------------------------------------------------------------------------------------------------
+  [N/A     ] render               10m 7s
+      fuente: C:\nerfstudio_work\panteon-chacarita\templete-central\logs\experiment-trace\08_metrics\experiment-summary.txt
+  [dji     ] entrenamiento-nerfacto 46m 1s
+      inicio: 2026-08-24T19:02:01.429276  fin: 2026-08-24T19:48:02.160687
+      fuente: C:\nerfstudio_work\panteon-chacarita\templete-central\outputs-templete-nerf308\templete-central-realityscan-nerf308\nerfacto\2026-08-24_220201
+  [dji     ] entrenamiento-splatfacto 33m 41s
+      inicio: 2026-08-24T20:22:20.680074  fin: 2026-08-24T20:56:01.377623
+      fuente: C:\nerfstudio_work\panteon-chacarita\templete-central\outputs-templete-splat\templete-central-realityscan-splat-ds8\splatfacto\2026-08-24_232220
+  [insta360] entrenamiento-nerfacto 1h 38m 18s
+      inicio: 2026-08-12T20:33:28.344831  fin: 2026-08-12T22:11:46.442166
+      fuente: C:\nerfstudio_work\panteon-chacarita\templete-central\outputs\templete-central-insta360-realityscan-nerfacto\nerfacto\2026-08-12_233328
+  [insta360] entrenamiento-splatfacto 1h 1m 53s
+      inicio: 2026-08-12T22:44:08.604070  fin: 2026-08-12T23:46:01.674892
+      fuente: C:\nerfstudio_work\panteon-chacarita\templete-central\outputs\templete-central-insta360-realityscan-splatfacto\splatfacto\2026-08-13_014408
+
+### 03-panteon-asociacion-catalana
+----------------------------------------------------------------------------------------------------
+  [N/A     ] render               1h 20m 39s
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\logs\experiment-trace\07_metrics\experiment-summary.txt
+  [N/A     ] render               3m 12s
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\logs\experiment-trace\07_metrics\experiment-summary.txt
+  [dji     ] entrenamiento-nerfacto 1h 38m 35s
+      inicio: 2026-08-23T16:10:33.309474  fin: 2026-08-23T17:49:07.925375
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs-djionly-nerf300\colmap-nerfstudio-nerf300\nerfacto\2026-08-23_191033
+  [dji     ] entrenamiento-splatfacto 36m 15s
+      inicio: 2026-08-23T21:45:01.971356  fin: 2026-08-23T22:21:16.703708
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs-djionly-splat\panteon-asociacion-catalana-dji-splatfacto-full-ds8\splatfacto\2026-08-24_004501
+  [insta360] entrenamiento-nerfacto 1h 12m 58s
+      inicio: 2026-08-13T10:27:10.488352  fin: 2026-08-13T11:40:08.158677
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs\panteon-catalana-insta360-realityscan-nerfacto\nerfacto\2026-08-13_132710
+  [insta360] entrenamiento-splatfacto 2h 34m 48s
+      inicio: 2026-08-13T12:34:32.211943  fin: 2026-08-13T15:09:19.731048
+      fuente: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\outputs\panteon-catalana-insta360-realityscan-splatfacto\splatfacto\2026-08-13_153432

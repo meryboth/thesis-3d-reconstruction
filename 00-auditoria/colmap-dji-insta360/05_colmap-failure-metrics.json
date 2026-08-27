@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-08-25T16:40:20",
+  "hybrid_dataset": "C:\\nerfstudio_work\\panteon-chacarita\\panteon-asociacion-catalana\\dataset-clean",
+  "counts": {
+    "base_log_files": 226,
+    "relevant_candidate_logs": 189,
+    "confirmed_hybrid_logs": 4,
+    "failure_events": 0,
+    "extracted_metrics": 0
+  },
+  "failure_types": {},
+  "hybrid_logs": [
+    {
+      "file": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-logs\\project\\00_project_info.log",
+      "relevance_score": 22,
+      "signals": "CONTENT_HYBRID_DATASET;CONTENT_INSTA360",
+      "size_mb": 0.005,
+      "last_write_time": "2026-08-25T11:00:27.2805528-03:00"
+    },
+    {
+      "file": "C:\\nerfstudio_work\\panteon-chacarita\\panteon-asociacion-catalana\\logs\\project\\00_project_info.log",
+      "relevance_score": 22,
+      "signals": "CONTENT_HYBRID_DATASET;CONTENT_INSTA360",
+      "size_mb": 0.005,
+      "last_write_time": "2026-08-13T09:39:46.1550925-03:00"
+    },
+    {
+      "file": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-logs\\clean\\00_dataset_info.log",
+      "relevance_score": 20,
+      "signals": "CONTENT_HYBRID_DATASET",
+      "size_mb": 0.001,
+      "last_write_time": "2026-08-25T11:00:27.2805528-03:00"
+    },
+    {
+      "file": "C:\\nerfstudio_work\\panteon-chacarita\\panteon-asociacion-catalana\\logs\\clean\\00_dataset_info.log",
+      "relevance_score": 20,
+      "signals": "CONTENT_HYBRID_DATASET",
+      "size_mb": 0.001,
+      "last_write_time": "2026-08-13T09:39:58.8104218-03:00"
+    }
+  ],
+  "failure_events": [],
+  "extracted_metrics": [],
+  "derived_registration_metrics": []
+}

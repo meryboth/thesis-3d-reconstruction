@@ -1,0 +1,5 @@
+tecnica,dataset,psnr,ssim,lpips
+Nerfacto,raw,19.466,0.6021,0.3230
+Nerfacto,Dataset B (ComfyUI),17.840,0.5454,0.3892
+Splatfacto,raw,23.575,0.7562,0.3356
+Splatfacto,Dataset B (ComfyUI),22.276,0.7536,0.2266

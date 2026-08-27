@@ -1,0 +1,171 @@
+{
+  "artifact": "gaussian-splat",
+  "source": "nerfstudio splatfacto export (splat.ply)",
+  "generated_analysis_at": "2026-08-25T18:00:12.334192",
+  "file": {
+    "path": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\02-resultados-finales\\insta360\\splatfacto\\export\\splat.ply",
+    "size_bytes": 87767305,
+    "size_mb": 83.70142459869385
+  },
+  "gaussian_count": 353894,
+  "property_names": [
+    "x",
+    "y",
+    "z",
+    "nx",
+    "ny",
+    "nz",
+    "f_dc_0",
+    "f_dc_1",
+    "f_dc_2",
+    "f_rest_0",
+    "f_rest_1",
+    "f_rest_2",
+    "f_rest_3",
+    "f_rest_4",
+    "f_rest_5",
+    "f_rest_6",
+    "f_rest_7",
+    "f_rest_8",
+    "f_rest_9",
+    "f_rest_10",
+    "f_rest_11",
+    "f_rest_12",
+    "f_rest_13",
+    "f_rest_14",
+    "f_rest_15",
+    "f_rest_16",
+    "f_rest_17",
+    "f_rest_18",
+    "f_rest_19",
+    "f_rest_20",
+    "f_rest_21",
+    "f_rest_22",
+    "f_rest_23",
+    "f_rest_24",
+    "f_rest_25",
+    "f_rest_26",
+    "f_rest_27",
+    "f_rest_28",
+    "f_rest_29",
+    "f_rest_30",
+    "f_rest_31",
+    "f_rest_32",
+    "f_rest_33",
+    "f_rest_34",
+    "f_rest_35",
+    "f_rest_36",
+    "f_rest_37",
+    "f_rest_38",
+    "f_rest_39",
+    "f_rest_40",
+    "f_rest_41",
+    "f_rest_42",
+    "f_rest_43",
+    "f_rest_44",
+    "opacity",
+    "scale_0",
+    "scale_1",
+    "scale_2",
+    "rot_0",
+    "rot_1",
+    "rot_2",
+    "rot_3"
+  ],
+  "detected_attributes": {
+    "position": [
+      "x",
+      "y",
+      "z"
+    ],
+    "opacity": "opacity",
+    "scale": [
+      "scale_0",
+      "scale_1",
+      "scale_2"
+    ],
+    "rotation": [
+      "rot_0",
+      "rot_1",
+      "rot_2",
+      "rot_3"
+    ],
+    "rgb": [],
+    "spherical_harmonics_count": 48
+  },
+  "geometry": {
+    "bounding_box": {
+      "min": [
+        -6.267799377441406,
+        -6.255782604217529,
+        -5.922770977020264
+      ],
+      "max": [
+        6.369705677032471,
+        6.655282020568848,
+        5.898254871368408
+      ],
+      "extent": [
+        12.637505054473877,
+        12.911064624786377,
+        11.821025848388672
+      ],
+      "volume": 1928.7616586124861
+    },
+    "centroid": [
+      -0.004549798187282716,
+      -0.051858980118857693,
+      0.10381145009481005
+    ],
+    "gaussians_per_bbox_unit": 183.4824942831892
+  },
+  "opacity": {
+    "column": "opacity",
+    "mode": "logit_detected__sigmoid_applied",
+    "raw_min": -5.537295341491699,
+    "raw_max": 17.234174728393555,
+    "alpha_mean": 0.7497057033562408,
+    "alpha_median": 0.9779073164105114,
+    "alpha_std": 0.3284236064569299,
+    "alpha_p05": 0.09999999642986429,
+    "alpha_p95": 0.9999868005404632,
+    "alpha_below_0_05": 8286,
+    "alpha_below_0_10": 19859,
+    "alpha_above_0_50": 262903
+  },
+  "scale": [
+    {
+      "column": "scale_0",
+      "raw_mean": -5.8560367025517985,
+      "raw_std": 2.0322658275758347,
+      "exp_mean": 0.014588492935549726,
+      "exp_median": 0.0031319082228566672,
+      "exp_p95": 0.07145454190176284
+    },
+    {
+      "column": "scale_1",
+      "raw_mean": -6.291425453837831,
+      "raw_std": 2.5878818726680746,
+      "exp_mean": 0.014459535882428244,
+      "exp_median": 0.002727564404886755,
+      "exp_p95": 0.07132452161395504
+    },
+    {
+      "column": "scale_2",
+      "raw_mean": -6.80190734771207,
+      "raw_std": 2.9792878563590817,
+      "exp_mean": 0.01398134165693507,
+      "exp_median": 0.0017262431469676075,
+      "exp_p95": 0.07162387223677306
+    }
+  ],
+  "nearest_neighbor_sample": {
+    "sample_size": 50000,
+    "mean": 0.053070837637598685,
+    "median": 0.011734134628832929,
+    "std": 0.09755485888656631,
+    "p05": 0.0013657528715020466,
+    "p95": 0.2674483795520421
+  },
+  "important_note": "Las metricas de opacidad y escala aplican sigmoid()/exp() automaticamente cuando los valores crudos sugieren estar en logit/log-space (convencion habitual de los exporters de Gaussian Splatting). La distancia a vecinos mas cercanos se calculo sobre una muestra aleatoria reproducible, no sobre todas las gaussianas, para mantener acotado el uso de memoria."
+}

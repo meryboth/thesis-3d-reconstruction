@@ -4,21 +4,21 @@
 
 **<u>1.1 Contexto y motivación</u>**
 
-El patrimonio arquitectónico constituye una de las expresiones más tangibles de la identidad cultural de un pueblo. En Argentina, el conjunto de edificios históricos representa un legado irreemplazable cuya conservación plantea desafíos técnicos, económicos y organizativos.
+El patrimonio arquitectónico constituye una de las expresiones tangibles de la identidad cultural de un pueblo. En Argentina, el conjunto de edificios históricos representa un legado irreemplazable cuya conservación plantea desafíos técnicos, económicos y organizativos.
 
-La documentación tradicional de este patrimonio se ha apoyado históricamente en relevamientos manuales, fotografías bidimensionales y, más recientemente, en planos CAD elaborados por equipos de arquitectura. Sin embargo, estas metodologías presentan limitaciones estructurales: son costosas en tiempo y recursos humanos, difícilmente reproducibles con fidelidad ante intervenciones futuras, y ofrecen una representación parcial de la geometría y materialidad de los edificios. Hasta ahora ninguna metodología o técnica ha permitido plasmar el estado actual de estas obras de forma fehaciente con la capacidad de establecer un archivo que sea el punto de inicio para un plan de preservación.
+La documentación tradicional de este patrimonio se ha apoyado históricamente en fotografías y, más recientemente, en planos CAD elaborados por equipos de arquitectura. Sin embargo, estas metodologías presentan limitaciones: son costosas en tiempo y recursos humanos, difícilmente reproducibles con fidelidad ante intervenciones futuras, y ofrecen una representación parcial de la geometría y materialidad de los edificios. Hasta ahora ninguna técnica ha permitido plasmar el estado actual de estas obras de forma fehaciente con la capacidad de establecer un archivo que sea el punto de inicio para un plan de preservación.
 
-En este contexto, las técnicas de visión computacional —en particular la fotogrametría, las redes neuronales de representación implícita conocidas como Neural Radiance Fields (NeRFs) y el método de Gaussian Splatting— han emergido como alternativas de alto potencial para la digitalización tridimensional de entornos construidos. Su principal ventaja radica en que permiten obtener modelos 3D densos, con textura y geometría detallada, a partir de conjuntos de imágenes convencionales, sin necesidad de equipamiento de escaneo costoso. El avance exponencial de estos métodos en los últimos tres años ha reducido drásticamente los tiempos de procesamiento y ha democratizado el acceso a reconstrucciones de calidad profesional.
+En este contexto, las técnicas de visión computacional —en particular la fotogrametría, las redes neuronales de representación implícita conocidas como Neural Radiance Fields (NeRFs) y el método de Gaussian Splatting (3DGS)— han emergido como alternativas de alto potencial para la digitalización tridimensional de entornos construidos. Su principal ventaja radica en que permiten obtener modelos 3D densos, con textura y geometría detallada, a partir de conjuntos de imágenes sin necesidad de equipamiento de escaneo costoso. 
 
 Sin embargo, la aplicación sistemática de estas técnicas al patrimonio histórico argentino permanece inexplorada en la literatura académica. Hay desconocimiento sobre qué técnicas implementar, cuales son las ventajas de cada una de ellas y cual seria el pipeline o el flujo de trabajo recomendado para llegar a archivos de calidad partiendo de un relevamiento fotográfico. Existe, por lo tanto, una brecha entre el estado del arte tecnológico y su transferencia efectiva al campo de la preservación patrimonial local.
 
-La presente tesis nace de una doble pertenencia disciplinar: la de arquitecta formada en la FADU de la Universidad de Buenos Aires, y la de especialista en Tecnología de la Información que lidera un equipo de I+D en el cruce entre ramas como computer vision y computación espacial. Desde esa posición de intersección, el trabajo se propone investigar, comparar y sistematizar el uso de las tres familias de técnicas de reconstrucción 3D mencionadas, con el objetivo de desarrollar un pipeline reproducible para la documentación patrimonial —desde la captura de imágenes hasta la obtención de geometría texturizada— y evaluar su pertinencia en el contexto específico de la arquitectura histórica argentina.
+La presente tesis nace de una doble pertenencia disciplinar: la de arquitecta formada en la FADU de la Universidad de Buenos Aires, y la de especialista en Tecnología de la Información que lidera un equipo de I+D en el cruce entre ramas como vision por computadora y computación espacial. Desde esa posición de intersección, el trabajo se propone investigar, comparar y sistematizar el uso de las tres familias de técnicas de reconstrucción 3D mencionadas, con el objetivo de desarrollar un pipeline reproducible para la documentación patrimonial —desde la captura de imágenes hasta la obtención de geometría texturizada— y evaluar su pertinencia en el contexto específico de la arquitectura histórica argentina.
 
 **<u>1.2 Planteamiento del problema</u>**
 
 La preservación del patrimonio arquitectónico argentino enfrenta una tensión estructural entre la urgencia de documentar y la escasez de recursos y de soluciones tecnológicas de avanzada que permitan acelerar estos procesos. Las instituciones responsables cuentan con capacidades técnicas y presupuestarias heterogéneas, lo que genera importantes asimetrías en la calidad y profundidad de los relevamientos existentes.
 
-Frente a esta realidad, la adopción de tecnologías de reconstrucción 3D a partir de imágenes representa una oportunidad concreta, ya que se trata de métodos de costo relativamente bajo, escalables y compatibles con flujos de trabajo existentes en arquitectura y gestión patrimonial. Sus resultados pueden integrarse, por ejemplo, en modelos HBIM (Heritage Building Information Modelling), una metodología cada vez más utilizada para documentar, analizar y conservar edificaciones históricas. No obstante, la multiplicidad de herramientas disponibles —COLMAP, Meshroom, RealityScan, Instant-NGP, Nerfstudio, entre otras— y la ausencia de criterios de comparación adaptados al contexto local generan incertidumbre en los equipos técnicos que intentan adoptarlas.
+Frente a esta realidad, la adopción de tecnologías de reconstrucción 3D a partir de imágenes representa una oportunidad concreta, ya que se trata de métodos de costo relativamente bajo, escalables y compatibles con flujos de trabajo existentes en arquitectura y gestión patrimonial. Sus resultados pueden integrarse, por ejemplo, en modelos HBIM (Heritage Building Information Modelling), una metodología cada vez más utilizada para documentar, analizar y conservar edificaciones históricas. No obstante, la multiplicidad de herramientas disponibles —COLMAP, RealityScan, Nerfstudio, entre otras— y la ausencia de criterios de comparación adaptados al contexto local generan incertidumbre en los equipos técnicos que intentan adoptarlas.
 
 En términos más precisos, el problema que aborda esta tesis puede formularse de la siguiente manera:
 
@@ -52,7 +52,7 @@ Desarrollar un pipeline sistemático y reproducible para la reconstrucción trid
 
 - Evaluar la asertividad y escalabilidad de las tres técnicas de reconstrucción ante niveles crecientes de complejidad geométrica y ornamental, mediante un diseño comparativo de tres casos de estudio representativos de baja, media y alta complejidad.
 
-- Validar la compatibilidad de los archivos de output del pipeline con plataformas de visualización web de acceso abierto, y la reproducibilidad del pipeline completo por parte de terceros ajenos al desarrollo de la tesis.
+- Validar la compatibilidad de los archivos de output del pipeline con plataformas de visualización web de acceso abierto. 
 
 **<u>1.4 Justificación y relevancia</u>**
 
@@ -68,7 +68,7 @@ Asimismo, los resultados de esta investigación tienen el potencial de sentar la
 
 **1.4.3 Relevancia personal e interdisciplinar**
 
-Como autora de esta tesis puedo verificar que esta investigación tiene relevancia para mi a nivel personal y profesional, teniendo en cuenta mi formación como arquitecta y mi carrera profesional como investigadora en materia de tecnologías emergentes. Estas dos profesiones me permiten articular con idoneidad los requerimientos técnicos del relevamiento arquitectónico con las capacidades computacionales de las herramientas de visión artificial. Esta doble perspectiva constituye en sí misma un valor metodológico: me permite evaluar los resultados no solo desde los parámetros técnicos, sino también desde la utilidad práctica que ofrecen para el trabajo de equipos de arquitectura y preservación.
+Como autora de esta tesis puedo verificar que esta investigación tiene relevancia para mi a nivel personal y profesional, teniendo en cuenta mi formación como arquitecta y mi carrera profesional como investigadora en materia de tecnologias de vision por computadora. Estas dos profesiones me permiten articular con idoneidad los requerimientos técnicos del relevamiento arquitectónico con las capacidades computacionales de las herramientas de visión artificial. Esta doble perspectiva constituye en sí misma un valor metodológico: me permite evaluar los resultados no solo desde los parámetros técnicos, sino también desde la utilidad práctica que ofrecen para el trabajo de equipos de arquitectura y preservación.
 
 **<u>1.5 Hipótesis de trabajo</u>**
 
@@ -80,7 +80,7 @@ En lugar de una técnica dominante en términos absolutos, se hipotetiza que SfM
 
 **H2 — PREPROCESAMIENTO**
 
-La aplicación de un pipeline de limpieza y preprocesamiento de imágenes —que incluya eliminación de fondos irrelevantes, corrección de exposición y filtrado de fotogramas de baja calidad— produce mejoras medibles en la calidad de la reconstrucción respecto al uso de las imágenes crudas.
+La aplicación de un pipeline de limpieza y preprocesamiento de imágenes —que incluya eliminación de fondos irrelevantes y eliminacion de distractores que puedan alterar la intepretacion del edificio como personas, aves o vehiculos— produce mejoras medibles en la calidad de la reconstrucción respecto al uso de las imágenes crudas.
 
 **H3 — COMPLEJIDAD GEOMÉTRICA**
 

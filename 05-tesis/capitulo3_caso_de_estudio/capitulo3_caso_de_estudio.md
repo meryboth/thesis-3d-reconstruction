@@ -90,7 +90,7 @@ Esta pieza de arquitectura se encuentra en el cementerio de Chacarita y fue dise
 
 No existe literatura o publicaciones oficiales que hagan mención a esta obra, pero tanto la declaración de su patrimonio como su valor arquitectónico son validadas por el decreto oficial que la oficializó como pieza patrimonial. Tal vez lo más interesante de incluir esta pieza sea su estado actual y la urgencia por incluirla dentro de algún programa que ponga como prioridad su restauración. Una nota de 2023 la reconoce como una de las obras de arquitectura en mayor estado de abandono dentro del cementerio de Chacarita e incluso manifiesta peligro de derrumbe.
 
-![](media/image4.png)
+![](media/image4.webp)
 
 *\[Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Española de Socorros Mutuos en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.\]*
 
@@ -253,7 +253,7 @@ El segundo proceso que se lleva adelante en la Etapa 2 es más invasivo a nivel 
 
 Lo esperado como parte de este procesamiento más robusto es la obtención de un dataset que incluya imágenes en formato .png que tenga como protagonista a la obra de arquitectura y que puedan extraerla de su contexto para su correcto análisis. Lo importante de esta etapa es que puede generar la eliminación de piezas o componentes que en realidad son parte de la obra y por eso es importante contar con un último nivel de análisis que permita identificar si hubo fallas en el preprocesamiento y revertir algunas acciones claves que hayan generado errores.
 
-**3.5.3 Datasets generados para la experimentación**
+**3.7.3 Datasets generados para la experimentación**
 
 El pipeline de preprocesamiento genera dos versiones del dataset para cada sesión de captura, que serán utilizadas como variables en el diseño experimental del Capítulo 4:
 
@@ -263,7 +263,7 @@ El pipeline de preprocesamiento genera dos versiones del dataset para cada sesi�
 
 > *\[ Completar con la tabla comparativa de los dos datasets: número de fotogramas / tamaño en MB / porcentaje de fotogramas descartados / tiempo de procesamiento del pipeline. \]*
 
-**3.6 Posibles casos de estudio adicionales**
+**3.8 Posibles casos de estudio adicionales**
 
 El diseño de esta investigación contempla la posibilidad de incorporar casos de estudio adicionales a los mencionados con anterioridad con la intención de validar o enriquecer la propuesta de esta tesis. Los casos adicionales podrán foco en algún aspecto de esta investigación como:
 
@@ -275,7 +275,7 @@ El diseño de esta investigación contempla la posibilidad de incorporar casos d
 
 Estos casos adicionales, que se escapan del diseño de experimentación de este proyecto, buscan enriquecer el corpus académico y experimental de esta tesis y brindar un marco de conocimiento que pueda dar cuenta de la diversidad de aplicativos y casos de uso que podrían resolverse utilizando algoritmos de reconstrucción de 3d.
 
-**3.7 Síntesis del capítulo**
+**3.9 Síntesis del capítulo**
 
 Este capítulo ha presentado los distintos casos de estudio que van a abordarse en esta investigación y ha justificado su selección en función de los criterios patrimoniales, geométricos y operativos definidos. Se ha descrito el equipamiento de captura y el protocolo de relevamiento al momento de realizar los registros de las obras. Se ha detallado el pipeline de preprocesamiento implementado en ComfyUI, que constituye la variable experimental para la hipótesis H3, y se han definido los dos datasets —raw y curado— que serán utilizados como inputs en el diseño experimental del Capítulo 4.
 

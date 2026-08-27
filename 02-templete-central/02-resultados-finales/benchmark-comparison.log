@@ -1,0 +1,11 @@
+RENDER BENCHMARK COMPARISON — 02-templete-central
+======================================================================
+
+method                     PSNR     SSIM    LPIPS        MSE        MAE
+----------------------------------------------------------------------
+dji/nerfacto             19.466   0.6021   0.3230   0.013246   0.077608
+dji/splatfacto           23.575   0.7562   0.3356   0.004887   0.040617
+insta360/nerfacto        18.791   0.5597   0.4486   0.013993   0.080099
+insta360/splatfacto      13.992   0.5229   0.4327   0.041767   0.118495
+
+PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

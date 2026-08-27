@@ -7,15 +7,30 @@
 
 # Mallas texturizadas de fotogrametría clásica (RealityScan) y sus assets — hasta ~4GB, superan
 # incluso el límite de Git LFS (2GB). Los .ply de nube densa/Poisson (más livianos) SÍ se suben.
+# Generalizado a *.fbx/*.rsInfo/*_u1_v1_diffuse.png porque cada sitio exporta con su propio nombre
+# (textured-mesh.*, paraguas.*, etc.) en vez de un nombre fijo.
 textured-mesh.obj
 textured-mesh.mtl
-textured-mesh.obj.rsInfo
-textured-mesh_u1_v1_diffuse.png
+*.fbx
+*.rsInfo
+*_u1_v1_diffuse.png
 
 # Nube de puntos densa sin procesar de RealityScan (~1.1 GB c/u)
 nube-densa.xyz
-nube-densa.xyz.rsInfo
+
+# Bases de datos COLMAP de corridas experimentales sueltas (pueden superar 1-2 GB;
+# ver 0X-*/01-experimentos/, no forman parte de la estructura curada)
+*.db
+
+# Copia de los splats usados por el visor PlayCanvas del sitio web (POC, duplican
+# el export ya versionado en 02-resultados-finales/*/splatfacto/export/splat.ply)
+06-sitio-web/public/archivo-digital/*/scene.ply
+
+# Dependencias de Node (cualquier subcarpeta con su propio package.json)
+node_modules/
 
 # Sistema
 .DS_Store
 Thumbs.db
+__pycache__/
+*.pyc

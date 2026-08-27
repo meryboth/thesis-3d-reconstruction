@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mesh Viewer</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #202020; overflow: hidden; }
+  #status { position: fixed; top: 8px; left: 8px; color: #0f0; font: 14px monospace; z-index: 10; background: rgba(0,0,0,0.6); padding: 6px 10px; }
+</style>
+</head>
+<body>
+<div id="status">Iniciando...</div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+
+const statusEl = document.getElementById("status");
+function log(msg) { statusEl.textContent = msg; console.log(msg); }
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x202020);
+
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.01, 10000);
+camera.position.set(5, 5, 5);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
+scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+dirLight.position.set(1, 1, 1);
+scene.add(dirLight);
+const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.8);
+dirLight2.position.set(-1, 0.5, -1);
+scene.add(dirLight2);
+
+const t0 = performance.now();
+
+const mtlLoader = new MTLLoader();
+mtlLoader.load("textured-mesh.mtl", (materials) => {
+  materials.preload();
+  log("MTL cargado, cargando OBJ...");
+
+  const objLoader = new OBJLoader();
+  objLoader.setMaterials(materials);
+  objLoader.load(
+    "textured-mesh.obj",
+    (object) => {
+      const elapsed = ((performance.now() - t0) / 1000).toFixed(1);
+      log(`Cargado en ${elapsed}s. Encuadrando...`);
+
+      scene.add(object);
+
+      const box = new THREE.Box3().setFromObject(object);
+      const size = box.getSize(new THREE.Vector3());
+      const center = box.getCenter(new THREE.Vector3());
+
+      const maxDim = Math.max(size.x, size.y, size.z);
+      camera.position.copy(center).add(new THREE.Vector3(maxDim * 0.8, maxDim * 0.5, maxDim * 0.8));
+      camera.near = maxDim / 1000;
+      camera.far = maxDim * 10;
+      camera.updateProjectionMatrix();
+
+      controls.target.copy(center);
+      controls.update();
+
+      log(`LISTO — ${elapsed}s — bbox: ${size.x.toFixed(1)} x ${size.y.toFixed(1)} x ${size.z.toFixed(1)}`);
+      window.MESH_READY = true;
+    },
+    (xhr) => {
+      if (xhr.lengthComputable) {
+        const pct = (xhr.loaded / xhr.total * 100).toFixed(1);
+        const mb = (xhr.loaded / 1e6).toFixed(0);
+        log(`Descargando OBJ: ${pct}% (${mb} MB)`);
+      } else {
+        log(`Descargando OBJ: ${(xhr.loaded / 1e6).toFixed(0)} MB`);
+      }
+    },
+    (err) => {
+      log("ERROR cargando OBJ: " + err.message);
+      console.error(err);
+    }
+  );
+}, undefined, (err) => {
+  log("ERROR cargando MTL: " + err.message);
+  console.error(err);
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>

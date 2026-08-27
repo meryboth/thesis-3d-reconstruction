@@ -1,0 +1,11 @@
+CALIDAD DE MATCHING CRUZADO ENTRE DISPOSITIVOS -- Templete Central (hibrido DJI+Insta360)
+====================================================================================================
+
+Tipo de par           pares intentados  con match (>0)   % con match   media inliers   mediana     p90     max
+----------------------------------------------------------------------------------------------------
+DJI-DJI                         118341           57899         48.9%           689.1     177.0  2248.2    8515
+Insta360-Insta360                46971           21476         45.7%           189.0      36.0   457.0    6994
+DJI-Insta360                    149509           59965         40.1%            43.2      35.0    83.0     183
+
+NOTA: 'con match' cuenta pares con al menos 1 inlier geometrico verificado.
+Fuente: database.db de la corrida run-20260825-183608 (COLMAP exhaustive_matcher).

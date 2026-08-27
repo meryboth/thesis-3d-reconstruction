@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 02-templete-central
+Method: dji/splatfacto
+GT dir: C:\nerfstudio_work\panteon-chacarita\templete-central\ns-from-realityscan\images
+Pred dir: C:\nerfstudio_work\panteon-chacarita\templete-central\renders-templete-splat-ds8\templete-splat-dataset-train.mp4\train\rgb
+
+Total paired frames: 1109
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 23.574945 / 1.770048 / 23.685308 / 14.999447 / 27.103636
+SSIM  : 0.756208 / 0.046292 / 0.759520 / 0.652163 / 0.844333
+LPIPS : 0.335600 / 0.053315 / 0.323022 / 0.234387 / 0.477407
+MSE   : 0.004887 / 0.003368 / 0.004280 / 0.001948 / 0.031627
+MAE   : 0.040617 / 0.008372 / 0.038920 / 0.027448 / 0.081802
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

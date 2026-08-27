@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 01-paraguas-vicentelopez
+Method: splatfacto
+GT dir: C:\nerfstudio_work\paraguas-vicentelopez\renders\splatfacto\train\gt-rgb
+Pred dir: C:\nerfstudio_work\paraguas-vicentelopez\renders\splatfacto\train\rgb
+
+Total paired frames: 637
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 30.559354 / 2.009831 / 30.873535 / 25.373663 / 33.443980
+SSIM  : 0.909890 / 0.022225 / 0.912240 / 0.831109 / 0.942877
+LPIPS : 0.129457 / 0.030619 / 0.122716 / 0.086184 / 0.216168
+MSE   : 0.000991 / 0.000555 / 0.000818 / 0.000452 / 0.002902
+MAE   : 0.018959 / 0.004602 / 0.018961 / 0.012979 / 0.032134
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

@@ -3,7 +3,7 @@
   "artifact": "dense-point-cloud",
   "method": "photogrammetry",
   "source": "RealityScan dense reconstruction export",
-  "generated_analysis_at": "2026-08-25T11:59:14.893671",
+  "generated_analysis_at": "2026-08-25T18:03:25.973337",
   "file": {
     "name": "nube-densa.xyz",
     "path": "C:\\nerfstudio_work\\thesis\\02-templete-central\\02-resultados-finales\\dji\\colmap-fotogrametria\\nube-densa.xyz",

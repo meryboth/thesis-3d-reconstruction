@@ -1,0 +1,21 @@
+HYBRID DJI + INSTA360 COLMAP EXPERIMENT
+========================================================================
+
+Dataset:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-clean
+
+Confirmed log files: 4
+Detected failure events: 0
+
+FAILURE DISTRIBUTION
+--------------------
+No explicit failure patterns detected.
+
+REGISTRATION RESULTS
+--------------------
+No registration metrics could be reconstructed.
+
+METHODOLOGICAL NOTE
+-------------------
+This document was reconstructed automatically from historical experiment logs.
+Metrics should be checked against 03_failure-context.txt before being cited as final thesis evidence.

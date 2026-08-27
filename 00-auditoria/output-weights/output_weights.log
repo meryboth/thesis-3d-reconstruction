@@ -1,0 +1,42 @@
+PESO DEL ARCHIVO DE OUTPUT — por sitio / metodo de captura / tecnica
+====================================================================================================
+
+
+### 01-paraguas-vicentelopez :: dji
+----------------------------------------------------------------------------------------------------
+  [nerfacto            ] checkpoint (.ckpt)           step-000029999.ckpt                168.07 MB
+  [sfm-fotogrametria   ] nube/malla (.obj)            textured-mesh.obj                  755.90 MB
+  [sfm-fotogrametria   ] nube/malla (.ply)            fused_medium_high.ply               54.26 MB
+  [sfm-fotogrametria   ] nube/malla (.ply)            fused_medium_high_clean.ply         12.95 MB
+  [sfm-fotogrametria   ] nube/malla (.ply)            meshed-poisson-clean-trim5.ply      29.83 MB
+  [sfm-fotogrametria   ] nube/malla (.ply)            meshed-poisson-medium-high.ply      14.66 MB
+  [splatfacto          ] checkpoint (.ckpt)           step-000029999.ckpt                161.72 MB
+  [splatfacto          ] export final (splat.ply)     splat.ply                           52.35 MB
+
+### 02-templete-central :: dji
+----------------------------------------------------------------------------------------------------
+  [nerfacto            ] checkpoint (.ckpt)           step-000029999.ckpt                167.92 MB
+  [sfm-fotogrametria   ] nube/malla (.obj)            textured-mesh.obj                 3934.31 MB
+  [sfm-fotogrametria   ] nube/malla (.xyz)            nube-densa.xyz                    1143.81 MB
+  [splatfacto          ] checkpoint (.ckpt)           step-000029999.ckpt                231.45 MB
+  [splatfacto          ] export final (splat.ply)     splat.ply                           74.69 MB
+
+### 02-templete-central :: insta360
+----------------------------------------------------------------------------------------------------
+  [nerfacto            ] checkpoint (.ckpt)           step-000029999.ckpt                167.92 MB
+  [splatfacto          ] checkpoint (.ckpt)           step-000029999.ckpt                271.97 MB
+  [splatfacto          ] export final (splat.ply)     splat.ply                           90.90 MB
+
+### 03-panteon-asociacion-catalana :: dji
+----------------------------------------------------------------------------------------------------
+  [nerfacto            ] checkpoint (.ckpt)           step-000029999.ckpt                167.91 MB
+  [sfm-fotogrametria   ] nube/malla (.obj)            textured-mesh.obj                 3993.91 MB
+  [sfm-fotogrametria   ] nube/malla (.xyz)            nube-densa.xyz                    1137.79 MB
+  [splatfacto          ] checkpoint (.ckpt)           step-000029999.ckpt                225.48 MB
+  [splatfacto          ] export final (splat.ply)     splat.ply                           74.58 MB
+
+### 03-panteon-asociacion-catalana :: insta360
+----------------------------------------------------------------------------------------------------
+  [nerfacto            ] checkpoint (.ckpt)           step-000029999.ckpt                167.92 MB
+  [splatfacto          ] checkpoint (.ckpt)           step-000029999.ckpt                251.03 MB
+  [splatfacto          ] export final (splat.ply)     splat.ply                           83.70 MB

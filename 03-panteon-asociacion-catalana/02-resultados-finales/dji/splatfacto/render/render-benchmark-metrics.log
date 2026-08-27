@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 03-panteon-asociacion-catalana
+Method: dji/splatfacto
+GT dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\splat\panteon-catalan-splat-ds8-train\train\gt-rgb
+Pred dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\splat\panteon-catalan-splat-ds8-train\train\rgb
+
+Total paired frames: 1356
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 25.939255 / 2.117485 / 26.136832 / 18.180808 / 30.048878
+SSIM  : 0.858070 / 0.066708 / 0.869307 / 0.368444 / 0.919024
+LPIPS : 0.162513 / 0.077042 / 0.139278 / 0.087859 / 0.684714
+MSE   : 0.002919 / 0.001896 / 0.002434 / 0.000989 / 0.015203
+MAE   : 0.034594 / 0.010592 / 0.031812 / 0.019859 / 0.086093
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

@@ -6,7 +6,7 @@ Este capítulo tiene como finalidad profundizar acerca del diseño experimental 
 
 Es fundamental comprender el rol que ocupa dentro de este diseño experimental los tres casos de estudio elegidos, (Los Paraguas de Amancio Williams, el templete del Sexto Panteón de Chacarita y el Panteón de la Asociación Española de Socorros Mutuos, también dentro del cementerio de la Chacarita), que conteniendo un nivel de complejidad arquitectónica variable entran en juego dentro de este experimento para ofrecernos un panorama más completo sobre el potencial de los algoritmos de reconstrucción en tres dimensiones. Este capítulo opera como un puente de conexión entre el Capítulo 2 donde planteamos el marco teórico, el Capítulo 3 donde profundizamos acerca de los casos de estudio y la adquisición de datos, y el Capítulo 5 donde ya se profundizan con mayor detalle los resultados obtenidos.
 
-**4.1 Hipótesis operacionales**
+**<u>4.1 Hipótesis operacionales</u>**
 
 A continuación se especifican las hipótesis operacionales de esta investigación, con afirmaciones específicas, falsificables y medibles que van a guiar el curso de cada uno de los experimentos con el fin de lograr validación.
 
@@ -48,9 +48,9 @@ Los resultados obtenidos mediante SfM, NeRF y 3DGS presentan diferentes grados d
 
 Esta hipótesis será evaluada a partir de los resultados obtenidos para los tres casos de estudio, comparando las posibilidades y limitaciones de publicación web de los modelos generados mediante cada una de las técnicas.
 
-> **Criterio de contrastación**: *Los resultados obtenidos mediante SfM, NeRF y 3DGS para los tres casos de estudio serán evaluados en función de su aptitud para formar parte de un archivo digital de acceso web. Se considerarán aspectos como la compatibilidad con visores web, la facilidad de publicación y acceso, el rendimiento durante la visualización y la calidad de representación obtenida. La comparación permitirá identificar qué técnica y tipo de resultadore sulta más adecuado para este propósito.*
+> **Criterio de contrastación**: *Los resultados obtenidos mediante SfM, NeRF y 3DGS para los tres casos de estudio serán evaluados en función de su aptitud para formar parte de un archivo digital de acceso web. Se considerarán aspectos como la compatibilidad con visores web, la facilidad de publicación y acceso, el rendimiento durante la visualización y la calidad de representación obtenida. La comparación permitirá identificar qué técnica y tipo de resultado resulta más adecuado para este propósito.*
 
-**4.2 Casos de estudio y su rol en el diseño experimental**
+**<u>4.2 Casos de estudio y su rol en el diseño experimental</u>**
 
 Los tres casos de estudio seleccionados cumplen funciones diferenciadas dentro del diseño experimental, de acuerdo con las hipótesis planteadas. En lugar de aplicar la totalidad de los experimentos sobre los tres edificios, cada hipótesis se evalúa sobre los casos necesarios para responder a la pregunta específica que plantea. Esta estrategia permite reducir la cantidad de procesamientos y mantener un alcance experimental acorde con los objetivos de la investigación.
 
@@ -77,11 +77,11 @@ Finalmente, H5 reutiliza los resultados generados mediante SfM, NeRF y 3DGS para
 
 *Tabla 4.1 — Matriz de relación entre casos de estudio, técnicas y benchmarks experimentales.*
 
-**4.3 Variables del experimento**
+**<u>4.3 Variables del experimento</u>**
 
 **4.3.1 Variable independiente principal: el algoritmo de reconstrucción**
 
-La variable independiente principal es la técnica de reconstrucción 3D utilizada, con tres niveles: (1) fotogrametría SfM+MVS, (2) NeRF, y (3) 3D Gaussian Splatting. Las tres técnicas se implementan sobre un único framework unificado, RealityCapture y COLMAP desde Nerfstudio para SfM (eligiendo el resultado con mejor matches entre cantidad de imágenes del dataset y poses y camaras registradas en el procesamiento) y Nerfstudio con Nerfacto y Splatfacto para generar el procesamiento NeRF y el Gaussian Splatting a partir de esa misma estructura de nube de puntos y posicionamiento de cámaras. Esta variable define los benchmarks B2 (sobre el caso de referencia) y B3 (sobre los tres casos de estudio), que constituyen el aporte central de la investigación.
+La variable independiente principal es la técnica de reconstrucción 3D utilizada, con tres niveles: (1) fotogrametría SfM+MVS, (2) NeRF, y (3) 3D Gaussian Splatting. Las tres técnicas se implementan sobre un único framework unificado, RealityCapture y COLMAP desde Nerfstudio para SfM (eligiendo el resultado con mejor matches entre cantidad de imágenes del dataset y poses y camaras registradas en el procesamiento) y Nerfstudio con Nerfacto y Splatfacto para generar el procesamiento NeRF y el Gaussian Splatting a partir de esa misma estructura de nube de puntos y posicionamiento de cámaras. Esta variable define los benchmarks B1 (sobre el caso de referencia) y B3 (sobre los tres casos de estudio), que constituyen el aporte central de la investigación.
 
 **4.3.2 Variable de complejidad geométrica**
 
@@ -93,9 +93,13 @@ Como variable independiente adicional se introduce la composición del dataset d
 
 **4.3.4 Variables independientes secundarias**
 
-Preprocesamiento del dataset: presencia o ausencia del pipeline de ComfyUI, evaluada sobre el caso de referencia. Niveles: Dataset A (raw) vs. Dataset B (curado). Define el benchmark B1.
+Preprocesamiento del dataset: presencia o ausencia del pipeline de ComfyUI, evaluada sobre el caso de referencia. Niveles: Dataset A (raw) vs. Dataset B (curado). Define el benchmark B2.
 
-Herramienta de reconstrucción: el pipeline utiliza una única herramienta por función en todos los benchmarks —RealityCapture y COLMAP para SfM y Nerfstudio como framework unificado para NeRF y 3DGS—, seleccionada por su compatibilidad con el hardware disponible (sección 4.4.1). No se incluye una comparación experimental entre herramientas alternativas
+Densidad de muestreo (fps): la cadencia de extracción de fotogramas del video de captura se fija en un único valor constante para todos los benchmarks, definido a priori en base a la literatura consultada en el Capítulo 2 y al criterio de la investigadora, y se mantiene como variable controlada (sección 4.3.6). No se incluye una comparación experimental entre distintas densidades de muestreo, dado el tiempo y el costo computacional que implicaría ejecutar múltiples niveles sobre el hardware disponible (sección 4.4.1).
+
+> **Nota metodológica:** los registros de procesamiento conservados (sección 4.9) documentan el resultado de la extracción de fotogramas —entre 302 y 1507 imágenes por dataset según el sitio y el dispositivo (detalle completo en la sección 4.7, Tabla 4.6)— pero no dejaron registrado explícitamente el parámetro de fps de extracción utilizado en cada corrida de `ns-process-data`/ffmpeg. *[Completar: valor de fps de extracción adoptado y su justificación, a confirmar por la investigadora contra la configuración original de cada corrida.]*
+
+Herramienta de reconstrucción: el pipeline utiliza una única herramienta por función en todos los benchmarks —RealityCapture y COLMAP para SfM y Nerfstudio como framework unificado para NeRF y 3DGS—, seleccionada por su compatibilidad con el hardware disponible (sección 4.4.1). No se incluye una comparación experimental entre herramientas alternativas.
 
 **4.3.5 Variables dependientes (métricas de evaluación)**
 
@@ -103,7 +107,7 @@ Herramienta de reconstrucción: el pipeline utiliza una única herramienta por f
 
 **SSIM (Structural Similarity Index Measure):** similitud estructural entre vistas sintetizadas y de referencia. Rango: 0–1. A mayor valor, mejor similitud perceptual.
 
-**RMSE geométrico:** error cuadrático medio de las dimensiones del modelo respecto a las dimensiones reales del edificio medidas in situ. Unidad: cm. A menor valor, mayor precisión geométrica. Aplicable principalmente a SfM, y de forma secundaria a NeRF y 3DGS cuando su output pueda convertirse a malla mediante Marching Cubes (NeRF) o exportarse como nube de puntos recortada y limpiada en SuperSplat (3DGS).
+**Fidelidad geométrica (análisis cualitativo):** comparación visual entre el modelo reconstruido y el edificio real, orientada a identificar qué zonas o elementos arquitectónicos fueron reproducidos con fidelidad y cuáles presentan pérdida de detalle, distorsión o ausencia de registro. No se expresa como valor numérico ni se compara contra mediciones dimensionales; se documenta de forma descriptiva, por caso de estudio y por técnica. Aplicable a las tres técnicas por igual.
 
 **Tiempo de procesamiento:** duración total del pipeline de reconstrucción desde la ingesta del dataset hasta la obtención del modelo final. Unidad: minutos. Medido en el entorno de hardware definido en la sección 4.4.
 
@@ -119,36 +123,38 @@ Herramienta de reconstrucción: el pipeline utiliza una única herramienta por f
 
 Las siguientes variables se mantienen constantes dentro de cada benchmark para garantizar la comparabilidad de los resultados: dataset de entrada (mismo conjunto de imágenes del caso o casos de estudio correspondientes a cada benchmark, salvo en B4, donde la composición del dataset es la variable manipulada); densidad de muestreo (valor fijo definido a priori, sección 4.3.4); herramienta de reconstrucción (fija en todos los benchmarks: Nerfstudio para las tres técnicas, con COLMAP integrado para la etapa de SfM y SuperSplat para la edición y exportación de los modelos 3DGS; sección 4.4.3); condiciones de captura (protocolo definido en el Capítulo 3, secciones 3.6.1 a 3.6.3, aplicado de forma homogénea a los tres edificios); entorno de hardware (especificado en la sección 4.4); y parámetros de entrenamiento en los valores por defecto de cada herramienta, salvo indicación explícita.
 
-**4.4 Entorno de hardware y software**
+**<u>4.4 Entorno de hardware y software</u>**
 
 **4.4.1 Hardware**
 
-Una de las condiciones de esta investigacion es su capacidad para proponer un flujo de trabajo que luego pueda ser replicable por otros utilizando un hardware accesible y herramientas que sean open source. Esta condición es una limitación reconocida en el Capítulo 1 y es consistente con el objetivo de la tesis de evaluar las técnicas en condiciones de recursos limitados, representativas del contexto de equipos técnicos de gestión patrimonial en Argentina. La Tabla 4.2 detalla las especificaciones del equipo utilizado, tomadas de la caracterización de hardware presentada en el Capítulo 2 (Tabla 2.2).
+El hardware disponible para esta investigación corresponde a una configuración de uso general (consumer-grade), sin acceso a infraestructura de cómputo de alta performance ni a GPU de nivel profesional. Esta condición es una limitación reconocida en el Capítulo 1 y es consistente con el objetivo de la tesis de evaluar las técnicas en condiciones de recursos limitados, representativas del contexto de equipos técnicos de gestión patrimonial en Argentina. La Tabla 4.2 detalla las especificaciones del equipo utilizado, tomadas de la caracterización de hardware presentada en el Capítulo 2 (Tabla 2.2).
 
-| **Componente**         | **Especificación**                                       |
-|------------------------|----------------------------------------------------------|
-| Equipo                 | ASUS ROG Zephyrus G14 GA401IV                            |
-| Sistema operativo      | Microsoft Windows 11 Home, 64 bits                       |
-| Procesador             | AMD Ryzen 9 4900HS                                       |
-| Núcleos / hilos        | 8 núcleos / 16 procesadores lógicos                      |
-| Frecuencia reportada   | 3,0 GHz                                                  |
-| Memoria RAM            | 16 GB DDR4 a 3200 MHz                                    |
-| GPU dedicada           | NVIDIA GeForce RTX 2060 Max-Q (6 GB VRAM)                |
-| GPU integrada          | AMD Radeon Graphics                                      |
-| Almacenamiento         | SSD Intel NVMe de 1 TB (953,86 GB de capacidad efectiva) |
-| Resolución de pantalla | 1920 × 1080                                              |
+| Componente | Especificación |
+|---|---|
+| Equipo | ASUS ROG Zephyrus G14 GA401IV |
+| Sistema operativo | Microsoft Windows 11 Home, 64 bits |
+| Procesador | AMD Ryzen 9 4900HS |
+| Núcleos / hilos | 8 núcleos / 16 procesadores lógicos |
+| Frecuencia reportada | 3,0 GHz |
+| Memoria RAM | 16 GB DDR4 a 3200 MHz |
+| GPU dedicada | NVIDIA GeForce RTX 2060 Max-Q (6 GB VRAM) |
+| GPU integrada | AMD Radeon Graphics |
+| Almacenamiento | SSD Intel NVMe de 1 TB (953,86 GB de capacidad efectiva) |
+| Resolución de pantalla | 1920 × 1080 |
 
 *Tabla 4.2 — Hardware utilizado en los experimentos.*
 
-El entrenamiento de los tres modelos (COLMAP/Nerfstudio para SfM, nerfacto para NeRF, splatfacto para 3DGS) se ejecuta íntegramente sobre este hardware local. Google Colab (sección 4.4.3) se utiliza exclusivamente en la etapa posterior de análisis y comparación de resultados, y no modifica el perfil de hardware ni las limitaciones de cómputo descritas en esta sección.
+La GPU dedicada (NVIDIA GeForce RTX 2060 Max-Q, 6 GB de VRAM) constituye la principal restricción operativa del entorno: los entrenamientos de NeRF y 3DGS son sensibles a la memoria disponible, por lo que se anticipa que esta limitación incida en la tasa de fallos catastróficos —particularmente ante los casos de estudio de mayor complejidad geométrica (B3) o ante el dataset combinado del benchmark B4—. Esta consideración se retoma en las limitaciones del diseño experimental (sección 4.10).
+
+El entrenamiento de los tres modelos (COLMAP/Nerfstudio para SfM, nerfacto para NeRF, splatfacto para 3DGS) se ejecuta íntegramente sobre este hardware local. Google Colab (sección 4.4.3) se utiliza exclusivamente en la etapa posterior de análisis y comparación de resultados, y no modifica el perfil de hardware ni las limitaciones de cómputo descriptas en esta sección.
 
 **4.4.2 Equipos de captura**
 
 El Capítulo 3 detalla el protocolo de captura completo; se resumen aquí las especificaciones técnicas relevantes para la interpretación de los resultados experimentales.
 
-| **Dispositivo**      | **Especificaciones clave**                                                                                                                                                                                                                               | **Uso en el pipeline**                                                                    |
-|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| DJI Neo 2 (drone)    | Sensor CMOS de 1/2″, 12 MP (4000×3000 px); lente 16,5 mm equiv., f/2.2; FOV 119,8°; video 4K (3840×2160) hasta 60 fps; gimbal biaxial + RockSteady; GPS/Galileo/BeiDou; autonomía máxima ≈19 min (Cap. 2, Tabla 2.3).                                    | Cobertura aérea en recorridos de bucle a distintas alturas (Cap. 3, sección 3.6.1).       |
+| Dispositivo | Especificaciones clave | Uso en el pipeline |
+|---|---|---|
+| DJI Neo 2 (drone) | Sensor CMOS de 1/2″, 12 MP (4000×3000 px); lente 16,5 mm equiv., f/2.2; FOV 119,8°; video 4K (3840×2160) hasta 60 fps; gimbal biaxial + RockSteady; GPS/Galileo/BeiDou; autonomía máxima ≈19 min (Cap. 2, Tabla 2.3). | Cobertura aérea en recorridos de bucle a distintas alturas (Cap. 3, sección 3.6.1). |
 | Insta360 X5 (cámara) | Video 360° de hasta 8K; resolución efectiva media por dirección al distribuirse sobre toda la esfera; usada en modo gran angular (no panorámico) para esta investigación; formato de salida 16:9, 4K, 60 fps (Cap. 2, Tabla 2.4; Cap. 3, sección 3.6.3). | Registro complementario a nivel peatonal y de media altura, fachadas y entorno inmediato. |
 
 *Tabla 4.3 — Equipos de captura utilizados en la generación de los datasets.*
@@ -157,22 +163,24 @@ El Capítulo 3 detalla el protocolo de captura completo; se resumen aquí las es
 
 El pipeline utiliza una única herramienta por función para NeRF y 3DGS, mientras que para la etapa de SfM permite seleccionar el mejor resultado entre COLMAP (integrado en Nerfstudio) y RealityCapture, basándose en la mayor cantidad de imágenes coincidentes y poses de cámara registradas correctamente. Nerfstudio opera como framework unificado para las tres técnicas —integrando el resultado de SfM para los modelos nerfacto (NeRF) y splatfacto (3DGS)—, lo que garantiza la compatibilidad con el hardware disponible (sección 4.4.1).
 
-| **Función en el pipeline**                          | **Herramienta**                          | **Notas**                                                                                                                                                                                                                                                       |
-|-----------------------------------------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SfM (estimación de poses y nube de puntos dispersa) | COLMAP (vía Nerfstudio) o RealityCapture | Se selecciona la herramienta que logre el mejor registro de cámaras para alimentar el flujo de Nerfstudio.                                                                                                                                                      |
-| NeRF                                                | Nerfstudio — modelo nerfacto             | Entrenamiento y renderizado de vistas sintetizadas para el cálculo de PSNR/SSIM.                                                                                                                                                                                |
-| 3D Gaussian Splatting                               | Nerfstudio — modelo splatfacto           | Entrenamiento del modelo de gaussianas a partir de la nube de puntos dispersa de COLMAP.                                                                                                                                                                        |
-| Edición y exportación de splats                     | SuperSplat                               | Limpieza, recorte de outliers y exportación de los modelos 3DGS a formatos de distribución (.ply / .splat / .ksplat).                                                                                                                                           |
-| Preprocesamiento de imágenes                        | ComfyUI                                  | Pipeline de tres etapas definido en el Capítulo 3 (sección 3.7.2), sin cambios respecto al diseño original.                                                                                                                                                     |
-| Análisis y comparación de resultados                | Google Colab (notebooks en Python)       | Procesamiento de los registros (logs) y métricas de los cinco benchmarks (PSNR, SSIM, RMSE, tiempo, tasa de fallos, cobertura reconstruida) y generación de tablas y gráficos comparativos. No se utiliza para el entrenamiento de los modelos (sección 4.4.1). |
+| Función en el pipeline | Herramienta | Notas |
+|---|---|---|
+| SfM (estimación de poses y nube de puntos dispersa) | COLMAP (vía Nerfstudio) o RealityCapture | Se selecciona la herramienta que logre el mejor registro de cámaras para alimentar el flujo de Nerfstudio. |
+| NeRF | Nerfstudio — modelo nerfacto | Entrenamiento y renderizado de vistas sintetizadas para el cálculo de PSNR/SSIM. |
+| 3D Gaussian Splatting | Nerfstudio — modelo splatfacto | Entrenamiento del modelo de gaussianas a partir de la nube de puntos dispersa de COLMAP. |
+| Edición y exportación de splats | SuperSplat | Limpieza, recorte de outliers y exportación de los modelos 3DGS a formatos de distribución (.ply / .splat / .ksplat). |
+| Preprocesamiento de imágenes | ComfyUI | Pipeline de tres etapas definido en el Capítulo 3 (sección 3.7.2), sin cambios respecto al diseño original. |
+| Análisis y comparación de resultados | Google Colab (notebooks en Python) | Procesamiento de los registros (logs) y métricas de los cinco benchmarks (PSNR, SSIM, tiempo, tasa de fallos, cobertura reconstruida, análisis cualitativo de fidelidad geométrica) y generación de tablas y gráficos comparativos. No se utiliza para el entrenamiento de los modelos (sección 4.4.1). |
 
 *Tabla 4.4 — Herramientas del pipeline de reconstrucción, edición y análisis.*
 
-**4.5 Estructura de los benchmarks**
+> **Nota de consistencia (no presente en el original):** el toolchain de SfM permite tanto COLMAP como RealityCapture, seleccionando el de mejor registro, porque en la experimentación real ambas herramientas difirieron sustancialmente en su tasa de registro sobre el mismo dataset en más de un caso de estudio — evidencia presentada y discutida en el Capítulo 5 (sección 5.5).
 
-Los experimentos se organizan en cinco benchmarks (B1–B5), diseñados de menor a mayor complejidad y articulados de forma que los resultados de los primeros informan el diseño de los siguientes. B1 es un experimento de control ejecutado sobre el caso de referencia (templete de Chacarita) que permite fijar el dataset para los experimentos centrales B2 y B4. B3 generaliza los resultados de B2 a los tres casos de estudio. B5 no genera nuevas reconstrucciones: valida los outputs ya producidos en B2 y B3. El toolchain (Nerfstudio, COLMAP, SuperSplat) y la densidad de muestreo son fijos en los cinco benchmarks (secciones 4.3.4 y 4.4.3).
+**<u>4.5 Estructura de los benchmarks</u>**
 
-**B1 — Benchmark de preprocesamiento ComfyUI**
+Los experimentos se organizan en cinco benchmarks (B1–B5), diseñados de menor a mayor complejidad y articulados de forma que los resultados de los primeros informan el diseño de los siguientes. B2 es un experimento de control ejecutado sobre el caso de referencia (templete de Chacarita) que permite fijar el dataset para los experimentos centrales B1 y B4. B3 generaliza los resultados de B1 a los tres casos de estudio. B5 no genera nuevas reconstrucciones: valida los outputs ya producidos en B1 y B3. El toolchain (Nerfstudio, COLMAP, SuperSplat) y la densidad de muestreo son fijos en los cinco benchmarks (secciones 4.3.4 y 4.4.3).
+
+**B2 — Benchmark de preprocesamiento ComfyUI**
 
 **Hipótesis asociada:** H2.
 
@@ -186,53 +194,43 @@ Los experimentos se organizan en cinco benchmarks (B1–B5), diseñados de menor
 
 **Procedimiento:** para cada técnica, se ejecuta la reconstrucción con Dataset A y Dataset B por separado, manteniendo todos los demás parámetros constantes. Se comparan los resultados obtenidos.
 
-> *\[ Completar con resultados: tabla PSNR / SSIM por técnica, comparando Dataset A vs. Dataset B. \]*
->
-> *\[ Insertar capturas de pantalla comparativas de los modelos con/sin preprocesamiento para cada técnica (seleccionar la misma vista para todas las comparaciones). \]*
+> **Estado al cierre de este capítulo: benchmark no ejecutado.** El pipeline de preprocesamiento con ComfyUI (Capítulo 3, sección 3.7.2) está diseñado pero no se corrió sobre el caso de referencia al momento de redactar este capítulo — no existe un Dataset B curado independiente del Dataset A raw para ningún caso de estudio; los datasets efectivamente usados en B1, B3 y B4 (Tabla 4.6) corresponden todos a la extracción directa del video de captura, sin el pipeline de ComfyUI aplicado. En consecuencia, H2 permanece sin contrastar experimentalmente y se retoma como línea de trabajo pendiente en el Capítulo 5 (sección 5.6) y en las limitaciones de esta tesis (Capítulo 7).
 
-**B2 — Benchmark de técnicas sobre el caso de referencia**
+**B1 — Benchmark de técnicas sobre el caso de referencia**
 
 **Hipótesis asociada:** H1.
 
-**Objetivo:** comparar el desempeño de las tres técnicas de reconstrucción 3D (SfM, NeRF, 3DGS) sobre el caso de referencia (Chacarita) en las mismas condiciones, evaluando precisión geométrica, calidad visual, eficiencia computacional, peso del archivo y potencial de integración BIM — es decir, para qué sirve mejor cada técnica y en qué es buena cada una, y no solo cuál es superior en términos absolutos.
+**Objetivo:** comparar el desempeño de las tres técnicas de reconstrucción 3D (SfM, NeRF, 3DGS) sobre el caso de referencia (Chacarita) en las mismas condiciones, evaluando fidelidad geométrica, calidad visual, eficiencia computacional, peso del archivo y potencial de integración BIM — es decir, para qué sirve mejor cada técnica y en qué es buena cada una, y no solo cuál es superior en términos absolutos.
 
 **Variable independiente:** técnica de reconstrucción (SfM / NeRF / 3DGS).
 
-**Variables controladas:** caso de estudio (Chacarita), dataset de entrada (Dataset B curado según B1), densidad de muestreo (valor fijo, sección 4.3.4), herramienta (fija: Nerfstudio/COLMAP; SuperSplat para la edición de splats en 3DGS), parámetros por defecto.
+**Variables controladas:** caso de estudio (Chacarita), dataset de entrada (Dataset B curado según B2), densidad de muestreo (valor fijo, sección 4.3.4), herramienta (fija: Nerfstudio/COLMAP; SuperSplat para la edición de splats en 3DGS), parámetros por defecto.
 
-**Métricas evaluadas:** PSNR, SSIM, RMSE geométrico, tiempo de procesamiento, peso del archivo de output (.glTF / .SPLAT / MLP), evaluación cualitativa de síntesis de vistas (NeRF) y de renderizado en tiempo real (3DGS).
+**Métricas evaluadas:** PSNR, SSIM, tiempo de procesamiento, peso del archivo de output (.glTF / .SPLAT / MLP), análisis cualitativo de fidelidad geométrica (zonas bien y mal reproducidas, por técnica), evaluación cualitativa de síntesis de vistas (NeRF) y de renderizado en tiempo real (3DGS).
 
-**Procedimiento:** el dataset curado se procesa con cada una de las tres técnicas de forma independiente. Los modelos obtenidos se evalúan sobre el mismo conjunto de imágenes de test, se comparan con las dimensiones de referencia del edificio, y se evalúan cualitativamente según el criterio de uso de cada técnica (BIM/exactitud métrica para SfM, síntesis de vistas para NeRF, renderizado en tiempo real para 3DGS).
+**Procedimiento:** el dataset curado se procesa con cada una de las tres técnicas de forma independiente. Los modelos obtenidos se evalúan sobre el mismo conjunto de imágenes de test, se comparan visualmente con el edificio real y con material fotográfico de referencia —identificando para cada técnica las zonas bien reproducidas y las que presentan pérdida de detalle o inconsistencias—, y se evalúan cualitativamente según el criterio de uso de cada técnica (documentación con potencial de integración BIM para SfM, síntesis de vistas para NeRF, renderizado en tiempo real para 3DGS).
 
 Este benchmark valida H1 en el caso de complejidad media, caracterizando el desempeño de cada técnica según su criterio de uso. Su generalización a los casos de complejidad baja y alta se aborda en el benchmark B3.
 
-> *\[ Completar con resultados: tabla comparativa de las tres técnicas con todas las métricas (PSNR / SSIM / RMSE / tiempo / peso). \]*
->
-> *\[ Insertar renders comparativos del modelo del templete de Chacarita generados con cada técnica: misma vista, misma iluminación de referencia. SfM / NeRF / 3DGS lado a lado. \]*
->
-> *\[ Insertar mapa de calor de error geométrico para el modelo SfM, contrastado con las dimensiones reales del edificio. \]*
+**Resultados:** ver Capítulo 5, sección 5.3.
 
 **B3 — Benchmark de escalabilidad ante complejidad geométrica**
 
 **Hipótesis asociada:** H3.
 
-**Objetivo:** evaluar, a partir de los tres casos de estudio definidos en el Capítulo 3, qué técnica de reconstrucción es más compatible con cada nivel de complejidad arquitectónica, y si la divergencia de desempeño entre SfM, NeRF y 3DGS observada en el caso de referencia (B2) se mantiene, se atenúa o se amplifica al variar la complejidad geométrica y ornamental del objeto relevado.
+**Objetivo:** evaluar, a partir de los tres casos de estudio definidos en el Capítulo 3, qué técnica de reconstrucción es más compatible con cada nivel de complejidad arquitectónica, y si la divergencia de desempeño entre SfM, NeRF y 3DGS observada en el caso de referencia (B1) se mantiene, se atenúa o se amplifica al variar la complejidad geométrica y ornamental del objeto relevado.
 
 **Variable independiente:** complejidad geométrica del caso de estudio (baja / media / alta), cruzada con la técnica de reconstrucción (SfM / NeRF / 3DGS).
 
-**Variables controladas:** herramienta (fija: Nerfstudio/COLMAP; SuperSplat para la edición de splats en 3DGS), densidad de muestreo (valor fijo, sección 4.3.4), preprocesamiento (Dataset B curado según B1), protocolo de captura (Capítulo 3, secciones 3.6.1–3.6.3) aplicado de forma homogénea a los tres edificios.
+**Variables controladas:** herramienta (fija: Nerfstudio/COLMAP; SuperSplat para la edición de splats en 3DGS), densidad de muestreo (valor fijo, sección 4.3.4), preprocesamiento (Dataset B curado según B2), protocolo de captura (Capítulo 3, secciones 3.6.1–3.6.3) aplicado de forma homogénea a los tres edificios.
 
-**Métricas evaluadas:** PSNR, SSIM, RMSE geométrico (Nivel 1 en los tres casos; Nivel 2 mediante CloudCompare, extendido al caso de referencia y, en la medida de los recursos disponibles, a los otros dos), tiempo de procesamiento, tasa de fallos (fallo catastrófico / fallo parcial / inestabilidad de convergencia).
+**Métricas evaluadas:** PSNR, SSIM, tiempo de procesamiento, tasa de fallos (fallo catastrófico / fallo parcial / inestabilidad de convergencia), y análisis cualitativo de fidelidad geométrica (zonas bien y mal reproducidas, por caso de estudio y técnica).
 
 **Procedimiento:** para cada uno de los tres casos de estudio, se procesa el dataset curado con cada una de las tres técnicas, utilizando la herramienta y la densidad de muestreo fijadas en la sección 4.3. Los resultados se organizan en una matriz de 3 técnicas × 3 casos de estudio (9 combinaciones), lo que permite tanto la comparación entre técnicas dentro de un mismo caso como la comparación de una misma técnica a través de los tres niveles de complejidad.
 
-Este benchmark constituye, junto con B2, el aporte central de la investigación: sus resultados permiten validar o refutar H3 y responder si la elección de técnica óptima debería condicionarse al tipo de arquitectura a documentar, una pregunta con implicancias directas para la propuesta de pipeline definitivo que se desarrolla en el Capítulo 6.
+Este benchmark constituye, junto con B1, el aporte central de la investigación: sus resultados permiten validar o refutar H3 y responder si la elección de técnica óptima debería condicionarse al tipo de arquitectura a documentar, una pregunta con implicancias directas para la propuesta de pipeline definitivo que se desarrolla en el Capítulo 6.
 
-> *\[ Completar con resultados: matriz 3×3 de PSNR / SSIM / RMSE / tiempo / tasa de fallos. \]*
->
-> *\[ Insertar renders comparativos de los tres casos de estudio, cada uno reconstruido con las tres técnicas: matriz visual de 3×3. \]*
->
-> *\[ Insertar gráfico de dispersión de PSNR vs. nivel de complejidad geométrica, una serie por técnica, para visualizar la divergencia esperada. \]*
+**Resultados:** ver Capítulo 5, sección 5.4.
 
 **B4 — Benchmark de dataset multi-dispositivo**
 
@@ -242,7 +240,7 @@ Este benchmark constituye, junto con B2, el aporte central de la investigación:
 
 **Variable independiente:** composición del dataset (solo drone / solo cámara / combinado), sección 4.3.3.
 
-**Variables controladas:** caso de estudio (Chacarita), técnica (se ejecuta como referencia sobre SfM, por ser la técnica más sensible a errores de alineación de poses entre dispositivos; sujeto a extensión a NeRF y 3DGS según disponibilidad de tiempo), preprocesamiento (Dataset B curado según B1), herramienta (fija: Nerfstudio/COLMAP), densidad de muestreo (valor fijo, sección 4.3.4).
+**Variables controladas:** caso de estudio (Chacarita), técnica (se ejecuta como referencia sobre SfM, por ser la técnica más sensible a errores de alineación de poses entre dispositivos; sujeto a extensión a NeRF y 3DGS según disponibilidad de tiempo), preprocesamiento (Dataset B curado según B2), herramienta (fija: Nerfstudio/COLMAP), densidad de muestreo (valor fijo, sección 4.3.4).
 
 **Métricas evaluadas:** PSNR, SSIM, cobertura reconstruida (%), evaluación cualitativa de discontinuidades de textura y exposición en las zonas de transición entre las imágenes de cada dispositivo, tasa de fallos.
 
@@ -250,63 +248,69 @@ Este benchmark constituye, junto con B2, el aporte central de la investigación:
 
 Este benchmark valida H4 y aporta evidencia práctica sobre una decisión operativa del protocolo de captura: si conviene combinar sistemáticamente ambos dispositivos para el archivo digital de patrimonio propuesto por esta tesis, o si el aporte de uno de ellos es marginal frente a los riesgos de discontinuidad que introduce la combinación.
 
-> *\[ Completar con resultados: tabla comparativa de PSNR / SSIM / cobertura reconstruida para los tres datasets (solo drone / solo cámara / combinado). \]*
->
-> *\[ Insertar capturas comparativas de las zonas de transición entre coberturas de dispositivos en el dataset combinado. \]*
+**Resultados:** ver Capítulo 5, sección 5.5, que incluye además un hallazgo metodológico sobre la fiabilidad del registro SfM reportado automáticamente por las herramientas de conversión, relevante para el protocolo de registro de fallos de la sección 4.9.
 
 **B5 — Validación de compatibilidad web y reproducibilidad del pipeline**
 
 **Hipótesis asociada:** H5.
 
-Este benchmark no compara niveles de una variable independiente cuantitativa: aplica un protocolo de validación de tipo checklist sobre los modelos ya generados en B2 y B3, por lo que no requiere nuevas corridas de reconstrucción.
+Este benchmark no compara niveles de una variable independiente cuantitativa: aplica un protocolo de validación de tipo checklist sobre los modelos ya generados en B1 y B3, por lo que no requiere nuevas corridas de reconstrucción.
 
-**Objetivo:** verificar la compatibilidad de los formatos de output del pipeline con visores web de acceso abierto, y evaluar si una persona externa al desarrollo de la tesis puede reproducir el pipeline completo a partir de la documentación disponible.
+**Objetivo:** verificar la compatibilidad de los formatos de output del pipeline con visores web de acceso abierto, y evaluar la reproducibilidad del pipeline completo a partir de la documentación generada.
 
-**Procedimiento:** (a) se carga al menos un modelo de cada técnica —malla SfM en .glTF, modelo 3DGS exportado con SuperSplat en .SPLAT/.PLY, y la exportación correspondiente de NeRF— en visores web de acceso abierto (Potree, Sketchfab, Three.js, el visor web de SuperSplat), sin pasos de conversión manual adicionales a los ya contemplados en el pipeline; (b) se documenta el pipeline completo y se exportan los archivos de configuración de cada herramienta (workflow en JSON de ComfyUI, configuración de entrenamiento de Nerfstudio); (c) se solicita a una persona externa al desarrollo de la tesis que intente reproducir al menos una reconstrucción siguiendo únicamente esa documentación, registrando los obstáculos encontrados.
+**Procedimiento:** (a) se carga al menos un modelo de cada técnica —malla SfM en .glTF, modelo 3DGS exportado con SuperSplat en .SPLAT/.PLY, y la exportación correspondiente de NeRF— en visores web de acceso abierto (Potree, Sketchfab, Three.js, el visor web de SuperSplat), sin pasos de conversión manual adicionales a los ya contemplados en el pipeline; (b) se documenta el pipeline completo y se exportan los archivos de configuración de cada herramienta (workflow en JSON de ComfyUI, configuración de entrenamiento de Nerfstudio), verificando que esa documentación sea suficiente para repetir cada etapa sin pasos implícitos no registrados.
 
-**Métricas / criterios evaluados:** checklist binario (cumple / no cumple) de carga en visor web por técnica; cantidad de pasos manuales adicionales requeridos, si los hubiera; éxito o fracaso de la reproducción por la persona externa, y bitácora de obstáculos encontrados.
+**Métricas / criterios evaluados:** checklist binario (cumple / no cumple) de carga en visor web por técnica; cantidad de pasos manuales adicionales requeridos, si los hubiera; completitud de la documentación y los archivos de configuración exportados por etapa del pipeline.
 
-Este benchmark valida H5 y responde directamente al objetivo aplicado de la tesis: la viabilidad de un archivo digital de patrimonio argentino accesible en la web y reproducible por terceros, más allá de la validez experimental de las técnicas de reconstrucción evaluadas en B1–B4.
+Este benchmark valida H5 y responde directamente al objetivo aplicado de la tesis: la viabilidad de un archivo digital de patrimonio argentino accesible en la web y reproducible a partir de su documentación, más allá de la validez experimental de las técnicas de reconstrucción evaluadas en B1–B4.
 
-> *\[ Completar con resultados: checklist de compatibilidad web por técnica y bitácora de la validación de reproducibilidad con la persona externa. \]*
->
-> *\[ Identificar a la persona externa que participará de la validación de reproducibilidad y coordinar la sesión. \]*
+**Resultados:** ver Capítulo 5, sección 5.6. La carga efectiva en visor real —paso (a) del procedimiento— queda pendiente de ejecución.
 
-**4.7 Tabla resumen del diseño experimental**
+**<u>4.6 Tabla resumen del diseño experimental</u>**
 
-| **Benchmark**                  | **Hip.** | **Variable independiente**                        | **Variable controlada**                                             | **Métricas**                                       |
-|--------------------------------|----------|---------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|
-| B1 — Preproceso                | H2       | Dataset A vs. B                                   | Caso ref. (Chacarita). 3 técnicas. Herramienta y fps fijos          | PSNR, SSIM, artefactos                             |
-| B2 — Técnicas (caso ref.)      | H1       | SfM / NeRF / 3DGS                                 | Caso ref. Dataset B de B1. Herramienta fija (Nerfstudio/SuperSplat) | PSNR, SSIM, RMSE, tiempo, peso                     |
-| B3 — Complejidad geométrica    | H3       | Complejidad (baja/media/alta) × Técnica           | 3 casos. Dataset de B1. Herramienta y fps fijos                     | PSNR, SSIM, RMSE, tiempo, tasa de fallos           |
-| B4 — Dataset multi-dispositivo | H4       | Composición: solo drone / solo cámara / combinado | Caso ref. Técnica SfM. Dataset B de B1                              | PSNR, SSIM, cobertura reconstruida, tasa de fallos |
-| B5 — Web y reproducibilidad    | H5       | — (validación checklist, no comparativa)          | Modelos ya generados en B2 y B3                                     | Checklist binario, bitácora de reproducibilidad    |
+| Benchmark | Hip. | Variable independiente | Variable controlada | Métricas |
+|---|---|---|---|---|
+| B2 — Preproceso | H2 | Dataset A vs. B | Caso ref. (Chacarita). 3 técnicas. Herramienta y fps fijos | PSNR, SSIM, artefactos |
+| B1 — Técnicas (caso ref.) | H1 | SfM / NeRF / 3DGS | Caso ref. Dataset B de B2. Herramienta fija (Nerfstudio/SuperSplat) | PSNR, SSIM, tiempo, peso, fidelidad geométrica (cualitativa) |
+| B3 — Complejidad geométrica | H3 | Complejidad (baja/media/alta) × Técnica | 3 casos. Dataset de B2. Herramienta y fps fijos | PSNR, SSIM, tiempo, tasa de fallos, fidelidad geométrica (cualitativa) |
+| B4 — Dataset multi-dispositivo | H4 | Composición: solo drone / solo cámara / combinado | Caso ref. Técnica SfM. Dataset B de B2 | PSNR, SSIM, cobertura reconstruida, tasa de fallos |
+| B5 — Web y reproducibilidad | H5 | — (validación checklist, no comparativa) | Modelos ya generados en B1 y B3 | Checklist binario, bitácora de reproducibilidad |
 
 *Tabla 4.5 — Resumen del diseño experimental: benchmarks, hipótesis, variables y métricas.*
 
-**4.4.1 Hardware**
+**<u>4.7 Conjunto de imágenes de test y evaluación</u>**
 
 Para garantizar que las métricas de calidad visual (PSNR, SSIM) se calculen sobre vistas genuinamente no vistas por los algoritmos durante el entrenamiento, se reserva un subconjunto de imágenes de cada caso de estudio como conjunto de test. Este conjunto se selecciona antes de cualquier experimento y se mantiene fuera de todos los pipelines de reconstrucción.
 
-La proporción adoptada es 80% / 20%: el 80% de los fotogramas curados se utiliza como conjunto de entrenamiento (input para los algoritmos de reconstrucción), y el 20% restante se reserva como conjunto de test para la evaluación de PSNR y SSIM. La selección del conjunto de test se realiza de forma estratificada: se elige un fotograma de cada N posiciones del recorrido de captura, garantizando que las vistas de test cubran uniformemente todos los ángulos del edificio y no se concentren en una zona particular. Este procedimiento se aplica de forma independiente a cada caso de estudio: para los benchmarks B1, B2 y B4 se aplica sobre el dataset del templete de Chacarita, y para el benchmark B3 se replica sobre los datasets de Los Paraguas y del Panteón de la Asociación Española, respetando en cada caso el protocolo de captura y curación descrito en el Capítulo 3. El benchmark B5 reutiliza los modelos ya generados en B2 y B3 y no requiere un conjunto de test propio.
+La proporción efectivamente aplicada es la que resulta del modo de partición por fracción de Nerfstudio (`eval_mode="fraction"`, `train_split_fraction=0.9`): el 90% de los fotogramas de cada dataset se utiliza como conjunto de entrenamiento y el 10% restante se reserva como conjunto de evaluación (eval/test) para el cálculo de PSNR y SSIM, seleccionado automáticamente a intervalos regulares sobre el orden de los fotogramas del dataset —lo que en la práctica aproxima la cobertura angular uniforme buscada, dado que el orden de los fotogramas sigue el recorrido de captura—. Este procedimiento es el que efectivamente se aplicó en los benchmarks ejecutados (B1, B3, B4); la proporción 80/20 con selección estratificada manual planteada originalmente para esta sección no llegó a implementarse como script separado y se reemplaza aquí por el mecanismo real, de partición fija y reproducible, provisto por la herramienta.
 
-> *\[ Completar con el número exacto de imágenes de entrenamiento y de test para cada uno de los tres casos de estudio, y con la descripción de la estrategia de selección aplicada. \]*
+**Tabla 4.6 — Imágenes de entrenamiento y evaluación por dataset (split 90/10 de Nerfstudio).**
 
-**4.8 Protocolo de evaluación de precisión geométrica**
+| Caso de estudio | Dispositivo | Dataset (uso) | Total imágenes | Entrenamiento (~90%) | Evaluación (~10%) |
+|---|---|---|---|---|---|
+| Los Paraguas | DJI Neo 2 | único (Nerfacto + Splatfacto) | 707 | 637 | 70 |
+| Templete Central | DJI Neo 2 | subset (Nerfacto) | 308 | 278 | 30 |
+| Templete Central | DJI Neo 2 | full ds8 (Splatfacto) | 1232 | 1109 | 123 |
+| Templete Central | Insta360 X5 | único (Nerfacto + Splatfacto) | 306 | ≈276 | ≈30 |
+| Panteón Asociación Española | DJI Neo 2 | subset (Nerfacto) | 302 | 272 | 30 |
+| Panteón Asociación Española | DJI Neo 2 | full ds8 (Splatfacto) | 1506 | 1356 | 150 |
+| Panteón Asociación Española | Insta360 X5 | único (Nerfacto + Splatfacto) | 311 | ≈280 | ≈31 |
 
-La evaluación de precisión geométrica complementa las métricas de calidad de imagen con una medición de la exactitud dimensional de los modelos respecto a la geometría real de cada edificio. Este procedimiento es especialmente relevante para el modelo SfM, cuyo principal valor diferencial es la producción de geometría métricamente verificable.
+*Fuente: campo `frames.total_in_json` de `analyze_camera_trajectories.py` (recuento del dataset) contrastado contra `total_paired_frames`/`gt_only_frames` de `analyze_render_benchmark.py` (recuento efectivo de imágenes de entrenamiento render­eadas vs. imágenes de evaluación no vistas por el modelo). Los subsets de Nerfacto (308/302 imágenes) responden a la limitación de memoria del `ParallelDataManager` descripta en el Capítulo 4 —sección 4.4.1— frente a los datasets completos usados sin problema por Splatfacto.*
 
-El protocolo de evaluación geométrica comprende dos niveles, aplicados a los tres casos de estudio en el marco del benchmark B3, y de forma prioritaria al caso de referencia en el marco de B2 y B4:
+**<u>4.8 Protocolo de evaluación cualitativa de fidelidad geométrica</u>**
 
-**Nivel 1 — Medición de dimensiones globales:** se miden in situ las dimensiones principales de cada edificio (ancho de fachada, profundidad, altura libre bajo losa o cubierta, altura total, según corresponda a cada tipología) y se comparan con las dimensiones equivalentes extraídas del modelo 3D generado por cada técnica. El RMSE se calcula como la raíz cuadrada del promedio de los cuadrados de las diferencias entre cada par de mediciones.
+La evaluación de fidelidad geométrica complementa las métricas de calidad de imagen (PSNR, SSIM) con un análisis cualitativo orientado a identificar en qué medida cada modelo reconstruido reproduce fielmente la geometría del edificio relevado, sin recurrir a mediciones dimensionales ni a comparaciones cuantitativas contra una nube de puntos de referencia.
 
-**Nivel 2 — Mapa de desviación superficial:** la malla SfM se compara con una nube de puntos de referencia (a generar a partir de un dataset de alta densidad o de mediciones fotogramétricas de control) mediante la herramienta CloudCompare, generando un mapa de calor de desviación superficial que permite identificar las zonas de mayor y menor error geométrico. Por razones de tiempo y de recursos, este nivel se aplica de forma prioritaria al caso de referencia (Chacarita) y, en la medida de lo posible, se extiende a Los Paraguas y al Panteón de la Asociación Española dentro de B3.
+El protocolo consiste en una inspección visual comparativa entre el modelo 3D obtenido y el edificio real —apoyada en fotografías de referencia y en el conocimiento directo del caso adquirido durante el relevamiento descrito en el Capítulo 3—, realizada de forma independiente para cada técnica y caso de estudio. Para cada modelo se documentan de forma descriptiva: (a) las zonas o elementos arquitectónicos reconstruidos con fidelidad, y (b) las zonas o elementos que presentan pérdida de detalle, distorsión, ausencia de registro o inconsistencias respecto al edificio real.
 
-> *\[ Completar con las dimensiones reales de cada edificio medidas in situ y con los valores de RMSE obtenidos para cada técnica y cada caso de estudio. \]*
->
-> *\[ Insertar mapa(s) de calor de desviación superficial del modelo SfM generado(s) en CloudCompare. \]*
+Este análisis no produce un valor numérico ni una clasificación fija por caso; su resultado es un registro cualitativo, por edificio y por técnica, de fortalezas y debilidades geométricas observadas, que se presenta y discute en el Capítulo 5.
 
-**4.9 Protocolo de registro de fallos**
+En la práctica, el protocolo se instrumentó mediante dos artefactos generados automáticamente a partir de los datasets y resultados ya obtenidos: (a) grillas comparativas *Foto original | Nerfacto | Splatfacto* sobre 5 fotogramas equiespaciados del recorrido de captura, por sitio y por dispositivo (`build_fidelity_comparisons.py`, salida en `00-auditoria/fidelidad-geometrica/`); y (b) capturas de cobertura de la malla SfM tomadas directamente sobre el modelo texturizado en CloudCompare/RealityScan (no atadas a una pose de cámara puntual), disponibles para Los Paraguas y el Templete Central al cierre de este capítulo (Panteón Asociación Española pendiente de captura manual).
+
+El análisis cualitativo completo resultante de este protocolo —caso por caso y técnica por técnica, con las imágenes comparativas correspondientes— se presenta y discute íntegramente en el Capítulo 5 (secciones 5.3 y 5.4).
+
+**<u>4.9 Protocolo de registro de fallos</u>**
 
 Con el fin de operacionalizar la métrica de tasa de fallos introducida en el Capítulo 2 (sección 2.6.3) y necesaria para evaluar H3 y H4, se define el siguiente protocolo de registro, aplicado a cada corrida de reconstrucción en los benchmarks B1 a B4 (B5 no genera nuevas corridas de reconstrucción, ya que reutiliza los modelos de B2 y B3):
 
@@ -318,7 +322,7 @@ Con el fin de operacionalizar la métrica de tasa de fallos introducida en el Ca
 
 Cada corrida genera un registro (log) con: caso de estudio, técnica, herramienta, configuración de parámetros, resultado de la clasificación anterior y, si corresponde, las métricas de calidad obtenidas. Esta bitácora es la fuente de datos para el análisis de tasa de fallos en el Capítulo 5, particularmente relevante para contrastar los criterios de aceptación de H3 y H4.
 
-**4.10 Limitaciones del diseño experimental**
+**<u>4.10 Limitaciones del diseño experimental</u>**
 
 **Hardware consumer-grade.** los tiempos de procesamiento reportados están condicionados por el hardware disponible (GPU RTX 2060 Max-Q, 6 GB de VRAM, sin acceso a nivel profesional) y no son directamente extrapolables a entornos de producción con hardware de mayor performance. Esta limitación es explicitada en el Capítulo 1 y los resultados de tiempo deben interpretarse como indicativos, no como valores absolutos; adicionalmente, se anticipa que la memoria de GPU disponible incida en la tasa de fallos catastróficos ante los casos de alta complejidad geométrica (B3) y ante el dataset combinado del benchmark B4. El uso de Google Colab se limita a la etapa de análisis de resultados (sección 4.4.3) y no atenúa esta limitación, dado que el entrenamiento de los modelos se ejecuta íntegramente en el hardware local.
 
@@ -326,21 +330,21 @@ Cada corrida genera un registro (log) con: caso de estudio, técnica, herramient
 
 **Densidad de muestreo fija, sin comparación experimental.** el valor de fps utilizado se fija a priori en base al criterio de la investigadora y a la literatura consultada en el Capítulo 2, sin una comparación empírica entre distintas densidades de muestreo dentro de esta tesis, dado el tiempo y el costo computacional que implicaría evaluar múltiples niveles en el hardware disponible. Esto introduce el riesgo de que un valor subóptimo afecte por igual a todos los datasets utilizados en B1–B4, sin que el diseño experimental pueda detectarlo.
 
-**Calibración sobre un único caso de referencia.** el benchmark B1 (preprocesamiento) calibra el dataset curado únicamente sobre el caso de complejidad media (Chacarita). Se asume que este resultado es transferible a los casos de complejidad baja y alta evaluados en B3; sin embargo, esta es una simplificación metodológica adoptada por razones de viabilidad temporal y computacional, y no puede descartarse que el impacto del preprocesamiento varíe con la complejidad geométrica del objeto —posibilidad que, de hecho, sería coherente con la lógica de H3—.
+**Benchmark de preprocesamiento (B2) no ejecutado.** al cierre de esta tesis, el pipeline de ComfyUI diseñado en el Capítulo 3 (sección 3.7.2) no se corrió sobre ningún caso de estudio, por lo que no existe un Dataset B curado independiente del Dataset A raw y H2 no pudo contrastarse experimentalmente (sección 4.5, B2). Los datasets efectivamente usados en B1, B3 y B4 corresponden a la extracción directa del video de captura, sin preprocesamiento adicional. Esto tiene una segunda implicancia metodológica: el diseño original preveía calibrar el dataset curado únicamente sobre el caso de complejidad media (Chacarita) y asumir esa calibración como transferible a los casos de complejidad baja y alta evaluados en B3 —una simplificación que ya no aplica, dado que B2 no se ejecutó sobre ningún caso—. La incidencia del preprocesamiento sobre la calidad de reconstrucción, y su posible interacción con la complejidad geométrica del objeto (una posibilidad coherente con la lógica de H3), queda como línea de trabajo futura (Capítulo 7).
 
-**Acceso condicionado por el estado de conservación del Panteón de la Asociación Española.** el edificio se encuentra cerrado por orden judicial y en un estado de deterioro documentado (Capítulo 3), lo que restringe el registro a su exterior y puede introducir restricciones de proximidad o de ángulo de captura por razones de seguridad estructural, resultando en una cobertura de captura menos uniforme que en los otros dos casos y afectando la comparabilidad directa de los resultados de B3 entre edificios. \[Completar con el detalle de las zonas con acceso restringido, a confirmar durante el relevamiento de campo documentado en el Capítulo 3.\]
+**Acceso condicionado por el estado de conservación del Panteón de la Asociación Española.** el edificio se encuentra cerrado por orden judicial y en un estado de deterioro documentado (Capítulo 3), lo que restringe el registro a su exterior y puede introducir restricciones de proximidad o de ángulo de captura por razones de seguridad estructural, resultando en una cobertura de captura menos uniforme que en los otros dos casos y afectando la comparabilidad directa de los resultados de B3 entre edificios. *[Completar con el detalle de las zonas con acceso restringido, a confirmar durante el relevamiento de campo documentado en el Capítulo 3.]*
 
 **Alcance acotado del benchmark de dataset multi-dispositivo.** por razones de tiempo, B4 se ejecuta sobre una sola técnica (SfM) y un solo caso de estudio (Chacarita); su extensión a NeRF, a 3DGS y a los otros dos casos queda sujeta a la disponibilidad de recursos, lo que limita la generalización de los resultados de H4.
 
-**Validación de reproducibilidad con un único evaluador externo.** el criterio de aceptación de H5 depende de que una sola persona externa al desarrollo de la tesis logre (o no) reproducir el pipeline; al tratarse de un caso único y no de una muestra, esta validación tiene valor indicativo pero no permite generalizar estadísticamente sobre la reproducibilidad del pipeline para audiencias con perfiles técnicos distintos.
-
 **Parámetros por defecto.** los experimentos utilizan los parámetros por defecto de cada herramienta, salvo indicación explícita. Esta decisión garantiza reproducibilidad y comparabilidad, pero implica que los resultados podrían mejorar con configuraciones optimizadas para cada caso de estudio específico.
 
-**Evaluación geométrica aproximada.** la ausencia de un relevamiento láser de referencia (TLS) para los tres casos de estudio limita la evaluación de precisión geométrica a la comparación con mediciones manuales de dimensiones globales, lo que no captura la distribución del error superficial con la misma fidelidad que un escaneo de referencia.
+**Evaluación geométrica cualitativa, sin métrica cuantitativa.** la fidelidad geométrica de los modelos se evalúa mediante inspección visual comparativa contra el edificio real, sin mediciones dimensionales ni contraste contra una nube de puntos de referencia (TLS u otro relevamiento de control). Esta decisión evita la necesidad de equipamiento de relevamiento adicional no disponible para esta investigación, pero introduce un grado de subjetividad en la identificación de zonas bien o mal reproducidas, dado que el juicio es realizado por una única investigadora sin verificación cruzada por un segundo evaluador. Los resultados de este análisis deben interpretarse como una caracterización descriptiva y no como una medición objetiva de exactitud geométrica.
 
-**4.11 Síntesis del capítulo**
+**<u>4.11 Síntesis del capítulo</u>**
 
-El diseño experimental de esta tesis organiza los experimentos en cinco benchmarks. B1 mide el efecto del preprocesamiento de ComfyUI sobre el caso de referencia. B2 compara las tres técnicas de reconstrucción sobre ese mismo caso, caracterizando en qué es buena cada una según el criterio de uso (BIM/exactitud métrica, síntesis de vistas, renderizado en tiempo real). B3 generaliza esa comparación a los tres casos de estudio definidos en el Capítulo 3, evaluando qué técnica es más compatible con cada nivel de complejidad geométrica y ornamental. B4 valida si un dataset combinado de drone y cámara mejora la cobertura de captura sin degradar la calidad de reconstrucción. B5 valida, mediante un checklist cualitativo, la compatibilidad de los outputs con visores web y la reproducibilidad del pipeline completo por parte de un tercero. El toolchain de reconstrucción —Nerfstudio con COLMAP integrado para SfM y SuperSplat para la edición de splats de 3DGS— y la densidad de muestreo son fijos en los cinco benchmarks, sin comparación entre alternativas. Google Colab se incorpora como entorno de análisis y comparación de resultados, sin intervenir en el entrenamiento de los modelos. Las cinco hipótesis de trabajo (H1–H5) se operacionalizan con criterios de aceptación cuantitativos (H1–H4) o de checklist cualitativo (H5). Las métricas de evaluación —PSNR, SSIM, RMSE geométrico, tiempo de procesamiento, peso del archivo, tasa de fallos y cobertura reconstruida— cubren las dimensiones de calidad visual, exactitud métrica, eficiencia computacional, viabilidad de distribución en repositorios digitales patrimoniales, robustez ante la complejidad del objeto relevado y viabilidad práctica de un dataset multi-dispositivo.
+El diseño experimental de esta tesis organiza los experimentos en cinco benchmarks. B2 mide el efecto del preprocesamiento de ComfyUI sobre el caso de referencia. B1 compara las tres técnicas de reconstrucción sobre ese mismo caso, caracterizando en qué es buena cada una según el criterio de uso (documentación con potencial de integración BIM, síntesis de vistas, renderizado en tiempo real). B3 generaliza esa comparación a los tres casos de estudio definidos en el Capítulo 3, evaluando qué técnica es más compatible con cada nivel de complejidad geométrica y ornamental. B4 valida si un dataset combinado de drone y cámara mejora la cobertura de captura sin degradar la calidad de reconstrucción. B5 valida, mediante un checklist cualitativo, la compatibilidad de los outputs con visores web y la reproducibilidad del pipeline completo a partir de su documentación. El toolchain de reconstrucción —Nerfstudio con COLMAP integrado para SfM y SuperSplat para la edición de splats de 3DGS— y la densidad de muestreo son fijos en los cinco benchmarks, sin comparación entre alternativas. Google Colab se incorpora como entorno de análisis y comparación de resultados, sin intervenir en el entrenamiento de los modelos. Las cinco hipótesis de trabajo (H1–H5) se operacionalizan con criterios de aceptación cuantitativos (H1–H4) o de checklist cualitativo (H5).
+
+Las métricas de evaluación y criterios de análisis —PSNR, SSIM, tiempo de procesamiento, peso del archivo, tasa de fallos, cobertura reconstruida y el análisis cualitativo de fidelidad geométrica— cubren las dimensiones de calidad visual, fidelidad geométrica, eficiencia computacional, viabilidad de distribución en repositorios digitales patrimoniales, robustez ante la complejidad del objeto relevado y viabilidad práctica de un dataset multi-dispositivo.
 
 Los resultados de los experimentos aquí diseñados se presentan y analizan en el Capítulo 5.
 

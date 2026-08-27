@@ -1,0 +1,171 @@
+{
+  "artifact": "gaussian-splat",
+  "source": "nerfstudio splatfacto export (splat.ply)",
+  "generated_analysis_at": "2026-08-25T18:00:08.333231",
+  "file": {
+    "path": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\02-resultados-finales\\splatfacto\\export\\splat.ply",
+    "size_bytes": 54891681,
+    "size_mb": 52.34878635406494
+  },
+  "gaussian_count": 221331,
+  "property_names": [
+    "x",
+    "y",
+    "z",
+    "nx",
+    "ny",
+    "nz",
+    "f_dc_0",
+    "f_dc_1",
+    "f_dc_2",
+    "f_rest_0",
+    "f_rest_1",
+    "f_rest_2",
+    "f_rest_3",
+    "f_rest_4",
+    "f_rest_5",
+    "f_rest_6",
+    "f_rest_7",
+    "f_rest_8",
+    "f_rest_9",
+    "f_rest_10",
+    "f_rest_11",
+    "f_rest_12",
+    "f_rest_13",
+    "f_rest_14",
+    "f_rest_15",
+    "f_rest_16",
+    "f_rest_17",
+    "f_rest_18",
+    "f_rest_19",
+    "f_rest_20",
+    "f_rest_21",
+    "f_rest_22",
+    "f_rest_23",
+    "f_rest_24",
+    "f_rest_25",
+    "f_rest_26",
+    "f_rest_27",
+    "f_rest_28",
+    "f_rest_29",
+    "f_rest_30",
+    "f_rest_31",
+    "f_rest_32",
+    "f_rest_33",
+    "f_rest_34",
+    "f_rest_35",
+    "f_rest_36",
+    "f_rest_37",
+    "f_rest_38",
+    "f_rest_39",
+    "f_rest_40",
+    "f_rest_41",
+    "f_rest_42",
+    "f_rest_43",
+    "f_rest_44",
+    "opacity",
+    "scale_0",
+    "scale_1",
+    "scale_2",
+    "rot_0",
+    "rot_1",
+    "rot_2",
+    "rot_3"
+  ],
+  "detected_attributes": {
+    "position": [
+      "x",
+      "y",
+      "z"
+    ],
+    "opacity": "opacity",
+    "scale": [
+      "scale_0",
+      "scale_1",
+      "scale_2"
+    ],
+    "rotation": [
+      "rot_0",
+      "rot_1",
+      "rot_2",
+      "rot_3"
+    ],
+    "rgb": [],
+    "spherical_harmonics_count": 48
+  },
+  "geometry": {
+    "bounding_box": {
+      "min": [
+        -51.83430099487305,
+        -82.78384399414062,
+        -23.466106414794922
+      ],
+      "max": [
+        40.48593521118164,
+        41.83724594116211,
+        29.79549217224121
+      ],
+      "extent": [
+        92.32023620605469,
+        124.62108993530273,
+        53.26159858703613
+      ],
+      "volume": 612777.2727520844
+    },
+    "centroid": [
+      -0.8257924377779173,
+      1.383853241739676,
+      0.1418060883074694
+    ],
+    "gaussians_per_bbox_unit": 0.36119322605743154
+  },
+  "opacity": {
+    "column": "opacity",
+    "mode": "logit_detected__sigmoid_applied",
+    "raw_min": -5.537300109863281,
+    "raw_max": 18.869482040405273,
+    "alpha_mean": 0.6856890313036698,
+    "alpha_median": 0.8380170085366114,
+    "alpha_std": 0.34199000716012773,
+    "alpha_p05": 0.07429655749569163,
+    "alpha_p95": 0.999984716693946,
+    "alpha_below_0_05": 7910,
+    "alpha_below_0_10": 14554,
+    "alpha_above_0_50": 149037
+  },
+  "scale": [
+    {
+      "column": "scale_0",
+      "raw_mean": -4.7083469459434255,
+      "raw_std": 2.313824076285982,
+      "exp_mean": 0.05637577615900708,
+      "exp_median": 0.010210027858969191,
+      "exp_p95": 0.2561898539563004
+    },
+    {
+      "column": "scale_1",
+      "raw_mean": -4.884212148867069,
+      "raw_std": 2.253505927323062,
+      "exp_mean": 0.04432451936011257,
+      "exp_median": 0.008794462284956082,
+      "exp_p95": 0.1983536016273344
+    },
+    {
+      "column": "scale_2",
+      "raw_mean": -4.919659031354765,
+      "raw_std": 2.303999393130698,
+      "exp_mean": 0.04474040864187147,
+      "exp_median": 0.008642080001260918,
+      "exp_p95": 0.20539866644982563
+    }
+  ],
+  "nearest_neighbor_sample": {
+    "sample_size": 50000,
+    "mean": 0.12013884460562964,
+    "median": 0.04168352556126343,
+    "std": 0.25873412644836,
+    "p05": 0.003933314893943804,
+    "p95": 0.4564872392027796
+  },
+  "important_note": "Las metricas de opacidad y escala aplican sigmoid()/exp() automaticamente cuando los valores crudos sugieren estar en logit/log-space (convencion habitual de los exporters de Gaussian Splatting). La distancia a vecinos mas cercanos se calculo sobre una muestra aleatoria reproducible, no sobre todas las gaussianas, para mantener acotado el uso de memoria."
+}

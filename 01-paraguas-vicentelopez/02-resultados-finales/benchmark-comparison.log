@@ -1,0 +1,9 @@
+RENDER BENCHMARK COMPARISON — 01-paraguas-vicentelopez
+======================================================================
+
+method                     PSNR     SSIM    LPIPS        MSE        MAE
+----------------------------------------------------------------------
+nerfacto                 25.914   0.8159   0.2818   0.002718   0.036648
+splatfacto               30.559   0.9099   0.1295   0.000991   0.018959
+
+PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

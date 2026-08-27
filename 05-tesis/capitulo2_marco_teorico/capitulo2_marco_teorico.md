@@ -25,7 +25,7 @@ Para concretar la creación de este archivo tridimensional accesible y escalable
 
 **2.2.1 Genealogía del término y antecedentes históricos**
 
-El término **fotogrametría** fue introducido por Albrecht Meydenbauer en 1867, a partir de una denominación propuesta junto con Otto Kersten en el artículo *"Die Photogrammetrie"*. Sin embargo, sus antecedentes metodológicos se remontan a los trabajos de Aimé Laussedat, quien aplicó fotografías a relevamientos topográficos durante la década de 1860 bajo la denominación de *metrophotography*. Laussedat es considerado el padre fundacional de la disciplina, al demostrar por primera vez la posibilidad de extraer información métrica tridimensional de imágenes bidimensionales (Polidori, 2020).
+El término **fotogrametría** fue introducido por Albrecht Meydenbauer en 1867, a partir de una denominación propuesta junto con Otto Kersten en el artículo *"Die Photogrammetrie"* (Grimm, 2007). Sin embargo, sus antecedentes metodológicos se remontan a los trabajos de Aimé Laussedat, quien aplicó fotografías a relevamientos topográficos durante la década de 1860 bajo la denominación de *metrophotography*. Laussedat es considerado el padre fundacional de la disciplina, al demostrar por primera vez la posibilidad de extraer información métrica tridimensional de imágenes bidimensionales (Polidori, 2020).
 
 Por su parte, **Structure from Motion (SfM)** surge como problema formal dentro de la visión computacional con los trabajos de Shimon Ullman, particularmente su artículo de 1979 *"The interpretation of structure from motion"*, donde se estudia la recuperación de estructura tridimensional a partir del movimiento aparente en secuencias de imágenes (Ullman, 1979). La denominación *fotogrametría SfM* como convergencia de ambas tradiciones no tiene un único acto fundacional, sino que emerge progresivamente durante los años 2000 con el desarrollo de algoritmos automáticos de emparejamiento de puntos de interés y el abaratamiento del hardware de cómputo.
 
@@ -33,7 +33,7 @@ Por su parte, **Structure from Motion (SfM)** surge como problema formal dentro 
 
 El pipeline típico de SfM+MVS comprende cinco etapas: (1) detección de puntos de interés (*keypoints*) mediante descriptores como *Scale-Invariant Feature Transform* (SIFT) o *Speeded-Up Robust Features* (SURF); (2) emparejamiento de correspondencias entre pares de imágenes; (3) estimación de la pose relativa de cada cámara mediante algoritmos de cinco u ocho puntos combinados con *Random Sample Consensus* (RANSAC); (4) triangulación incremental o global para obtener una nube de puntos dispersa; y (5) optimización global mediante *Bundle Adjustment*, que minimiza el error de reproyección de todos los puntos sobre todas las imágenes. Sobre el resultado de SfM, el proceso *Multi-View Stereo* (MVS) produce una nube de puntos densa por correlación fotométrica entre vistas adyacentes (Croce et al., 2024).
 
-![](media/image3.png)
+![](media/image3.webp)
 
 **2.2.3 Fortalezas para la documentación patrimonial**
 
@@ -61,7 +61,7 @@ El término **Neural Radiance Fields** y su abreviatura **NeRF** fueron introduc
 
 La función central de NeRF, *F*θ : (x, d) → (c, σ), recibe como entrada un punto tridimensional x = (x, y, z) y una dirección de visión d = (θ, φ), y devuelve el color RGB c y la densidad volumétrica σ. Esta función es aproximada por un MLP cuyos parámetros se optimizan minimizando el error cuadrático medio entre el color renderizado y el color real de los píxeles de entrenamiento. El renderizado se basa en el lanzamiento de rayos y la integración numérica de color y densidad a lo largo del rayo, ponderada por la transmitancia acumulada (Croce et al., 2024).
 
-![](media/image4.png)
+![](media/image4.webp)
 
 **2.3.3 Caso de uso específico: renderizado cinemático y síntesis de vistas**
 
@@ -87,7 +87,7 @@ El término **splatting** como técnica de renderizado volumétrico tiene sus an
 
 Cada primitiva gaussiana se caracteriza por posición, covarianza (forma y orientación del elipsoide), opacidad, y color view-dependent codificado mediante armónicos esféricos. El renderizado proyecta los elipsoides sobre el plano de imagen y los mezcla por profundidad mediante rasterización diferenciable en GPU. La inicialización parte de la nube de puntos sparse de SfM; el entrenamiento optimiza todos los parámetros iterativamente con densificación adaptativa: clonado, división y poda de gaussianas según su contribución al modelo (Lyu et al., 2025).
 
-![](media/image2.png)
+![](media/image2.webp)
 
 **2.4.3 Caso de uso específico: entornos interactivos en tiempo real**
 
@@ -133,7 +133,7 @@ La literatura revisada sugiere que la complejidad geométrica y ornamental del o
 
 Un hallazgo relevante del estado del arte es la tendencia emergente hacia la hibridación. Fang et al. (2025) proponen NeRF-GS, que combina representaciones continuas de NeRF con representaciones discretas de 3DGS, demostrando una mejora de 1.8 dB de PSNR sobre 3DGS estándar. Lyu et al. (2025) incorporan SDF implícitas en 3DGS para mejorar la geometría. Estos desarrollos apuntan hacia una convergencia en la que las fronteras entre técnicas se vuelven progresivamente más porosas.
 
-![](media/image1.png)
+![](media/image1.webp)
 
 *\[Tabla 2.1 — Comparación de técnicas SfM, NeRF y 3DGS según criterios de selección para documentación patrimonial argentina. **Escala ordinal de desempeño:** 0 = nulo, 1 = muy bajo, 2 = bajo, 3 = medio, 4 = alto y 5 = muy alto. Las puntuaciones sintetizan la literatura revisada y expresan una valoración comparativa, no mediciones experimentales absolutas. Fuente: elaboración propia a partir de Yu et al. (2025), Rangelov et al. (2026), Croce et al. (2024), Chen y Wang (2024), Fang et al. (2025).\]*
 
@@ -212,7 +212,7 @@ Para la obtención de datos de esta investigación se seleccionaron dos disposit
 
 **2.7.2 Preprocesamiento y curación del dataset con ComfyUI**
 
-La mayoría de los estudios sobre el uso de modelos tridimensionales generados mediante las técnicas analizadas tiende a subestimar la relevancia de la limpieza y el preprocesamiento del dataset. La publicación *A Large-Scale Dataset and Benchmark for Distractor-Free Novel View Synthesis* publicada durante 2026 confirma que hay una deuda en torno a los procesos de investigación vinculados a la generación de archivos de tres dimensiones:
+La mayoría de los estudios sobre el uso de modelos tridimensionales generados mediante las técnicas analizadas tiende a subestimar la relevancia de la limpieza y el preprocesamiento del dataset. La publicación *A Large-Scale Dataset and Benchmark for Distractor-Free Novel View Synthesis* publicada durante 2026 (Lu et al., 2026) confirma que hay una deuda en torno a los procesos de investigación vinculados a la generación de archivos de tres dimensiones:
 
 1)  Casi ningún investigador habla activamente de la importancia de manipular y mejorar el dataset obtenido y la mayoría de los autores analizan resultados directamente de las capturas, trabajando sobre un dataset virgen.
 
@@ -238,7 +238,7 @@ El objetivo de este ejercicio es comparar los resultados obtenidos de este datas
 
 **<u>2.8 Integración con flujos de trabajo HBIM</u>**
 
-El concepto de HBIM nace en el año 2009 a partir de la publicación del paper Historic building information modelling, el término hace referencia a Heritage Building Information Modeling y fue la solución que propusieron los autores de la publicación para resolver una de las problemáticas que más preocupaba en Europa a la hora de proponer tecnologías emergentes que dieran soporte a tareas de conservación de patrimonio histórico. Lo que propone el paper es la creación de una serie de objetos paramétricos, tal como los objetos que ya se venían creando en cualquier software de BIM (Revit siendo el pionero y Archicad siendo otro de los más utilizados) para la creación de edificios nuevos, pero en esta oportunidad que representaran piezas esenciales de obras arquitectónicas de gran valor patrimonial realizadas por arquitectos como Vitruvio y Palladio.
+El concepto de HBIM nace en el año 2009 a partir de la publicación del paper Historic building information modelling (Murphy et al., 2009), el término hace referencia a Heritage Building Information Modeling y fue la solución que propusieron los autores de la publicación para resolver una de las problemáticas que más preocupaba en Europa a la hora de proponer tecnologías emergentes que dieran soporte a tareas de conservación de patrimonio histórico. Lo que propone el paper es la creación de una serie de objetos paramétricos, tal como los objetos que ya se venían creando en cualquier software de BIM (Revit siendo el pionero y Archicad siendo otro de los más utilizados) para la creación de edificios nuevos, pero en esta oportunidad que representaran piezas esenciales de obras arquitectónicas de gran valor patrimonial realizadas por arquitectos como Vitruvio y Palladio.
 
 Lo que propone este paper es innovador porque revierte el uso tradicional de la tecnología BIM: del diseño a la construcción. Lo que proponen los autores es la utilización de tecnología de nube de puntos para recrear piezas en BIM que representen partes esenciales de edificios históricos. La nube de puntos que proponen, en este caso, puede ser obtenida a partir de lasers como Lidars, e introduce una metodología que en Europa se volvería pionera en cualquier proceso de preservación: el scan-to-BIM.
 
@@ -348,6 +348,10 @@ Los siguientes términos son utilizados de forma recurrente a lo largo de esta t
 
 **SfM (Structure from Motion):** Familia de algoritmos de visión computacional que recupera la estructura tridimensional de una escena y las posiciones de las cámaras a partir de imágenes, analizando el movimiento aparente de puntos de interés entre vistas. Formalizado por Ullman (1979).
 
+**Nerfacto:** Implementación de NeRF dentro de Nerfstudio, optimizada para velocidad de entrenamiento mediante hash encoding multiresolución y muestreo por importancia. Una de las dos técnicas comparadas en los tres casos de estudio de esta tesis.
+
+**Splatfacto:** Implementación de 3D Gaussian Splatting dentro de Nerfstudio. La segunda de las dos técnicas comparadas en los tres casos de estudio de esta tesis.
+
 **Pipeline y procesamiento**
 
 **Bundle Adjustment:** Etapa de optimización global del pipeline SfM que minimiza simultáneamente el error de reproyección de todos los puntos 3D sobre todas las imágenes.
@@ -360,6 +364,10 @@ Los siguientes términos son utilizados de forma recurrente a lo largo de esta t
 
 **Densificación adaptativa:** Estrategia empleada en 3DGS durante el entrenamiento para clonar, dividir o eliminar gaussianas según su contribución al modelo.
 
+**Floaters:** Artefactos de reconstrucción consistentes en fragmentos de geometría y color sin correspondencia con la escena real, típicamente desconectados de la estructura principal. Falla característica de NeRF (y en menor medida de 3DGS) ante datasets con registro SfM débil o geometría/ornamentación compleja.
+
+**Inpainting:** Técnica que reconstruye el contenido de una región eliminada de una imagen a partir del contexto circundante. Utilizada en esta tesis como etapa final del pipeline de limpieza de distractores, luego de la detección y el enmascarado (Capítulo 5, sección 5.2.3).
+
 **Keypoints:** Puntos de interés detectados automáticamente en imágenes mediante descriptores como SIFT o SURF, utilizados en el pipeline SfM para establecer correspondencias entre vistas.
 
 **Marching Cubes:** Algoritmo de extracción de superficies isométricas a partir de campos volumétricos. Utilizado en NeRF para convertir el campo de densidad implícito en una malla poligonal exportable.
@@ -368,11 +376,29 @@ Los siguientes términos son utilizados de forma recurrente a lo largo de esta t
 
 **Novel View Synthesis:** Síntesis de vistas fotorrealistas desde ángulos no presentes en el conjunto de entrenamiento. Aplicación central de NeRF para producción cinemática, y capacidad relevante de 3DGS para entornos interactivos.
 
+**ParallelDataManager:** Componente de Nerfstudio encargado de cargar y distribuir en paralelo el dataset de imágenes durante el entrenamiento. Responsable de la limitación de memoria detectada en esta tesis al entrenar Nerfacto sobre datasets grandes (1000+ imágenes), que obligó a entrenar sobre un subset reducido en varios de los casos de estudio (ver limitaciones metodológicas, Capítulo 4).
+
 **Pipeline:** Secuencia ordenada de etapas de procesamiento que transforma un conjunto de imágenes de entrada en un modelo 3D de salida.
 
 **RANSAC:** Algoritmo de estimación robusta de parámetros ante la presencia de outliers, utilizado en SfM para estimar poses de cámara.
 
 **Rasterización diferenciable:** Proceso de rasterización implementado de forma diferenciable para permitir la optimización end-to-end de parámetros 3D mediante retropropagación. Base del pipeline de entrenamiento de 3DGS.
+
+**Registro (imágenes registradas):** Proporción de imágenes de un dataset a las que el pipeline de SfM logra asignarles una pose de cámara válida mediante bundle adjustment. Métrica central para evaluar la robustez de un pipeline de SfM ante un dataset dado; una imagen no registrada queda excluida del modelo resultante.
+
+**Herramientas y software**
+
+**CloudCompare:** Software de código abierto para edición, limpieza y análisis de nubes de puntos densas. Utilizado en esta tesis para limpieza de outliers y cálculo de métricas geométricas sobre las nubes densas exportadas.
+
+**COLMAP:** Software de código abierto de Structure from Motion y Multi-View Stereo. Utilizado en esta tesis como pipeline de SfM nativo (vía `ns-process-data` o directamente por línea de comandos), alternativo a RealityScan.
+
+**LaMa (Large Mask Inpainting):** Modelo de inpainting basado en convoluciones de Fourier rápidas. Utilizado en el pipeline de limpieza de distractores de esta tesis (Capítulo 5, sección 5.2.3) para reconstruir el fondo en las áreas donde se eliminaron distractores.
+
+**Nerfstudio:** Framework de código abierto para el entrenamiento, evaluación y exportación de modelos NeRF y 3D Gaussian Splatting a partir de un pipeline de datos común. Framework central utilizado en esta tesis para entrenar Nerfacto y Splatfacto sobre los datasets de los tres casos de estudio.
+
+**RealityScan:** Software comercial de fotogrametría (Epic Games). Utilizado en esta tesis como pipeline de SfM principal para los datasets finales, exportado a formato COLMAP para su uso posterior en Nerfstudio.
+
+**YOLOv8-seg:** Modelo de detección y segmentación de instancias de la familia YOLO (You Only Look Once). Utilizado en esta tesis para detectar y generar máscaras de distractores (personas, aves, vehículos) sobre las imágenes del dataset (Capítulo 5, sección 5.2.3).
 
 **Representaciones y formatos**
 
@@ -396,6 +422,8 @@ Los siguientes términos son utilizados de forma recurrente a lo largo de esta t
 
 **Métricas de evaluación**
 
+**LPIPS (Learned Perceptual Image Patch Similarity):** Métrica de calidad de imagen basada en distancias entre activaciones de una red neuronal preentrenada, diseñada para correlacionar mejor con la percepción humana que PSNR y SSIM ante artefactos estructurales. Valores más bajos indican mayor similitud perceptual con la referencia.
+
 **PSNR (Peak Signal-to-Noise Ratio):** Métrica de calidad de imagen en decibelios. Valores más altos indican mayor fidelidad de la imagen sintetizada respecto a la referencia.
 
 **SSIM (Structural Similarity Index Measure):** Métrica de calidad de imagen que evalúa similitud estructural considerando luminancia, contraste y estructura local. Correlaciona mejor con la percepción visual humana que el PSNR.
@@ -403,6 +431,8 @@ Los siguientes términos son utilizados de forma recurrente a lo largo de esta t
 **Hardware y captura**
 
 **GPU (Graphics Processing Unit):** Unidad de procesamiento gráfico. Recurso computacional crítico para el entrenamiento de modelos NeRF y 3DGS.
+
+**GPU consumer-grade:** hardware gráfico orientado al mercado de consumo/gaming (p. ej. NVIDIA GeForce RTX), con memoria VRAM limitada y menor rendimiento sostenido que las GPU de nivel profesional o datacenter (p. ej. NVIDIA A100/H100). Es el hardware efectivamente disponible para esta tesis (Capítulo 4, sección 4.10), condicionando los tiempos de procesamiento reportados y limitando su representatividad frente a un entorno de producción profesional.
 
 **UAV (Unmanned Aerial Vehicle):** Vehículo aéreo no tripulado (drone). Plataforma de captura principal para relevamientos exteriores de edificios históricos, ofreciendo cobertura aérea a bajo costo y alta resolución.
 

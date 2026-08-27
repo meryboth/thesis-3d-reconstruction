@@ -1,0 +1,16 @@
+{
+  "caso": "02-templete-central",
+  "metodo_captura": "DJI (Dataset B curado, ComfyUI YOLO-seg+LaMa)",
+  "pipeline_sfm": "COLMAP nativo",
+  "imgs_entrada": 1228,
+  "imgs_registradas": 1228,
+  "tasa_pct": 100.0,
+  "n_points3d": 1670947,
+  "track_length_promedio": 3.27,
+  "track_length_mediana": 2.0,
+  "reproj_error_promedio_px": 0.0,
+  "reproj_error_mediana_px": 0.0,
+  "keypoints_2d_promedio": 4451.8,
+  "keypoints_con_3d_promedio": 4451.8,
+  "imagenes_no_registradas": []
+}

@@ -3,7 +3,7 @@
   "artifact": "dense-point-cloud",
   "method": "photogrammetry",
   "source": "COLMAP dense reconstruction",
-  "generated_analysis_at": "2026-08-25T11:56:58.164473",
+  "generated_analysis_at": "2026-08-25T18:01:06.299962",
   "file": {
     "name": "fused_medium_high_clean.ply",
     "path": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\02-resultados-finales\\colmap-fotogrametria-densa\\fused_medium_high_clean.ply",

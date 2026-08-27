@@ -1,0 +1,171 @@
+{
+  "artifact": "gaussian-splat",
+  "source": "nerfstudio splatfacto export (splat.ply)",
+  "generated_analysis_at": "2026-08-25T18:00:11.303138",
+  "file": {
+    "path": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\02-resultados-finales\\dji\\splatfacto\\export\\splat.ply",
+    "size_bytes": 78202689,
+    "size_mb": 74.57989597320557
+  },
+  "gaussian_count": 315327,
+  "property_names": [
+    "x",
+    "y",
+    "z",
+    "nx",
+    "ny",
+    "nz",
+    "f_dc_0",
+    "f_dc_1",
+    "f_dc_2",
+    "f_rest_0",
+    "f_rest_1",
+    "f_rest_2",
+    "f_rest_3",
+    "f_rest_4",
+    "f_rest_5",
+    "f_rest_6",
+    "f_rest_7",
+    "f_rest_8",
+    "f_rest_9",
+    "f_rest_10",
+    "f_rest_11",
+    "f_rest_12",
+    "f_rest_13",
+    "f_rest_14",
+    "f_rest_15",
+    "f_rest_16",
+    "f_rest_17",
+    "f_rest_18",
+    "f_rest_19",
+    "f_rest_20",
+    "f_rest_21",
+    "f_rest_22",
+    "f_rest_23",
+    "f_rest_24",
+    "f_rest_25",
+    "f_rest_26",
+    "f_rest_27",
+    "f_rest_28",
+    "f_rest_29",
+    "f_rest_30",
+    "f_rest_31",
+    "f_rest_32",
+    "f_rest_33",
+    "f_rest_34",
+    "f_rest_35",
+    "f_rest_36",
+    "f_rest_37",
+    "f_rest_38",
+    "f_rest_39",
+    "f_rest_40",
+    "f_rest_41",
+    "f_rest_42",
+    "f_rest_43",
+    "f_rest_44",
+    "opacity",
+    "scale_0",
+    "scale_1",
+    "scale_2",
+    "rot_0",
+    "rot_1",
+    "rot_2",
+    "rot_3"
+  ],
+  "detected_attributes": {
+    "position": [
+      "x",
+      "y",
+      "z"
+    ],
+    "opacity": "opacity",
+    "scale": [
+      "scale_0",
+      "scale_1",
+      "scale_2"
+    ],
+    "rotation": [
+      "rot_0",
+      "rot_1",
+      "rot_2",
+      "rot_3"
+    ],
+    "rgb": [],
+    "spherical_harmonics_count": 48
+  },
+  "geometry": {
+    "bounding_box": {
+      "min": [
+        -39.28208541870117,
+        -22.748559951782227,
+        -16.100685119628906
+      ],
+      "max": [
+        11.084734916687012,
+        28.21538543701172,
+        23.732717514038086
+      ],
+      "extent": [
+        50.366820335388184,
+        50.963945388793945,
+        39.83340263366699
+      ],
+      "volume": 102248.03781216395
+    },
+    "centroid": [
+      -0.05577821541753763,
+      0.13712084202895153,
+      0.08786908340635818
+    ],
+    "gaussians_per_bbox_unit": 3.0839418217421
+  },
+  "opacity": {
+    "column": "opacity",
+    "mode": "logit_detected__sigmoid_applied",
+    "raw_min": -5.537297248840332,
+    "raw_max": 17.61945343017578,
+    "alpha_mean": 0.7151739110128134,
+    "alpha_median": 0.8980218896637722,
+    "alpha_std": 0.33191760237976836,
+    "alpha_p05": 0.07180333727514007,
+    "alpha_p95": 0.9999416791764357,
+    "alpha_below_0_05": 12377,
+    "alpha_below_0_10": 19929,
+    "alpha_above_0_50": 225569
+  },
+  "scale": [
+    {
+      "column": "scale_0",
+      "raw_mean": -6.224917839670916,
+      "raw_std": 1.8314000781566147,
+      "exp_mean": 0.010050485247721291,
+      "exp_median": 0.0023088783769696854,
+      "exp_p95": 0.030318193551786235
+    },
+    {
+      "column": "scale_1",
+      "raw_mean": -6.247666741660411,
+      "raw_std": 1.8022964459956132,
+      "exp_mean": 0.00849702999229771,
+      "exp_median": 0.0023076368291403086,
+      "exp_p95": 0.026857177769062223
+    },
+    {
+      "column": "scale_2",
+      "raw_mean": -6.228498953774301,
+      "raw_std": 1.832490738429204,
+      "exp_mean": 0.009660280020029156,
+      "exp_median": 0.002314173446484949,
+      "exp_p95": 0.030116693009960192
+    }
+  ],
+  "nearest_neighbor_sample": {
+    "sample_size": 50000,
+    "mean": 0.03681941495086769,
+    "median": 0.009546763390255855,
+    "std": 0.1840052470398185,
+    "p05": 0.0019485115978897642,
+    "p95": 0.12363154761330537
+  },
+  "important_note": "Las metricas de opacidad y escala aplican sigmoid()/exp() automaticamente cuando los valores crudos sugieren estar en logit/log-space (convencion habitual de los exporters de Gaussian Splatting). La distancia a vecinos mas cercanos se calculo sobre una muestra aleatoria reproducible, no sobre todas las gaussianas, para mantener acotado el uso de memoria."
+}

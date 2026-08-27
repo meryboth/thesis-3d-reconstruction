@@ -1,0 +1,81 @@
+COMPARACION DE REGISTRO SfM — DJI solo / Insta360 solo / Hibrido
+====================================================================================================
+
+Templete Central e Panteon Asociacion Catalana son los dos casos con captura
+hibrida (DJI + Insta360), lo que permite comparar el mismo experimento (H4)
+en dos sitios de complejidad distinta.
+
+
+### 02-templete-central
+----------------------------------------------------------------------------------------------------
+DJI (subset secuencial) [COLMAP nativo (ns-process-data)]
+  Entrada: 487 img | Reportado: 0.62% | Real: 100.00% | Componentes: 3
+  Estado: Exito oculto, no usado — wrapper de Nerfstudio reporto el componente chico (0/1) en vez del grande (2)
+  Fuente: sfm-dji-sequential/colmap/sparse/{0,1,2} (parseado con colmap_component_to_nerfstudio.py)
+
+Insta360 fisheye (secuencial) [COLMAP nativo (ns-process-data)]
+  Entrada: 307 img | Reportado: 0.65% | Real: 99.30% | Componentes: 2
+  Estado: Exito oculto, no usado — mismo problema de componente equivocado
+  Fuente: sfm-insta360-sequential-fisheye/colmap/sparse/{0,1}
+
+Insta360 perspective (secuencial) [COLMAP nativo (ns-process-data)]
+  Entrada: 307 img | Reportado: 4.89% | Real: 96.70% | Componentes: 2
+  Estado: Exito oculto, no usado — mismo problema de componente equivocado
+  Fuente: sfm-insta360-sequential-perspective/colmap/sparse/{0,1}
+
+Hibrido DJI+Insta360 (487+307) [COLMAP nativo, matching exhaustivo (ns-process-data)]
+  Entrada: 794 img | Reportado: 0.38% | Real: 100.00% | Componentes: 2
+  Estado: Exito oculto — RESCATADO: exportado a thesis/02-templete-central/03-datasets/hibrido/dataset-hibrido-794-exhaustive/
+  Fuente: sfm-templete-central-exhaustive/colmap/sparse/{0,1}
+
+Hibrido DJI+Insta360 (487+307), corrida 2 [COLMAP nativo, matching exhaustivo (docker aislado)]
+  Entrada: 794 img | Reportado: 0.63% | Real: 0.63% | Componentes: 1
+  Estado: Fallo real, verificado — el mapper no completa el registro del dataset; matching cruzado DJI-Insta360 sistematicamente mas debil que intra-dispositivo (ver 00-auditoria/hybrid-cross-camera-matching/)
+  Fuente: 01-experimentos/hybrid-dji-insta360-colmap/run-20260825-183608/colmap/sparse/0
+
+DJI (dataset final) [RealityScan]
+  Entrada: 1234 img | Reportado: 99.84% | Real: 99.84% | Componentes: 1
+  Estado: Exito, en uso — dataset final (splatfacto full + subset nerfacto)
+  Fuente: ns-from-realityscan/ ; thesis 03-datasets/dji/
+
+Insta360 (dataset final) [RealityScan]
+  Entrada: 307 img | Reportado: 99.67% | Real: 99.67% | Componentes: 1
+  Estado: Exito, en uso — dataset final (nerfacto + splatfacto)
+  Fuente: logs/11_process_realityscan_insta360.log ; thesis 03-datasets/insta360/
+
+
+### 03-panteon-asociacion-catalana
+----------------------------------------------------------------------------------------------------
+Insta360 solo [RealityScan]
+  Entrada: 365 img | Reportado: 85.21% | Real: 85.21% | Componentes: 1
+  Estado: Exito parcial, en uso — unico dataset Insta360 disponible para este caso
+  Fuente: logs/insta360/01_realityscan_alignment.log
+
+DJI acotado (608) [RealityScan]
+  Entrada: 608 img | Reportado: 80.60% | Real: 80.60% | Componentes: 1
+  Estado: Exito parcial, superado por el dataset DJI grande (1507)
+  Fuente: logs/dji/03_nerfstudio_dataset_conversion.log
+
+DJI acotado (max 600) [RealityScan]
+  Entrada: 600 img | Reportado: 80.70% | Real: 80.70% | Componentes: 1
+  Estado: Variante del anterior (limite --max_dataset_size), mismo destino
+  Fuente: logs/dji/03_nerfstudio_dataset_conversion_max600.log
+
+Hibrido DJI+Insta360 (608+365) [RealityScan]
+  Entrada: 973 img | Reportado: N/A | Real: N/A | Componentes: N/A
+  Estado: Sin exportar — el proyecto RealityScan (colmap-dataclean.rsproj) nunca se exporto a modelo COLMAP; no hay nada que parsear
+  Fuente: dataset-clean/ ; colmap-dataclean.rsproj ; sfm-realityscan/clean/ (vacia)
+
+DJI (dataset final, 1507) [RealityScan + COLMAP nativo (ambos coincidieron)]
+  Entrada: 1507 img | Reportado: 99.93% | Real: 99.93% | Componentes: 1
+  Estado: Exito, en uso — dataset final (splatfacto full + subset nerfacto)
+  Fuente: sfm-djionly/colmap-nerfstudio/ ; sfm-djionly/colmap-realityscan/ ; thesis 03-datasets/dji/
+
+====================================================================================================
+NOTA METODOLOGICA
+----------------------------------------------------------------------------------------------------
+'Reportado' es lo que imprimio el wrapper automatico de conversion (ns-process-data
+o el log de RealityScan). 'Real' es el resultado verificado leyendo directamente los
+archivos binarios/texto de COLMAP cuando hubo discrepancia (fragmentacion en multiples
+componentes desconectados). Los casos con un unico componente no presentaron esta
+discrepancia: reportado y real coinciden.

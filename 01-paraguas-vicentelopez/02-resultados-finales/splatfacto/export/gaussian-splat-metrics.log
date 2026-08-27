@@ -1,0 +1,46 @@
+GAUSSIAN SPLAT ANALYSIS
+======================================================================
+
+File: C:\nerfstudio_work\thesis\01-paraguas-vicentelopez\02-resultados-finales\splatfacto\export\splat.ply
+Size MB: 52.349
+Gaussian count: 221,331
+
+DETECTED ATTRIBUTES
+--------------------
+Position: ['x', 'y', 'z']
+Opacity: opacity
+Scale: ['scale_0', 'scale_1', 'scale_2']
+Rotation: ['rot_0', 'rot_1', 'rot_2', 'rot_3']
+RGB: []
+Spherical harmonics columns: 48
+
+BOUNDING BOX
+------------
+Extent: [92.32023620605469, 124.62108993530273, 53.26159858703613]
+Centroid: [-0.8257924377779173, 1.383853241739676, 0.1418060883074694]
+Gaussians per bbox unit: 0.36119322605743154
+
+OPACITY
+-------
+Mode: logit_detected__sigmoid_applied
+Alpha mean: 0.685689
+Alpha median: 0.838017
+Alpha < 0.05: 7,910
+Alpha < 0.10: 14,554
+Alpha > 0.50: 149,037
+
+SCALE
+-----
+scale_0: exp_mean=0.056376 exp_median=0.010210 exp_p95=0.256190
+scale_1: exp_mean=0.044325 exp_median=0.008794 exp_p95=0.198354
+scale_2: exp_mean=0.044740 exp_median=0.008642 exp_p95=0.205399
+
+NEAREST NEIGHBOR (sample)
+--------------------------
+Sample size: 50,000
+NN mean: 0.120139
+NN median: 0.041684
+
+METHODOLOGICAL NOTE
+--------------------
+Las metricas de opacidad y escala aplican sigmoid()/exp() automaticamente cuando los valores crudos sugieren estar en logit/log-space (convencion habitual de los exporters de Gaussian Splatting). La distancia a vecinos mas cercanos se calculo sobre una muestra aleatoria reproducible, no sobre todas las gaussianas, para mantener acotado el uso de memoria.

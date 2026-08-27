@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 01-paraguas-vicentelopez
+Method: nerfacto
+GT dir: C:\nerfstudio_work\paraguas-vicentelopez\ns-data-drone\images
+Pred dir: C:\nerfstudio_work\paraguas-vicentelopez\renders\nerfacto\train\rgb
+
+Total paired frames: 637
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 25.913529 / 1.451265 / 25.831874 / 21.261736 / 28.913404
+SSIM  : 0.815851 / 0.031712 / 0.814879 / 0.733255 / 0.880028
+LPIPS : 0.281827 / 0.027100 / 0.280802 / 0.231404 / 0.353454
+MSE   : 0.002718 / 0.001016 / 0.002611 / 0.001284 / 0.007479
+MAE   : 0.036648 / 0.008287 / 0.037168 / 0.023412 / 0.068771
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

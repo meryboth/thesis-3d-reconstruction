@@ -1,0 +1,845 @@
+[
+  {
+    "id": "cap1",
+    "num": 1,
+    "title": "Introducción",
+    "file": "/content/cap1.md",
+    "conclusion": "Esta tesis compara fotogrametría SfM, NeRF y 3D Gaussian Splatting sobre tres edificios patrimoniales argentinos de complejidad creciente, para sistematizar criterios de selección de técnica según el objeto a documentar y proponer un pipeline reproducible, desde la captura hasta un archivo digital publicable en la web.",
+    "sections": [
+      {
+        "id": "cap1-1-1",
+        "num": "1.1",
+        "title": "Contexto y motivación",
+        "children": []
+      },
+      {
+        "id": "cap1-1-2",
+        "num": "1.2",
+        "title": "Planteamiento del problema",
+        "children": []
+      },
+      {
+        "id": "cap1-1-3",
+        "num": "1.3",
+        "title": "Objetivos de la investigación",
+        "children": [
+          {
+            "id": "cap1-1-3-1",
+            "num": "1.3.1",
+            "title": "Objetivo general"
+          },
+          {
+            "id": "cap1-1-3-2",
+            "num": "1.3.2",
+            "title": "Objetivos específicos"
+          }
+        ]
+      },
+      {
+        "id": "cap1-1-4",
+        "num": "1.4",
+        "title": "Justificación y relevancia",
+        "children": [
+          {
+            "id": "cap1-1-4-1",
+            "num": "1.4.1",
+            "title": "Relevancia científica"
+          },
+          {
+            "id": "cap1-1-4-2",
+            "num": "1.4.2",
+            "title": "Relevancia disciplinar y social"
+          },
+          {
+            "id": "cap1-1-4-3",
+            "num": "1.4.3",
+            "title": "Relevancia personal e interdisciplinar"
+          }
+        ]
+      },
+      {
+        "id": "cap1-1-5",
+        "num": "1.5",
+        "title": "Hipótesis de trabajo",
+        "children": []
+      },
+      {
+        "id": "cap1-1-6",
+        "num": "1.6",
+        "title": "Alcance y limitaciones",
+        "children": [
+          {
+            "id": "cap1-1-6-1",
+            "num": "1.6.1",
+            "title": "Alcance"
+          },
+          {
+            "id": "cap1-1-6-2",
+            "num": "1.6.2",
+            "title": "Limitaciones"
+          }
+        ]
+      },
+      {
+        "id": "cap1-1-7",
+        "num": "1.7",
+        "title": "Estructura de la tesis",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap2",
+    "num": 2,
+    "title": "Marco Teórico",
+    "file": "/content/cap2.md",
+    "conclusion": "La revisión de la literatura, combinada con los criterios específicos de esta investigación —documentación patrimonial argentina, interoperabilidad con BIM, construcción de un repositorio digital accesible— permite proponer una lectura comparativa orientada a la adecuación de cada técnica para cada caso de uso posible.\n\n**Criterio 1: Precisión geométrica e integración con BIM/Revit**\n\nSfM es la técnica dominante en este criterio. Su output es directamente importable en Autodesk Revit mediante ReCap o CloudCompare, compatible con el flujo de trabajo HBIM estándar y exportable en formatos interoperables (.IFC, .OBJ, .E57, .glTF). NeRF y 3DGS requieren pasos adicionales de conversión que pueden degradar la exactitud métrica, y su integración con BIM es aún experimental. Para equipos de arquitectura y restauración que necesiten modelos medibles y editables, SfM es actualmente la única opción madura.",
+    "sections": [
+      {
+        "id": "cap2-2-1",
+        "num": "2.1",
+        "title": "El objeto de estudio: patrimonio arquitectónico argentino",
+        "children": []
+      },
+      {
+        "id": "cap2-2-2",
+        "num": "2.2",
+        "title": "Fotogrametría basada en Structure from Motion (SfM)",
+        "children": [
+          {
+            "id": "cap2-2-2-1",
+            "num": "2.2.1",
+            "title": "Genealogía del término y antecedentes históricos"
+          },
+          {
+            "id": "cap2-2-2-2",
+            "num": "2.2.2",
+            "title": "Fundamentos del método"
+          },
+          {
+            "id": "cap2-2-2-3",
+            "num": "2.2.3",
+            "title": "Fortalezas para la documentación patrimonial"
+          },
+          {
+            "id": "cap2-2-2-4",
+            "num": "2.2.4",
+            "title": "Limitaciones"
+          },
+          {
+            "id": "cap2-2-2-5",
+            "num": "2.2.5",
+            "title": "Herramientas de software"
+          }
+        ]
+      },
+      {
+        "id": "cap2-2-3",
+        "num": "2.3",
+        "title": "Neural Radiance Fields (NeRF)",
+        "children": [
+          {
+            "id": "cap2-2-3-1",
+            "num": "2.3.1",
+            "title": "Genealogía del término y antecedentes históricos"
+          },
+          {
+            "id": "cap2-2-3-2",
+            "num": "2.3.2",
+            "title": "Fundamentos del método"
+          },
+          {
+            "id": "cap2-2-3-3",
+            "num": "2.3.3",
+            "title": "Caso de uso específico: renderizado cinemático y síntesis de vistas"
+          },
+          {
+            "id": "cap2-2-3-4",
+            "num": "2.3.4",
+            "title": "Limitaciones"
+          },
+          {
+            "id": "cap2-2-3-5",
+            "num": "2.3.5",
+            "title": "Herramientas de software"
+          }
+        ]
+      },
+      {
+        "id": "cap2-2-4",
+        "num": "2.4",
+        "title": "3D Gaussian Splatting (3DGS)",
+        "children": [
+          {
+            "id": "cap2-2-4-1",
+            "num": "2.4.1",
+            "title": "Genealogía del término y antecedentes históricos"
+          },
+          {
+            "id": "cap2-2-4-2",
+            "num": "2.4.2",
+            "title": "Fundamentos del método"
+          },
+          {
+            "id": "cap2-2-4-3",
+            "num": "2.4.3",
+            "title": "Caso de uso específico: entornos interactivos en tiempo real"
+          },
+          {
+            "id": "cap2-2-4-4",
+            "num": "2.4.4",
+            "title": "Limitaciones"
+          },
+          {
+            "id": "cap2-2-4-5",
+            "num": "2.4.5",
+            "title": "Herramientas de software"
+          }
+        ]
+      },
+      {
+        "id": "cap2-2-5",
+        "num": "2.5",
+        "title": "Comparación de técnicas: síntesis y criterios de selección",
+        "children": []
+      },
+      {
+        "id": "cap2-2-6",
+        "num": "2.6",
+        "title": "Criterios de evaluación y métricas",
+        "children": [
+          {
+            "id": "cap2-2-6-1",
+            "num": "2.6.1",
+            "title": "Métricas de calidad de imagen"
+          },
+          {
+            "id": "cap2-2-6-2",
+            "num": "2.6.2",
+            "title": "Criterio de peso del archivo"
+          },
+          {
+            "id": "cap2-2-6-3",
+            "num": "2.6.3",
+            "title": "Métricas de eficiencia computacional: tiempo de procesamiento y tasa de fallos"
+          }
+        ]
+      },
+      {
+        "id": "cap2-2-7",
+        "num": "2.7",
+        "title": "Adquisición y preprocesamiento de imágenes",
+        "children": [
+          {
+            "id": "cap2-2-7-1",
+            "num": "2.7.1",
+            "title": "Estrategias de captura"
+          },
+          {
+            "id": "cap2-2-7-2",
+            "num": "2.7.2",
+            "title": "Preprocesamiento y curación del dataset con ComfyUI"
+          }
+        ]
+      },
+      {
+        "id": "cap2-2-8",
+        "num": "2.8",
+        "title": "Integración con flujos de trabajo HBIM",
+        "children": []
+      },
+      {
+        "id": "cap2-2-9",
+        "num": "2.9",
+        "title": "Síntesis y posicionamiento de la investigación",
+        "children": []
+      },
+      {
+        "id": "cap2-referencias-del-cap-tulo-2",
+        "num": null,
+        "title": "Referencias del Capítulo 2",
+        "children": []
+      },
+      {
+        "id": "cap2-glosario-de-t-rminos-cap-tulo-2",
+        "num": null,
+        "title": "Glosario de términos — Capítulo 2",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap3",
+    "num": 3,
+    "title": "Caso de Estudio",
+    "file": "/content/cap3.md",
+    "conclusion": "Los tres casos de estudio —Los Paraguas de Amancio Williams, el Templete Central del Sexto Panteón y el Panteón de la Asociación Española, todos en el Cementerio de la Chacarita— representan niveles crecientes de complejidad geométrica y ornamental: de geometría simple y regular, a formas repetitivas de un único material, a ornamentación densa con deterioro documentado.",
+    "sections": [
+      {
+        "id": "cap3-3-1",
+        "num": "3.1",
+        "title": "Criterios de selección de los casos de estudio",
+        "children": []
+      },
+      {
+        "id": "cap3-3-2",
+        "num": "3.2",
+        "title": "Caso de estudio 1: Los Paraguas de Amancio Williams",
+        "children": [
+          {
+            "id": "cap3-3-2-1",
+            "num": "3.2.1",
+            "title": "Justificación como caso de estudio"
+          },
+          {
+            "id": "cap3-3-2-2",
+            "num": "3.2.2",
+            "title": "Desafíos de reconstrucción 3D aplicados a la obra"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-3",
+        "num": "3.3",
+        "title": "Caso de estudio 2: Los templetes del Sexto Panteón de Chacarita de Ítala Fulvia Villa",
+        "children": [
+          {
+            "id": "cap3-3-3-1",
+            "num": "3.3.1",
+            "title": "Justificación como caso de estudio"
+          },
+          {
+            "id": "cap3-3-3-2",
+            "num": "3.3.2",
+            "title": "Desafíos de reconstrucción 3D aplicados a la obra"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-4",
+        "num": "3.4",
+        "title": "Caso de estudio 3: El Panteón de la Asociación Española de Socorros Mutuos",
+        "children": [
+          {
+            "id": "cap3-3-4-1",
+            "num": "3.4.1",
+            "title": "Justificación como caso de estudio"
+          },
+          {
+            "id": "cap3-3-4-2",
+            "num": "3.4.2",
+            "title": "Desafíos de reconstrucción 3D aplicados a la obra"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-5",
+        "num": "3.5",
+        "title": "Equipamiento de captura",
+        "children": [
+          {
+            "id": "cap3-3-5-1",
+            "num": "3.5.1",
+            "title": "Cámara Insta360"
+          },
+          {
+            "id": "cap3-3-5-2",
+            "num": "3.5.2",
+            "title": "Drone DJI Neo 2"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-6",
+        "num": "3.6",
+        "title": "Protocolo de captura de imágenes",
+        "children": [
+          {
+            "id": "cap3-3-6-1",
+            "num": "3.6.1",
+            "title": "Diseño del recorrido de captura"
+          },
+          {
+            "id": "cap3-3-6-2",
+            "num": "3.6.2",
+            "title": "Condiciones de captura"
+          },
+          {
+            "id": "cap3-3-6-3",
+            "num": "3.6.3",
+            "title": "Parámetros de captura del video"
+          },
+          {
+            "id": "cap3-3-6-4",
+            "num": "3.6.4",
+            "title": "Resumen del dataset obtenido"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-7",
+        "num": "3.7",
+        "title": "Pipeline de preprocesamiento con ComfyUI",
+        "children": [
+          {
+            "id": "cap3-3-7-1",
+            "num": "3.7.1",
+            "title": "Justificación del preprocesamiento"
+          },
+          {
+            "id": "cap3-3-7-2",
+            "num": "3.7.2",
+            "title": "Descripción del pipeline implementado"
+          },
+          {
+            "id": "cap3-3-7-3",
+            "num": "3.7.3",
+            "title": "Datasets generados para la experimentación"
+          }
+        ]
+      },
+      {
+        "id": "cap3-3-8",
+        "num": "3.8",
+        "title": "Posibles casos de estudio adicionales",
+        "children": []
+      },
+      {
+        "id": "cap3-3-9",
+        "num": "3.9",
+        "title": "Síntesis del capítulo",
+        "children": []
+      },
+      {
+        "id": "cap3-referencias-del-cap-tulo-3",
+        "num": null,
+        "title": "Referencias del Capítulo 3",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap4",
+    "num": 4,
+    "title": "Diseño Experimental",
+    "file": "/content/cap4.md",
+    "conclusion": "El diseño experimental de esta tesis organiza los experimentos en cinco benchmarks. B2 mide el efecto del preprocesamiento de ComfyUI sobre el caso de referencia. B1 compara las tres técnicas de reconstrucción sobre ese mismo caso, caracterizando en qué es buena cada una según el criterio de uso (documentación con potencial de integración BIM, síntesis de vistas, renderizado en tiempo real). B3 generaliza esa comparación a los tres casos de estudio definidos en el Capítulo 3, evaluando qué técnica es más compatible con cada nivel de complejidad geométrica y ornamental. B4 valida si un dataset combinado de drone y cámara mejora la cobertura de captura sin degradar la calidad de reconstrucción. B5 valida, mediante un checklist cualitativo, la compatibilidad de los outputs con visores web y la reproducibilidad del pipeline completo a partir de su documentación. El toolchain de reconstrucción —Nerfstudio con COLMAP integrado para SfM y SuperSplat para la edición de splats de 3DGS— y la densidad de muestreo son fijos en los cinco benchmarks, sin comparación entre alternativas. Google Colab se incorpora como entorno de análisis y comparación de resultados, sin intervenir en el entrenamiento de los modelos. Las cinco hipótesis de trabajo (H1–H5) se operacionalizan con criterios de aceptación cuantitativos (H1–H4) o de checklist cualitativo (H5).",
+    "sections": [
+      {
+        "id": "cap4-4-1",
+        "num": "4.1",
+        "title": "Hipótesis operacionales",
+        "children": []
+      },
+      {
+        "id": "cap4-4-2",
+        "num": "4.2",
+        "title": "Casos de estudio y su rol en el diseño experimental",
+        "children": []
+      },
+      {
+        "id": "cap4-4-3",
+        "num": "4.3",
+        "title": "Variables del experimento",
+        "children": [
+          {
+            "id": "cap4-4-3-1",
+            "num": "4.3.1",
+            "title": "Variable independiente principal: el algoritmo de reconstrucción"
+          },
+          {
+            "id": "cap4-4-3-2",
+            "num": "4.3.2",
+            "title": "Variable de complejidad geométrica"
+          },
+          {
+            "id": "cap4-4-3-3",
+            "num": "4.3.3",
+            "title": "Variable de composición del dataset (multi-dispositivo)"
+          },
+          {
+            "id": "cap4-4-3-4",
+            "num": "4.3.4",
+            "title": "Variables independientes secundarias"
+          },
+          {
+            "id": "cap4-4-3-5",
+            "num": "4.3.5",
+            "title": "Variables dependientes (métricas de evaluación)"
+          },
+          {
+            "id": "cap4-4-3-6",
+            "num": "4.3.6",
+            "title": "Variables controladas"
+          }
+        ]
+      },
+      {
+        "id": "cap4-4-4",
+        "num": "4.4",
+        "title": "Entorno de hardware y software",
+        "children": [
+          {
+            "id": "cap4-4-4-1",
+            "num": "4.4.1",
+            "title": "Hardware"
+          },
+          {
+            "id": "cap4-4-4-2",
+            "num": "4.4.2",
+            "title": "Equipos de captura"
+          },
+          {
+            "id": "cap4-4-4-3",
+            "num": "4.4.3",
+            "title": "Software y herramientas del pipeline"
+          }
+        ]
+      },
+      {
+        "id": "cap4-4-5",
+        "num": "4.5",
+        "title": "Estructura de los benchmarks",
+        "children": []
+      },
+      {
+        "id": "cap4-4-6",
+        "num": "4.6",
+        "title": "Tabla resumen del diseño experimental",
+        "children": []
+      },
+      {
+        "id": "cap4-4-7",
+        "num": "4.7",
+        "title": "Conjunto de imágenes de test y evaluación",
+        "children": []
+      },
+      {
+        "id": "cap4-4-8",
+        "num": "4.8",
+        "title": "Protocolo de evaluación cualitativa de fidelidad geométrica",
+        "children": []
+      },
+      {
+        "id": "cap4-4-9",
+        "num": "4.9",
+        "title": "Protocolo de registro de fallos",
+        "children": []
+      },
+      {
+        "id": "cap4-4-10",
+        "num": "4.10",
+        "title": "Limitaciones del diseño experimental",
+        "children": []
+      },
+      {
+        "id": "cap4-4-11",
+        "num": "4.11",
+        "title": "Síntesis del capítulo",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap5",
+    "num": 5,
+    "title": "Análisis de Resultados",
+    "file": "/content/cap5.md",
+    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, tres se ejecutaron con resultados completos (B1, B3, B5 en su componente documental), y dos se ejecutaron parcialmente: B4, con hallazgos metodológicos relevantes que exceden el alcance original, y B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
+    "sections": [
+      {
+        "id": "cap5-5-1",
+        "num": "5.1",
+        "title": "Resumen de lo efectivamente ejecutado",
+        "children": []
+      },
+      {
+        "id": "cap5-5-2",
+        "num": "5.2",
+        "title": "B2 — Benchmark de preprocesamiento ComfyUI (H2)",
+        "children": [
+          {
+            "id": "cap5-5-2-1",
+            "num": "5.2.1",
+            "title": "Estado: preprocesamiento ejecutado, comparación de reconstrucción pendiente"
+          },
+          {
+            "id": "cap5-5-2-2",
+            "num": "5.2.2",
+            "title": "Evidencia visual del impacto del preprocesamiento"
+          },
+          {
+            "id": "cap5-5-2-3",
+            "num": "5.2.3",
+            "title": "Pipeline de limpieza: nodos y decisiones de diseño"
+          },
+          {
+            "id": "cap5-5-2-4",
+            "num": "5.2.4",
+            "title": "Resultado de la reconstrucción sobre el Dataset B — contraste de H2"
+          }
+        ]
+      },
+      {
+        "id": "cap5-5-3",
+        "num": "5.3",
+        "title": "B1 — Técnicas sobre el caso de referencia: Templete Central (H1)",
+        "children": [
+          {
+            "id": "cap5-5-3-1",
+            "num": "5.3.1",
+            "title": "Métricas cuantitativas"
+          },
+          {
+            "id": "cap5-5-3-2",
+            "num": "5.3.2",
+            "title": "Fidelidad geométrica — Nerfacto vs. Splatfacto"
+          },
+          {
+            "id": "cap5-5-3-3",
+            "num": "5.3.3",
+            "title": "SfM — malla texturizada y potencial de integración BIM"
+          }
+        ]
+      },
+      {
+        "id": "cap5-5-4",
+        "num": "5.4",
+        "title": "B3 — Escalabilidad ante complejidad geométrica (H3)",
+        "children": [
+          {
+            "id": "cap5-5-4-1",
+            "num": "5.4.1",
+            "title": "Matriz de resultados"
+          },
+          {
+            "id": "cap5-5-4-2",
+            "num": "5.4.2",
+            "title": "Lectura de la divergencia entre técnicas"
+          },
+          {
+            "id": "cap5-5-4-3",
+            "num": "5.4.3",
+            "title": "Fidelidad geométrica por caso — SfM"
+          }
+        ]
+      },
+      {
+        "id": "cap5-5-5",
+        "num": "5.5",
+        "title": "B4 — Dataset multi-dispositivo (H4)",
+        "children": [
+          {
+            "id": "cap5-5-5-1",
+            "num": "5.5.1",
+            "title": "Registro SfM: solo drone vs. solo cámara vs. híbrido"
+          },
+          {
+            "id": "cap5-5-5-2",
+            "num": "5.5.2",
+            "title": "Hallazgo metodológico: componentes de reconstrucción desconectados"
+          },
+          {
+            "id": "cap5-5-5-3",
+            "num": "5.5.3",
+            "title": "Por qué fallan los datasets híbridos: calidad de matching cruzado entre dispositivos"
+          },
+          {
+            "id": "cap5-5-5-4",
+            "num": "5.5.4",
+            "title": "Cobertura reconstruida"
+          },
+          {
+            "id": "cap5-5-5-5",
+            "num": "5.5.5",
+            "title": "Evidencia complementaria: calidad de render por dispositivo"
+          }
+        ]
+      },
+      {
+        "id": "cap5-5-6",
+        "num": "5.6",
+        "title": "B5 — Compatibilidad web y reproducibilidad (H5)",
+        "children": []
+      },
+      {
+        "id": "cap5-5-7",
+        "num": "5.7",
+        "title": "Tasa de fallos, por sitio",
+        "children": []
+      },
+      {
+        "id": "cap5-5-8",
+        "num": "5.8",
+        "title": "Peso del archivo de output, por técnica",
+        "children": []
+      },
+      {
+        "id": "cap5-5-9",
+        "num": "5.9",
+        "title": "Tiempo de procesamiento",
+        "children": []
+      },
+      {
+        "id": "cap5-5-10",
+        "num": "5.10",
+        "title": "Síntesis por hipótesis",
+        "children": []
+      },
+      {
+        "id": "cap5-5-11",
+        "num": "5.11",
+        "title": "Cierre del capítulo",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap6",
+    "num": 6,
+    "title": "Pipeline Definitivo",
+    "file": "/content/cap6.md",
+    "conclusion": "Este capítulo tradujo los resultados del Capítulo 5 en tres productos aplicados: (a) un criterio de selección de técnica según el tipo de objeto patrimonial y el uso previsto (Tabla 6.1), directamente respaldado por la evidencia cuantitativa y cualitativa recogida; (b) un pipeline definitivo documentado (Figura 6.1) que incorpora, como novedad respecto al diseño experimental original, un paso explícito de verificación binaria del registro SfM, motivado por el hallazgo metodológico más significativo de esta tesis (Capítulo 5, sección 5.5.2); y (c) una propuesta conceptual de integración con flujos HBIM/Revit y lineamientos para el archivo digital web, ambos pendientes de validación práctica. El Capítulo 7 retoma estos tres productos para las conclusiones generales y las líneas de investigación futura.",
+    "sections": [
+      {
+        "id": "cap6-6-1",
+        "num": "6.1",
+        "title": "Criterios de selección de técnica según el objeto patrimonial",
+        "children": []
+      },
+      {
+        "id": "cap6-6-2",
+        "num": "6.2",
+        "title": "Pipeline definitivo documentado",
+        "children": [
+          {
+            "id": "cap6-6-2-1",
+            "num": "6.2.1",
+            "title": "Captura"
+          },
+          {
+            "id": "cap6-6-2-2",
+            "num": "6.2.2",
+            "title": "Preprocesamiento"
+          },
+          {
+            "id": "cap6-6-2-3",
+            "num": "6.2.3",
+            "title": "SfM con verificación binaria"
+          },
+          {
+            "id": "cap6-6-2-4",
+            "num": "6.2.4",
+            "title": "Reconstrucción: NeRF y 3DGS"
+          },
+          {
+            "id": "cap6-6-2-5",
+            "num": "6.2.5",
+            "title": "Edición, exportación y publicación"
+          }
+        ]
+      },
+      {
+        "id": "cap6-6-3",
+        "num": "6.3",
+        "title": "Propuesta de integración con flujos de trabajo HBIM/Revit",
+        "children": [
+          {
+            "id": "cap6-6-3-1",
+            "num": "6.3.1",
+            "title": "Punto de entrada: la malla SfM"
+          },
+          {
+            "id": "cap6-6-3-2",
+            "num": "6.3.2",
+            "title": "Flujo conceptual propuesto"
+          },
+          {
+            "id": "cap6-6-3-3",
+            "num": "6.3.3",
+            "title": "Limitación reconocida"
+          }
+        ]
+      },
+      {
+        "id": "cap6-6-4",
+        "num": "6.4",
+        "title": "Lineamientos para el archivo digital de patrimonio arquitectónico web",
+        "children": []
+      },
+      {
+        "id": "cap6-6-5",
+        "num": "6.5",
+        "title": "Recomendaciones de infraestructura",
+        "children": []
+      },
+      {
+        "id": "cap6-6-6",
+        "num": "6.6",
+        "title": "Síntesis del capítulo",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "cap7",
+    "num": 7,
+    "title": "Conclusiones",
+    "file": "/content/cap7.md",
+    "conclusion": "Esta tesis se propuso investigar, comparar y sistematizar el uso de fotogrametría SfM, NeRF y 3D Gaussian Splatting para la documentación tridimensional de patrimonio arquitectónico argentino, con el objetivo de desarrollar un pipeline reproducible y proponer criterios de selección de técnica fundamentados en evidencia (Capítulo 1, sección 1.3.1). El diseño experimental (Capítulo 4) operacionalizó cinco hipótesis de trabajo en cinco benchmarks, ejecutados sobre tres casos de estudio de complejidad geométrica creciente —Los Paraguas de Amancio Williams, el Templete Central del Cementerio de la Chacarita y el Panteón de la Asociación Española/Catalana— y analizados en el Capítulo 5. El Capítulo 6 tradujo esos resultados en un pipeline definitivo documentado y en una propuesta conceptual de integración con flujos HBIM/Revit.",
+    "sections": [
+      {
+        "id": "cap7-7-1",
+        "num": "7.1",
+        "title": "Síntesis general de la investigación",
+        "children": []
+      },
+      {
+        "id": "cap7-7-2",
+        "num": "7.2",
+        "title": "Contraste de las hipótesis de trabajo",
+        "children": []
+      },
+      {
+        "id": "cap7-7-3",
+        "num": "7.3",
+        "title": "Cumplimiento de los objetivos específicos",
+        "children": []
+      },
+      {
+        "id": "cap7-7-4",
+        "num": "7.4",
+        "title": "Limitaciones generales de la investigación",
+        "children": []
+      },
+      {
+        "id": "cap7-7-5",
+        "num": "7.5",
+        "title": "Líneas de investigación futura",
+        "children": []
+      },
+      {
+        "id": "cap7-7-6",
+        "num": "7.6",
+        "title": "Reflexión final",
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "glosario",
+    "num": null,
+    "title": "Glosario",
+    "file": "/content/glosario.md",
+    "conclusion": "",
+    "sections": []
+  },
+  {
+    "id": "bibliografia",
+    "num": null,
+    "title": "Bibliografía",
+    "file": "/content/bibliografia.md",
+    "conclusion": "",
+    "sections": []
+  }
+]

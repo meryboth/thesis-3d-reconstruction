@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 02-templete-central
+Method: insta360/splatfacto
+GT dir: C:\nerfstudio_work\panteon-chacarita\templete-central\renders\templete-central-insta360-splatfacto-dataset-traj\train\gt-rgb
+Pred dir: C:\nerfstudio_work\panteon-chacarita\templete-central\renders\templete-central-insta360-splatfacto-dataset-traj\train\rgb
+
+Total paired frames: 276
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 13.992365 / 1.364408 / 13.670597 / 11.744945 / 17.322971
+SSIM  : 0.522852 / 0.098380 / 0.518092 / 0.365429 / 0.683291
+LPIPS : 0.432665 / 0.072388 / 0.424132 / 0.280666 / 0.565905
+MSE   : 0.041767 / 0.012060 / 0.042948 / 0.018523 / 0.066912
+MAE   : 0.118495 / 0.025254 / 0.116983 / 0.073412 / 0.167571
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

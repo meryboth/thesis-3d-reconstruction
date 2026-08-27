@@ -1,0 +1,53 @@
+TASA DE FALLOS — procesamiento / entrenamiento (no incluye etapa de SfM,
+ver analyze_sfm_registration_comparison.py para esa etapa)
+====================================================================================================
+
+RESUMEN POR SITIO
+----------------------------------------------------------------------------------------------------
+01-paraguas-vicentelopez: {'catastrofico': 2}
+02-templete-central: {'catastrofico': 3}
+03-panteon-asociacion-catalana: {'inestabilidad_convergencia': 1}
+
+DETALLE
+----------------------------------------------------------------------------------------------------
+
+### 01-paraguas-vicentelopez
+------------------------------------------------------------
+[catastrofico/OOM_SISTEMA] Sin memoria suficiente en el sistema (Cannot allocate memory)
+    evidencia: OSError: [Errno 12] Cannot allocate memory
+    log: C:\nerfstudio_work\thesis\01-paraguas-vicentelopez\01-logs\06_train_nerfacto.log
+
+[catastrofico/OOM_SIGKILL] Proceso terminado por el sistema (SIGKILL, tipicamente OOM)
+    evidencia: bash: line 1: 29695 Killed                  colmap stereo_fusion --workspace_path . --workspace_format COLMAP --input_type geometric --output_type PLY --output_path ./fused_high_safe.ply --StereoFusio
+    log: C:\nerfstudio_work\thesis\01-paraguas-vicentelopez\01-logs\12_colmap_stereo_fusion_high_safe_nohup.log
+
+
+### 02-templete-central
+------------------------------------------------------------
+[catastrofico/ARCHIVO_FALTANTE] Archivo de entrada esperado no existia (dataset no listo / pipeline mal secuenciado)
+    evidencia: FileNotFoundError: [Errno 2] No such file or directory: '/workspace/sfm/transforms.json'
+    log: C:\nerfstudio_work\thesis\02-templete-central\01-logs\07_train_nerfacto_sfm.log
+
+[catastrofico/EXCEPCION_GENERICA] Excepcion de Python no clasificada en las categorias anteriores
+    evidencia: AssertionError: not_use_single_camera_mode only works with sfm_tool hloc
+    log: C:\nerfstudio_work\thesis\02-templete-central\01-logs\10_ns_process_data_insta360_sequential_perspective_multicam.log
+
+[catastrofico/ARCHIVO_FALTANTE] Archivo de entrada esperado no existia (dataset no listo / pipeline mal secuenciado)
+    evidencia: FileNotFoundError: [Errno 2] No such file or directory: '/workspace/ns-from-realityscan/images_8/00010.png'
+    log: C:\nerfstudio_work\thesis\02-templete-central\01-logs\templete-central\splatfacto\train-splatfacto-ds8.log
+
+
+### 03-panteon-asociacion-catalana
+------------------------------------------------------------
+[inestabilidad_convergencia/REINICIOS] Comando reintentado 3 veces: 04_nerfstudio_nerf_train
+    evidencia: 04_nerfstudio_nerf_train
+    log: C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-logs\dji-only\04_nerfstudio_nerf_train_retry.log; C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-logs\dji-only\04_nerfstudio_nerf_train_retry2.log; C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-logs\dji-only\04_nerfstudio_nerf_train_retry3.log
+
+====================================================================================================
+NOTA METODOLOGICA
+----------------------------------------------------------------------------------------------------
+Deteccion automatica por patrones de texto sobre los logs ya recopilados en
+thesis/0X-*/01-logs/. No sustituye la categoria 'fallo parcial' del Cap. 4
+(seccion 4.9), que requiere inspeccion visual cualitativa del resultado.
+Los 'reinicios detectados' cuentan archivos *_retryN.* del mismo comando,
+no necesariamente reinicios consecutivos de una unica sesion.

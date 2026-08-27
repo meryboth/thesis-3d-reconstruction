@@ -1,0 +1,50 @@
+[
+  {
+    "caso": "01-paraguas-vicentelopez",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\01-logs\\06_train_nerfacto.log",
+    "categoria": "catastrofico",
+    "subtipo": "OOM_SISTEMA",
+    "descripcion": "Sin memoria suficiente en el sistema (Cannot allocate memory)",
+    "evidencia": "OSError: [Errno 12] Cannot allocate memory"
+  },
+  {
+    "caso": "01-paraguas-vicentelopez",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\01-paraguas-vicentelopez\\01-logs\\12_colmap_stereo_fusion_high_safe_nohup.log",
+    "categoria": "catastrofico",
+    "subtipo": "OOM_SIGKILL",
+    "descripcion": "Proceso terminado por el sistema (SIGKILL, tipicamente OOM)",
+    "evidencia": "bash: line 1: 29695 Killed                  colmap stereo_fusion --workspace_path . --workspace_format COLMAP --input_type geometric --output_type PLY --output_path ./fused_high_safe.ply --StereoFusio"
+  },
+  {
+    "caso": "02-templete-central",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\02-templete-central\\01-logs\\07_train_nerfacto_sfm.log",
+    "categoria": "catastrofico",
+    "subtipo": "ARCHIVO_FALTANTE",
+    "descripcion": "Archivo de entrada esperado no existia (dataset no listo / pipeline mal secuenciado)",
+    "evidencia": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/sfm/transforms.json'"
+  },
+  {
+    "caso": "02-templete-central",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\02-templete-central\\01-logs\\10_ns_process_data_insta360_sequential_perspective_multicam.log",
+    "categoria": "catastrofico",
+    "subtipo": "EXCEPCION_GENERICA",
+    "descripcion": "Excepcion de Python no clasificada en las categorias anteriores",
+    "evidencia": "AssertionError: not_use_single_camera_mode only works with sfm_tool hloc"
+  },
+  {
+    "caso": "02-templete-central",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\02-templete-central\\01-logs\\templete-central\\splatfacto\\train-splatfacto-ds8.log",
+    "categoria": "catastrofico",
+    "subtipo": "ARCHIVO_FALTANTE",
+    "descripcion": "Archivo de entrada esperado no existia (dataset no listo / pipeline mal secuenciado)",
+    "evidencia": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/ns-from-realityscan/images_8/00010.png'"
+  },
+  {
+    "caso": "03-panteon-asociacion-catalana",
+    "archivo_log": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-logs\\dji-only\\04_nerfstudio_nerf_train_retry.log; C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-logs\\dji-only\\04_nerfstudio_nerf_train_retry2.log; C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-logs\\dji-only\\04_nerfstudio_nerf_train_retry3.log",
+    "categoria": "inestabilidad_convergencia",
+    "subtipo": "REINICIOS",
+    "descripcion": "Comando reintentado 3 veces: 04_nerfstudio_nerf_train",
+    "evidencia": "04_nerfstudio_nerf_train"
+  }
+]

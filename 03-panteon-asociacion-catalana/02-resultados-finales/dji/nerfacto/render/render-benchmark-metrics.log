@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 03-panteon-asociacion-catalana
+Method: dji/nerfacto
+GT dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\nerf\panteon-catalan-nerfacto-train\train\gt-rgb
+Pred dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\nerf\panteon-catalan-nerfacto-train\train\rgb
+
+Total paired frames: 272
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 10.449258 / 0.881928 / 10.578608 / 8.562035 / 12.406332
+SSIM  : 0.118360 / 0.035513 / 0.107991 / 0.069497 / 0.324958
+LPIPS : 0.814038 / 0.029221 / 0.804333 / 0.759386 / 0.921789
+MSE   : 0.092072 / 0.019136 / 0.087528 / 0.057460 / 0.139250
+MAE   : 0.245596 / 0.028143 / 0.238499 / 0.191947 / 0.317775
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.
