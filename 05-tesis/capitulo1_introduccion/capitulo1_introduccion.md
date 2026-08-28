@@ -10,9 +10,9 @@ La documentación tradicional de este patrimonio se ha apoyado históricamente e
 
 En este contexto, las técnicas de visión computacional —en particular la fotogrametría, las redes neuronales de representación implícita conocidas como Neural Radiance Fields (NeRFs) y el método de Gaussian Splatting (3DGS)— han emergido como alternativas de alto potencial para la digitalización tridimensional de entornos construidos. Su principal ventaja radica en que permiten obtener modelos 3D densos, con textura y geometría detallada, a partir de conjuntos de imágenes sin necesidad de equipamiento de escaneo costoso. 
 
-Sin embargo, la aplicación sistemática de estas técnicas al patrimonio histórico argentino permanece inexplorada en la literatura académica. Hay desconocimiento sobre qué técnicas implementar, cuales son las ventajas de cada una de ellas y cual seria el pipeline o el flujo de trabajo recomendado para llegar a archivos de calidad partiendo de un relevamiento fotográfico. Existe, por lo tanto, una brecha entre el estado del arte tecnológico y su transferencia efectiva al campo de la preservación patrimonial local.
+Sin embargo, la aplicación sistemática de estas técnicas al patrimonio histórico argentino permanece inexplorada en la literatura académica. Hay desconocimiento sobre qué técnicas implementar, cuáles son las ventajas de cada una de ellas y cuál sería el pipeline o el flujo de trabajo recomendado para llegar a archivos de calidad partiendo de un relevamiento fotográfico. Existe, por lo tanto, una brecha entre el estado del arte tecnológico y su transferencia efectiva al campo de la preservación patrimonial local.
 
-La presente tesis nace de una doble pertenencia disciplinar: la de arquitecta formada en la FADU de la Universidad de Buenos Aires, y la de especialista en Tecnología de la Información que lidera un equipo de I+D en el cruce entre ramas como vision por computadora y computación espacial. Desde esa posición de intersección, el trabajo se propone investigar, comparar y sistematizar el uso de las tres familias de técnicas de reconstrucción 3D mencionadas, con el objetivo de desarrollar un pipeline reproducible para la documentación patrimonial —desde la captura de imágenes hasta la obtención de geometría texturizada— y evaluar su pertinencia en el contexto específico de la arquitectura histórica argentina.
+La presente tesis nace de una doble pertenencia disciplinar: la de arquitecta formada en la FADU de la Universidad de Buenos Aires, y la de especialista en Tecnología de la Información que lidera un equipo de I+D en el cruce entre ramas como visión por computadora y computación espacial. Desde esa posición de intersección, el trabajo se propone investigar, comparar y sistematizar el uso de las tres familias de técnicas de reconstrucción 3D mencionadas, con el objetivo de desarrollar un pipeline reproducible para la documentación patrimonial —desde la captura de imágenes hasta la obtención de geometría texturizada— y evaluar su pertinencia en el contexto específico de la arquitectura histórica argentina.
 
 **<u>1.2 Planteamiento del problema</u>**
 
@@ -68,7 +68,7 @@ Asimismo, los resultados de esta investigación tienen el potencial de sentar la
 
 **1.4.3 Relevancia personal e interdisciplinar**
 
-Como autora de esta tesis puedo verificar que esta investigación tiene relevancia para mi a nivel personal y profesional, teniendo en cuenta mi formación como arquitecta y mi carrera profesional como investigadora en materia de tecnologias de vision por computadora. Estas dos profesiones me permiten articular con idoneidad los requerimientos técnicos del relevamiento arquitectónico con las capacidades computacionales de las herramientas de visión artificial. Esta doble perspectiva constituye en sí misma un valor metodológico: me permite evaluar los resultados no solo desde los parámetros técnicos, sino también desde la utilidad práctica que ofrecen para el trabajo de equipos de arquitectura y preservación.
+Como autora de esta tesis puedo verificar que esta investigación tiene relevancia para mí a nivel personal y profesional, teniendo en cuenta mi formación como arquitecta y mi carrera profesional como investigadora en materia de tecnologías de visión por computadora. Estas dos profesiones me permiten articular con idoneidad los requerimientos técnicos del relevamiento arquitectónico con las capacidades computacionales de las herramientas de visión artificial. Esta doble perspectiva constituye en sí misma un valor metodológico: me permite evaluar los resultados no solo desde los parámetros técnicos, sino también desde la utilidad práctica que ofrecen para el trabajo de equipos de arquitectura y preservación.
 
 **<u>1.5 Hipótesis de trabajo</u>**
 
@@ -80,7 +80,7 @@ En lugar de una técnica dominante en términos absolutos, se hipotetiza que SfM
 
 **H2 — PREPROCESAMIENTO**
 
-La aplicación de un pipeline de limpieza y preprocesamiento de imágenes —que incluya eliminación de fondos irrelevantes y eliminacion de distractores que puedan alterar la intepretacion del edificio como personas, aves o vehiculos— produce mejoras medibles en la calidad de la reconstrucción respecto al uso de las imágenes crudas.
+La aplicación de un pipeline de limpieza y preprocesamiento de imágenes —que incluya eliminación de fondos irrelevantes y eliminación de distractores que puedan alterar la interpretación del edificio como personas, aves o vehículos— produce mejoras medibles en la calidad de la reconstrucción respecto al uso de las imágenes crudas.
 
 **H3 — COMPLEJIDAD GEOMÉTRICA**
 

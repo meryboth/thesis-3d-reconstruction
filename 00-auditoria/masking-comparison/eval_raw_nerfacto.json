@@ -1,0 +1,17 @@
+{
+  "experiment_name": "templete-central-realityscan-nerf308",
+  "method_name": "nerfacto",
+  "checkpoint": "/workspace/outputs-templete-nerf308/templete-central-realityscan-nerf308/nerfacto/2026-08-24_220201/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 19.128732681274414,
+    "psnr_std": 2.1938891410827637,
+    "ssim": 0.5935138463973999,
+    "ssim_std": 0.11517152190208435,
+    "lpips": 0.3589797914028168,
+    "lpips_std": 0.13422353565692902,
+    "num_rays_per_sec": 192265.375,
+    "num_rays_per_sec_std": 16056.8447265625,
+    "fps": 0.37569403648376465,
+    "fps_std": 0.031155111268162727
+  }
+}

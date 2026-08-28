@@ -1,0 +1,17 @@
+{
+  "experiment_name": "templete-central-masked-raw-nerfacto-subset",
+  "method_name": "nerfacto",
+  "checkpoint": "/outputs/templete-central-masked-raw-nerfacto-subset/nerfacto/2026-08-27_145401/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 10.65998649597168,
+    "psnr_std": 1.6058199405670166,
+    "ssim": 0.3401775360107422,
+    "ssim_std": 0.06845749914646149,
+    "lpips": 0.7018784880638123,
+    "lpips_std": 0.07547041773796082,
+    "num_rays_per_sec": 184763.796875,
+    "num_rays_per_sec_std": 12808.63671875,
+    "fps": 0.3610495626926422,
+    "fps_std": 0.02499433420598507
+  }
+}

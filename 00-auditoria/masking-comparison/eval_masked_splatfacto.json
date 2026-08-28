@@ -1,0 +1,17 @@
+{
+  "experiment_name": "templete-central-masked-raw-splat-ds8",
+  "method_name": "splatfacto",
+  "checkpoint": "/outputs/templete-central-masked-raw-splat-ds8/splatfacto/2026-08-27_130534/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 13.343157768249512,
+    "psnr_std": 2.2072319984436035,
+    "ssim": 0.48628243803977966,
+    "ssim_std": 0.12435402721166611,
+    "lpips": 0.42632415890693665,
+    "lpips_std": 0.10878431051969528,
+    "num_rays_per_sec": 887094.875,
+    "num_rays_per_sec_std": 164248.8125,
+    "fps": 6.942708492279053,
+    "fps_std": 1.2835235595703125
+  }
+}

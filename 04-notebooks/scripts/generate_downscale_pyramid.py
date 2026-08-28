@@ -15,7 +15,7 @@ DATASET_DIR = Path(sys.argv[1] if len(sys.argv) > 1 else r"C:\nerfstudio_work\th
 FACTORS = [2, 4, 8]
 
 images_dir = DATASET_DIR / "images"
-files = sorted(images_dir.glob("*.png"))
+files = sorted(list(images_dir.glob("*.png")) + list(images_dir.glob("*.jpg")))
 print(f"[info] {len(files)} imagenes en {images_dir}")
 
 # El w/h DECLARADO en transforms.json por frame no siempre coincide exacto con

@@ -29,6 +29,15 @@ nube-densa.xyz
 # Dependencias de Node (cualquier subcarpeta con su propio package.json)
 node_modules/
 
+# Renders crudos por-frame de ns-eval (--render-output-path): decenas/cientos de PNG
+# de diagnóstico (eval_accumulation_*, eval_depth_*, eval_img_*) por corrida, ~300-400MB
+# en total. Solo las imágenes finales ya compuestas (comparaciones armadas a partir de
+# estos) se versionan, referenciadas desde 05-tesis/ — estos directorios son el insumo
+# intermedio para construirlas, no el resultado en sí.
+00-auditoria/masking-comparison/renders/
+00-auditoria/torre-mardel-eval/nerfacto_renders/
+00-auditoria/torre-mardel-eval/splatfacto_renders/
+
 # Sistema
 .DS_Store
 Thumbs.db

@@ -58,7 +58,21 @@ Cap. 1–3 fueron redactados/editados con la usuaria. **Cap. 4 (Diseño Experime
 
 **Regla de separación entre capítulos (corregida el 25/08, no romper de nuevo):** el Cap. 4 se completó en una primera pasada volcando resultados, imágenes e interpretación directamente dentro de cada benchmark (B1–B5) — la usuaria marcó correctamente que eso rompe la estructura estándar de tesis (diseño vs. resultados) y duplicaba contenido con el Cap. 5. Se corrigió: **Cap. 4 = solo diseño** (hipótesis, variables, protocolo de cada benchmark, qué se va a medir) **sin tablas de resultados, sin imágenes de resultados, sin interpretación** — cada benchmark cierra con una línea "Resultados: ver Capítulo 5, sección X". **Cap. 5 = todos los resultados**, con las tablas, las ~19 imágenes/gráficos y toda la interpretación. La única tabla de datos que se dejó en el Cap. 4 es la Tabla 4.6 (conteo de imágenes train/eval por dataset, sección 4.7) porque describe la composición del dataset/setup del experimento, no un resultado del mismo. Al escribir o editar estos capítulos en el futuro, mantener esa separación.
 
-Cap. 7 (Conclusiones) todavía no existe.
+Cap. 7 (Conclusiones) existe como borrador de partida (generado el 27/08) — la usuaria lo reescribe a mano.
+
+## ⚠️ Regla no-negociable (27/08): no escribir más prosa de la tesis — EXCEPTO Cap. 5
+
+A partir del 27/08 la usuaria escribe a mano el texto de la tesis (conclusiones, explicaciones, cualquier prosa nueva) — **no editar ni generar texto propio en los capítulos (`05-tesis/*.md`) ni en el sitio web**. Esto reemplaza la dinámica anterior (borradores generados a partir de `00-auditoria/` para que la usuaria los reescribiera).
+
+**Excepción explícita, dada el mismo día: Capítulo 5 (Análisis de Resultados).** La usuaria todavía no empezó a escribirlo — pidió específicamente que, cuando estén las conclusiones/resultados de una corrida, **yo siga redactando ese capítulo** (igual que antes) y ella lo edita después. La regla de "no más prosa" aplica tal cual a Cap. 1–4, 6, 7 y a cualquier prosa que ella ya haya empezado a escribir a mano; en Cap. 5 sigo escribiendo salvo que ella diga lo contrario.
+
+Sigue permitido en el resto de los capítulos, porque no es "escribir la tesis" sino soporte puntual:
+- Identificar/corregir faltas de ortografía.
+- Sumar entradas de bibliografía o de glosario (a pedido, como ya se hizo).
+- Generar imágenes, gráficos o diagramas que la usuaria pida (con leyenda factual mínima, sin análisis) — esto vale para cualquier capítulo, no solo Cap. 5.
+- Todo lo que no sea contenido de la tesis: código, scripts de análisis, datasets, entrenamientos, la web como aplicación (no su contenido), etc.
+
+Ante la duda de si algo cuenta como "escribir texto de la tesis" fuera de Cap. 5, preguntar antes de tocar un `.md` de `05-tesis/`.
 
 ## ⚠️ Regla no-negociable: capítulos y sitio web SIEMPRE sincronizados
 

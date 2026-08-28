@@ -1,0 +1,171 @@
+{
+  "artifact": "gaussian-splat",
+  "source": "nerfstudio splatfacto export (splat.ply)",
+  "generated_analysis_at": "2026-08-27T14:21:31.216862",
+  "file": {
+    "path": "C:\\nerfstudio_work\\panteon-chacarita\\templete-central\\splatfacto-masked-raw-training\\export\\splat.ply",
+    "size_bytes": 160298625,
+    "size_mb": 152.87268161773682
+  },
+  "gaussian_count": 646359,
+  "property_names": [
+    "x",
+    "y",
+    "z",
+    "nx",
+    "ny",
+    "nz",
+    "f_dc_0",
+    "f_dc_1",
+    "f_dc_2",
+    "f_rest_0",
+    "f_rest_1",
+    "f_rest_2",
+    "f_rest_3",
+    "f_rest_4",
+    "f_rest_5",
+    "f_rest_6",
+    "f_rest_7",
+    "f_rest_8",
+    "f_rest_9",
+    "f_rest_10",
+    "f_rest_11",
+    "f_rest_12",
+    "f_rest_13",
+    "f_rest_14",
+    "f_rest_15",
+    "f_rest_16",
+    "f_rest_17",
+    "f_rest_18",
+    "f_rest_19",
+    "f_rest_20",
+    "f_rest_21",
+    "f_rest_22",
+    "f_rest_23",
+    "f_rest_24",
+    "f_rest_25",
+    "f_rest_26",
+    "f_rest_27",
+    "f_rest_28",
+    "f_rest_29",
+    "f_rest_30",
+    "f_rest_31",
+    "f_rest_32",
+    "f_rest_33",
+    "f_rest_34",
+    "f_rest_35",
+    "f_rest_36",
+    "f_rest_37",
+    "f_rest_38",
+    "f_rest_39",
+    "f_rest_40",
+    "f_rest_41",
+    "f_rest_42",
+    "f_rest_43",
+    "f_rest_44",
+    "opacity",
+    "scale_0",
+    "scale_1",
+    "scale_2",
+    "rot_0",
+    "rot_1",
+    "rot_2",
+    "rot_3"
+  ],
+  "detected_attributes": {
+    "position": [
+      "x",
+      "y",
+      "z"
+    ],
+    "opacity": "opacity",
+    "scale": [
+      "scale_0",
+      "scale_1",
+      "scale_2"
+    ],
+    "rotation": [
+      "rot_0",
+      "rot_1",
+      "rot_2",
+      "rot_3"
+    ],
+    "rgb": [],
+    "spherical_harmonics_count": 48
+  },
+  "geometry": {
+    "bounding_box": {
+      "min": [
+        -63.54975891113281,
+        -66.74604034423828,
+        -25.12482452392578
+      ],
+      "max": [
+        92.91035461425781,
+        68.71039581298828,
+        30.13222312927246
+      ],
+      "extent": [
+        156.46011352539062,
+        135.45643615722656,
+        55.25704765319824
+      ],
+      "volume": 1171091.8628295825
+    },
+    "centroid": [
+      0.5220112347384743,
+      0.3362624426748135,
+      0.5775770306049179
+    ],
+    "gaussians_per_bbox_unit": 0.5519285211650884
+  },
+  "opacity": {
+    "column": "opacity",
+    "mode": "logit_detected__sigmoid_applied",
+    "raw_min": -5.537299633026123,
+    "raw_max": 17.236202239990234,
+    "alpha_mean": 0.35863970185771743,
+    "alpha_median": 0.09999999642986429,
+    "alpha_std": 0.3854172704015019,
+    "alpha_p05": 0.023352874949445532,
+    "alpha_p95": 0.9998688477379131,
+    "alpha_below_0_05": 47801,
+    "alpha_below_0_10": 386491,
+    "alpha_above_0_50": 191683
+  },
+  "scale": [
+    {
+      "column": "scale_0",
+      "raw_mean": -3.862488704180315,
+      "raw_std": 2.228889609944925,
+      "exp_mean": 0.08402868726064838,
+      "exp_median": 0.03938360145679167,
+      "exp_p95": 0.3489965064490707
+    },
+    {
+      "column": "scale_1",
+      "raw_mean": -3.8585939886865965,
+      "raw_std": 2.2249910272435174,
+      "exp_mean": 0.08415820778096696,
+      "exp_median": 0.03941195941415467,
+      "exp_p95": 0.349025829924979
+    },
+    {
+      "column": "scale_2",
+      "raw_mean": -3.8585613816501505,
+      "raw_std": 2.224315284081374,
+      "exp_mean": 0.08417048313455616,
+      "exp_median": 0.0394038886098906,
+      "exp_p95": 0.3496304759803798
+    }
+  ],
+  "nearest_neighbor_sample": {
+    "sample_size": 50000,
+    "mean": 0.314192410375296,
+    "median": 0.09117731256960121,
+    "std": 0.6030579464231763,
+    "p05": 0.0033289532194127713,
+    "p95": 1.4290772977966555
+  },
+  "important_note": "Las metricas de opacidad y escala aplican sigmoid()/exp() automaticamente cuando los valores crudos sugieren estar en logit/log-space (convencion habitual de los exporters de Gaussian Splatting). La distancia a vecinos mas cercanos se calculo sobre una muestra aleatoria reproducible, no sobre todas las gaussianas, para mantener acotado el uso de memoria."
+}

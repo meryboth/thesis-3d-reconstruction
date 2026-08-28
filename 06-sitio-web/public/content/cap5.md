@@ -9,7 +9,7 @@ Antes de entrar en el detalle de cada benchmark, la Tabla 5.1 resume qué se eje
 | B2 — Preprocesamiento | H2 | Ejecutado con salvedades (dataset curado + comparación de reconstrucción; Nerfacto confundido por downscale forzado) | Templete Central, dataset DJI |
 | B1 — Técnicas (caso de referencia) | H1 | Ejecutado (SfM, NeRF, 3DGS) | Templete Central, dataset DJI |
 | B3 — Complejidad geométrica | H3 | Ejecutado (NeRF, 3DGS; SfM cualitativo) | Los Paraguas, Templete Central, Panteón Asociación Española |
-| B4 — Dataset multi-dispositivo | H4 | Ejecutado (SfM); cobertura reconstruida (%) pendiente | Templete Central, Panteón Asociación Española |
+| B4 — Dataset multi-dispositivo | H4 | Ejecutado (SfM + reconstrucción completa sobre Templete Central); cobertura reconstruida (%) pendiente por falta de referencia geométrica de control | Templete Central, Panteón Asociación Española |
 | B5 — Web y reproducibilidad | H5 | Checklist documental completo; carga real en visor pendiente | Los tres casos (evaluación de formatos) |
 
 *Tabla 5.1 — Estado de ejecución de los cinco benchmarks al cierre de esta tesis.*
@@ -88,6 +88,81 @@ Se entrenaron ambas técnicas sobre el Dataset B así construido — Splatfacto 
 En Splatfacto (la comparación limpia, 1:1), el Dataset B **no mejora la fidelidad píxel a píxel**: PSNR cae 1,3 dB y SSIM queda prácticamente igual (0,756 → 0,754). Pero **LPIPS mejora de forma notable** (0,336 → 0,227, un 32% menos de distancia perceptual) — la métrica que mejor correlaciona con percepción humana de calidad (sección 2.6.1) sí refleja el beneficio de sacar personas y aves de la escena, aunque el resultado no sea más fiel píxel a píxel a la fotografía original (que, hay que recordar, en el frame raw sí *tenía* esos distractores — el ground truth de evaluación usa las fotos raw, así que un render sin distractores nunca puede ser 100% fiel píxel a píxel a una foto que sí los tiene). En Nerfacto los tres indicadores empeoran, pero la comparación está confundida por el downscale forzado — con esa salvedad explícita, no alcanza para afirmar que el preprocesamiento perjudica a Nerfacto específicamente.
 
 El hallazgo más consistente con lo ya documentado en este capítulo es indirecto: la desviación estándar de las métricas sobre el Dataset B es sistemáticamente más alta que sobre el raw (PSNR std 4,74 vs. 1,77 en Splatfacto, LPIPS std 0,158 vs. 0,053) — consistente con la limitación de LaMa en texturas complejas ya vista en la Figura 5.3: unos frames mejoran mucho (fondos uniformes, aves en el cielo) y otros empeoran (personas sobre el solado de piedra), en vez de una mejora pareja. **H2 se acepta parcialmente**: el preprocesamiento con ComfyUI mejora la similitud perceptual (LPIPS) en Splatfacto, pero no la fidelidad de bajo nivel (PSNR/SSIM), y el efecto no es uniforme entre frames — depende de si el distractor removido estaba sobre un fondo simple o una textura compleja, exactamente el patrón que ya se había documentado cualitativamente en la sección 5.2.2.
+
+<h3 id="cap5-5-2-5">5.2.5 Máscara de entrenamiento (aislamiento de fondo)</h3>
+
+![Foto original / máscara / resultado aislado — fotograma 00000](/content/assets/cap5-comparacion-00000-mascara.jpg)
+
+*Figura 5.13 — Fotograma 00000: foto original, máscara de entrenamiento RMBG-2.0 y resultado de aplicarla, de izquierda a derecha. Fuente: `build_masking_before_after.py`.*
+
+![Foto original / máscara / resultado aislado — fotograma 00308](/content/assets/cap5-comparacion-00308-mascara.jpg)
+
+*Figura 5.14 — Fotograma 00308, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+
+![Foto original / máscara / resultado aislado — fotograma 00462](/content/assets/cap5-comparacion-00462-mascara.jpg)
+
+*Figura 5.15 — Fotograma 00462, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+
+![Foto original / máscara / resultado aislado — fotograma 00616](/content/assets/cap5-comparacion-00616-mascara.jpg)
+
+*Figura 5.16 — Fotograma 00616, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+
+![Foto original / máscara / resultado aislado — fotograma 00924](/content/assets/cap5-comparacion-00924-mascara.jpg)
+
+*Figura 5.17 — Fotograma 00924, mismo procedimiento, con una persona en el encuadre. Fuente: `build_masking_before_after.py`.*
+
+![Foto original / máscara / resultado aislado — fotograma 01078](/content/assets/cap5-comparacion-01078-mascara.jpg)
+
+*Figura 5.18 — Fotograma 01078, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+
+<h3 id="cap5-5-2-6">5.2.6 Resultado de entrenar con la máscara — contraste adicional</h3>
+
+A diferencia del inpainting con ComfyUI (secciones 5.2.1–5.2.4), la máscara de entrenamiento no modifica ningún píxel del dataset: se le agrega a Nerfstudio (`mask_path` por frame) para que ignore el fondo durante el cálculo de la pérdida. Esto permite reutilizar directamente las imágenes y las poses del dataset raw, sin ningún paso de SfM adicional. Se entrenaron ambas técnicas sobre el Templete Central (DJI) con esta máscara: Splatfacto sobre las 1232 imágenes completas (`downscale_factor 8`, igual que el resto de las corridas de Splatfacto de este capítulo) y Nerfacto sobre el mismo subset de 308 imágenes ya usado en las demás comparaciones de Nerfacto, esta vez a `downscale_factor 4` (misma limitación de memoria documentada en la sección 4.10).
+
+| Técnica | Dataset | PSNR (dB) | SSIM | LPIPS |
+|---|---|---|---|---|
+| Nerfacto | Raw | 19,47 | 0,602 | 0,323 |
+| Nerfacto | Con máscara † | 10,66 | 0,340 | 0,702 |
+| Splatfacto | Raw | 23,57 | 0,756 | 0,336 |
+| Splatfacto | Con máscara | 13,34 | 0,486 | 0,426 |
+
+*Tabla 5.12 — Templete Central (DJI): métricas de render, dataset raw vs. dataset con máscara de entrenamiento RMBG, por técnica. † Nerfacto/con máscara corrió a downscale×4 (raw fue a resolución completa) — no comparable 1:1, ver nota metodológica abajo. Fuente: `build_masking_comparison_chart.py`.*
+
+![Comparación PSNR/SSIM/LPIPS, raw vs. máscara de entrenamiento, por técnica](/content/assets/cap5-masking-psnr-ssim-lpips-raw-vs-masked.png)
+
+*Gráfico 5.15 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. dataset con máscara de entrenamiento, por técnica. Fuente: `build_masking_comparison_chart.py`.*
+
+Las tres métricas caen en ambas técnicas, y con más magnitud que en la comparación de H2: el ground truth de evaluación es la foto completa (con fondo), y el modelo con máscara nunca compite por reconstruir esa región, así que el castigo es esperable — pero a diferencia de H2, acá **LPIPS también empeora** (Nerfacto: 0,323 → 0,702; Splatfacto: 0,336 → 0,426) en vez de mejorar. La caída es mayor en Nerfacto, lo que es consistente con que su campo implícito no tiene un mecanismo equivalente al de Splatfacto para "apagar" una región sin señal de pérdida: mientras que en Splatfacto la ausencia de gradiente en el fondo puede resolverse bajando la opacidad de las gaussianas ahí (ver abajo), en Nerfacto esa misma región puede seguir generando contenido sin restricción, con un resultado visualmente más caótico.
+
+![Comparación visual: foto original, predicción raw y predicción con máscara — Splatfacto y Nerfacto](/content/assets/cap5-visual-comparison-masking.jpg)
+
+*Figura 5.19 — Templete Central (DJI): foto original, predicción del modelo raw y predicción del modelo con máscara, sobre tres fotogramas de evaluación — bloque superior Splatfacto, bloque inferior Nerfacto. En ambas técnicas la predicción con máscara reproduce el edificio con fidelidad razonable, pero el fondo se renderiza como ruido en vez de quedar vacío o uniforme: motas de color en Splatfacto, una masa oscura/humosa en Nerfacto (degradación visual mayor). Fuente: `build_masking_visual_comparison.py`.*
+
+Las Figuras 5.19 y 5.20 muestran directamente por qué cae LPIPS: el fondo enmascarado no queda vacío ni uniforme al renderizar, sino que ambas técnicas generan contenido visualmente ruidoso ahí — más marcado en Nerfacto (masa oscura difusa) que en Splatfacto (motas de color) —, consistente con que ninguna de las dos tiene una restricción explícita sobre qué producir en una región sin señal de pérdida.
+
+| Técnica | Dataset | Tiempo de entrenamiento | Render (fps) | Rayos/seg |
+|---|---|---|---|---|
+| Nerfacto | Raw | 46 min 1 s | 0,376 | 192 K |
+| Nerfacto | Con máscara † | 1 h 50 min 21 s | 0,361 | 185 K |
+| Splatfacto | Raw | 33 min 41 s | 6,65 | 849 K |
+| Splatfacto | Con máscara | 1 h 3 min 55 s | 6,94 | 887 K |
+
+*Tabla 5.14 — Tiempo de entrenamiento (30 000 iteraciones, medido por mtime de config.yml→checkpoint, igual criterio que la Tabla 5.3) y velocidad de render en evaluación (`ns-eval`), raw vs. con máscara. † Nerfacto/con máscara corrió a downscale×4, lo que debería acelerar el entrenamiento respecto a Raw (resolución completa) — ocurre lo contrario. Fuente: timestamps de archivo y `eval_results.json` de cada corrida.*
+
+El entrenamiento con máscara es más lento en ambas técnicas, no más rápido — a pesar de que Nerfacto/con máscara corrió a una resolución menor (downscale×4) que debería, en principio, acelerar cada iteración. La explicación más probable es el costo extra del muestreo de píxeles condicionado a la máscara (`pixel-sampler` de Nerfstudio), que en el caso de Nerfacto tuvo además que correr con `rejection-sample-mask` desactivado por un bug de Nerfstudio con resolución variable (ver nota metodológica abajo), reemplazando el muestreo uniforme por una búsqueda de índices no nulos en cada iteración. La velocidad de render en evaluación (fps), en cambio, es prácticamente idéntica entre raw y con máscara en ambas técnicas — esperable, ya que la máscara solo interviene en el entrenamiento, no en la inferencia.
+
+La nube de gaussianas exportada de Splatfacto permite un contraste más directo con el objetivo original de esta línea (reducir floaters de fondo en el archivo exportado, sección 5.3.1 y Gráfico 5.5):
+
+| | Raw | Con máscara |
+|---|---|---|
+| Gaussianas exportadas | 315.787 | 646.359 |
+| Extensión bounding box (X, Y, Z) | 156,7 × 126,0 × 49,7 | 156,5 × 135,5 × 55,3 |
+| Volumen bounding box | 981.706 | 1.171.092 |
+| Opacidad media (alpha) | 0,659 | 0,359 |
+
+*Tabla 5.13 — Templete Central (DJI), Splatfacto: nube de gaussianas exportada, raw vs. con máscara de entrenamiento. Fuente: `analyze_masked_splat_comparison.py`.*
+
+El resultado es más matizado de lo esperado: la máscara **no achica** el halo de gaussianas dispersas (el volumen del bounding box es, si acaso, mayor) y el modelo exporta más del doble de gaussianas que el raw. Lo que sí cambia con claridad es la distribución de opacidad — aparece una concentración grande de gaussianas casi transparentes (~0,1 de opacidad) ausente en el raw, consistente con que, al no haber señal de pérdida en el fondo, el optimizador no tiene presión para eliminar esas gaussianas pero tampoco para mantenerlas visibles. En términos de conteo y extensión espacial del `.ply` exportado, el objetivo original de esta línea (limpiar floaters) no se cumple. La Figura 5.19 confirma además que el efecto de opacidad tampoco se traduce en una mejora visual: el fondo enmascarado se renderiza como ruido de color, no como una región limpia o uniforme.
 
 <h2 id="cap5-5-3">5.3 B1 — Técnicas sobre el caso de referencia: Templete Central (H1)</h2>
 
@@ -239,7 +314,7 @@ La Tabla 5.6 reproduce la comparación completa de registro SfM entre datasets d
 
 El resultado más significativo de este benchmark no es cuantitativo sino metodológico. El dataset híbrido de Templete Central fue reportado inicialmente por el wrapper de conversión de Nerfstudio (`ns-process-data`) con un 0,38% de registro — es decir, un fallo catastrófico casi total según el protocolo de la sección 4.9. La verificación directa de los archivos binarios de COLMAP (`cameras.bin`/`images.bin`/`points3D.bin`, parseados con `parse_colmap_images_bin.py`) reveló que el mapper de COLMAP había producido **dos componentes de reconstrucción desconectados** a partir del matching exhaustivo del dataset combinado, y que el wrapper había informado las estadísticas del componente más chico en lugar del más grande — que en realidad contenía el 100% de las 794 imágenes de entrada correctamente registradas y calibradas.
 
-Este componente fue exportado a formato Nerfstudio (`colmap_component_to_nerfstudio.py`, transforms.json + sparse_pc.ply) y quedó disponible como `02-templete-central/03-datasets/hibrido/dataset-hibrido-794-exhaustive/` — un dataset válido, completo, que había estado efectivamente descartado por casi un mes por un error de reporte de la herramienta, no por un fallo real de reconstrucción. Su entrenamiento con Nerfacto/Splatfacto queda pendiente al cierre de este capítulo (Capítulo 7, líneas de trabajo futuro).
+Este componente fue exportado a formato Nerfstudio (`colmap_component_to_nerfstudio.py`, transforms.json + sparse_pc.ply) y quedó disponible como `02-templete-central/03-datasets/hibrido/dataset-hibrido-794-exhaustive/` — un dataset válido, completo, que había estado efectivamente descartado por casi un mes por un error de reporte de la herramienta, no por un fallo real de reconstrucción. Su entrenamiento con Nerfacto y Splatfacto se completó — ver sección 5.5.6.
 
 Un patrón similar, de menor magnitud, se observó en tres datasets exploratorios adicionales de Templete Central (DJI subset secuencial, Insta360 fisheye secuencial, Insta360 perspective secuencial — Tabla en `00-auditoria/sfm-registration-comparison/`), todos con registro real por encima del 96% pese a haber sido reportados con menos del 5%.
 
@@ -269,7 +344,7 @@ Esto da un mecanismo geométrico concreto para la fragilidad observada en ambas 
 
 <h3 id="cap5-5-5-4">5.5.4 Cobertura reconstruida</h3>
 
-La métrica cuantitativa "cobertura reconstruida (%)" definida en el Capítulo 4 (sección 4.3.5) no pudo calcularse al cierre de este capítulo por falta de una referencia geométrica de control contra la cual medir superficie efectivamente cubierta. Como sustituto provisorio, la sección 5.4.3 documenta la cobertura de forma cualitativa (huecos visibles en la malla SfM) para Los Paraguas y el Templete Central. Para el benchmark B4 específicamente (comparación entre dataset solo-drone, solo-cámara e híbrido dentro de un mismo caso), esta comparación cualitativa todavía no se realizó de forma sistemática — queda como tarea pendiente inmediata, una vez completado el entrenamiento del dataset híbrido de Templete Central mencionado en 5.5.2.
+La métrica cuantitativa "cobertura reconstruida (%)" definida en el Capítulo 4 (sección 4.3.5) no pudo calcularse al cierre de este capítulo por falta de una referencia geométrica de control contra la cual medir superficie efectivamente cubierta. Como sustituto provisorio, la sección 5.4.3 documenta la cobertura de forma cualitativa (huecos visibles en la malla SfM) para Los Paraguas y el Templete Central; esta limitación específica —la ausencia de una nube de control tipo TLS— sigue sin resolverse y no depende del entrenamiento del dataset híbrido. La comparación de calidad de render entre dataset solo-drone, solo-cámara e híbrido, que sí dependía de ese entrenamiento, se completó — ver sección 5.5.6.
 
 <h3 id="cap5-5-5-5">5.5.5 Evidencia complementaria: calidad de render por dispositivo</h3>
 
@@ -290,6 +365,29 @@ En el Templete Central, Insta360/Nerfacto (18,791 dB) queda apenas por debajo de
 *Figura 5.12 — Templete Central, dataset Insta360. Nerfacto (centro) introduce un patrón de distorsión radial concéntrica en los bordes de la vista sintetizada, ausente tanto en la fotografía original (izquierda) como en Splatfacto (derecha).*
 
 En el Panteón, en cambio, la brecha DJI vs. Insta360 es mucho más marcada y de signo distinto según la técnica: Nerfacto es más alto con Insta360 (15,621 dB) que con DJI (10,449 dB, el peor resultado de todo el experimento — Figura 5.8), mientras que Splatfacto es sustancialmente mejor con DJI (25,939 dB) que con Insta360 (14,475 dB). Esto sugiere que el efecto del dispositivo sobre la calidad de render no es uniforme ni entre sitios ni entre técnicas, y que interactúa con la calidad del registro SfM de cada dataset (sección 5.5.1) al menos tanto como con las características ópticas del dispositivo en sí — una lectura consistente con la mediación por registro SfM ya identificada para H3 (sección 5.4.2).
+
+<h3 id="cap5-5-5-6">5.5.6 Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4</h3>
+
+El dataset híbrido rescatado en la sección 5.5.2 (794 imágenes DJI+Insta360, 100% registradas) se entrenó con ambas técnicas, completando la comparación que H4 formula en sentido estricto: dataset combinado frente a un único dispositivo, en calidad de render. Splatfacto usó el mismo `downscale_factor 8` que el resto de las corridas de este capítulo; Nerfacto tuvo que forzarse a `downscale_factor 8` también (no el ×4 habitual) porque incluso a resolución 1/4 el cacheo de imágenes de evaluación agotaba la memoria disponible — con 794 imágenes de entrada el pico de decodificación concurrente es mayor que en los subsets de ~300 imágenes usados en el resto del capítulo, así que esta comparación tiene un downscale más agresivo para Nerfacto que las demás corridas de Templete Central.
+
+| Técnica | Dataset | PSNR (dB) | SSIM | LPIPS |
+|---|---|---|---|---|
+| Nerfacto | DJI | 19,47 | 0,602 | 0,323 |
+| Nerfacto | Insta360 | 18,79 | 0,560 | 0,449 |
+| Nerfacto | Híbrido † | 11,56 | 0,460 | 0,684 |
+| Splatfacto | DJI | 23,57 | 0,756 | 0,336 |
+| Splatfacto | Insta360 | 13,99 | 0,523 | 0,433 |
+| Splatfacto | Híbrido | 15,51 | 0,555 | 0,557 |
+
+*Tabla 5.15 — Templete Central: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. † Nerfacto/Híbrido corrió a downscale×8 (DJI/Insta360-solo, a resolución completa) — confound adicional, ver nota metodológica arriba. DJI/Insta360 evaluados con `analyze_render_benchmark.py`; Híbrido con `ns-eval` (corrida fuera de la estructura curada de este proyecto) — mismo tipo de métrica, pipeline de cálculo distinto. Fuente: `build_hybrid_comparison_chart.py`.*
+
+![Comparación PSNR/SSIM/LPIPS, DJI vs. Insta360 vs. Híbrido, por técnica](/content/assets/cap5-hibrido-psnr-ssim-lpips.png)
+
+*Gráfico 5.16 — PSNR, SSIM y LPIPS del Templete Central, por dispositivo y técnica. Fuente: `build_hybrid_comparison_chart.py`.*
+
+El resultado es contundente y va en una sola dirección: el dataset híbrido rinde peor que DJI solo en las tres métricas y en ambas técnicas, sin excepción — y peor que Insta360 solo en la mayoría de los casos (Nerfacto: peor en las tres métricas; Splatfacto: mejor PSNR y SSIM que Insta360, pero peor LPIPS). Nerfacto es el más golpeado (PSNR cae 7,9 dB respecto a DJI, LPIPS más que duplica), consistente con su mayor sensibilidad ya documentada a la calidad y consistencia de las poses de entrada (secciones 2.4, 5.4.2). El export de Splatfacto refuerza la misma lectura desde otro ángulo: el modelo híbrido genera más gaussianas que el de DJI solo (533.081 vs. 315.787) en un archivo más pesado (126,1 MB vs. 74,7 MB) pero con peor fidelidad de render — más gaussianas no se traducen en mejor reconstrucción, consistente con una escena más ruidosa a partir de un registro SfM más frágil (sección 5.5.3). El tiempo de entrenamiento, en cambio, fue menor en ambas técnicas (Nerfacto 40 min 52 s vs. 46 min 1 s; Splatfacto 21 min 12 s vs. 33 min 41 s) — esperable, dado que el dataset híbrido tiene menos imágenes (794) que el DJI completo (1232).
+
+Esta comparación cierra la pregunta que quedaba abierta en la síntesis de H4: **combinar dispositivos no solo introduce riesgo de inestabilidad en el registro SfM (secciones 5.5.2–5.5.3), sino que, incluso cuando el registro sale bien (100% en este caso), el resultado final de reconstrucción es peor que usar cualquiera de los dos dispositivos por separado.** No hay ningún escenario, entre los evaluados, donde el dataset combinado supere a DJI solo. Esto refuerza H4 en su lectura más crítica: la premisa original de que combinar dispositivos podría mejorar la cobertura angular sin degradar la calidad no se sostiene con esta evidencia — se logra la primera parte a costa de la segunda.
 
 <h2 id="cap5-5-6">5.6 B5 — Compatibilidad web y reproducibilidad (H5)</h2>
 
@@ -369,12 +467,37 @@ A diferencia del peso de archivo, el tiempo de entrenamiento no muestra un patr�
 
 **H3 — Complejidad geométrica:** confirmada para Nerfacto (caída monótona de PSNR, sección 5.4.2), no confirmada de forma directa para Splatfacto (patrón no monótono, con recuperación en el caso de mayor complejidad). La lectura más ajustada a la evidencia es que la complejidad geométrica y ornamental afecta negativamente el desempeño de reconstrucción, pero su efecto está mediado —y en el caso de Splatfacto, posiblemente dominado— por la calidad del registro SfM de entrada, una interacción no contemplada en el planteo original de H3 y que constituye uno de los aportes empíricos de esta tesis.
 
-**H4 — Dataset multi-dispositivo:** en conjunto, la evidencia recogida respalda H4 con más fuerza que cualquier otra hipótesis de esta tesis. El registro SfM final de los datasets solo-DJI y solo-Insta360 fue alto en ambos casos de estudio híbridos (85%–100%, Tabla 5.6), lo que por sí solo no sugiere dificultad. Pero al combinar ambos dispositivos en un único dataset, dos corridas independientes de COLMAP nativo sobre el mismo dataset híbrido del Templete Central dieron resultados opuestos —una terminó en un único componente con 100% de registro (sección 5.5.2), la otra en apenas 0,63% (sección 5.5.3)—, una inestabilidad que **no ocurre con los datasets de un único dispositivo** en ningún caso de esta tesis. La sección 5.5.3 identifica además un mecanismo geométrico concreto detrás de esa inestabilidad: los matches entre imágenes DJI e Insta360 son sistemáticamente mucho más débiles (43 inliers promedio) que los matches dentro de un mismo dispositivo (689 en DJI-DJI, 189 en Insta360-Insta360) — el "puente" que conecta ambos clusters en la reconstrucción es frágil, y su éxito o fracaso parece depender de la traza particular del algoritmo incremental más que de una propiedad estable del dataset. La evidencia complementaria de calidad de render por dispositivo (sección 5.5.5) es consistente con esta lectura: el efecto de usar Insta360 en lugar de DJI no es uniforme —leve en el Templete Central, marcado y de signo variable por técnica en el Panteón—, lo que sugiere que el resultado final depende más de la calidad del registro SfM logrado en cada corrida que del dispositivo en sí. La comparación directa de calidad de render y cobertura del dataset **combinado** (no solo DJI o Insta360 por separado) frente a los datasets de un único dispositivo —la comparación que realmente formula H4— sigue pendiente hasta lograr una reconstrucción híbrida estable y completar su entrenamiento (sección 5.5.2).
+**H4 — Dataset multi-dispositivo:** en conjunto, la evidencia recogida respalda H4 con más fuerza que cualquier otra hipótesis de esta tesis. El registro SfM final de los datasets solo-DJI y solo-Insta360 fue alto en ambos casos de estudio híbridos (85%–100%, Tabla 5.6), lo que por sí solo no sugiere dificultad. Pero al combinar ambos dispositivos en un único dataset, dos corridas independientes de COLMAP nativo sobre el mismo dataset híbrido del Templete Central dieron resultados opuestos —una terminó en un único componente con 100% de registro (sección 5.5.2), la otra en apenas 0,63% (sección 5.5.3)—, una inestabilidad que **no ocurre con los datasets de un único dispositivo** en ningún caso de esta tesis. La sección 5.5.3 identifica además un mecanismo geométrico concreto detrás de esa inestabilidad: los matches entre imágenes DJI e Insta360 son sistemáticamente mucho más débiles (43 inliers promedio) que los matches dentro de un mismo dispositivo (689 en DJI-DJI, 189 en Insta360-Insta360) — el "puente" que conecta ambos clusters en la reconstrucción es frágil, y su éxito o fracaso parece depender de la traza particular del algoritmo incremental más que de una propiedad estable del dataset. La evidencia complementaria de calidad de render por dispositivo (sección 5.5.5) es consistente con esta lectura: el efecto de usar Insta360 en lugar de DJI no es uniforme —leve en el Templete Central, marcado y de signo variable por técnica en el Panteón—, lo que sugiere que el resultado final depende más de la calidad del registro SfM logrado en cada corrida que del dispositivo en sí. La comparación directa de calidad de render del dataset **combinado** frente a los datasets de un único dispositivo —la comparación que realmente formula H4— se completó (sección 5.5.6) y es la evidencia más contundente a favor de la hipótesis en toda esta tesis: el dataset híbrido, incluso con 100% de registro SfM, rinde peor que DJI solo en las tres métricas de calidad y en ambas técnicas, sin excepción. Combinar dispositivos no solo arriesga la estabilidad del registro (secciones 5.5.2–5.5.3): incluso cuando el registro sale bien, el resultado final es inferior al de un único dispositivo.
 
 **H5 — Compatibilidad web y reproducibilidad:** evidencia documental a favor de una especialización clara entre técnicas (sección 5.6): SfM y Splatfacto tienen rutas de publicación web directas o casi directas; Nerfacto no. La validación experimental completa (carga real de al menos un modelo de cada técnica en un visor web) queda pendiente.
 
-<h2 id="cap5-5-11">5.11 Cierre del capítulo</h2>
+<h2 id="cap5-5-11">5.11 Experimento adicional: reconstrucción a partir de material audiovisual de terceros — Torre Tanque, Mar del Plata</h2>
 
-De los cinco benchmarks diseñados en el Capítulo 4, tres se ejecutaron con resultados completos (B1, B3, B5 en su componente documental), y dos se ejecutaron parcialmente: B4, con hallazgos metodológicos relevantes que exceden el alcance original, y B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.
+Como validación adicional, fuera del diseño experimental del Capítulo 4 y de los criterios de selección de casos de estudio del Capítulo 3 (sección 3.1), se corrió el mismo pipeline de reconstrucción (SfM + Nerfacto + Splatfacto) sobre un dataset construido a partir de material audiovisual de terceros, no de un registro propio: un video de dron de acceso público sobre la Torre Tanque en Mar del Plata, publicado en YouTube ("Mar del Plata – Acercamiento a la Histórica Torre Tanque (Drone)", https://www.youtube.com/watch?v=tTOj-kyXqLk). El objetivo de este experimento es validar si el pipeline definido en esta tesis puede aplicarse sobre material capturado bajo un protocolo que no controlamos —dispositivo, altura, velocidad de vuelo y condiciones de luz desconocidos—, a diferencia de los tres casos de estudio principales, todos capturados bajo el protocolo propio descrito en el Capítulo 3 (sección 3.6).
+
+Del video se extrajeron 142 fotogramas, que se procesaron con COLMAP para obtener las poses de cámara y luego se entrenaron ambas técnicas (Nerfacto y Splatfacto, 30 000 iteraciones cada una) siguiendo el mismo procedimiento aplicado al resto de los casos de estudio.
+
+| Técnica | PSNR (dB) | SSIM | LPIPS |
+|---|---|---|---|
+| Nerfacto | 19,24 | 0,511 | 0,183 |
+| Splatfacto | 30,90 | 0,934 | 0,064 |
+
+*Tabla 5.16 — Torre Tanque (Mar del Plata): métricas de render sobre el dataset construido a partir de material de terceros. Fuente: `ns-eval`.*
+
+![PSNR/SSIM/LPIPS Nerfacto vs Splatfacto — Torre Tanque](/content/assets/cap5-torre-mardel-psnr-ssim-lpips.png)
+
+*Gráfico 5.17 — PSNR, SSIM y LPIPS sobre el dataset de la Torre Tanque, por técnica. Fuente: `build_torre_mardel_comparison_chart.py`.*
+
+![Comparación Foto original / Nerfacto / Splatfacto — Torre Tanque](/content/assets/cap5-torre-mardel-visual-comparison.jpg)
+
+*Figura 5.20 — Torre Tanque (Mar del Plata), comparación visual sobre un mismo fotograma de evaluación. Splatfacto reproduce la geometría de la torre y la textura urbana circundante con nitidez cercana a la fotografía original; Nerfacto muestra pérdida de detalle notable, en particular en la vegetación y la trama urbana de fondo — consistente con la brecha de PSNR/SSIM de la Tabla 5.16.*
+
+La brecha entre técnicas es mayor a la observada en los tres casos de estudio principales sobre el caso de referencia (Tabla 5.3: Nerfacto 19,47 dB / Splatfacto 23,57 dB en Templete Central), lo que es compatible con la hipótesis de que un dataset de origen no controlado —sin garantía de solapamiento angular uniforme ni de estabilidad de iluminación (Capítulo 3, sección 3.6.2)— penaliza más al campo implícito de Nerfacto que a la representación explícita de gaussianas de Splatfacto. Splatfacto exportó una nube de 125,6 MB en formato .ply, dentro del mismo orden de magnitud que los exports de los casos de estudio principales (Tabla 5.10). No fue posible reconstruir de forma confiable el tiempo de entrenamiento de este experimento a partir de los metadatos de archivo disponibles, a diferencia del resto de los casos (sección 5.9).
+
+Este resultado no reemplaza ni se compara en pie de igualdad con los tres casos de estudio principales —no hay protocolo de captura controlado, ni criterio de complejidad geométrica o valor patrimonial verificado (Capítulo 3, sección 3.1)—, pero es evidencia a favor de que el pipeline definido en esta tesis es aplicable más allá de las capturas propias, y que Splatfacto sostiene su ventaja de robustez incluso ante condiciones de captura no controladas.
+
+<h2 id="cap5-5-12">5.12 Cierre del capítulo</h2>
+
+De los cinco benchmarks diseñados en el Capítulo 4, cuatro se ejecutaron con resultados completos (B1, B3, B4, B5 en su componente documental) y uno se ejecutó parcialmente: B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa del dataset híbrido rescatado y su comparación de calidad de render contra los datasets de un único dispositivo (sección 5.5.6) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.
 
 *— Continúa en Capítulo 6: Pipeline Definitivo y Propuesta de Integración HBIM —*

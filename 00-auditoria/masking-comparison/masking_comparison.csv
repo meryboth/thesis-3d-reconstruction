@@ -1,0 +1,5 @@
+tecnica,dataset,psnr,ssim,lpips
+Nerfacto,raw,19.466,0.6021,0.3230
+Nerfacto,con mascara,10.660,0.3402,0.7019
+Splatfacto,raw,23.575,0.7562,0.3356
+Splatfacto,con mascara,13.343,0.4863,0.4263

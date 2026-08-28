@@ -93,7 +93,7 @@
     "num": 2,
     "title": "Marco Teórico",
     "file": "/content/cap2.md",
-    "conclusion": "La revisión de la literatura, combinada con los criterios específicos de esta investigación —documentación patrimonial argentina, interoperabilidad con BIM, construcción de un repositorio digital accesible— permite proponer una lectura comparativa orientada a la adecuación de cada técnica para cada caso de uso posible.\n\n**Criterio 1: Precisión geométrica e integración con BIM/Revit**\n\nSfM es la técnica dominante en este criterio. Su output es directamente importable en Autodesk Revit mediante ReCap o CloudCompare, compatible con el flujo de trabajo HBIM estándar y exportable en formatos interoperables (.IFC, .OBJ, .E57, .glTF). NeRF y 3DGS requieren pasos adicionales de conversión que pueden degradar la exactitud métrica, y su integración con BIM es aún experimental. Para equipos de arquitectura y restauración que necesiten modelos medibles y editables, SfM es actualmente la única opción madura.",
+    "conclusion": "La revisión de la literatura y la combinación con los criterios específicos de esta investigación —documentación patrimonial argentina, interoperabilidad con BIM, construcción de un repositorio digital accesible— permite proponer una lectura comparativa orientada a descubrir a partir de la investigación cuál es la fortaleza de cada técnica y qué tipo de método de reconstrucción podemos utilizar para dicho fin. A continuación voy a detallar los criterios de aceptación que van a estar jugando un rol crítico al momento de establecer los componentes que definan el pipeline final.\n\n**Criterio 1: Precisión geométrica e integración con BIM/Revit**",
     "sections": [
       {
         "id": "cap2-2-1",
@@ -119,16 +119,11 @@
           {
             "id": "cap2-2-2-3",
             "num": "2.2.3",
-            "title": "Fortalezas para la documentación patrimonial"
+            "title": "Fortalezas y desafíos para la documentación patrimonial"
           },
           {
             "id": "cap2-2-2-4",
             "num": "2.2.4",
-            "title": "Limitaciones"
-          },
-          {
-            "id": "cap2-2-2-5",
-            "num": "2.2.5",
             "title": "Herramientas de software"
           }
         ]
@@ -151,16 +146,11 @@
           {
             "id": "cap2-2-3-3",
             "num": "2.3.3",
-            "title": "Caso de uso específico: renderizado cinemático y síntesis de vistas"
+            "title": "Fortalezas y desafíos para la documentación patrimonial"
           },
           {
             "id": "cap2-2-3-4",
             "num": "2.3.4",
-            "title": "Limitaciones"
-          },
-          {
-            "id": "cap2-2-3-5",
-            "num": "2.3.5",
             "title": "Herramientas de software"
           }
         ]
@@ -183,16 +173,11 @@
           {
             "id": "cap2-2-4-3",
             "num": "2.4.3",
-            "title": "Caso de uso específico: entornos interactivos en tiempo real"
+            "title": "Fortalezas y desafíos para la documentación patrimonial"
           },
           {
             "id": "cap2-2-4-4",
             "num": "2.4.4",
-            "title": "Limitaciones"
-          },
-          {
-            "id": "cap2-2-4-5",
-            "num": "2.4.5",
             "title": "Herramientas de software"
           }
         ]
@@ -252,18 +237,6 @@
         "id": "cap2-2-9",
         "num": "2.9",
         "title": "Síntesis y posicionamiento de la investigación",
-        "children": []
-      },
-      {
-        "id": "cap2-referencias-del-cap-tulo-2",
-        "num": null,
-        "title": "Referencias del Capítulo 2",
-        "children": []
-      },
-      {
-        "id": "cap2-glosario-de-t-rminos-cap-tulo-2",
-        "num": null,
-        "title": "Glosario de términos — Capítulo 2",
         "children": []
       }
     ]
@@ -409,12 +382,6 @@
         "num": "3.9",
         "title": "Síntesis del capítulo",
         "children": []
-      },
-      {
-        "id": "cap3-referencias-del-cap-tulo-3",
-        "num": null,
-        "title": "Referencias del Capítulo 3",
-        "children": []
       }
     ]
   },
@@ -545,7 +512,7 @@
     "num": 5,
     "title": "Análisis de Resultados",
     "file": "/content/cap5.md",
-    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, tres se ejecutaron con resultados completos (B1, B3, B5 en su componente documental), y dos se ejecutaron parcialmente: B4, con hallazgos metodológicos relevantes que exceden el alcance original, y B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
+    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, cuatro se ejecutaron con resultados completos (B1, B3, B4, B5 en su componente documental) y uno se ejecutó parcialmente: B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa del dataset híbrido rescatado y su comparación de calidad de render contra los datasets de un único dispositivo (sección 5.5.6) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
     "sections": [
       {
         "id": "cap5-5-1",
@@ -577,6 +544,16 @@
             "id": "cap5-5-2-4",
             "num": "5.2.4",
             "title": "Resultado de la reconstrucción sobre el Dataset B — contraste de H2"
+          },
+          {
+            "id": "cap5-5-2-5",
+            "num": "5.2.5",
+            "title": "Máscara de entrenamiento (aislamiento de fondo)"
+          },
+          {
+            "id": "cap5-5-2-6",
+            "num": "5.2.6",
+            "title": "Resultado de entrenar con la máscara — contraste adicional"
           }
         ]
       },
@@ -653,6 +630,11 @@
             "id": "cap5-5-5-5",
             "num": "5.5.5",
             "title": "Evidencia complementaria: calidad de render por dispositivo"
+          },
+          {
+            "id": "cap5-5-5-6",
+            "num": "5.5.6",
+            "title": "Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4"
           }
         ]
       },
@@ -689,6 +671,12 @@
       {
         "id": "cap5-5-11",
         "num": "5.11",
+        "title": "Experimento adicional: reconstrucción a partir de material audiovisual de terceros — Torre Tanque, Mar del Plata",
+        "children": []
+      },
+      {
+        "id": "cap5-5-12",
+        "num": "5.12",
         "title": "Cierre del capítulo",
         "children": []
       }
