@@ -3,15 +3,23 @@ import ChapterNav from "./components/ChapterNav";
 import MarginNote from "./components/MarginNote";
 import ChapterSection from "./components/ChapterSection";
 import ArchivoDigitalCatalog from "./components/ArchivoDigitalCatalog";
+import ScriptsCatalog from "./components/ScriptsCatalog";
 import "./layout.css";
 
-// no viene del manifest (no es un capitulo en markdown) -- es una seccion de
-// UI propia, pero se suma al nav como una entrada mas para que el scroll-spy
-// y el acordeon de ChapterNav la traten igual que a un capitulo.
+// no vienen del manifest (no son capitulos en markdown) -- son secciones de
+// UI propia, pero se suman al nav como una entrada mas para que el scroll-spy
+// y el acordeon de ChapterNav las traten igual que a un capitulo.
 const ARCHIVO_DIGITAL_NAV_ENTRY = {
   id: "archivo-digital",
   num: null,
   title: "Archivo Digital",
+  sections: [],
+};
+
+const SCRIPTS_NAV_ENTRY = {
+  id: "scripts",
+  num: null,
+  title: "Scripts",
   sections: [],
 };
 
@@ -45,7 +53,9 @@ export default function App() {
   }, [chapters]);
 
   const activeChapter = chapters.find((c) => c.id === activeId);
-  const navChapters = chapters.length ? [...chapters, ARCHIVO_DIGITAL_NAV_ENTRY] : chapters;
+  const navChapters = chapters.length
+    ? [...chapters, ARCHIVO_DIGITAL_NAV_ENTRY, SCRIPTS_NAV_ENTRY]
+    : chapters;
 
   return (
     <div className="page">
@@ -65,6 +75,7 @@ export default function App() {
           />
         ))}
         <ArchivoDigitalCatalog registerRef={(el) => (refs.current["archivo-digital"] = el)} />
+        <ScriptsCatalog registerRef={(el) => (refs.current["scripts"] = el)} />
       </main>
       <MarginNote chapter={activeChapter} />
     </div>

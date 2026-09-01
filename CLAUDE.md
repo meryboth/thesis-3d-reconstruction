@@ -60,11 +60,11 @@ Cap. 1–3 fueron redactados/editados con la usuaria. **Cap. 4 (Diseño Experime
 
 Cap. 7 (Conclusiones) existe como borrador de partida (generado el 27/08) — la usuaria lo reescribe a mano.
 
-## ⚠️ Regla no-negociable (27/08): no escribir más prosa de la tesis — EXCEPTO Cap. 5
+## ⚠️ Regla no-negociable (27/08, ampliada 01/09): no escribir más prosa de la tesis — en NINGÚN capítulo
 
 A partir del 27/08 la usuaria escribe a mano el texto de la tesis (conclusiones, explicaciones, cualquier prosa nueva) — **no editar ni generar texto propio en los capítulos (`05-tesis/*.md`) ni en el sitio web**. Esto reemplaza la dinámica anterior (borradores generados a partir de `00-auditoria/` para que la usuaria los reescribiera).
 
-**Excepción explícita, dada el mismo día: Capítulo 5 (Análisis de Resultados).** La usuaria todavía no empezó a escribirlo — pidió específicamente que, cuando estén las conclusiones/resultados de una corrida, **yo siga redactando ese capítulo** (igual que antes) y ella lo edita después. La regla de "no más prosa" aplica tal cual a Cap. 1–4, 6, 7 y a cualquier prosa que ella ya haya empezado a escribir a mano; en Cap. 5 sigo escribiendo salvo que ella diga lo contrario.
+**La excepción de Capítulo 5 se cerró el 01/09.** Desde el 27/08 hasta el 01/09 hubo una excepción explícita para Cap. 5 (Análisis de Resultados): la usuaria pidió que yo siguiera redactando ese capítulo mientras no tuviera tiempo de empezarlo. El 01/09 avisó que ella va a reescribir el Cap. 5 ("voy a re-escribir el cap 5, asi que cualquier ayuda que necesite te aviso") — la regla de "no más prosa" ahora aplica igual a los 7 capítulos. Ayudar puntualmente cuando ella lo pida sigue bien (es lo que ofreció); redactar o reformular prosa por iniciativa propia, no.
 
 **Segunda excepción, más acotada, del 29/08:** dentro del Capítulo 6, la sección que documenta la POC de segmentación de nubes de puntos (`thesis/04-notebooks/scripts/poc_segmentation_multi_site.py`, visor en `06-sitio-web/src/components/PointCloudSegmentor.jsx`) y su vínculo con la propuesta HBIM/Revit de la sección 6.3 — la usuaria pidió explícitamente que yo la redacte (capturas + bibliografía + prosa explicando el impacto en el pipeline), después de que yo señalara el conflicto con la regla de "no más prosa" y ella eligiera la excepción puntual en vez de solo prepararle los materiales. Esto NO reabre el resto del Cap. 6 (ni Cap. 1/2/3/4/7): si se pide tocar otra parte del capítulo más adelante, volver a confirmar en vez de asumir que la excepción se generalizó.
 

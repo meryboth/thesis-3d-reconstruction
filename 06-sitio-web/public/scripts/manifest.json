@@ -1,0 +1,587 @@
+[
+  {
+    "name": "align_supersplat_export.py",
+    "lang": "Python",
+    "description": "Resuelve la transformacion de similitud (rotacion + escala uniforme + traslacion) que aplica SuperSplat al cargar/exportar un splat.ply, comparado contra el espacio de coordenadas original de Nerfstudio (el mismo que usan el checkpoint y…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 5591,
+    "url": "/scripts/files/align_supersplat_export.py"
+  },
+  {
+    "name": "analyze_camera_trajectories.py",
+    "lang": "Python",
+    "description": "Analiza la trayectoria de camaras de cada dataset Nerfstudio (transforms.json) presente en thesis/0X-*/03-datasets/.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 9439,
+    "url": "/scripts/files/analyze_camera_trajectories.py"
+  },
+  {
+    "name": "analyze_dense_clouds.py",
+    "lang": "Python",
+    "description": "Métricas geométricas de nubes de puntos densas (COLMAP/RealityScan): cantidad de puntos, extensión y densidad espacial.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 14382,
+    "url": "/scripts/files/analyze_dense_clouds.py"
+  },
+  {
+    "name": "analyze_failure_rate.py",
+    "lang": "Python",
+    "description": "Tasa de fallos durante procesamiento/entrenamiento (Cap. 2, seccion 2.6.3; Cap. 4, seccion 4.9), clasificada en: - catastrofico: el proceso no llega a producir un output valido (agotamiento de memoria, error de dependencias/archivos,…",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 7305,
+    "url": "/scripts/files/analyze_failure_rate.py"
+  },
+  {
+    "name": "analyze_gaussian_splats.py",
+    "lang": "Python",
+    "description": "Analiza cada splat.ply (export de Gaussian Splatting / Splatfacto) presente en thesis/0X-*/02-resultados-finales/.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 13737,
+    "url": "/scripts/files/analyze_gaussian_splats.py"
+  },
+  {
+    "name": "analyze_hybrid_cross_camera_matching.py",
+    "lang": "Python",
+    "description": "Calidad de matching cruzado entre dispositivos en el dataset hibrido DJI + Insta360 del Templete Central (H4).",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 6112,
+    "url": "/scripts/files/analyze_hybrid_cross_camera_matching.py"
+  },
+  {
+    "name": "analyze_hybrid_cross_camera_matching_panteon.py",
+    "lang": "Python",
+    "description": "Calidad de matching cruzado entre dispositivos en el dataset hibrido DJI + Insta360 del Panteon Asociacion Espanola (H4) -- misma logica que analyze_hybrid_cross_camera_matching.py (Templete Central), aplicada al segundo caso de estudio…",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 6701,
+    "url": "/scripts/files/analyze_hybrid_cross_camera_matching_panteon.py"
+  },
+  {
+    "name": "analyze_masked_splat_comparison.py",
+    "lang": "Python",
+    "description": "Corre el mismo analisis de analyze_gaussian_splats.py sobre el export de Splatfacto entrenado con mascara de entrenamiento RMBG, para comparar contra el export raw ya documentado (315,787 gaussianas, Cap.5 5.3.1).",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 1537,
+    "url": "/scripts/files/analyze_masked_splat_comparison.py"
+  },
+  {
+    "name": "analyze_output_weights.py",
+    "lang": "Python",
+    "description": "Peso del archivo de output final por sitio, metodo de captura y tecnica (SfM/NeRF/3DGS) — metrica explicita del Cap. 4 (seccion 4.3.5, \"Peso del archivo de output\") y del Cap. 2 (seccion 2.6.2, \"Criterio de peso del archivo\").",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 5031,
+    "url": "/scripts/files/analyze_output_weights.py"
+  },
+  {
+    "name": "analyze_pointcloud_primitives.py",
+    "lang": "Python",
+    "description": "PRUEBA EXPLORATORIA v3: segmentar una nube de puntos densa en elementos (cilindros / planos-caja) via RANSAC iterativo, usando las normales que ya trae la nube (exportadas por CloudCompare junto con x,y,z,r,g,b), en vez de estimarlas.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 11718,
+    "url": "/scripts/files/analyze_pointcloud_primitives.py"
+  },
+  {
+    "name": "analyze_processing_time.py",
+    "lang": "Python",
+    "description": "Tiempo de procesamiento por etapa (SfM, Nerfacto, Splatfacto, render, export) y por sitio/metodo de captura — metrica explicita del Cap. 4 (seccion 4.3.5).",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 8488,
+    "url": "/scripts/files/analyze_processing_time.py"
+  },
+  {
+    "name": "analyze_render_benchmark.py",
+    "lang": "Python",
+    "description": "Benchmark cuantitativo de fidelidad visual: compara, para cada metodo (Nerfacto, Splatfacto) de cada sitio y captura, los frames renderizados contra su ground truth (imagen original de esa misma pose de camara).",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 13994,
+    "url": "/scripts/files/analyze_render_benchmark.py"
+  },
+  {
+    "name": "analyze_sfm_comfyui_registration.py",
+    "lang": "Python",
+    "description": "Analiza el resultado de COLMAP nativo corrido sobre el Dataset B curado (ComfyUI: YOLO-seg + LaMa inpaint) del Templete Central -- primer paso real hacia la comparacion H2 pendiente en el Cap. 5, seccion 5.2.1 (\"falta correr…",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 5716,
+    "url": "/scripts/files/analyze_sfm_comfyui_registration.py"
+  },
+  {
+    "name": "analyze_sfm_registration_comparison.py",
+    "lang": "Python",
+    "description": "Tabla comparativa de todos los intentos de SfM (COLMAP nativo y RealityScan) sobre datasets DJI-solo, Insta360-solo e hibridos (DJI+Insta360), en los dos sitios que tienen ambos dispositivos: Templete Central y Panteon Asociacion Catalana.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 9940,
+    "url": "/scripts/files/analyze_sfm_registration_comparison.py"
+  },
+  {
+    "name": "analyze_textured_meshes.py",
+    "lang": "Python",
+    "description": "Métricas de mallas texturizadas (.obj) de fotogrametría: vértices, triángulos y resolución de la textura.",
+    "category": "Análisis",
+    "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
+    "sizeBytes": 12585,
+    "url": "/scripts/files/analyze_textured_meshes.py"
+  },
+  {
+    "name": "blender_pointcloud_primitives.py",
+    "lang": "Python",
+    "description": "PRUEBA EXPLORATORIA (paso 2): lee primitives.json (generado por analyze_pointcloud_primitives.py) y crea, para cada elemento detectado, una PRIMITIVA NATIVA de Blender (cilindro real via bpy.ops.mesh.primitive_cylinder_add, caja real via…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 6540,
+    "url": "/scripts/files/blender_pointcloud_primitives.py"
+  },
+  {
+    "name": "blender_pointcloud_to_mesh.py",
+    "lang": "Python",
+    "description": "PRUEBA EXPLORATORIA (no forma parte todavia de la tesis): reconstruir una superficie 3D dentro de Blender a partir de una nube de puntos densa (.ply), usando solo herramientas nativas de Blender (Geometry Nodes: Points to Volume -> Volume…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 8902,
+    "url": "/scripts/files/blender_pointcloud_to_mesh.py"
+  },
+  {
+    "name": "build_aggressive_poc_grid.py",
+    "lang": "Python",
+    "description": "Arma un grid comparativo (original | RMBG foreground | mascara final | limpio) por cada muestra del POC de limpieza agresiva, para revision visual rapida.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 1608,
+    "url": "/scripts/files/build_aggressive_poc_grid.py"
+  },
+  {
+    "name": "build_capture_summary_chart.py",
+    "lang": "Python",
+    "description": "Resumen de la sesion de captura por caso de estudio y dispositivo -- duracion de video y fotogramas totales antes del preprocesamiento, para el Capitulo 3 (seccion 3.6.4). Datos crudos: metadata de video (ffprobe) sobre los archivos…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 2505,
+    "url": "/scripts/files/build_capture_summary_chart.py"
+  },
+  {
+    "name": "build_comfyui_batch_stats_charts.py",
+    "lang": "Python",
+    "description": "Graficos de las estadisticas del batch de limpieza ComfyUI sobre el dataset DJI completo del Templete Central (1232 imagenes), documentado en el Capitulo 5, seccion 5.2.3: cuantas imagenes tuvieron deteccion vs. no, y como se distribuye la…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3764,
+    "url": "/scripts/files/build_comfyui_batch_stats_charts.py"
+  },
+  {
+    "name": "build_comfyui_cleaning_comparisons.py",
+    "lang": "Python",
+    "description": "Grillas comparativas Foto original (raw) | Dataset limpio (ComfyUI: YOLO-seg + LaMa inpaint) para documentar el impacto real del preprocesamiento ejecutado sobre el dataset DJI completo del Templete Central (Cap. 5, seccion B1/H2).",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 2572,
+    "url": "/scripts/files/build_comfyui_cleaning_comparisons.py"
+  },
+  {
+    "name": "build_comfyui_dataset_with_realityscan_poses.py",
+    "lang": "Python",
+    "description": "Arma el dataset Nerfstudio del Dataset B (curado por ComfyUI) reusando las poses de camara ya resueltas por RealityScan sobre el dataset raw -- en vez de volver a correr SfM sobre las imagenes limpias (COLMAP nativo no converge en este…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 2913,
+    "url": "/scripts/files/build_comfyui_dataset_with_realityscan_poses.py"
+  },
+  {
+    "name": "build_comfyui_nerfacto_subset_dataset.py",
+    "lang": "Python",
+    "description": "Arma el dataset Nerfacto del Dataset B (curado por ComfyUI) sobre el MISMO subset de 308 frames (cada 4to) que ya se uso para el Nerfacto del dataset raw -- para que la comparacion H2 sea directa, frame a frame. Reusa las poses de…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 2232,
+    "url": "/scripts/files/build_comfyui_nerfacto_subset_dataset.py"
+  },
+  {
+    "name": "build_comfyui_pipeline_diagram.py",
+    "lang": "Python",
+    "description": "Diagrama del pipeline de limpieza de distractores ejecutado con ComfyUI (deteccion YOLO-seg + filtro de clase + inpainting LaMa), documentado en el Capitulo 5, seccion 5.2. Mismo estilo que build_pipeline_diagram.py (Cap. 6).",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4227,
+    "url": "/scripts/files/build_comfyui_pipeline_diagram.py"
+  },
+  {
+    "name": "build_comparison_charts.py",
+    "lang": "Python",
+    "description": "Graficos comparativos (matplotlib) a partir de las tablas ya generadas por los demas scripts de analyze_*.py — no recalcula nada, solo visualiza.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 8600,
+    "url": "/scripts/files/build_comparison_charts.py"
+  },
+  {
+    "name": "build_fidelity_comparisons.py",
+    "lang": "Python",
+    "description": "Material de apoyo para el analisis cualitativo de fidelidad geometrica (Cap. 4, seccion 4.8): grillas comparativas Foto original | Nerfacto | Splatfacto, en la MISMA pose de camara, para que la inspeccion visual (zonas bien/mal…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 7374,
+    "url": "/scripts/files/build_fidelity_comparisons.py"
+  },
+  {
+    "name": "build_glosario_bibliografia.py",
+    "lang": "Python",
+    "description": "Genera thesis/05-tesis/glosario/glosario.md y thesis/05-tesis/bibliografia/ bibliografia.md como documentos independientes de la tesis (no ya solo texto embebido dentro de los capitulos 2 y 3), pedido explicito de la usuaria (26/08):…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4394,
+    "url": "/scripts/files/build_glosario_bibliografia.py"
+  },
+  {
+    "name": "build_h2_comparison_chart.py",
+    "lang": "Python",
+    "description": "Comparacion H2: metricas de render (PSNR/SSIM/LPIPS) de Nerfacto y Splatfacto sobre el Templete Central (DJI), dataset raw vs. Dataset B (curado con ComfyUI, reusando las poses de RealityScan -- ver Cap. 5, seccion 5.2.1/5.2.4).",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4943,
+    "url": "/scripts/files/build_h2_comparison_chart.py"
+  },
+  {
+    "name": "build_hybrid_comparison_chart.py",
+    "lang": "Python",
+    "description": "Comparacion de H4 (dataset multi-dispositivo): DJI solo vs. Insta360 solo vs. Hibrido DJI+Insta360, sobre el Templete Central, por tecnica -- la comparacion que efectivamente formula H4 (dataset combinado vs. un unico dispositivo),…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4446,
+    "url": "/scripts/files/build_hybrid_comparison_chart.py"
+  },
+  {
+    "name": "build_hybrid_comparison_chart_panteon.py",
+    "lang": "Python",
+    "description": "Comparacion de H4 (dataset multi-dispositivo): DJI solo vs. Insta360 solo vs. Hibrido DJI+Insta360, sobre el Panteon Asociacion Espanola, por tecnica -- misma logica que build_hybrid_comparison_chart.py (Templete Central), aplicada al…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4650,
+    "url": "/scripts/files/build_hybrid_comparison_chart_panteon.py"
+  },
+  {
+    "name": "build_masked_raw_dataset.py",
+    "lang": "Python",
+    "description": "Arma el dataset \"dataset-masked-raw-1232-splatfacto\": el dataset RAW del Templete Central (imagenes originales, sin tocar) + una mascara de entrenamiento Nerfstudio por frame (RMBG-2.0, ver build_rmbg_masks_full_dataset.py) para que…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3732,
+    "url": "/scripts/files/build_masked_raw_dataset.py"
+  },
+  {
+    "name": "build_masked_raw_nerfacto_subset.py",
+    "lang": "Python",
+    "description": "Arma el subset de 308 frames (cada 4to) del dataset RAW con mascara RMBG, para Nerfacto -- mismo subset ya usado en el Nerfacto raw y en el Nerfacto del Dataset B (ComfyUI, H2), para comparabilidad directa frame a frame.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3091,
+    "url": "/scripts/files/build_masked_raw_nerfacto_subset.py"
+  },
+  {
+    "name": "build_masking_before_after.py",
+    "lang": "Python",
+    "description": "Genera comparaciones antes/despues (foto original | mascara | resultado aislado con la mascara de entrenamiento RMBG) para varios fotogramas representativos del Templete Central -- para el Cap. 5, seccion de preprocesamiento.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 1678,
+    "url": "/scripts/files/build_masking_before_after.py"
+  },
+  {
+    "name": "build_masking_comparison_chart.py",
+    "lang": "Python",
+    "description": "Comparacion del experimento de mascara de entrenamiento (RMBG-2.0) sobre el Templete Central (DJI): raw (sin mascara) vs. con mascara, para Nerfacto y Splatfacto. Complementa (no reemplaza) el experimento de H2 con ComfyUI -- esta es una…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3924,
+    "url": "/scripts/files/build_masking_comparison_chart.py"
+  },
+  {
+    "name": "build_masking_visual_comparison.py",
+    "lang": "Python",
+    "description": "Grid comparativo de renders reales (no solo metricas): raw vs. con mascara de entrenamiento, para Nerfacto y Splatfacto juntos en una sola imagen, con encabezados de seccion grandes para que no haya ambiguedad sobre cual tecnica es cual.…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 2983,
+    "url": "/scripts/files/build_masking_visual_comparison.py"
+  },
+  {
+    "name": "build_panteon_hibrido_datasets.py",
+    "lang": "Python",
+    "description": "Arma los datasets Nerfstudio del componente principal (972 registradas en el pico, 910 tras el filtrado final -- ver colmap_component_to_nerfstudio.py) del COLMAP nativo hibrido DJI+Insta360 de Panteon Asociacion Espanola…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3341,
+    "url": "/scripts/files/build_panteon_hibrido_datasets.py"
+  },
+  {
+    "name": "build_pipeline_diagram.py",
+    "lang": "Python",
+    "description": "Diagrama de flujo del pipeline definitivo propuesto en el Capitulo 6. Generado con matplotlib (sin dependencias graficas adicionales).",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 4465,
+    "url": "/scripts/files/build_pipeline_diagram.py"
+  },
+  {
+    "name": "build_psnr_vs_complejidad.py",
+    "lang": "Python",
+    "description": "Grafico de dispersion: PSNR (dataset DJI) vs. nivel de complejidad geometrica, una serie por tecnica (Nerfacto / Splatfacto). Usado en Cap. 4 (B3) y Cap. 5.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 1719,
+    "url": "/scripts/files/build_psnr_vs_complejidad.py"
+  },
+  {
+    "name": "build_rmbg_masks_full_dataset.py",
+    "lang": "Python",
+    "description": "Genera mascaras de entrenamiento Nerfstudio (RMBG-2.0, saliencia) para el dataset DJI completo del Templete Central (1232 imagenes CRUDAS, sin tocar pixeles). No inpaintea nada -- ver POC previo (clean_dataset_comfyui_aggressive_poc.py)…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 5797,
+    "url": "/scripts/files/build_rmbg_masks_full_dataset.py"
+  },
+  {
+    "name": "build_torre_mardel_comparison_chart.py",
+    "lang": "Python",
+    "description": "Comparacion Nerfacto vs. Splatfacto sobre el experimento adicional de la Torre Tanque (Mar del Plata) -- dataset construido a partir de material audiovisual de terceros (YouTube), no de un registro propio. Capitulo 5, seccion 5.11.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 1687,
+    "url": "/scripts/files/build_torre_mardel_comparison_chart.py"
+  },
+  {
+    "name": "build_torre_mardel_visual_comparison.py",
+    "lang": "Python",
+    "description": "Grilla Foto original / Nerfacto / Splatfacto para el experimento adicional de la Torre Tanque (Mar del Plata). Reutiliza el frame GT|prediccion ya generado por ns-eval (--render-output-path): recorta la mitad GT de un archivo y la mitad de…",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 1565,
+    "url": "/scripts/files/build_torre_mardel_visual_comparison.py"
+  },
+  {
+    "name": "clean_dataset_comfyui.py",
+    "lang": "Python",
+    "description": "Corre la pipeline de limpieza de distractores (YOLO seg + LaMa inpaint, local, sin costo) sobre el dataset DJI completo del Templete Central, via la API REST de ComfyUI (http://127.0.0.1:8000).",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 7924,
+    "url": "/scripts/files/clean_dataset_comfyui.py"
+  },
+  {
+    "name": "clean_dataset_comfyui_aggressive_poc.py",
+    "lang": "Python",
+    "description": "POC de una version MAS AGRESIVA de limpieza con ComfyUI: ademas de los distractores discretos (persona/pajaro/auto via YOLO, igual que clean_dataset_comfyui.py), esta version tambien intenta borrar el CONTEXTO que no es la estructura…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 8359,
+    "url": "/scripts/files/clean_dataset_comfyui_aggressive_poc.py"
+  },
+  {
+    "name": "colmap_component_to_nerfstudio.py",
+    "lang": "Python",
+    "description": "Convierte un componente/submodelo especifico de una reconstruccion COLMAP fragmentada (cameras.bin + images.bin + points3D.bin) al formato de dataset Nerfstudio (transforms.json + sparse_pc.ply), sin necesidad de tener Nerfstudio ni COLMAP…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 9306,
+    "url": "/scripts/files/colmap_component_to_nerfstudio.py"
+  },
+  {
+    "name": "convert_heavy_pngs_to_webp.py",
+    "lang": "Python",
+    "description": "Convierte a WebP los PNG mas pesados referenciados desde los capitulos de la tesis (diagramas y fotos guardados como PNG sin comprimir, algunos de varios MB) -- WebP da una compresion mucho mejor que PNG tanto para fotos como para…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1653,
+    "url": "/scripts/files/convert_heavy_pngs_to_webp.py"
+  },
+  {
+    "name": "export_paraguas_raw_as_splat.py",
+    "lang": "Python",
+    "description": "Exporta la nube densa CRUDA (sin nivelar, color real) de Los Paraguas como un .ply de gaussian splat minimo (gaussianas chicas y opacas, mismo truco que export_segmentation_as_splat.py) para que se pueda abrir y reorientar a mano en el…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1825,
+    "url": "/scripts/files/export_paraguas_raw_as_splat.py"
+  },
+  {
+    "name": "export_segmentation_as_splat.py",
+    "lang": "Python",
+    "description": "Convierte el .ply de segmentacion (x,y,z,rgb simple, no lo acepta SuperSplat) en un .ply de gaussian splat minimo y valido: gaussianas chicas, esfericas, opacas, con el color de cada clase codificado como termino DC de armonicos esfericos.…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 2098,
+    "url": "/scripts/files/export_segmentation_as_splat.py"
+  },
+  {
+    "name": "fix_paraguas_dense_cloud_scatter.py",
+    "lang": "Python",
+    "description": "Corrige el Grafico 5.7 de Cap. 5: la nube densa de Los Paraguas sale de COLMAP nativo (a diferencia de Templete/Panteon, que salen de RealityScan) y tiene una convencion de ejes distinta -- ahi el \"arriba\" real es Y, no Z.…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 3964,
+    "url": "/scripts/files/fix_paraguas_dense_cloud_scatter.py"
+  },
+  {
+    "name": "generate_downscale_pyramid.py",
+    "lang": "Python",
+    "description": "Genera las carpetas images_2/ images_4/ images_8/ (piramide de resolucion) que Nerfstudio espera de antemano cuando se usa --downscale-factor con la FullImageDatamanager -- normalmente las genera ns-process-data, pero este dataset se armo…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 2007,
+    "url": "/scripts/files/generate_downscale_pyramid.py"
+  },
+  {
+    "name": "generate_downscaled_images.py",
+    "lang": "Python",
+    "description": "Genera la carpeta images_N/ (downscale factor N, division entera de ancho y alto) que el dataparser de Nerfstudio espera encontrar ya generada cuando se le pasa --downscale-factor explicito. ns-process-data la genera sola como parte de su…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1789,
+    "url": "/scripts/files/generate_downscaled_images.py"
+  },
+  {
+    "name": "generate_mask_pyramid.py",
+    "lang": "Python",
+    "description": "Genera masks_2/4/8 (NEAREST, para mantener el binario limpio) para un dataset que ya tiene mask_path en transforms.json -- analogo a generate_downscale_pyramid.py pero para la carpeta masks/.",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1161,
+    "url": "/scripts/files/generate_mask_pyramid.py"
+  },
+  {
+    "name": "level_point_cloud.py",
+    "lang": "Python",
+    "description": "Nivela una nube de puntos cruda de RealityScan (sin gravity-alignment, a diferencia de los datasets procesados por Nerfstudio que si tienen ese ajuste via dataparser_transforms.json) ajustando un plano por RANSAC al piso/ pavimento -- la…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 3752,
+    "url": "/scripts/files/level_point_cloud.py"
+  },
+  {
+    "name": "parse_colmap_images_bin.py",
+    "lang": "Python",
+    "description": "Lee un archivo images.bin de COLMAP (formato binario nativo) y devuelve: - cantidad de imagenes registradas (con pose) - nombre de cada imagen registrada - cantidad total de observaciones 2D (para referencia)",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1750,
+    "url": "/scripts/files/parse_colmap_images_bin.py"
+  },
+  {
+    "name": "poc_floater_cleanup.py",
+    "lang": "Python",
+    "description": "POC: limpieza automatica de floaters en un export de Gaussian Splatting (splat.ply), combinando dos criterios baratos de calcular:",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 4744,
+    "url": "/scripts/files/poc_floater_cleanup.py"
+  },
+  {
+    "name": "poc_floater_cleanup_aggressive.py",
+    "lang": "Python",
+    "description": "POC (parte 3): version mucho mas agresiva de la limpieza de floaters, sobre el checkpoint completo. Suma un tercer criterio a los dos anteriores (opacidad baja + aislamiento KNN): distancia al centroide de la \"masa densa\" (el edificio…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 4539,
+    "url": "/scripts/files/poc_floater_cleanup_aggressive.py"
+  },
+  {
+    "name": "poc_floater_cleanup_checkpoint.py",
+    "lang": "Python",
+    "description": "POC (parte 2): aplica el mismo criterio de limpieza de floaters (opacidad baja + aislamiento espacial via KNN, igual que poc_floater_cleanup.py) directamente sobre los tensores del checkpoint entrenado de Splatfacto (no sobre el .ply ya…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 3430,
+    "url": "/scripts/files/poc_floater_cleanup_checkpoint.py"
+  },
+  {
+    "name": "poc_floater_cleanup_manual_match.py",
+    "lang": "Python",
+    "description": "POC (parte 4, con alineacion): mapea la edicion manual de la usuaria en SuperSplat (splat-editado.ply, en el espacio de coordenadas propio de SuperSplat) contra el checkpoint original de Nerfstudio, usando la transformacion resuelta por…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 3325,
+    "url": "/scripts/files/poc_floater_cleanup_manual_match.py"
+  },
+  {
+    "name": "poc_floater_cleanup_manual_region.py",
+    "lang": "Python",
+    "description": "POC (parte 4b): en vez de matchear gaussiana-por-gaussiana (fallo por colision de vecinos, ver poc_floater_cleanup_manual_match.py), usa la nube de puntos editada a mano (ya alineada al espacio del checkpoint) como PLANTILLA DE REGION:…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 3365,
+    "url": "/scripts/files/poc_floater_cleanup_manual_region.py"
+  },
+  {
+    "name": "poc_floater_cleanup_render.py",
+    "lang": "Python",
+    "description": "Render rapido (proyeccion de puntos con color real, no rasterizacion de gaussianas completa) del splat original vs. el limpio de la POC, para verificar visualmente que la limpieza no se come geometria real del edificio. No reemplaza un…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 4057,
+    "url": "/scripts/files/poc_floater_cleanup_render.py"
+  },
+  {
+    "name": "poc_floater_cleanup_sphere_only.py",
+    "lang": "Python",
+    "description": "POC (parte 5): replica el metodo real que uso la usuaria en SuperSplat -- una esfera simple que contiene al edificio, borrando todo lo de afuera. Sin criterios de opacidad ni aislamiento, solo distancia al centro.",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 2951,
+    "url": "/scripts/files/poc_floater_cleanup_sphere_only.py"
+  },
+  {
+    "name": "poc_segmentation_multi_site.py",
+    "lang": "Python",
+    "description": "Segmentacion semantica basica (cubierta / columna / baranda-no-estructural / piso-base) por geometria local, corrida sobre los 3 casos de estudio. Version consolidada de poc_segmentation_normals_densecloud.py + level_point_cloud.py.",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 14888,
+    "url": "/scripts/files/poc_segmentation_multi_site.py"
+  },
+  {
+    "name": "poc_segmentation_normals.py",
+    "lang": "Python",
+    "description": "POC: segmentacion semantica basica de una nube de gaussianas por geometria local, sin modelos de deep learning -- heuristica sobre normales estimadas (PCA local via k vecinos cercanos, con scipy.cKDTree) y altura relativa.",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 4763,
+    "url": "/scripts/files/poc_segmentation_normals.py"
+  },
+  {
+    "name": "poc_segmentation_normals_densecloud.py",
+    "lang": "Python",
+    "description": "POC: misma segmentacion por normales locales (ver poc_segmentation_normals.py) pero sobre la nube de puntos DENSA de SfM (RealityScan, nube-densa.xyz) en vez de los centros de gaussianas de Splatfacto -- la nube densa no tiene el problema…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 9162,
+    "url": "/scripts/files/poc_segmentation_normals_densecloud.py"
+  },
+  {
+    "name": "audit_colmap_dji_insta360.ps1",
+    "lang": "PowerShell",
+    "description": "AUDITORIA COLMAP - DATASET HIBRIDO DJI + INSTA360",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 21447,
+    "url": "/scripts/files/audit_colmap_dji_insta360.ps1"
+  },
+  {
+    "name": "check_dense_cloud_logs.ps1",
+    "lang": "PowerShell",
+    "description": "Recorre los logs de cada caso de estudio para confirmar de qué corrida sale la nube de puntos densa final.",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1353,
+    "url": "/scripts/files/check_dense_cloud_logs.ps1"
+  }
+]

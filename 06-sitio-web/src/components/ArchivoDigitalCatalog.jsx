@@ -18,7 +18,7 @@ const SITES = [
   },
   {
     id: "panteon",
-    title: "Panteón Asociación Catalana",
+    title: "Panteón Asociación Española",
     subtitle: "Cementerio de la Chacarita",
     description:
       "Splatfacto, dataset DJI. Export crudo, sin curar todavía en SuperSplat — sirve para probar el visor, no como versión final.",

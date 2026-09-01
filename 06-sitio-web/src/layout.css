@@ -419,6 +419,238 @@
   color: var(--accent);
 }
 
+/* ---------- catalogo de scripts ---------- */
+
+.scripts-search {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--ink);
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  margin: 0.5em 0 2.2em;
+}
+
+.scripts-search:focus {
+  outline: none;
+  border-color: var(--accent-soft);
+}
+
+.scripts-group {
+  margin-bottom: 1em;
+}
+
+.scripts-group-blurb {
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  color: var(--ink-faint);
+  margin: -0.6em 0 1.3em;
+}
+
+.scripts-list {
+  list-style: none;
+  margin: 0 0 1.3em;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.scripts-item {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-panel);
+}
+
+.scripts-item-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.scripts-item-name {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  word-break: break-all;
+}
+
+.scripts-item-name:hover {
+  text-decoration: underline;
+}
+
+/* ---------- modal de visor de codigo ---------- */
+
+.code-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 26, 22, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 3vw;
+  z-index: 50;
+}
+
+.code-modal {
+  background: #fff;
+  border-radius: 8px;
+  width: min(920px, 100%);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.code-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+}
+
+.code-modal-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.code-modal-name {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.code-modal-meta {
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.code-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.code-modal-btn {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.code-modal-btn:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.code-modal-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.code-modal-close {
+  font-size: 0.9rem;
+  padding: 0.35rem 0.55rem;
+}
+
+.code-modal-body {
+  overflow: auto;
+  background: #fff;
+}
+
+.code-modal-status {
+  padding: 2rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
+.code-modal-pre {
+  margin: 0;
+  padding: 1rem 0;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  overflow: visible;
+}
+
+.code-modal-line {
+  display: flex;
+}
+
+.code-modal-lineno {
+  flex-shrink: 0;
+  width: 3rem;
+  text-align: right;
+  padding-right: 1rem;
+  color: var(--ink-faint);
+  user-select: none;
+}
+
+.code-modal-linecontent {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .code-modal-header {
+    flex-wrap: wrap;
+  }
+}
+
+.scripts-item-meta {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.scripts-item-desc {
+  margin: 0.45rem 0 0;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.scripts-empty {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
 
 .site-footer {
   margin-top: 6rem;
