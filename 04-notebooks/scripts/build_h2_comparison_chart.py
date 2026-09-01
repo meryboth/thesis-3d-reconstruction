@@ -4,16 +4,22 @@ sobre el Templete Central (DJI), dataset raw vs. Dataset B (curado con
 ComfyUI, reusando las poses de RealityScan -- ver Cap. 5, seccion 5.2.1/5.2.4).
 
 Fuentes:
-  raw:  02-templete-central/02-resultados-finales/{nerfacto,splatfacto}/render/render-benchmark-metadata.json
+  raw/Splatfacto: 02-templete-central/02-resultados-finales/splatfacto/render/render-benchmark-metadata.json
+  raw/Nerfacto:   ns-eval sobre un reentrenamiento a downscale_factor=4 (2026-08-31), corrido
+                  especificamente para que la comparacion de Nerfacto deje de estar confundida
+                  (ver nota metodologica de abajo) -- 02-templete-central/01-experimentos/
+                  h2-nerfacto-raw-downscale4/training/eval_results.json
   B:    ns-eval corrido sobre las corridas de Docker (ver logs de esta sesion),
         volcado a mano aca porque las corridas viven en panteon-chacarita/ (carpeta cruda)
 
-Nota metodologica IMPORTANTE: la corrida de Nerfacto sobre Dataset B se hizo
-a downscale_factor=4 (memoria del sistema), mientras que la corrida raw de
-Nerfacto fue a resolucion completa (downscale_factor=null) -- no es una
+Nota metodologica: la corrida original de Nerfacto/raw habia sido a resolucion
+completa (downscale_factor=null) mientras que Nerfacto/Dataset B corrio a
+downscale_factor=4 (limitacion de memoria del sistema) -- no era una
 comparacion apples-to-apples, el downscale por si solo tiende a FACILITAR
-PSNR/SSIM (menos detalle de alta frecuencia que acertar). La de Splatfacto
-si es comparable 1:1 (downscale_factor=8 en ambas).
+PSNR/SSIM (menos detalle de alta frecuencia que acertar). Se resolvio
+reentrenando Nerfacto/raw a downscale_factor=4 tambien, dejando las dos
+corridas de Nerfacto -- y las dos de Splatfacto (downscale_factor=8 en
+ambas, sin cambios) -- comparables 1:1.
 """
 import json
 from pathlib import Path
@@ -26,7 +32,7 @@ import numpy as np
 OUT_DIR = Path(r"C:\nerfstudio_work\thesis\00-auditoria\h2-comfyui-comparison")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-RAW_NERFACTO = Path(r"C:\nerfstudio_work\thesis\02-templete-central\02-resultados-finales\dji\nerfacto\render\render-benchmark-metadata.json")
+RAW_NERFACTO = Path(r"C:\nerfstudio_work\thesis\02-templete-central\01-experimentos\h2-nerfacto-raw-downscale4\training\eval_results.json")
 RAW_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\02-templete-central\02-resultados-finales\dji\splatfacto\render\render-benchmark-metadata.json")
 
 B_SPLATFACTO = Path(r"C:\nerfstudio_work\panteon-chacarita\templete-central\splatfacto-comfyui-clean-training\templete-central-comfyui-clean-splat-ds8\splatfacto\2026-08-26_205516\eval_results.json")
@@ -44,7 +50,7 @@ def load_b(path):
 
 
 data = {
-    "Nerfacto": {"raw": load_raw(RAW_NERFACTO), "b": load_b(B_NERFACTO)},
+    "Nerfacto": {"raw": load_b(RAW_NERFACTO), "b": load_b(B_NERFACTO)},
     "Splatfacto": {"raw": load_raw(RAW_SPLATFACTO), "b": load_b(B_SPLATFACTO)},
 }
 
@@ -81,8 +87,8 @@ for ax, (key, label) in zip(axes, metrics):
 axes[0].legend(fontsize=8, loc="lower right")
 fig.suptitle("H2 — Templete Central (DJI): dataset raw vs. Dataset B (ComfyUI), por técnica", fontsize=11.5)
 fig.text(0.5, -0.02,
-          "Nerfacto/Dataset B corrió a downscale×4 por limitación de memoria (Nerfacto/raw fue a resolución completa) — no es 1:1.\n"
-          "Splatfacto sí es comparable 1:1 (downscale×8 en ambas corridas).",
+          "Nerfacto: ambas corridas a downscale×4 (raw reentrenado el 31/08 para igualar Dataset B) — comparable 1:1.\n"
+          "Splatfacto: comparable 1:1 (downscale×8 en ambas corridas).",
           ha="center", fontsize=8, color="#555", style="italic")
 fig.tight_layout()
 fig.savefig(OUT_DIR / "h2_psnr_ssim_lpips_raw_vs_clean.png", dpi=150, bbox_inches="tight")

@@ -66,3 +66,13 @@ Gangi, F., Shafqat, M. U., & Guidi, G. (2025). "Evaluating the Impact of Lightin
 Rangelov, D., Waanders, S., Waanders, K., van Keulen, M., & Miltchev, R. (2025). "Impact of Data Capture Methods on 3D Reconstruction with Gaussian Splatting." Journal of Imaging, 11(2), 65.
 
 Poder Ejecutivo Nacional. (2010). Decreto 525/2010. https://www.argentina.gob.ar/normativa/nacional/norma-166496/texto
+
+**Fuentes sobre segmentación semántica y automatización scan-to-BIM**
+
+Croce, V., Caroti, G., Piemonte, A., De Luca, L. y Véron, P. (2023). H-BIM and Artificial Intelligence: Classification of Architectural Heritage for Semi-Automatic Scan-to-BIM Reconstruction. *Sensors, 23*(5), 2497. https://doi.org/10.3390/s23052497
+
+Pan, X., Lin, Q., Ye, S., Li, L., Guo, L. y Harmon, B. (2024). Deep learning based approaches from semantic point clouds to semantic BIM models for heritage digital twin. *Heritage Science, 12,* Artículo 65. https://doi.org/10.1186/s40494-024-01179-4
+
+Romero-Jarén, R. y Arranz, J. J. (2021). Automatic segmentation and classification of BIM elements from point clouds. *Automation in Construction, 124,* 103576. https://doi.org/10.1016/j.autcon.2021.103576
+
+Buldo, M., Agustín-Hernández, L., Verdoscia, C. y Tavolare, R. (2023). A scan-to-BIM workflow proposal for cultural heritage. Automatic point cloud segmentation and parametric-adaptive modelling of vaulted systems. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-M-2-2023,* 333–340. https://doi.org/10.5194/isprs-archives-xlviii-m-2-2023-333-2023

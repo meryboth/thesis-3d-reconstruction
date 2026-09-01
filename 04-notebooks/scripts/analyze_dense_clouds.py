@@ -30,8 +30,8 @@ CLOUDS = {
         "source": "RealityScan dense reconstruction export",
     },
 
-    "03-panteon-asociacion-catalana": {
-        "folder": ROOT / "03-panteon-asociacion-catalana" / "02-resultados-finales" / "dji" / "colmap-fotogrametria",
+    "03-panteon-asociacion-espanola": {
+        "folder": ROOT / "03-panteon-asociacion-espanola" / "02-resultados-finales" / "dji" / "colmap-fotogrametria",
         "candidates": [
             "nube-densa.xyz",
         ],

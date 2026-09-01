@@ -50,12 +50,12 @@ CASES = {
         "nerfacto": RAW / "panteon-chacarita/templete-central/renders/templete-central-insta360-nerfacto-dataset-traj/train/rgb",
         "splatfacto": RAW / "panteon-chacarita/templete-central/renders/templete-central-insta360-splatfacto-dataset-traj/train/rgb",
     },
-    ("03-panteon-asociacion-catalana", "dji"): {
+    ("03-panteon-asociacion-espanola", "dji"): {
         "foto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/nerf/panteon-catalan-nerfacto-train/train/gt-rgb",
         "nerfacto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/nerf/panteon-catalan-nerfacto-train/train/rgb",
         "splatfacto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/splat/panteon-catalan-splat-ds8-train/train/rgb",
     },
-    ("03-panteon-asociacion-catalana", "insta360"): {
+    ("03-panteon-asociacion-espanola", "insta360"): {
         "foto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-nerfacto-dataset-traj/train/gt-rgb",
         "nerfacto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-nerfacto-dataset-traj/train/rgb",
         "splatfacto": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-splatfacto-dataset-traj/train/rgb",

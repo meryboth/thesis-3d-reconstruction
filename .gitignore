@@ -18,9 +18,13 @@ textured-mesh.mtl
 # Nube de puntos densa sin procesar de RealityScan (~1.1 GB c/u)
 nube-densa.xyz
 
-# Bases de datos COLMAP de corridas experimentales sueltas (pueden superar 1-2 GB;
-# ver 0X-*/01-experimentos/, no forman parte de la estructura curada)
+# Corridas experimentales sueltas fuera de la estructura curada (0X-*/01-experimentos/):
+# bases de datos COLMAP, checkpoints, nubes de puntos y exports .ply/.bin de investigación
+# ad-hoc que pueden superar el límite de 100MB de GitHub sin Git LFS (p. ej. images.bin de
+# COLMAP o un splat.ply de una corrida intermedia). No forman parte de los resultados finales
+# (esos viven en 02-resultados-finales/, que sí se versiona).
 *.db
+01-experimentos/
 
 # Copia de los splats usados por el visor PlayCanvas del sitio web (POC, duplican
 # el export ya versionado en 02-resultados-finales/*/splatfacto/export/splat.ply)

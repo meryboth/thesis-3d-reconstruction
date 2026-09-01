@@ -512,7 +512,7 @@
     "num": 5,
     "title": "Análisis de Resultados",
     "file": "/content/cap5.md",
-    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, cuatro se ejecutaron con resultados completos (B1, B3, B4, B5 en su componente documental) y uno se ejecutó parcialmente: B2, cuya comparación de reconstrucción solo es comparable 1:1 para Splatfacto (sección 5.2.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa del dataset híbrido rescatado y su comparación de calidad de render contra los datasets de un único dispositivo (sección 5.5.6) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
+    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, los cinco se ejecutaron con resultados completos y comparaciones 1:1 (B1, B2, B3, B4, B5 en su componente documental) — B2 incluye, además de la comparación de Splatfacto ya cerrada desde el primer momento, el reentrenamiento de Nerfacto/raw a `downscale_factor 4` (2026-08-31) que resolvió el confound que dejaba su comparación sin lectura concluyente (sección 5.3.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa de los datasets híbridos rescatados en **ambos** casos de estudio con dataset multi-dispositivo y su comparación de calidad de render contra los datasets de un único dispositivo (Templete Central, sección 5.5.6; Panteón Asociación Española, sección 5.5.7) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
     "sections": [
       {
         "id": "cap5-5-1",
@@ -523,59 +523,59 @@
       {
         "id": "cap5-5-2",
         "num": "5.2",
-        "title": "B2 — Benchmark de preprocesamiento ComfyUI (H2)",
+        "title": "B1 — Técnicas sobre el caso de referencia: Templete Central (H1)",
         "children": [
           {
             "id": "cap5-5-2-1",
             "num": "5.2.1",
-            "title": "Estado: preprocesamiento ejecutado, comparación de reconstrucción pendiente"
+            "title": "Métricas cuantitativas"
           },
           {
             "id": "cap5-5-2-2",
             "num": "5.2.2",
-            "title": "Evidencia visual del impacto del preprocesamiento"
+            "title": "Fidelidad geométrica — Nerfacto vs. Splatfacto"
           },
           {
             "id": "cap5-5-2-3",
             "num": "5.2.3",
-            "title": "Pipeline de limpieza: nodos y decisiones de diseño"
-          },
-          {
-            "id": "cap5-5-2-4",
-            "num": "5.2.4",
-            "title": "Resultado de la reconstrucción sobre el Dataset B — contraste de H2"
-          },
-          {
-            "id": "cap5-5-2-5",
-            "num": "5.2.5",
-            "title": "Máscara de entrenamiento (aislamiento de fondo)"
-          },
-          {
-            "id": "cap5-5-2-6",
-            "num": "5.2.6",
-            "title": "Resultado de entrenar con la máscara — contraste adicional"
+            "title": "SfM — malla texturizada y potencial de integración BIM"
           }
         ]
       },
       {
         "id": "cap5-5-3",
         "num": "5.3",
-        "title": "B1 — Técnicas sobre el caso de referencia: Templete Central (H1)",
+        "title": "B2 — Benchmark de preprocesamiento ComfyUI (H2)",
         "children": [
           {
             "id": "cap5-5-3-1",
             "num": "5.3.1",
-            "title": "Métricas cuantitativas"
+            "title": "Estado: preprocesamiento ejecutado, comparación de reconstrucción pendiente"
           },
           {
             "id": "cap5-5-3-2",
             "num": "5.3.2",
-            "title": "Fidelidad geométrica — Nerfacto vs. Splatfacto"
+            "title": "Evidencia visual del impacto del preprocesamiento"
           },
           {
             "id": "cap5-5-3-3",
             "num": "5.3.3",
-            "title": "SfM — malla texturizada y potencial de integración BIM"
+            "title": "Pipeline de limpieza: nodos y decisiones de diseño"
+          },
+          {
+            "id": "cap5-5-3-4",
+            "num": "5.3.4",
+            "title": "Resultado de la reconstrucción sobre el Dataset B — contraste de H2"
+          },
+          {
+            "id": "cap5-5-3-5",
+            "num": "5.3.5",
+            "title": "Máscara de entrenamiento (aislamiento de fondo)"
+          },
+          {
+            "id": "cap5-5-3-6",
+            "num": "5.3.6",
+            "title": "Resultado de entrenar con la máscara — contraste adicional"
           }
         ]
       },
@@ -635,6 +635,11 @@
             "id": "cap5-5-5-6",
             "num": "5.5.6",
             "title": "Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4"
+          },
+          {
+            "id": "cap5-5-5-7",
+            "num": "5.5.7",
+            "title": "Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Española"
           }
         ]
       },
@@ -687,7 +692,7 @@
     "num": 6,
     "title": "Pipeline Definitivo",
     "file": "/content/cap6.md",
-    "conclusion": "Este capítulo tradujo los resultados del Capítulo 5 en tres productos aplicados: (a) un criterio de selección de técnica según el tipo de objeto patrimonial y el uso previsto (Tabla 6.1), directamente respaldado por la evidencia cuantitativa y cualitativa recogida; (b) un pipeline definitivo documentado (Figura 6.1) que incorpora, como novedad respecto al diseño experimental original, un paso explícito de verificación binaria del registro SfM, motivado por el hallazgo metodológico más significativo de esta tesis (Capítulo 5, sección 5.5.2); y (c) una propuesta conceptual de integración con flujos HBIM/Revit y lineamientos para el archivo digital web, ambos pendientes de validación práctica. El Capítulo 7 retoma estos tres productos para las conclusiones generales y las líneas de investigación futura.",
+    "conclusion": "Este capítulo tradujo los resultados del Capítulo 5 en cuatro productos aplicados: (a) un criterio de selección de técnica según el tipo de objeto patrimonial y el uso previsto (Tabla 6.1), directamente respaldado por la evidencia cuantitativa y cualitativa recogida; (b) un pipeline definitivo documentado (Figura 6.1) que incorpora, como novedad respecto al diseño experimental original, un paso explícito de verificación binaria del registro SfM, motivado por el hallazgo metodológico más significativo de esta tesis (Capítulo 5, sección 5.5.2); (c) una prueba de concepto de segmentación semántica de la nube de puntos con control de calidad manual (sección 6.3.3), la única pieza de la propuesta HBIM que se implementó y validó sobre los tres casos de estudio, no solo se propuso conceptualmente; y (d) una propuesta conceptual de integración con flujos HBIM/Revit —construida sobre esa segmentación como punto de partida— y lineamientos para el archivo digital web, ambos aún pendientes de validación práctica con un profesional de modelado BIM. El Capítulo 7 retoma estos cuatro productos para las conclusiones generales y las líneas de investigación futura.",
     "sections": [
       {
         "id": "cap6-6-1",
@@ -745,6 +750,11 @@
           {
             "id": "cap6-6-3-3",
             "num": "6.3.3",
+            "title": "Implementación preliminar: segmentación semántica de la nube de puntos"
+          },
+          {
+            "id": "cap6-6-3-4",
+            "num": "6.3.4",
             "title": "Limitación reconocida"
           }
         ]

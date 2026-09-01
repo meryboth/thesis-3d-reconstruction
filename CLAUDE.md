@@ -8,9 +8,9 @@ Esta carpeta es la versión **curada y duplicada** (no los originales) de los re
 |---|---|---|---|
 | 1 | [01-paraguas-vicentelopez](01-paraguas-vicentelopez/README.md) | Dron (video) | COLMAP denso (nube+malla Poisson) **vs.** Nerfacto **vs.** Splatfacto — único con los 3 métodos |
 | 2 | [02-templete-central](02-templete-central/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
-| 3 | [03-panteon-asociacion-catalana](03-panteon-asociacion-catalana/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
+| 3 | [03-panteon-asociacion-espanola](03-panteon-asociacion-espanola/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
 
-> Nombre del sitio 3 sin confirmar por la usuaria (¿"Asociación Catalana" o "Asociación Española"?) — ver nota en el README raíz.
+> Nombre del sitio 3 resuelto (01/09): **Asociación Española** (arquitecto Alejandro Christophersen, 1896), no Catalana. Corregido en la prosa del Cap. 3 y renombrada la carpeta curada a `03-panteon-asociacion-espanola/`. La carpeta cruda (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre original, como todas las carpetas crudas.
 
 ## Estructura interna de cada `0X-<proyecto>/`
 
@@ -41,7 +41,7 @@ Todos los scripts de análisis viven en **[04-notebooks/scripts/](04-notebooks/s
 | `analyze_textured_meshes.py` | Métricas de mallas texturizadas (.obj) | junto a cada malla |
 | `analyze_camera_trajectories.py` | Trayectoria de cámaras por dataset (`03-datasets/`) | junto a cada `transforms.json` |
 | `analyze_gaussian_splats.py` | Métricas de cada `splat.ply` (gaussianas, opacidad, escala) | junto a cada export |
-| `analyze_render_benchmark.py` | PSNR/SSIM/LPIPS render vs. ground truth — **pausado**, bug de alineación en Paraguas/Nerfacto sin arreglar | `02-resultados-finales/*/render/` |
+| `analyze_render_benchmark.py` | PSNR/SSIM/LPIPS render vs. ground truth (los 3 casos, DJI/Insta360) | `02-resultados-finales/*/render/` |
 | `analyze_sfm_registration_comparison.py` | Tabla comparativa de registro SfM (DJI/Insta360/híbrido, Templete+Panteón), incluye el hallazgo de componentes COLMAP mal reportados | `00-auditoria/sfm-registration-comparison/` |
 | `analyze_output_weights.py` | Peso de archivo final por técnica (Cap. 4, 4.3.5 / Cap. 2, 2.6.2) | `00-auditoria/output-weights/` |
 | `analyze_failure_rate.py` | Tasa de fallos (catastrófico/inestabilidad) por patrones en logs (Cap. 4, 4.9) | `00-auditoria/failure-rate/` |
@@ -65,6 +65,8 @@ Cap. 7 (Conclusiones) existe como borrador de partida (generado el 27/08) — la
 A partir del 27/08 la usuaria escribe a mano el texto de la tesis (conclusiones, explicaciones, cualquier prosa nueva) — **no editar ni generar texto propio en los capítulos (`05-tesis/*.md`) ni en el sitio web**. Esto reemplaza la dinámica anterior (borradores generados a partir de `00-auditoria/` para que la usuaria los reescribiera).
 
 **Excepción explícita, dada el mismo día: Capítulo 5 (Análisis de Resultados).** La usuaria todavía no empezó a escribirlo — pidió específicamente que, cuando estén las conclusiones/resultados de una corrida, **yo siga redactando ese capítulo** (igual que antes) y ella lo edita después. La regla de "no más prosa" aplica tal cual a Cap. 1–4, 6, 7 y a cualquier prosa que ella ya haya empezado a escribir a mano; en Cap. 5 sigo escribiendo salvo que ella diga lo contrario.
+
+**Segunda excepción, más acotada, del 29/08:** dentro del Capítulo 6, la sección que documenta la POC de segmentación de nubes de puntos (`thesis/04-notebooks/scripts/poc_segmentation_multi_site.py`, visor en `06-sitio-web/src/components/PointCloudSegmentor.jsx`) y su vínculo con la propuesta HBIM/Revit de la sección 6.3 — la usuaria pidió explícitamente que yo la redacte (capturas + bibliografía + prosa explicando el impacto en el pipeline), después de que yo señalara el conflicto con la regla de "no más prosa" y ella eligiera la excepción puntual en vez de solo prepararle los materiales. Esto NO reabre el resto del Cap. 6 (ni Cap. 1/2/3/4/7): si se pide tocar otra parte del capítulo más adelante, volver a confirmar en vez de asumir que la excepción se generalizó.
 
 Sigue permitido en el resto de los capítulos, porque no es "escribir la tesis" sino soporte puntual:
 - Identificar/corregir faltas de ortografía.

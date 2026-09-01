@@ -150,7 +150,7 @@ El Capítulo 3 detalla el protocolo de captura completo; se resumen aquí las es
 
 | Dispositivo | Especificaciones clave | Uso en el pipeline |
 |---|---|---|
-| DJI Neo 2 (drone) | Sensor CMOS de 1/2″, 12 MP (4000×3000 px); lente 16,5 mm equiv., f/2.2; FOV 119,8°; video 4K (3840×2160) hasta 60 fps; gimbal biaxial + RockSteady; GPS/Galileo/BeiDou; autonomía máxima ≈19 min (Cap. 2, Tabla 2.3). | Cobertura aérea en recorridos de bucle a distintas alturas (Cap. 3, sección 3.6.1). |
+| DJI Neo 2 (drone) | Sensor CMOS de 1/2″, 12 MP (4000×3000 px); lente 16,5 mm equiv., f/2.2; FOV 119,8°; video 4K (3840×2160) hasta 60 fps; gimbal biaxial + RockSteady; GPS/Galileo/BeiDou; autonomía máxima 15 min (Cap. 2, Tabla 2.3). | Cobertura aérea en recorridos de bucle a distintas alturas (Cap. 3, sección 3.6.1). |
 | Insta360 X5 (cámara) | Video 360° de hasta 8K; resolución efectiva media por dirección al distribuirse sobre toda la esfera; usada en modo gran angular (no panorámico) para esta investigación; formato de salida 16:9, 4K, 60 fps (Cap. 2, Tabla 2.4; Cap. 3, sección 3.6.3). | Registro complementario a nivel peatonal y de media altura, fachadas y entorno inmediato. |
 
 *Tabla 4.3 — Equipos de captura utilizados en la generación de los datasets.*
@@ -190,7 +190,7 @@ Los experimentos se organizan en cinco benchmarks (B1–B5), diseñados de menor
 
 **Procedimiento:** para cada técnica, se ejecuta la reconstrucción con Dataset A y Dataset B por separado, manteniendo todos los demás parámetros constantes. Se comparan los resultados obtenidos.
 
-> **Estado al cierre de este capítulo: benchmark no ejecutado.** El pipeline de preprocesamiento con ComfyUI (Capítulo 3, sección 3.7.2) está diseñado pero no se corrió sobre el caso de referencia al momento de redactar este capítulo — no existe un Dataset B curado independiente del Dataset A raw para ningún caso de estudio; los datasets efectivamente usados en B1, B3 y B4 (Tabla 4.6) corresponden todos a la extracción directa del video de captura, sin el pipeline de ComfyUI aplicado. En consecuencia, H2 permanece sin contrastar experimentalmente y se retoma como línea de trabajo pendiente en el Capítulo 5 (sección 5.6) y en las limitaciones de esta tesis (Capítulo 7).
+> **Estado al cierre de este capítulo: benchmark ejecutado.** El pipeline de preprocesamiento con ComfyUI (Capítulo 3, sección 3.7.2) se corrió sobre el caso de referencia, con una implementación distinta a la descrita originalmente en el Capítulo 3 —enfocada en la detección y eliminación de distractores (personas, aves, vehículos) vía YOLOv8-seg + inpainting LaMa—, produciendo el Dataset B curado; los datasets efectivamente usados en B1, B3 y B4 (Tabla 4.6) corresponden a la extracción directa del video de captura, sin este preprocesamiento aplicado. H2 fue contrastada experimentalmente: ver Capítulo 5, sección 5.3.
 
 **B1 — Benchmark de técnicas sobre el caso de referencia**
 
@@ -208,7 +208,7 @@ Los experimentos se organizan en cinco benchmarks (B1–B5), diseñados de menor
 
 Este benchmark valida H1 en el caso de complejidad media, caracterizando el desempeño de cada técnica según su criterio de uso. Su generalización a los casos de complejidad baja y alta se aborda en el benchmark B3.
 
-**Resultados:** ver Capítulo 5, sección 5.3.
+**Resultados:** ver Capítulo 5, sección 5.2.
 
 **B3 — Benchmark de escalabilidad ante complejidad geométrica**
 
@@ -280,7 +280,7 @@ Para garantizar que las métricas de calidad visual (PSNR, SSIM) se calculen sob
 
 La proporción efectivamente aplicada es la que resulta del modo de partición por fracción de Nerfstudio (`eval_mode="fraction"`, `train_split_fraction=0.9`): el 90% de los fotogramas de cada dataset se utiliza como conjunto de entrenamiento y el 10% restante se reserva como conjunto de evaluación (eval/test) para el cálculo de PSNR y SSIM, seleccionado automáticamente a intervalos regulares sobre el orden de los fotogramas del dataset —lo que en la práctica aproxima la cobertura angular uniforme buscada, dado que el orden de los fotogramas sigue el recorrido de captura—. Este procedimiento es el que efectivamente se aplicó en los benchmarks ejecutados (B1, B3, B4); la proporción 80/20 con selección estratificada manual planteada originalmente para esta sección no llegó a implementarse como script separado y se reemplaza aquí por el mecanismo real, de partición fija y reproducible, provisto por la herramienta.
 
-**Tabla 4.6 — Imágenes de entrenamiento y evaluación por dataset (split 90/10 de Nerfstudio).**
+*Tabla 4.6 — Imágenes de entrenamiento y evaluación por dataset (split 90/10 de Nerfstudio).*
 
 | Caso de estudio | Dispositivo | Dataset (uso) | Total imágenes | Entrenamiento (~90%) | Evaluación (~10%) |
 |---|---|---|---|---|---|
@@ -304,7 +304,7 @@ Este análisis no produce un valor numérico ni una clasificación fija por caso
 
 En la práctica, el protocolo se instrumentó mediante dos artefactos generados automáticamente a partir de los datasets y resultados ya obtenidos: (a) grillas comparativas *Foto original | Nerfacto | Splatfacto* sobre 5 fotogramas equiespaciados del recorrido de captura, por sitio y por dispositivo (`build_fidelity_comparisons.py`, salida en `00-auditoria/fidelidad-geometrica/`); y (b) capturas de cobertura de la malla SfM tomadas directamente sobre el modelo texturizado en CloudCompare/RealityScan (no atadas a una pose de cámara puntual), disponibles para Los Paraguas y el Templete Central al cierre de este capítulo (Panteón Asociación Española pendiente de captura manual).
 
-El análisis cualitativo completo resultante de este protocolo —caso por caso y técnica por técnica, con las imágenes comparativas correspondientes— se presenta y discute íntegramente en el Capítulo 5 (secciones 5.3 y 5.4).
+El análisis cualitativo completo resultante de este protocolo —caso por caso y técnica por técnica, con las imágenes comparativas correspondientes— se presenta y discute íntegramente en el Capítulo 5 (secciones 5.2 y 5.4).
 
 <h2 id="cap4-4-9">4.9 Protocolo de registro de fallos</h2>
 
@@ -326,7 +326,7 @@ Cada corrida genera un registro (log) con: caso de estudio, técnica, herramient
 
 **Densidad de muestreo fija, sin comparación experimental.** el valor de fps utilizado se fija a priori en base al criterio de la investigadora y a la literatura consultada en el Capítulo 2, sin una comparación empírica entre distintas densidades de muestreo dentro de esta tesis, dado el tiempo y el costo computacional que implicaría evaluar múltiples niveles en el hardware disponible. Esto introduce el riesgo de que un valor subóptimo afecte por igual a todos los datasets utilizados en B1–B4, sin que el diseño experimental pueda detectarlo.
 
-**Benchmark de preprocesamiento (B2) no ejecutado.** al cierre de esta tesis, el pipeline de ComfyUI diseñado en el Capítulo 3 (sección 3.7.2) no se corrió sobre ningún caso de estudio, por lo que no existe un Dataset B curado independiente del Dataset A raw y H2 no pudo contrastarse experimentalmente (sección 4.5, B2). Los datasets efectivamente usados en B1, B3 y B4 corresponden a la extracción directa del video de captura, sin preprocesamiento adicional. Esto tiene una segunda implicancia metodológica: el diseño original preveía calibrar el dataset curado únicamente sobre el caso de complejidad media (Chacarita) y asumir esa calibración como transferible a los casos de complejidad baja y alta evaluados en B3 —una simplificación que ya no aplica, dado que B2 no se ejecutó sobre ningún caso—. La incidencia del preprocesamiento sobre la calidad de reconstrucción, y su posible interacción con la complejidad geométrica del objeto (una posibilidad coherente con la lógica de H3), queda como línea de trabajo futura (Capítulo 7).
+**Benchmark de preprocesamiento (B2) ejecutado solo sobre el caso de referencia.** el pipeline de ComfyUI diseñado en el Capítulo 3 (sección 3.7.2) se corrió sobre el caso de complejidad media (Chacarita), produciendo el Dataset B curado y permitiendo contrastar H2 experimentalmente (sección 4.5, B2; resultados en el Capítulo 5, sección 5.3). Los datasets efectivamente usados en B1, B3 y B4 para los otros dos casos de estudio corresponden a la extracción directa del video de captura, sin este preprocesamiento aplicado. Esto tiene una implicancia metodológica: el diseño original preveía calibrar el dataset curado únicamente sobre el caso de complejidad media y asumir esa calibración como transferible a los casos de complejidad baja y alta evaluados en B3 —una simplificación que sigue vigente, dado que B2 no se ejecutó sobre Los Paraguas ni sobre el Panteón Asociación Española—. La incidencia del preprocesamiento sobre la calidad de reconstrucción en esos otros dos casos, y su posible interacción con la complejidad geométrica del objeto (una posibilidad coherente con la lógica de H3), queda como línea de trabajo futura (Capítulo 7).
 
 **Acceso condicionado por el estado de conservación del Panteón de la Asociación Española.** el edificio se encuentra cerrado por orden judicial y en un estado de deterioro documentado (Capítulo 3), lo que restringe el registro a su exterior y puede introducir restricciones de proximidad o de ángulo de captura por razones de seguridad estructural, resultando en una cobertura de captura menos uniforme que en los otros dos casos y afectando la comparabilidad directa de los resultados de B3 entre edificios. *[Completar con el detalle de las zonas con acceso restringido, a confirmar durante el relevamiento de campo documentado en el Capítulo 3.]*
 

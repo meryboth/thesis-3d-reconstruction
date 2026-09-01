@@ -16,8 +16,8 @@ MESHES = {
     "02-templete-central": {
         "root": ROOT / "02-templete-central",
     },
-    "03-panteon-asociacion-catalana": {
-        "root": ROOT / "03-panteon-asociacion-catalana",
+    "03-panteon-asociacion-espanola": {
+        "root": ROOT / "03-panteon-asociacion-espanola",
     },
 }
 

@@ -94,26 +94,26 @@ RENDERS = {
         },
     },
 
-    "03-panteon-asociacion-catalana": {
+    "03-panteon-asociacion-espanola": {
         "dji/nerfacto": {
             "gt": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/nerf/panteon-catalan-nerfacto-train/train/gt-rgb",
             "pred": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/nerf/panteon-catalan-nerfacto-train/train/rgb",
-            "out": THESIS / "03-panteon-asociacion-catalana/02-resultados-finales/dji/nerfacto/render",
+            "out": THESIS / "03-panteon-asociacion-espanola/02-resultados-finales/dji/nerfacto/render",
         },
         "dji/splatfacto": {
             "gt": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/splat/panteon-catalan-splat-ds8-train/train/gt-rgb",
             "pred": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/splat/panteon-catalan-splat-ds8-train/train/rgb",
-            "out": THESIS / "03-panteon-asociacion-catalana/02-resultados-finales/dji/splatfacto/render",
+            "out": THESIS / "03-panteon-asociacion-espanola/02-resultados-finales/dji/splatfacto/render",
         },
         "insta360/nerfacto": {
             "gt": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-nerfacto-dataset-traj/train/gt-rgb",
             "pred": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-nerfacto-dataset-traj/train/rgb",
-            "out": THESIS / "03-panteon-asociacion-catalana/02-resultados-finales/insta360/nerfacto/render",
+            "out": THESIS / "03-panteon-asociacion-espanola/02-resultados-finales/insta360/nerfacto/render",
         },
         "insta360/splatfacto": {
             "gt": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-splatfacto-dataset-traj/train/gt-rgb",
             "pred": RAW / "panteon-chacarita/panteon-asociacion-catalana/renders/panteon-catalana-insta360-splatfacto-dataset-traj/train/rgb",
-            "out": THESIS / "03-panteon-asociacion-catalana/02-resultados-finales/insta360/splatfacto/render",
+            "out": THESIS / "03-panteon-asociacion-espanola/02-resultados-finales/insta360/splatfacto/render",
         },
     },
 }

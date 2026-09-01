@@ -171,7 +171,7 @@ Un hallazgo relevante del estado del arte es la tendencia emergente hacia la hib
 
 ![](/content/assets/cap2-image1.webp)
 
-*\[Tabla 2.1 — Comparación de técnicas SfM, NeRF y 3DGS según criterios de selección para documentación patrimonial argentina. **Escala ordinal de desempeño:** 0 = nulo, 1 = muy bajo, 2 = bajo, 3 = medio, 4 = alto y 5 = muy alto. Las puntuaciones sintetizan la literatura revisada y expresan una valoración comparativa, no mediciones experimentales absolutas. Fuente: elaboración propia a partir de Yu et al. (2025), Rangelov et al. (2026), Croce et al. (2024), Chen y Wang (2024), Fang et al. (2025).\]*
+*Tabla 2.1 — Comparación de técnicas SfM, NeRF y 3DGS según criterios de selección para documentación patrimonial argentina. **Escala ordinal de desempeño:** 0 = nulo, 1 = muy bajo, 2 = bajo, 3 = medio, 4 = alto y 5 = muy alto. Las puntuaciones sintetizan la literatura revisada y expresan una valoración comparativa, no mediciones experimentales absolutas. Fuente: elaboración propia a partir de Yu et al. (2025), Rangelov et al. (2026), Croce et al. (2024), Chen y Wang (2024), Fang et al. (2025).*
 
 <h2 id="cap2-2-6">2.6 Criterios de evaluación y métricas</h2>
 
@@ -203,7 +203,7 @@ Como criterio adicional vinculado a la eficiencia operativa del pipeline, se eva
 | Capacidad efectiva del disco | 953,86 GB                           |
 | Resolución                   | 1920 × 1080                         |
 
-*\[Tabla 2.2 — Información sobre el hardware de ejecución.\]*
+*Tabla 2.2 — Información sobre el hardware de ejecución.*
 
 <h2 id="cap2-2-7">2.7 Adquisición y preprocesamiento de imágenes</h2>
 
@@ -229,7 +229,7 @@ Esta elección se fundamenta en una estrategia de accesibilidad: se trata de equ
 | **Autonomía máxima**       | Aproximadamente 19 minutos       |
 | **Almacenamiento**         | 49 GB internos                   |
 
-*\[Tabla 2.3 — Información técnica sobre el Drone utilizado para las capturas: DJI Neo 2\]*
+*Tabla 2.3 — Información técnica sobre el Drone utilizado para las capturas: DJI Neo 2*
 
 | ***Variable para reconstrucción 3D***           | ***Comportamiento de la Insta360 X5***                                                          |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -248,7 +248,7 @@ Esta elección se fundamenta en una estrategia de accesibilidad: se trata de equ
 | ***Captura de cubiertas***                      | *Limitada desde el suelo; se complementa con imágenes de dron*                                  |
 | ***Aplicación principal en el pipeline***       | *Captura continua a nivel peatonal, interiores, fachadas y entorno inmediato*                   |
 
-*\[Tabla 2.4 — Información técnica sobre la cámara Insta360.\]*
+*Tabla 2.4 — Información técnica sobre la cámara Insta360.*
 
 <h3 id="cap2-2-7-2">2.7.2 Preprocesamiento y curación del dataset con ComfyUI</h3>
 
@@ -306,4 +306,4 @@ Con el fin de sintetizar los aportes que haría esta investigación, a continuac
 
 3\. La propuesta de un pipeline documentado y reproducible, orientado a equipos con recursos limitados y bajo presupuesto, que permita garantizar la reproducción de cualquier obra arquitectónica nacional y alimentar el archivo nacional promovido.
 
-4\. La evaluación de la asertividad tomando como referencia obras de distinta complejidad arquitectónica, mediante un diseño comparativo de tres obras que van de una complejidad geométrica básica a la presencia de ornamentos y piezas arquitectónicas de difícil reproducción. Las obras elegidas son: —equipamiento urbano de geometría simple (Los Paraguas, monumento de 1999–2000 en homenaje a Amancio Williams, Vicente López), arquitectura moderna de complejidad media (el templete del Panteón de la Chacarita, de Ítala Fulvia Villa) y arquitectura ornamental de alta complejidad (Panteón de la Asociación Española de Socorros Mutuos de Alejandro Christophersen de 1896).
+4\. La evaluación de la asertividad tomando como referencia obras de distinta complejidad arquitectónica, mediante un diseño comparativo de tres obras que van de una complejidad geométrica básica a la presencia de ornamentos y piezas arquitectónicas de difícil reproducción. Las obras elegidas son: —equipamiento urbano de geometría simple (Los Paraguas, monumento de 1999–2000 en homenaje a Amancio Williams, Vicente López), arquitectura moderna de complejidad media (el templete del Sexto Panteón de Chacarita, de Ítala Fulvia Villa) y arquitectura ornamental de alta complejidad (Panteón de la Asociación Española de Socorros Mutuos de Alejandro Christophersen de 1896).

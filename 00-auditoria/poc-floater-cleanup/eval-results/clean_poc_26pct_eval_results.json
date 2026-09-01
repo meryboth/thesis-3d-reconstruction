@@ -1,0 +1,17 @@
+{
+  "experiment_name": "templete-central-realityscan-splat-ds8",
+  "method_name": "splatfacto",
+  "checkpoint": "/workspace/outputs-templete-splat/templete-central-realityscan-splat-ds8/splatfacto/2026-08-24_232220/nerfstudio_models/step-000029999.ckpt",
+  "results": {
+    "psnr": 24.03561782836914,
+    "psnr_std": 2.5644357204437256,
+    "ssim": 0.8238173127174377,
+    "ssim_std": 0.055730465799570084,
+    "lpips": 0.14846424758434296,
+    "lpips_std": 0.05632559955120087,
+    "num_rays_per_sec": 6031038.5,
+    "num_rays_per_sec_std": 1718576.75,
+    "fps": 47.19581985473633,
+    "fps_std": 13.43440055847168
+  }
+}

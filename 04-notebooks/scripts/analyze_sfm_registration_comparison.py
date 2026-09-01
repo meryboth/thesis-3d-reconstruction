@@ -89,7 +89,7 @@ ROWS = [
 
     # --- Panteon Asociacion Catalana ---
     dict(
-        caso="03-panteon-asociacion-catalana", metodo_captura="Insta360 solo",
+        caso="03-panteon-asociacion-espanola", metodo_captura="Insta360 solo",
         pipeline_sfm="RealityScan", imgs_entrada=365,
         imgs_registradas_reportadas=311, imgs_registradas_reales=311,
         tasa_reportada_pct=85.21, tasa_real_pct=85.21, componentes=1,
@@ -97,7 +97,7 @@ ROWS = [
         fuente="logs/insta360/01_realityscan_alignment.log",
     ),
     dict(
-        caso="03-panteon-asociacion-catalana", metodo_captura="DJI acotado (608)",
+        caso="03-panteon-asociacion-espanola", metodo_captura="DJI acotado (608)",
         pipeline_sfm="RealityScan", imgs_entrada=608,
         imgs_registradas_reportadas=490, imgs_registradas_reales=490,
         tasa_reportada_pct=80.6, tasa_real_pct=80.6, componentes=1,
@@ -105,7 +105,7 @@ ROWS = [
         fuente="logs/dji/03_nerfstudio_dataset_conversion.log",
     ),
     dict(
-        caso="03-panteon-asociacion-catalana", metodo_captura="DJI acotado (max 600)",
+        caso="03-panteon-asociacion-espanola", metodo_captura="DJI acotado (max 600)",
         pipeline_sfm="RealityScan", imgs_entrada=600,
         imgs_registradas_reportadas=484, imgs_registradas_reales=484,
         tasa_reportada_pct=80.7, tasa_real_pct=80.7, componentes=1,
@@ -113,7 +113,7 @@ ROWS = [
         fuente="logs/dji/03_nerfstudio_dataset_conversion_max600.log",
     ),
     dict(
-        caso="03-panteon-asociacion-catalana", metodo_captura="Hibrido DJI+Insta360 (608+365)",
+        caso="03-panteon-asociacion-espanola", metodo_captura="Hibrido DJI+Insta360 (608+365)",
         pipeline_sfm="RealityScan", imgs_entrada=973,
         imgs_registradas_reportadas=None, imgs_registradas_reales=None,
         tasa_reportada_pct=None, tasa_real_pct=None, componentes=None,
@@ -121,7 +121,7 @@ ROWS = [
         fuente="dataset-clean/ ; colmap-dataclean.rsproj ; sfm-realityscan/clean/ (vacia)",
     ),
     dict(
-        caso="03-panteon-asociacion-catalana", metodo_captura="DJI (dataset final, 1507)",
+        caso="03-panteon-asociacion-espanola", metodo_captura="DJI (dataset final, 1507)",
         pipeline_sfm="RealityScan + COLMAP nativo (ambos coincidieron)", imgs_entrada=1507,
         imgs_registradas_reportadas=1506, imgs_registradas_reales=1506,
         tasa_reportada_pct=99.93, tasa_real_pct=99.93, componentes=1,

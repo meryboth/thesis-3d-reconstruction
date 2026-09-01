@@ -1,0 +1,42 @@
+{
+  "case": "03-panteon-asociacion-catalana",
+  "artifact": "hybrid-cross-camera-matching",
+  "source_database": "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\01-experimentos\\hybrid-dji-insta360-colmap\\run-20260827-163722\\colmap\\database.db",
+  "dataset": "dataset-clean (973 img = 608 DJI + 365 Insta360), run-20260827-163722",
+  "important_note": "Se analiza la etapa de matching (two_view_geometries), independiente de si el incremental mapper llego a completar la reconstruccion. 'inliers' = correspondencias geometricamente verificadas (post-RANSAC) por par de imagenes. Corte DJI/Insta360 confirmado directamente por la autora del dataset (no inferido por conteo de archivos).",
+  "summary": {
+    "DJI-DJI": {
+      "total_pairs_attempted": 184528,
+      "pairs_with_any_match": 58336,
+      "pairs_with_any_match_pct": 31.61,
+      "matched_pairs_mean_inliers": 647.3,
+      "matched_pairs_median_inliers": 257.5,
+      "matched_pairs_p90_inliers": 1773.5,
+      "matched_pairs_max_inliers": 7748,
+      "pairs_with_inliers_gte_200": 32085,
+      "pairs_with_inliers_gte_200_pct": 17.39
+    },
+    "Insta360-Insta360": {
+      "total_pairs_attempted": 66430,
+      "pairs_with_any_match": 16691,
+      "pairs_with_any_match_pct": 25.13,
+      "matched_pairs_mean_inliers": 170.0,
+      "matched_pairs_median_inliers": 39.0,
+      "matched_pairs_p90_inliers": 406.0,
+      "matched_pairs_max_inliers": 5342,
+      "pairs_with_inliers_gte_200": 2938,
+      "pairs_with_inliers_gte_200_pct": 4.42
+    },
+    "DJI-Insta360": {
+      "total_pairs_attempted": 221920,
+      "pairs_with_any_match": 38951,
+      "pairs_with_any_match_pct": 17.55,
+      "matched_pairs_mean_inliers": 49.9,
+      "matched_pairs_median_inliers": 24.0,
+      "matched_pairs_p90_inliers": 98.0,
+      "matched_pairs_max_inliers": 811,
+      "pairs_with_inliers_gte_200": 1729,
+      "pairs_with_inliers_gte_200_pct": 0.78
+    }
+  }
+}

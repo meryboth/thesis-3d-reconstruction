@@ -1,0 +1,7 @@
+tecnica,dataset,psnr,ssim,lpips
+Nerfacto,DJI,10.449,0.1184,0.8140
+Nerfacto,Insta360,15.621,0.3765,0.6527
+Nerfacto,Hibrido,11.340,0.1910,0.8269
+Splatfacto,DJI,25.939,0.8581,0.1625
+Splatfacto,Insta360,14.475,0.3965,0.4968
+Splatfacto,Hibrido,12.901,0.2689,0.8544

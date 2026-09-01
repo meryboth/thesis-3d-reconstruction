@@ -28,7 +28,7 @@ Con estos parámetros quedó definida una selección que compone las siguientes 
 
 2) El templete central del Sexto Panteón de Chacarita de Ítala Fulvia Villa
 
-3) Panteón de Asociación Catalana de Socorros Mutuos Montepío de Montserrat en el cementerio de Chacarita del arquitecto Santiago Barris.
+3) Panteón de la Asociación Española de Socorros Mutuos en el cementerio de Chacarita, del arquitecto Alejandro Christophersen.
 
 En el siguiente capítulo se explica en profundidad por qué se eligieron estas obras y cuál es el valor patrimonial que sustentan.
 
@@ -40,7 +40,7 @@ El nombre original de esta obra es El monumento al fin del Milenio, pero popular
 
 ![](media/image5.jpg)
 
-*\[Imagen 3.1 — Captura aérea propia del monumento ubicado en Vicente López, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.\]*
+*Imagen 3.1 — Captura aérea propia del monumento ubicado en Vicente López, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
 
 La obra, como se puede ver en la imagen 3.1 es una instalación que tiene el fin de funcionar como equipamiento urbano, por lo tanto su geometría es simple y está compuesta por una única pieza, algo que podría facilitar el registro y la obtención de una volumetría tridimensional que logre plasmar las piezas con fidelidad. Otra ventaja es que se trata de dos piezas de un único material: hormigón, por lo tanto esto puede resultar de ayuda al momento de que el procesamiento de las imágenes y la comparativa de cada uno de los algoritmos reconozca la geometría. Estas características la convierten en una candidata ideal para evaluar un nivel de complejidad geométrica bajo.
 
@@ -72,7 +72,7 @@ No caben dudas de que la obra de Ítala Fulvia Villa es de interés patrimonial,
 
 ![](media/image6.jpg)
 
-*\[Imagen 3.2 — Captura aérea propia del Templete Central del Panteón Sexto en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.\]*
+*Imagen 3.2 — Captura aérea propia del Templete Central del Panteón Sexto en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
 
 **3.3.2 Desafíos de reconstrucción 3D aplicados a la obra**
 
@@ -92,7 +92,7 @@ No existe literatura o publicaciones oficiales que hagan mención a esta obra, p
 
 ![](media/image4.webp)
 
-*\[Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Española de Socorros Mutuos en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.\]*
+*Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Española de Socorros Mutuos en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
 
 **3.4.2 Desafíos de reconstrucción 3D aplicados a la obra**
 

@@ -10,9 +10,9 @@ El objetivo es tener, para cada caso, **solo lo necesario para redactar la tesis
 |---|---|---|---|
 | 01 | [01-paraguas-vicentelopez](01-paraguas-vicentelopez) | `paraguas-vicentelopez/` | Dron (video) |
 | 02 | [02-templete-central](02-templete-central) | `panteon-chacarita/templete-central/` | Dron (DJI) + cámara 360 (Insta360) |
-| 03 | [03-panteon-asociacion-catalana](03-panteon-asociacion-catalana) | `panteon-chacarita/panteon-asociacion-catalana/` | Dron (DJI) + cámara 360 (Insta360) |
+| 03 | [03-panteon-asociacion-espanola](03-panteon-asociacion-espanola) | `panteon-chacarita/panteon-asociacion-catalana/` | Dron (DJI) + cámara 360 (Insta360) |
 
-> **Nota sobre nombres:** pediste ordenar "03: Panteón Asoc Esp", pero la carpeta original en disco se llama `panteon-asociacion-catalana` (Asociación Catalana, no Española). Usé ese nombre real para no introducir un dato incorrecto en la tesis. Si el panteón es efectivamente el de la Asociación Española y la carpeta está mal nombrada desde el origen, avisame y renombro todo (carpeta + referencias en los README).
+> **Nota sobre nombres (actualizada 01/09):** confirmado — el panteón es el de la **Asociación Española** de Socorros Mutuos (arquitecto Alejandro Christophersen, 1896, Decreto 525/2010), no de la Asociación Catalana. La prosa del Cap. 3 ya está corregida, y la carpeta curada de acá se renombró a `03-panteon-asociacion-espanola/` (con todas las rutas de imágenes de Cap5 actualizadas). La carpeta **original/cruda** (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre de siempre — nunca se toca.
 
 > `torre-mardel` no se incluyó porque no lo mencionaste en el pedido (era un cuarto sitio ya cerrado/exportado). Si también lo querés acá, lo agrego como `04-torre-mardel` con el mismo criterio.
 

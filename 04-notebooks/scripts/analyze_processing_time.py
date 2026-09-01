@@ -52,13 +52,13 @@ TRAINING_RUNS = [
     ("02-templete-central", "insta360", "splatfacto",
      RAW / "panteon-chacarita/templete-central/outputs/templete-central-insta360-realityscan-splatfacto/splatfacto/2026-08-13_014408"),
 
-    ("03-panteon-asociacion-catalana", "dji", "nerfacto",
+    ("03-panteon-asociacion-espanola", "dji", "nerfacto",
      RAW / "panteon-chacarita/panteon-asociacion-catalana/outputs-djionly-nerf300/colmap-nerfstudio-nerf300/nerfacto/2026-08-23_191033"),
-    ("03-panteon-asociacion-catalana", "dji", "splatfacto",
+    ("03-panteon-asociacion-espanola", "dji", "splatfacto",
      RAW / "panteon-chacarita/panteon-asociacion-catalana/outputs-djionly-splat/panteon-asociacion-catalana-dji-splatfacto-full-ds8/splatfacto/2026-08-24_004501"),
-    ("03-panteon-asociacion-catalana", "insta360", "nerfacto",
+    ("03-panteon-asociacion-espanola", "insta360", "nerfacto",
      RAW / "panteon-chacarita/panteon-asociacion-catalana/outputs/panteon-catalana-insta360-realityscan-nerfacto/nerfacto/2026-08-13_132710"),
-    ("03-panteon-asociacion-catalana", "insta360", "splatfacto",
+    ("03-panteon-asociacion-espanola", "insta360", "splatfacto",
      RAW / "panteon-chacarita/panteon-asociacion-catalana/outputs/panteon-catalana-insta360-realityscan-splatfacto/splatfacto/2026-08-13_153432"),
 ]
 
@@ -66,7 +66,7 @@ TRAINING_RUNS = [
 RENDER_SUMMARY_FILES = [
     ("01-paraguas-vicentelopez", RAW / "paraguas-vicentelopez/logs"),
     ("02-templete-central", RAW / "panteon-chacarita/templete-central/logs"),
-    ("03-panteon-asociacion-catalana", RAW / "panteon-chacarita/panteon-asociacion-catalana/logs"),
+    ("03-panteon-asociacion-espanola", RAW / "panteon-chacarita/panteon-asociacion-catalana/logs"),
 ]
 
 RENDER_PATTERN = re.compile(

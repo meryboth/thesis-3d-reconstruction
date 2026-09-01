@@ -31,11 +31,11 @@ $Experiments = @(
     },
 
     @{
-        CaseName = "03-panteon-asociacion-catalana"
+        CaseName = "03-panteon-asociacion-espanola"
 
         Dataset = "C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-clean"
 
-        BaseOutput = "C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-experimentos\hybrid-dji-insta360-colmap"
+        BaseOutput = "C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\01-experimentos\hybrid-dji-insta360-colmap"
     }
 )
 

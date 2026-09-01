@@ -11,7 +11,7 @@ $cases = @(
     },
     @{
         Name = "Panteon Asociacion Catalana"
-        Path = "$root\03-panteon-asociacion-catalana\02-resultados-finales\dji\colmap-fotogrametria"
+        Path = "$root\03-panteon-asociacion-espanola\02-resultados-finales\dji\colmap-fotogrametria"
     }
 )
 
