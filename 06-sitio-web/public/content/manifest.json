@@ -512,12 +512,12 @@
     "num": 5,
     "title": "Análisis de Resultados",
     "file": "/content/cap5.md",
-    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, los cinco se ejecutaron con resultados completos y comparaciones 1:1 (B1, B2, B3, B4, B5 en su componente documental) — B2 incluye, además de la comparación de Splatfacto ya cerrada desde el primer momento, el reentrenamiento de Nerfacto/raw a `downscale_factor 4` (2026-08-31) que resolvió el confound que dejaba su comparación sin lectura concluyente (sección 5.3.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa de los datasets híbridos rescatados en **ambos** casos de estudio con dataset multi-dispositivo y su comparación de calidad de render contra los datasets de un único dispositivo (Templete Central, sección 5.5.6; Panteón Asociación Española, sección 5.5.7) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
+    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, los cinco se ejecutaron con resultados completos y comparaciones 1:1 (B1, B2, B3, B4, B5 en su componente documental) — B2 incluye, además de la comparación de Splatfacto ya cerrada desde el primer momento, el reentrenamiento de Nerfacto/raw a `downscale_factor 4` (2026-08-31) que resolvió el confound que dejaba su comparación sin lectura concluyente (sección 5.3.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa de los datasets híbridos rescatados en **ambos** casos de estudio con dataset multi-dispositivo y su comparación de calidad de render contra los datasets de un único dispositivo (Templete Central, sección 5.5.5; Panteón Asociación Española, sección 5.5.6) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
     "sections": [
       {
         "id": "cap5-5-1",
         "num": "5.1",
-        "title": "Resumen de lo efectivamente ejecutado",
+        "title": "Resumen de los benchmarks",
         "children": []
       },
       {
@@ -533,12 +533,12 @@
           {
             "id": "cap5-5-2-2",
             "num": "5.2.2",
-            "title": "Fidelidad geométrica — Nerfacto vs. Splatfacto"
+            "title": "Fidelidad geométrica — Nerfacto vs. Splatfacto vs. SfM"
           },
           {
             "id": "cap5-5-2-3",
             "num": "5.2.3",
-            "title": "SfM — malla texturizada y potencial de integración BIM"
+            "title": "SfM — Malla texturizada y potencial de integración BIM"
           }
         ]
       },
@@ -550,7 +550,7 @@
           {
             "id": "cap5-5-3-1",
             "num": "5.3.1",
-            "title": "Estado: preprocesamiento ejecutado, comparación de reconstrucción pendiente"
+            "title": "Comparacion con dataset sin distractores"
           },
           {
             "id": "cap5-5-3-2",
@@ -575,7 +575,7 @@
           {
             "id": "cap5-5-3-6",
             "num": "5.3.6",
-            "title": "Resultado de entrenar con la máscara — contraste adicional"
+            "title": "Resultado de entrenar con la máscara"
           }
         ]
       },
@@ -624,21 +624,16 @@
           {
             "id": "cap5-5-5-4",
             "num": "5.5.4",
-            "title": "Cobertura reconstruida"
+            "title": "Evidencia complementaria: calidad de render por dispositivo"
           },
           {
             "id": "cap5-5-5-5",
             "num": "5.5.5",
-            "title": "Evidencia complementaria: calidad de render por dispositivo"
+            "title": "Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4"
           },
           {
             "id": "cap5-5-5-6",
             "num": "5.5.6",
-            "title": "Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4"
-          },
-          {
-            "id": "cap5-5-5-7",
-            "num": "5.5.7",
             "title": "Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Española"
           }
         ]

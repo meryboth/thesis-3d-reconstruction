@@ -13,7 +13,7 @@ El hallazgo central del Capítulo 5 es que **no existe una técnica óptima en t
 | Documentación con potencial de integración BIM/HBIM | **SfM** (malla texturizada) | Única técnica con geometría explícita, topología de malla y textura UV (sección 5.2.3) |
 | Síntesis de vistas fotorrealista / producción audiovisual | **Splatfacto (3DGS)**, no Nerfacto | Splatfacto superó a Nerfacto en PSNR/SSIM en los tres casos (Tabla 5.2); Nerfacto falló parcialmente en el caso de mayor complejidad (sección 5.4.2) |
 | Renderizado interactivo en tiempo real / entornos web | **Splatfacto (3DGS)** | Mejor compatibilidad de publicación web entre las tres técnicas (sección 5.6); archivo liviano (sección 5.8) |
-| Objetos de complejidad geométrica y ornamental alta | **Splatfacto (3DGS)**, condicionado a buen registro SfM | Único método que mantuvo calidad aceptable en el caso de complejidad alta (Tabla 5.2, Figura 5.15) |
+| Objetos de complejidad geométrica y ornamental alta | **Splatfacto (3DGS)**, condicionado a buen registro SfM | Único método que mantuvo calidad aceptable en el caso de complejidad alta (Tabla 5.2, Figura 5.18) |
 | Objetos de geometría simple y regular | Las tres técnicas ofrecen resultados utilizables | Diferencias de PSNR entre técnicas más acotadas en el caso de complejidad baja (Tabla 5.2) |
 
 *Tabla 6.1 — Criterios de selección de técnica de reconstrucción 3D según el objeto patrimonial y el uso previsto.*

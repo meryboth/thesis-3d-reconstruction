@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 OUT = r"C:\nerfstudio_work\thesis\00-auditoria\charts\07_psnr_vs_complejidad.png"
 
 # nivel de complejidad: 1=baja (Paraguas), 2=media (Templete), 3=alta (Panteon)
-sitios = ["Los Paraguas\n(baja)", "Templete Central\n(media)", "Panteon Asoc. Catalana\n(alta)"]
+sitios = ["Los Paraguas\n(baja)", "Templete Central\n(media)", "Panteon Asoc. Espanola\n(alta)"]
 x = [1, 2, 3]
 
 nerfacto = [25.914, 19.466, 10.449]
