@@ -1,10 +1,16 @@
 # Tesis — Reconstrucción 3D (Fotogrametría / NeRF / Gaussian Splatting)
 
-Esta carpeta es un **duplicado curado** de los resultados de los tres casos de estudio trabajados en `C:\nerfstudio_work`. No se modificó ni se movió nada de las carpetas originales — todo lo de acá es una copia.
+## Qué hay en este repo
 
-El objetivo es tener, para cada caso, **solo lo necesario para redactar la tesis**: el resumen del pipeline, los logs completos (para trazabilidad/metodología) y los resultados finales (checkpoints, exports `.ply`, videos de render) — sin las decenas de intentos fallidos, reintentos y carpetas de resolución intermedia (`images_2`, `images_4`, `images_8`, datasets de prueba, renders con downscale, etc.) que existen en las carpetas originales.
+Este repo tiene tres partes:
 
-## Proyectos
+- **[`05-tesis/`](05-tesis/)** — el texto de la tesis en sí, capítulo por capítulo (Markdown), con el análisis de resultados, el marco teórico, la propuesta de pipeline y las conclusiones.
+- **[`06-sitio-web/`](06-sitio-web/)** — app Vite + React que publica la tesis online: lectura de los 7 capítulos, catálogo del archivo digital (splats navegables en 3D) y una sección de scripts (índice navegable con visor de código resaltado de todos los scripts de análisis citados en el Cap. 5). Deployada en Vercel.
+- **Datos y análisis de soporte**, curados a partir de las carpetas de trabajo originales en `C:\nerfstudio_work` (nunca modificadas): `01-paraguas-vicentelopez/`, `02-templete-central/` y `03-panteon-asociacion-espanola/` (resultados por caso de estudio, ver tabla abajo), **[`00-auditoria/`](00-auditoria/)** (comparativas cruzadas entre los tres sitios) y **[`04-notebooks/scripts/`](04-notebooks/scripts/)** (todos los scripts de análisis, con sus notebooks de Colab equivalentes).
+
+El objetivo de la parte de datos es tener, para cada caso, **solo lo necesario para redactar la tesis**: el resumen del pipeline, los logs completos (para trazabilidad/metodología) y los resultados finales (checkpoints, exports `.ply`, videos de render) — sin las decenas de intentos fallidos, reintentos y carpetas de resolución intermedia (`images_2`, `images_4`, `images_8`, datasets de prueba, renders con downscale, etc.) que existen en las carpetas originales.
+
+## Los tres casos de estudio
 
 | # | Carpeta | Carpeta original | Método de captura |
 |---|---|---|---|
@@ -14,7 +20,7 @@ El objetivo es tener, para cada caso, **solo lo necesario para redactar la tesis
 
 > **Nota sobre nombres (actualizada 01/09):** confirmado — el panteón es el de la **Asociación Española** de Socorros Mutuos (arquitecto Alejandro Christophersen, 1896, Decreto 525/2010), no de la Asociación Catalana. La prosa del Cap. 3 ya está corregida, y la carpeta curada de acá se renombró a `03-panteon-asociacion-espanola/` (con todas las rutas de imágenes de Cap5 actualizadas). La carpeta **original/cruda** (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre de siempre — nunca se toca.
 
-> `torre-mardel` no se incluyó porque no lo mencionaste en el pedido (era un cuarto sitio ya cerrado/exportado). Si también lo querés acá, lo agrego como `04-torre-mardel` con el mismo criterio.
+> **Torre Mardel** no es un cuarto proyecto curado con su propia carpeta `0X-*` — pero sí está incluido, como experimento adicional del Cap. 5 (sección 5.11): reconstrucción a partir de un video de dron de terceros (no un relevamiento propio), usado para validar el pipeline sobre material que no controlamos nosotros. Sus datos están en [`00-auditoria/torre-mardel-eval/`](00-auditoria/torre-mardel-eval/).
 
 ## Estructura interna de cada proyecto
 
@@ -37,6 +43,8 @@ Los **logs completos** (`01-logs/`) sí se copiaron enteros porque son texto pla
 Los **datasets** (`03-datasets/`) se identificaron leyendo el campo `data:` de cada `config.yml` final (no se adivinaron) — son exactamente las imágenes + `transforms.json` (poses de cámara) + `sparse_pc.ply` (nube dispersa COLMAP) que alimentaron cada entrenamiento. Cuando Nerfacto se entrenó sobre un subset (por límite de memoria) y Splatfacto sobre el dataset completo, se incluyeron **ambos** datasets por separado.
 
 Lo que **no** se copió (queda solo en las carpetas originales, por si lo necesitás): pirámides de resolución (`images_2/4/8`, regenerables automáticamente por Nerfstudio), corridas fallidas o de prueba, frames de render individuales (solo se guardó el `.mp4` final), y los proyectos internos de RealityScan (`realityscan-mesh*`, formato propietario `.dat`, no exportable directamente).
+
+Dos de los tres proyectos (Templete Central y Panteón Asociación Española) tienen además una carpeta `01-experimentos/` — corridas exploratorias del dataset híbrido DJI+Insta360 (bases de datos COLMAP, exports de prueba) que no forman parte de la estructura curada `01-logs/02-resultados-finales/03-datasets` y quedan fuera de GitHub (`.gitignore`) por su peso, aunque sí existen en la copia local.
 
 ## Tamaño y qué está en GitHub vs. solo local
 
