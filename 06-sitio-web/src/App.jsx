@@ -23,6 +23,17 @@ const SCRIPTS_NAV_ENTRY = {
   sections: [],
 };
 
+// a diferencia de las dos anteriores, esta no es una seccion inline de esta
+// misma pagina -- es una ruta aparte (visor 3D a pantalla completa), por eso
+// lleva `href` propio en vez de anclar por id.
+const SEGMENTADOR_NAV_ENTRY = {
+  id: "segmentador",
+  href: "/segmentador",
+  num: null,
+  title: "Segmentador de nube de puntos",
+  sections: [],
+};
+
 export default function App() {
   const [chapters, setChapters] = useState([]);
   const [activeId, setActiveId] = useState(null);
@@ -54,7 +65,7 @@ export default function App() {
 
   const activeChapter = chapters.find((c) => c.id === activeId);
   const navChapters = chapters.length
-    ? [...chapters, ARCHIVO_DIGITAL_NAV_ENTRY, SCRIPTS_NAV_ENTRY]
+    ? [...chapters, ARCHIVO_DIGITAL_NAV_ENTRY, SCRIPTS_NAV_ENTRY, SEGMENTADOR_NAV_ENTRY]
     : chapters;
 
   return (

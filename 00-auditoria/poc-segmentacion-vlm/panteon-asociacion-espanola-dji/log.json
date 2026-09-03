@@ -1,0 +1,135 @@
+[
+  {
+    "n_points": 960,
+    "height_m": 6.317372205442327,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 1807,
+    "height_m": 5.783589792321496,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 191,
+    "height_m": 6.137377964255659,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 551,
+    "height_m": 6.177547132049355,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 2833,
+    "height_m": 5.250754143278188,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 37077,
+    "height_m": 5.302378052799764,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 169,
+    "height_m": 2.2151708605353413,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 367,
+    "height_m": 1.4155351099765725,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 4211,
+    "height_m": 6.549449389182179,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 414,
+    "height_m": 3.835687739605576,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 392,
+    "height_m": 1.0309712501152895,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 167,
+    "height_m": 1.697302184467284,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 303,
+    "height_m": 0.8392016311925463,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 1174,
+    "height_m": 2.9591646245819567,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 86176,
+    "height_m": 2.220727709237625,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 1778,
+    "height_m": 2.692205328351716,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 2692,
+    "height_m": 3.109193052335591,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 846,
+    "height_m": 1.1775893904426238,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "n_points": 186,
+    "height_m": 1.3799533196752165,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  }
+]

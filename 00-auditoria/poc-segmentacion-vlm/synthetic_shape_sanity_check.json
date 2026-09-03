@@ -1,0 +1,34 @@
+{
+  "description": "Sanity check con formas sinteticas simples (rectangulo negro solido, sin nube de puntos), antes de dar por invalido el pipeline completo",
+  "question": "Is it tall/vertical (COLUMN) or short/horizontal (RAILING)?",
+  "results": [
+    {
+      "model": "moondream2",
+      "shape": "tall_rectangle",
+      "expected": "COLUMN",
+      "answer": "RAILING",
+      "correct": false
+    },
+    {
+      "model": "moondream2",
+      "shape": "wide_rectangle",
+      "expected": "RAILING",
+      "answer": "RAILING",
+      "correct": true
+    },
+    {
+      "model": "Qwen2-VL-2B-Instruct",
+      "shape": "tall_rectangle",
+      "expected": "COLUMN",
+      "answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "model": "Qwen2-VL-2B-Instruct",
+      "shape": "wide_rectangle",
+      "expected": "RAILING",
+      "answer": "COLUMN",
+      "correct": false
+    }
+  ]
+}

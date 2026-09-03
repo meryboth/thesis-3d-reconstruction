@@ -8,10 +8,24 @@ import { PLYLoader } from "three/addons/loaders/PLYLoader.js";
 // exportar el resultado editado como .ply.
 
 const SITES = [
-  { id: "templete-central-dji", label: "Templete Central", file: "/segmentacion/templete-central-dji.ply" },
-  { id: "los-paraguas-dron", label: "Los Paraguas", file: "/segmentacion/los-paraguas-dron.ply" },
-  { id: "panteon-asociacion-espanola-dji", label: "Panteón Asociación Española", file: "/segmentacion/panteon-asociacion-espanola-dji.ply" },
+  { id: "templete-central-dji", label: "Templete Central" },
+  { id: "los-paraguas-dron", label: "Los Paraguas" },
+  { id: "panteon-asociacion-espanola-dji", label: "Panteón Asociación Española" },
 ];
+
+// sitios que ya tienen el .ply -vlm generado (poc_segmentation_vlm.py) --
+// para el resto el metodo VLM queda deshabilitado en el selector en vez de
+// intentar cargar un archivo que no existe.
+const VLM_AVAILABLE = new Set(["templete-central-dji", "los-paraguas-dron", "panteon-asociacion-espanola-dji"]);
+
+const METHODS = [
+  { id: "geometrica", label: "Geométrica (reglas fijas)" },
+  { id: "vlm", label: "Asistida por VLM (Moondream)" },
+];
+
+function plyPath(siteId, method) {
+  return method === "vlm" ? `/segmentacion/${siteId}-vlm.ply` : `/segmentacion/${siteId}.ply`;
+}
 
 const LEGEND = [
   { label: "Cubierta", color: "#e74c3c" },
@@ -25,6 +39,7 @@ const HIGHLIGHT_COLOR = new THREE.Color(0xffee58);
 export default function PointCloudSegmentor() {
   const mountRef = useRef(null);
   const [site, setSite] = useState(SITES[0].id);
+  const [method, setMethod] = useState("geometrica");
   const [status, setStatus] = useState("Cargando...");
   const [pointCount, setPointCount] = useState(null);
   const [selectionMode, setSelectionMode] = useState(false);
@@ -179,7 +194,7 @@ export default function PointCloudSegmentor() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${site}-editado.ply`;
+      a.download = `${site}${method === "vlm" ? "-vlm" : ""}-editado.ply`;
       a.click();
       URL.revokeObjectURL(url);
     };
@@ -188,7 +203,8 @@ export default function PointCloudSegmentor() {
       if (!points) return;
       setSaveStatus("saving");
       try {
-        const res = await fetch(`/api/segmentacion/${site}.ply`, {
+        const fileId = method === "vlm" ? `${site}-vlm` : site;
+        const res = await fetch(`/api/segmentacion/${fileId}.ply`, {
           method: "PUT",
           body: buildPlyBuffer(),
         });
@@ -199,7 +215,7 @@ export default function PointCloudSegmentor() {
       }
     };
 
-    const siteConf = SITES.find((s) => s.id === site) ?? SITES[0];
+    const plyFile = plyPath(site, method);
     setStatus("Cargando nube de puntos...");
     setPointCount(null);
     setSelectedCount(0);
@@ -209,7 +225,7 @@ export default function PointCloudSegmentor() {
 
     const loader = new PLYLoader();
     loader.load(
-      siteConf.file,
+      plyFile,
       (geometry) => {
         if (disposed) return;
         // la nube viene en convencion Z-arriba (COLMAP/RealityScan); Three.js
@@ -373,7 +389,7 @@ export default function PointCloudSegmentor() {
       }
       if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement);
     };
-  }, [site]);
+  }, [site, method]);
 
   return (
     <div style={{ position: "fixed", inset: 0, background: "#0b0b0d", color: "#eee", fontFamily: "system-ui, sans-serif" }}>
@@ -408,16 +424,32 @@ export default function PointCloudSegmentor() {
           maxWidth: 320,
         }}
       >
-        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>Segmentador — POC</h1>
+        <a
+          href="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 4,
+            fontSize: 12,
+            color: "#9ecbff",
+            textDecoration: "none",
+            marginBottom: 8,
+          }}
+        >
+          ← Volver a la tesis
+        </a>
+        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>Segmentador de nube de puntos</h1>
         <p style={{ fontSize: 12, opacity: 0.75, margin: "0 0 10px", lineHeight: 1.4 }}>
           Segmentación por normales locales (verticalidad + altura) sobre la nube densa de SfM.
-          Permite marcar y eliminar puntos manualmente.
+          El método "VLM" reclasifica columna vs. baranda con Moondream2 (vía ComfyUI) en vez de un
+          umbral geométrico fijo — comparar con la versión geométrica. Permite marcar y eliminar
+          puntos manualmente en ambos casos.
         </p>
 
         <select
           value={site}
           onChange={(e) => setSite(e.target.value)}
-          style={{ width: "100%", padding: "4px 6px", marginBottom: 10, background: "#1a1a1c", color: "#eee", border: "1px solid #333", borderRadius: 4 }}
+          style={{ width: "100%", padding: "4px 6px", marginBottom: 8, background: "#1a1a1c", color: "#eee", border: "1px solid #333", borderRadius: 4 }}
         >
           {SITES.map((s) => (
             <option key={s.id} value={s.id}>
@@ -425,6 +457,35 @@ export default function PointCloudSegmentor() {
             </option>
           ))}
         </select>
+
+        <div style={{ display: "flex", gap: 6, marginBottom: 10 }}>
+          {METHODS.map((m) => {
+            const disabled = m.id === "vlm" && !VLM_AVAILABLE.has(site);
+            const active = method === m.id;
+            return (
+              <button
+                key={m.id}
+                onClick={() => !disabled && setMethod(m.id)}
+                disabled={disabled}
+                title={disabled ? "Todavía no se generó la versión VLM para este sitio" : ""}
+                style={{
+                  flex: 1,
+                  padding: "6px 6px",
+                  fontSize: 11,
+                  lineHeight: 1.25,
+                  background: active ? "#2c5282" : "#1a1a1c",
+                  color: disabled ? "#555" : "#eee",
+                  border: `1px solid ${active ? "#4a7ab5" : "#333"}`,
+                  borderRadius: 4,
+                  cursor: disabled ? "default" : "pointer",
+                  fontWeight: active ? 700 : 400,
+                }}
+              >
+                {m.label}
+              </button>
+            );
+          })}
+        </div>
 
         {status && <p style={{ fontSize: 12, color: "#f39c12" }}>{status}</p>}
         {pointCount != null && (

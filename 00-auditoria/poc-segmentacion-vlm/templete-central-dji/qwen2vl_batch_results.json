@@ -1,0 +1,96 @@
+{
+  "model": "Qwen/Qwen2-VL-2B-Instruct",
+  "accuracy": "8/15 (53%)",
+  "results": [
+    {
+      "file": "frag_0000_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0001_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0002_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0003_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0004_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0005_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0006_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0007_columna.png",
+      "expected": "COLUMN",
+      "model_answer": "COLUMN",
+      "correct": true
+    },
+    {
+      "file": "frag_0008_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0009_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0010_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0011_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0012_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0013_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    },
+    {
+      "file": "frag_0014_baranda.png",
+      "expected": "RAILING",
+      "model_answer": "COLUMN",
+      "correct": false
+    }
+  ]
+}

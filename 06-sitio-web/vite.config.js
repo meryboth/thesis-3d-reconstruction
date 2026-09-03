@@ -11,6 +11,9 @@ const KNOWN_SITE_IDS = new Set([
   'templete-central-dji',
   'los-paraguas-dron',
   'panteon-asociacion-espanola-dji',
+  'templete-central-dji-vlm',
+  'los-paraguas-dron-vlm',
+  'panteon-asociacion-espanola-dji-vlm',
 ])
 
 // Plugin dev-only: permite que el visor de segmentacion (/segmentador)
