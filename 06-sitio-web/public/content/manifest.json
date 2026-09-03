@@ -512,7 +512,7 @@
     "num": 5,
     "title": "Análisis de Resultados",
     "file": "/content/cap5.md",
-    "conclusion": "De los cinco benchmarks diseñados en el Capítulo 4, los cinco se ejecutaron con resultados completos y comparaciones 1:1 (B1, B2, B3, B4, B5 en su componente documental) — B2 incluye, además de la comparación de Splatfacto ya cerrada desde el primer momento, el reentrenamiento de Nerfacto/raw a `downscale_factor 4` (2026-08-31) que resolvió el confound que dejaba su comparación sin lectura concluyente (sección 5.3.4). B4 incluye, además del hallazgo metodológico original sobre componentes desconectados, la reconstrucción completa de los datasets híbridos rescatados en **ambos** casos de estudio con dataset multi-dispositivo y su comparación de calidad de render contra los datasets de un único dispositivo (Templete Central, sección 5.5.5; Panteón Asociación Española, sección 5.5.6) — la evidencia más contundente de toda esta tesis a favor de una de las cinco hipótesis. La evidencia recogida permite, no obstante, una lectura sustantiva de cuatro de las cinco hipótesis de trabajo. Dos hallazgos destacan por encima del resto: la interacción no anticipada entre complejidad geométrica y calidad de registro SfM como determinantes conjuntos del desempeño de Splatfacto (sección 5.4.2), y la evidencia reunida en torno a H4 sobre la fragilidad de los datasets híbridos multi-dispositivo —componentes de reconstrucción desconectados con reporte automático engañoso en una corrida (sección 5.5.2), una segunda corrida del mismo dataset con un resultado real de registro casi nulo (sección 5.5.3), y un mecanismo geométrico identificado y cuantificado que explica ambos resultados: los matches entre imágenes de distintos dispositivos son sistemáticamente mucho más débiles que los matches dentro de un mismo dispositivo (sección 5.5.3)—. Estos resultados, junto con las limitaciones y tareas pendientes identificadas en cada sección, se traducen en el Capítulo 6 en un pipeline definitivo documentado y en criterios prácticos de selección de técnica según el objeto patrimonial a relevar.",
+    "conclusion": "Para cerrar este capítulo se propone un repaso por cada una de las hipótesis y las conclusiones preliminares a las cuales podemos llegar a partir del análisis de los resultados.\n\n**H1 — Especialización por técnica:** Esta hipótesis está parcialmente confirmada, y presenta matices que no han sido identificados al momento de su planteo. Mientras que SfM se posiciona como la técnica más compatible con una integración BIM, 3DGS tiene bondades como:\n\n1. Su tiempo de entrenamiento inferior\n\n2. Su calidad visual y su fidelidad con el registro del dataset original\n\n3. Su output liviano en formato .splat que puede editarse posteriormente en SuperSplat y disponibilizarse en formato web utilizando Play Canvas.",
     "sections": [
       {
         "id": "cap5-5-1",
@@ -550,7 +550,7 @@
           {
             "id": "cap5-5-3-1",
             "num": "5.3.1",
-            "title": "Comparacion con dataset sin distractores"
+            "title": "Comparación con dataset sin distractores"
           },
           {
             "id": "cap5-5-3-2",
@@ -669,15 +669,9 @@
         "children": []
       },
       {
-        "id": "cap5-5-11",
-        "num": "5.11",
-        "title": "Experimento adicional: reconstrucción a partir de material audiovisual de terceros — Torre Tanque, Mar del Plata",
-        "children": []
-      },
-      {
         "id": "cap5-5-12",
         "num": "5.12",
-        "title": "Cierre del capítulo",
+        "title": "Conclusiones del capítulo",
         "children": []
       }
     ]
