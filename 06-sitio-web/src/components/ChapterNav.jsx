@@ -47,7 +47,7 @@ export default function ChapterNav({ chapters, activeId }) {
                   <span className="nav-caret nav-caret-spacer" aria-hidden="true" />
                 )}
                 <a
-                  href={`#${c.id}`}
+                  href={c.href ?? `#${c.id}`}
                   className={c.id === activeId ? "nav-link is-active" : "nav-link"}
                 >
                   {c.num != null ? (

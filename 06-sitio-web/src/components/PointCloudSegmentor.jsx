@@ -424,11 +424,25 @@ export default function PointCloudSegmentor() {
           maxWidth: 320,
         }}
       >
-        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>Segmentador — POC</h1>
+        <a
+          href="/"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 4,
+            fontSize: 12,
+            color: "#9ecbff",
+            textDecoration: "none",
+            marginBottom: 8,
+          }}
+        >
+          ← Volver a la tesis
+        </a>
+        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>Segmentador de nube de puntos</h1>
         <p style={{ fontSize: 12, opacity: 0.75, margin: "0 0 10px", lineHeight: 1.4 }}>
           Segmentación por normales locales (verticalidad + altura) sobre la nube densa de SfM.
           El método "VLM" reclasifica columna vs. baranda con Moondream2 (vía ComfyUI) en vez de un
-          umbral geométrico fijo — POC, comparar con la versión geométrica. Permite marcar y eliminar
+          umbral geométrico fijo — comparar con la versión geométrica. Permite marcar y eliminar
           puntos manualmente en ambos casos.
         </p>
 
