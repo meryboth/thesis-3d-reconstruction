@@ -614,7 +614,7 @@ Teniendo en cuenta estos tres aspectos 3DGS se posiciona como la mejor candidata
 
 **H5 — Compatibilidad web y reproducibilidad:** La evidencia marca algo que anticipamos en la hipótesis y es que cada técnica cuenta con una especialización y un nivel de compatibilidad distinto. En la hipótesis se plantea que alguna de estas técnicas va a presentar mayor compatibilidad (como sucedió con 3DGS), mientras que otras van a quedar completamente descartadas (como el caso de NeRF). 
 
-<h2 id="cap5-5-12">5.12 Conclusiones del capítulo</h2>
+<h2 id="cap5-5-11">5.11 Conclusiones del capítulo</h2>
 
 Se puede afirmar que todos los experimentos que se plantearon en el Capítulo 4 se pudieron ejecutar con éxito, si bien no todos los resultados acompañaron las hipótesis que se plantearon, lo cierto es que todas las conclusiones obtenidas nos permitieron tener un entendimiento de las tres técnicas de reconstrucción que son eje de este estudio y comprender cómo cada una podría colaborar de forma distinta en la conformación de un pipeline único. 
 

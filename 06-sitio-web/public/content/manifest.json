@@ -669,8 +669,8 @@
         "children": []
       },
       {
-        "id": "cap5-5-12",
-        "num": "5.12",
+        "id": "cap5-5-11",
+        "num": "5.11",
         "title": "Conclusiones del capítulo",
         "children": []
       }
@@ -778,7 +778,7 @@
     "num": 7,
     "title": "Conclusiones",
     "file": "/content/cap7.md",
-    "conclusion": "Esta tesis se propuso investigar, comparar y sistematizar el uso de fotogrametría SfM, NeRF y 3D Gaussian Splatting para la documentación tridimensional de patrimonio arquitectónico argentino, con el objetivo de desarrollar un pipeline reproducible y proponer criterios de selección de técnica fundamentados en evidencia (Capítulo 1, sección 1.3.1). El diseño experimental (Capítulo 4) operacionalizó cinco hipótesis de trabajo en cinco benchmarks, ejecutados sobre tres casos de estudio de complejidad geométrica creciente —Los Paraguas de Amancio Williams, el Templete Central del Cementerio de la Chacarita y el Panteón de la Asociación Española/Catalana— y analizados en el Capítulo 5. El Capítulo 6 tradujo esos resultados en un pipeline definitivo documentado y en una propuesta conceptual de integración con flujos HBIM/Revit.",
+    "conclusion": "Esta tesis se propuso investigar, comparar y sistematizar el uso de fotogrametría SfM, NeRF y 3D Gaussian Splatting para la documentación tridimensional de patrimonio arquitectónico argentino, con el objetivo de desarrollar un pipeline reproducible y proponer criterios de selección de técnica fundamentados en evidencia (Capítulo 1, sección 1.3.1). El diseño experimental (Capítulo 4) operacionalizó cinco hipótesis de trabajo en cinco benchmarks, ejecutados sobre tres casos de estudio de complejidad geométrica creciente —Los Paraguas de Amancio Williams, el Templete Central del Cementerio de la Chacarita y el Panteón de la Asociación Española— y analizados en el Capítulo 5. El Capítulo 6 tradujo esos resultados en un pipeline definitivo documentado y en una propuesta conceptual de integración con flujos HBIM/Revit.",
     "sections": [
       {
         "id": "cap7-7-1",

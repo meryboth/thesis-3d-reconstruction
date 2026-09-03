@@ -7,10 +7,10 @@ El hallazgo central del Capítulo 5 es que **no existe una técnica óptima en t
 | Criterio de uso | Técnica recomendada | Evidencia (Capítulo 5) |
 |---|---|---|
 | Documentación con potencial de integración BIM/HBIM | **SfM** (malla texturizada) | Única técnica con geometría explícita, topología de malla y textura UV (sección 5.2.3) |
-| Síntesis de vistas fotorrealista / producción audiovisual | **Splatfacto (3DGS)**, no Nerfacto | Splatfacto superó a Nerfacto en PSNR/SSIM en los tres casos (Tabla 5.2); Nerfacto falló parcialmente en el caso de mayor complejidad (sección 5.4.2) |
+| Síntesis de vistas fotorrealista / producción audiovisual | **Splatfacto (3DGS)**, no Nerfacto | Splatfacto superó a Nerfacto en PSNR/SSIM en los tres casos (Tabla 5.7); Nerfacto falló parcialmente en el caso de mayor complejidad (sección 5.4.2) |
 | Renderizado interactivo en tiempo real / entornos web | **Splatfacto (3DGS)** | Mejor compatibilidad de publicación web entre las tres técnicas (sección 5.6); archivo liviano (sección 5.8) |
-| Objetos de complejidad geométrica y ornamental alta | **Splatfacto (3DGS)**, condicionado a buen registro SfM | Único método que mantuvo calidad aceptable en el caso de complejidad alta (Tabla 5.2, Figura 5.18) |
-| Objetos de geometría simple y regular | Las tres técnicas ofrecen resultados utilizables | Diferencias de PSNR entre técnicas más acotadas en el caso de complejidad baja (Tabla 5.2) |
+| Objetos de complejidad geométrica y ornamental alta | **Splatfacto (3DGS)**, condicionado a buen registro SfM | Único método que mantuvo calidad aceptable en el caso de complejidad alta (Tabla 5.7, Figura 5.18) |
+| Objetos de geometría simple y regular | Las tres técnicas ofrecen resultados utilizables | Diferencias de PSNR entre técnicas más acotadas en el caso de complejidad baja (Tabla 5.7) |
 
 *Tabla 6.1 — Criterios de selección de técnica de reconstrucción 3D según el objeto patrimonial y el uso previsto.*
 
@@ -68,7 +68,7 @@ El paso 1 del flujo conceptual (sección 6.3.2) señala que la malla SfM texturi
 
 El script `poc_segmentation_multi_site.py` (Capítulo 4, sección 4.9) implementa esta clasificación sin redes neuronales ni datos de entrenamiento, apoyándose únicamente en propiedades geométricas locales de la nube:
 
-1. **Nivelado**: ajuste del plano de piso por RANSAC y rotación de la nube para que quede horizontal, necesario porque ni RealityScan ni COLMAP nativo garantizan que el eje vertical del archivo crudo sea el "arriba" real de la obra (sección 5.5.2 documenta un caso concreto de este problema en Los Paraguas).
+1. **Nivelado**: ajuste del plano de piso por RANSAC y rotación de la nube para que quede horizontal, necesario porque ni RealityScan ni COLMAP nativo garantizan que el eje vertical del archivo crudo sea el "arriba" real de la obra (sección 5.4.3 documenta un caso concreto de este problema en Los Paraguas).
 2. **Verticalidad**: estimación de normales locales (PCA sobre vecinos cercanos, o normales precalculadas cuando el archivo las trae) para distinguir superficies horizontales (techo/piso) de superficies verticales (muro/columna).
 3. **Bandas de altura**: detección de picos de densidad en el histograma de alturas para ubicar la banda de techo y la banda de piso de cada caso, sin asumir una altura fija.
 4. **Columna vs. elemento no estructural**: agrupamiento de los puntos verticales en celdas de planta; una celda se clasifica como columna estructural si alcanza una fracción alta de la altura total techo-piso, y como baranda/pared no estructural si se corta antes.
@@ -137,14 +137,14 @@ La propuesta de integración con Revit/BIM propiamente dicha —el paso 2 en ade
 
 A partir de la evidencia de la sección 5.6 (H5), se proponen los siguientes lineamientos para el repositorio/plataforma web mencionado como parte del alcance de esta tesis (Capítulo 1, sección 1.6.1):
 
-- **3DGS (Splatfacto) como formato principal de exploración interactiva**, por su combinación de peso liviano (Tabla 5.14), buen desempeño de calidad visual (Tabla 5.2) y compatibilidad directa con visores web (sección 5.6).
+- **3DGS (Splatfacto) como formato principal de exploración interactiva**, por su combinación de peso liviano (Tabla 5.16), buen desempeño de calidad visual (Tabla 5.7) y compatibilidad directa con visores web (sección 5.6).
 - **La malla SfM (.glTF) como capa de referencia geométrica y documental**, útil para mediciones aproximadas y para usuarios que requieran un modelo poligonal (por ejemplo, integración con visores BIM ligeros), pese a su mayor peso — se recomienda ofrecer una versión decimada específicamente para web, distinta de la usada como insumo para la integración HBIM (sección 6.3).
 - **Nerfacto como material de producción audiovisual**, no como parte directa del visor interactivo del archivo digital: los videos renderizados a lo largo de la trayectoria de captura (ya generados como parte del pipeline de cada caso de estudio) son el output más aprovechable de esta técnica para el objetivo de divulgación patrimonial.
 - **Metadatos de trazabilidad por modelo**: sitio, técnica, dispositivo(s) de captura, fecha de relevamiento y estado de conservación documentado, siguiendo el mismo criterio de trazabilidad que esta tesis aplicó internamente a nivel de logs (Capítulo 4, sección 4.9) — relevante en particular para casos como el Panteón Asociación Española, cuyo estado de conservación condiciona la interpretación de cualquier resultado (Capítulo 4, sección 4.10).
 
 <h2 id="cap6-6-5">6.5 Recomendaciones de infraestructura</h2>
 
-El hardware consumer-grade utilizado en esta tesis (Capítulo 4, Tabla 4.2) resultó suficiente para completar los tres casos de estudio, pero con un costo de tiempo no despreciable —hasta 2 h 35 min de entrenamiento por modelo (Tabla 5.17)— y una incidencia directa en la tasa de fallos catastróficos (Capítulo 5, sección 5.7), concentrada en las etapas de mayor demanda de memoria (fusión densa de COLMAP, `ParallelDataManager` de Nerfacto sobre datasets grandes). Para un equipo de gestión patrimonial que busque adoptar este pipeline de forma sostenida, se recomienda:
+El hardware consumer-grade utilizado en esta tesis (Capítulo 4, Tabla 4.2) resultó suficiente para completar los tres casos de estudio, pero con un costo de tiempo no despreciable —hasta 1 h 38 min de entrenamiento por modelo (Tabla 5.17)— y una incidencia directa en la tasa de fallos catastróficos (Capítulo 5, sección 5.7), concentrada en las etapas de mayor demanda de memoria (fusión densa de COLMAP, `ParallelDataManager` de Nerfacto sobre datasets grandes). Para un equipo de gestión patrimonial que busque adoptar este pipeline de forma sostenida, se recomienda:
 
 - Priorizar una GPU con mayor VRAM disponible (8–12 GB o más) sobre un aumento de velocidad de cómputo puro, dado que las fallas observadas fueron predominantemente de memoria, no de tiempo.
 - Mantener el criterio de esta tesis de entrenar Nerfacto sobre un subset del dataset cuando la escena supere el orden de las ~1000 imágenes (Capítulo 4, sección 4.4.1), y reservar el dataset completo para Splatfacto, que toleró los tres casos de estudio sin ese ajuste.
