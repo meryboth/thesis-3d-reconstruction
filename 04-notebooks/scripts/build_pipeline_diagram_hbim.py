@@ -3,6 +3,11 @@ Diagrama de flujo del Pipeline A (integracion HBIM) propuesto en el
 Capitulo 6, seccion 6.2.2. Generado con matplotlib (sin dependencias
 graficas adicionales), mismo estilo visual que build_pipeline_diagram.py
 (retirado) y build_comfyui_pipeline_diagram.py.
+
+El pipeline parte de la NUBE DE PUNTOS densa de SfM (no de la malla):
+la nube es la que se segmenta y se propone como referencia scan-to-BIM.
+La malla texturizada queda como respaldo documental aparte (conecta
+directo al paso de vinculo documental, sin pasar por la segmentacion).
 """
 import matplotlib
 matplotlib.use("Agg")
@@ -12,9 +17,9 @@ from matplotlib.lines import Line2D
 
 OUT = r"C:\nerfstudio_work\thesis\05-tesis\capitulo6_pipeline_definitivo\media\pipeline-a-hbim.png"
 
-fig, ax = plt.subplots(figsize=(7.5, 11.8))
-ax.set_xlim(0, 7.5)
-ax.set_ylim(-0.4, 15.6)
+fig, ax = plt.subplots(figsize=(7.8, 10.6))
+ax.set_xlim(0, 7.8)
+ax.set_ylim(-0.4, 14.0)
 ax.axis("off")
 
 
@@ -28,61 +33,65 @@ def box(x, y, w, h, text, color="#e8eef7", edge="#2c5282", fontsize=10,
              color=textcolor, wrap=True)
 
 
-def arrow(x1, y1, x2, y2, color="#2c5282", lw=1.8):
+def arrow(x1, y1, x2, y2, color="#2c5282", lw=1.8, connectionstyle="arc3,rad=0"):
     a = FancyArrowPatch((x1, y1), (x2, y2), arrowstyle="-|>", mutation_scale=16,
-                         color=color, linewidth=lw)
+                         color=color, linewidth=lw, connectionstyle=connectionstyle)
     ax.add_patch(a)
 
 
 CW, CX = 4.4, 1.55  # ancho y x comun de las cajas centrales
 
 # Tronco comun (6.2.1)
-box(CX, 14.4, CW, 1.0, "Captura — un único dispositivo\n(DJI Neo 2 o Insta360 X5, nunca combinados)",
+box(CX, 12.8, CW, 1.0, "Captura — un único dispositivo\n(DJI Neo 2 o Insta360 X5, nunca combinados)",
     color="#fdf3e0", edge="#b7791f")
-box(CX, 13.0, CW, 1.0, "SfM con verificación binaria\n(RealityScan / COLMAP nativo)",
+box(CX, 11.4, CW, 1.0, "SfM con verificación binaria\n(RealityScan / COLMAP nativo)",
     color="#eaf0fb", edge="#2c5282")
-arrow(3.75, 14.4, 3.75, 14.0)
+arrow(3.75, 12.8, 3.75, 12.4)
 
-box(CX, 11.6, CW, 1.0, "Malla texturizada (.obj) +\nnube de puntos densa",
+# Nube de puntos (principal) + malla (respaldo, caja lateral aparte)
+box(CX, 10.0, CW, 1.0, "Nube de puntos densa de SfM\n(input del Pipeline A)",
     color="#eaf0fb", edge="#2c5282")
-arrow(3.75, 13.0, 3.75, 12.6)
+arrow(3.75, 11.4, 3.75, 11.0)
+
+box(0.15, 10.0, 1.9, 1.0, "Malla\ntexturizada\n(.obj)", color="#f0f0f0", edge="#a0aec0", fontsize=8)
+arrow(1.55, 11.4, 1.1, 11.0, color="#a0aec0")
 
 # --- Implementado y validado ---
-box(CX, 10.0, CW, 1.1, "Segmentación geométrica automática\n(cubierta / columna / baranda / piso)",
-    color="#eaf7ea", edge="#276749")
-arrow(3.75, 11.6, 3.75, 11.1)
-
-box(CX, 8.5, CW, 1.1, "Control de calidad humano\n(editor manual, visor /segmentador)",
+box(CX, 8.5, CW, 1.1, "Segmentación geométrica automática\n(cubierta / columna / baranda / piso)",
     color="#eaf7ea", edge="#276749")
 arrow(3.75, 10.0, 3.75, 9.6)
 
-box(CX, 7.0, CW, 1.1, "Nube segmentada por clase (.ply)\n→ descarga en el archivo digital web",
-    color="#f5eafd", edge="#6b46c1")
+box(CX, 7.0, CW, 1.1, "Control de calidad humano\n(editor manual, visor /segmentador)",
+    color="#eaf7ea", edge="#276749")
 arrow(3.75, 8.5, 3.75, 8.1)
-arrow(3.75, 7.0, 3.75, 6.55, color="#718096")
+
+box(CX, 5.5, CW, 1.1, "Nube segmentada por clase (.ply)\n→ descarga en el archivo digital web",
+    color="#f5eafd", edge="#6b46c1")
+arrow(3.75, 7.0, 3.75, 6.6)
+arrow(3.75, 5.5, 3.75, 5.05, color="#718096")
 
 # Separador implementado / conceptual
-ax.plot([0.3, 7.2], [6.3, 6.3], color="#a0aec0", linewidth=1.2, linestyle=(0, (4, 3)))
-ax.text(3.75, 6.3, "  implementado y validado ↑     ↓ propuesta conceptual  ",
+ax.plot([0.3, 7.5], [4.8, 4.8], color="#a0aec0", linewidth=1.2, linestyle=(0, (4, 3)))
+ax.text(3.75, 4.8, "  implementado y validado ↑     ↓ propuesta conceptual  ",
         ha="center", va="center", fontsize=7.5, color="#718096", style="italic",
         backgroundcolor="white")
 
 # --- Propuesta conceptual (no implementada) ---
-box(CX, 5.1, CW, 1.1, "Decimación y limpieza topológica\nde la malla SfM",
-    color="#f7f7f7", edge="#718096", dashed=True)
-arrow(3.75, 6.05, 3.75, 5.7, color="#718096")
-
-box(CX, 3.6, CW, 1.1, "Importación a entorno de modelado\n(Recap Photo / Revit) como referencia\nscan-to-BIM",
+box(CX, 3.55, CW, 1.1, "Importación a entorno de modelado\n(Recap Photo / Revit) — nube YA CLASIFICADA\ncomo referencia scan-to-BIM",
     color="#f7f7f7", edge="#718096", dashed=True, fontsize=9)
-arrow(3.75, 5.1, 3.75, 4.7, color="#718096")
+arrow(3.75, 5.05, 3.75, 4.65, color="#718096")
 
-box(CX, 2.1, CW, 1.1, "Modelado paramétrico\nmanual / semiautomático (LOD HBIM)",
-    color="#f7f7f7", edge="#718096", dashed=True)
-arrow(3.75, 3.6, 3.75, 3.2, color="#718096")
+box(CX, 2.05, CW, 1.1, "Modelado paramétrico manual / semiautomático\n(cada clase → categoría Revit, LOD HBIM)",
+    color="#f7f7f7", edge="#718096", dashed=True, fontsize=9)
+arrow(3.75, 3.55, 3.75, 3.15, color="#718096")
 
-box(CX, 0.6, CW, 1.1, "Vínculo documental bidireccional\n(SfM original como respaldo del modelo BIM)",
-    color="#f7f7f7", edge="#718096", dashed=True)
-arrow(3.75, 2.1, 3.75, 1.7, color="#718096")
+box(CX, 0.4, CW, 1.1, "Vínculo documental bidireccional\n(malla + SfM original como respaldo del modelo BIM)",
+    color="#f7f7f7", edge="#718096", dashed=True, fontsize=9)
+arrow(3.75, 2.05, 3.75, 1.5, color="#718096")
+
+# La malla conecta directo al vinculo documental, sin pasar por la segmentacion
+arrow(1.1, 10.0, 1.1, 0.95, color="#a0aec0", connectionstyle="arc3,rad=-0.15")
+arrow(1.1, 0.95, 1.55, 0.95, color="#a0aec0")
 
 ax.set_title("Pipeline A — Integración HBIM\n(Capítulo 6, sección 6.2.2)", fontsize=13, pad=14)
 
@@ -92,8 +101,9 @@ legend_elements = [
     Line2D([0], [0], marker="s", color="w", markerfacecolor="#eaf7ea", markeredgecolor="#276749", markersize=13, label="Implementado y validado"),
     Line2D([0], [0], marker="s", color="w", markerfacecolor="#f5eafd", markeredgecolor="#6b46c1", markersize=13, label="Output / descarga"),
     Line2D([0], [0], marker="s", color="w", markerfacecolor="#f7f7f7", markeredgecolor="#718096", markersize=13, label="Propuesta conceptual (sin implementar)"),
+    Line2D([0], [0], marker="s", color="w", markerfacecolor="#f0f0f0", markeredgecolor="#a0aec0", markersize=13, label="Respaldo documental (fuera del flujo principal)"),
 ]
-ax.legend(handles=legend_elements, loc="lower center", bbox_to_anchor=(0.5, -0.06),
+ax.legend(handles=legend_elements, loc="lower center", bbox_to_anchor=(0.5, -0.08),
           fontsize=8, framealpha=0.95, ncol=2)
 
 fig.tight_layout()
