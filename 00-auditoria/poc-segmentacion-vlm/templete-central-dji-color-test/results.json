@@ -1,0 +1,37 @@
+[
+  {
+    "frag": 0,
+    "source_label": "columna",
+    "vlm_answer": "RAILING",
+    "expected": "COLUMN",
+    "hit": false
+  },
+  {
+    "frag": 2,
+    "source_label": "columna",
+    "vlm_answer": "RAILING",
+    "expected": "COLUMN",
+    "hit": false
+  },
+  {
+    "frag": 4,
+    "source_label": "columna",
+    "vlm_answer": "RAILING",
+    "expected": "COLUMN",
+    "hit": false
+  },
+  {
+    "frag": 8,
+    "source_label": "baranda/pared no estructural",
+    "vlm_answer": "RAILING",
+    "expected": "RAILING",
+    "hit": true
+  },
+  {
+    "frag": 11,
+    "source_label": "baranda/pared no estructural",
+    "vlm_answer": "RAILING",
+    "expected": "RAILING",
+    "hit": true
+  }
+]
