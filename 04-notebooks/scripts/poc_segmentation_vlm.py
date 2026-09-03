@@ -61,12 +61,16 @@ MIN_CLUSTER_POINTS = 150   # fragmentos mas chicos que esto se consideran ruido
 MAX_RENDER_POINTS = 8000   # sample para que el render no tarde en fragmentos grandes
 
 QUESTION = (
-    "This image shows an isolated fragment of a 3D point cloud scan of a "
-    "heritage building, viewed from an angle. Based ONLY on its overall "
-    "shape and proportions -- tall and slender extending mostly vertically "
-    "like a supporting post or pillar, versus short and elongated "
-    "horizontally like a railing, parapet or low wall -- classify this "
-    "fragment. Answer with exactly one word: COLUMN or RAILING."
+    "This image has two panels of the same 3D point-cloud fragment from an "
+    "architectural heritage building. The LEFT panel shows the fragment "
+    "isolated and zoomed in, with its true height-to-width proportions -- "
+    "use this panel to judge its shape. The RIGHT panel shows the same "
+    "fragment (in red) in context within the full gray building, just to "
+    "show where it sits. Based on the LEFT panel's proportions -- tall and "
+    "slender extending mostly vertically like a supporting post or pillar, "
+    "versus short and elongated mostly horizontally like a railing, "
+    "parapet or low wall -- classify this fragment. Answer with exactly "
+    "one word: COLUMN or RAILING."
 )
 
 
@@ -99,30 +103,49 @@ def cluster_points(xyz, radius=CLUSTER_RADIUS):
     return cluster_id
 
 
-def render_fragment(xyz_frag, out_path):
-    if len(xyz_frag) > MAX_RENDER_POINTS:
-        idx = np.random.default_rng(0).choice(len(xyz_frag), MAX_RENDER_POINTS, replace=False)
-        xyz_frag = xyz_frag[idx]
+def _scatter_leveled(ax, xyz, s, c, alpha=1.0):
+    ax.scatter(xyz[:, 0], xyz[:, 1], xyz[:, 2], s=s, c=c, alpha=alpha)
 
-    fig = plt.figure(figsize=(4, 4), dpi=100)
-    ax = fig.add_subplot(projection="3d")
-    ax.scatter(xyz_frag[:, 0], xyz_frag[:, 1], xyz_frag[:, 2], s=3, c="#2c3e50")
-    ax.set_facecolor("white")
-    fig.patch.set_facecolor("white")
 
-    # proporciones reales (sin esto matplotlib estira cada eje para llenar
-    # el cuadro, y la senal alto/ancho -- la que decide columna vs baranda --
-    # se pierde)
-    ranges = xyz_frag.max(axis=0) - xyz_frag.min(axis=0)
+def _set_equal_bounds(ax, xyz):
+    ranges = xyz.max(axis=0) - xyz.min(axis=0)
     max_range = ranges.max() / 2
-    mid = (xyz_frag.max(axis=0) + xyz_frag.min(axis=0)) / 2
+    mid = (xyz.max(axis=0) + xyz.min(axis=0)) / 2
     ax.set_xlim(mid[0] - max_range, mid[0] + max_range)
     ax.set_ylim(mid[1] - max_range, mid[1] + max_range)
     ax.set_zlim(mid[2] - max_range, mid[2] + max_range)
 
-    ax.view_init(elev=15, azim=45)
-    ax.set_axis_off()
-    fig.tight_layout(pad=0)
+
+def render_fragment_in_context(xyz_context, xyz_frag, out_path):
+    """Dos paneles en una sola imagen: izquierda = fragmento aislado, con
+    sus propias proporciones reales (alto vs. ancho -- la senal que decide
+    columna vs. baranda; se pierde si se lo ve a la escala del edificio
+    completo). Derecha = edificio completo en gris con el fragmento
+    resaltado en rojo, para dar contexto de que es un elemento arquitectonico
+    y donde esta ubicado."""
+    if len(xyz_context) > MAX_RENDER_POINTS:
+        idx = np.random.default_rng(0).choice(len(xyz_context), MAX_RENDER_POINTS, replace=False)
+        xyz_context = xyz_context[idx]
+
+    fig = plt.figure(figsize=(8, 4), dpi=100)
+    fig.patch.set_facecolor("white")
+
+    ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+    _scatter_leveled(ax1, xyz_frag, s=4, c="#2c3e50")
+    _set_equal_bounds(ax1, xyz_frag)
+    ax1.view_init(elev=15, azim=45)
+    ax1.set_axis_off()
+    ax1.set_title("Fragmento aislado (proporciones reales)", fontsize=8)
+
+    ax2 = fig.add_subplot(1, 2, 2, projection="3d")
+    _scatter_leveled(ax2, xyz_context, s=1.5, c="#c8c8c8", alpha=0.5)
+    _scatter_leveled(ax2, xyz_frag, s=5, c="#e60000")
+    _set_equal_bounds(ax2, xyz_context)
+    ax2.view_init(elev=20, azim=45)
+    ax2.set_axis_off()
+    ax2.set_title("Contexto (edificio completo, fragmento en rojo)", fontsize=8)
+
+    fig.tight_layout(pad=0.5)
     fig.savefig(out_path, bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
@@ -174,31 +197,47 @@ def run_site(site):
     wall_idx = np.where(wall_mask)[0]
     print(f"  Puntos de pared/columna a reclasificar: {len(wall_idx):,}")
 
-    cluster_id = cluster_points(xyz_l[wall_idx])
-    n_clusters = cluster_id.max() + 1
-    print(f"  Fragmentos conectados detectados: {n_clusters}")
+    # el contexto para el render es toda la estructura (sin vegetacion, ya
+    # excluida arriba) -- no solo los puntos de pared -- para que el modelo
+    # vea que es un edificio completo, no una nube de puntos abstracta.
+    context_xyz = xyz_l
 
     new_labels = labels.copy()
     site_render_dir = RENDERS_DIR / site["id"]
     site_render_dir.mkdir(parents=True, exist_ok=True)
     log = []
 
-    counts = np.bincount(cluster_id)
-    big_clusters = np.where(counts >= MIN_CLUSTER_POINTS)[0]
-    print(f"  Fragmentos con >= {MIN_CLUSTER_POINTS} puntos (se consultan al VLM): {len(big_clusters)}")
+    # se agrupa por separado dentro de cada etiqueta geometrica (columna /
+    # baranda) en vez de sobre todos los puntos de pared juntos -- una
+    # columna real siempre toca fisicamente la baranda en su base (estan
+    # soldadas/coladas juntas en la obra real), asi que agrupar por
+    # conectividad espacial pura las fusiona en un solo fragmento mixto
+    # (ver hallazgo de la corrida anterior, fragmento con 42mil puntos).
+    # Separar primero por la etiqueta geometrica evita esa fusion y le manda
+    # al VLM un fragmento "puro" de un solo tipo para validar o corregir.
+    frag_specs = []  # (label_de_origen, frag_global_idx)
+    for source_label in ("columna", "baranda/pared no estructural"):
+        label_idx = np.where(labels == source_label)[0]
+        if len(label_idx) == 0:
+            continue
+        cluster_id = cluster_points(xyz_l[label_idx])
+        counts = np.bincount(cluster_id)
+        for c in np.where(counts >= MIN_CLUSTER_POINTS)[0]:
+            frag_local_idx = np.where(cluster_id == c)[0]
+            frag_specs.append((source_label, label_idx[frag_local_idx]))
 
-    for i, c in enumerate(big_clusters):
-        frag_local_idx = np.where(cluster_id == c)[0]
-        frag_global_idx = wall_idx[frag_local_idx]
+    print(f"  Fragmentos puros (>= {MIN_CLUSTER_POINTS} puntos, separados por etiqueta de origen) a consultar: {len(frag_specs)}")
+
+    for i, (source_label, frag_global_idx) in enumerate(frag_specs):
         frag_xyz = xyz_l[frag_global_idx]
 
-        img_path = site_render_dir / f"frag_{c:04d}.png"
-        render_fragment(frag_xyz, img_path)
+        img_path = site_render_dir / f"frag_{i:04d}_{source_label.split('/')[0]}.png"
+        render_fragment_in_context(context_xyz, frag_xyz, img_path)
 
         try:
             answer = classify_via_comfyui(img_path)
         except Exception as e:
-            print(f"    [{i+1}/{len(big_clusters)}] fragmento {c}: ERROR ({e}), se deja la clasificacion geometrica")
+            print(f"    [{i+1}/{len(frag_specs)}] fragmento ({source_label}): ERROR ({e}), se deja la clasificacion geometrica")
             continue
 
         answer_norm = answer.strip().upper()
@@ -209,15 +248,14 @@ def run_site(site):
         else:
             answer_norm = f"AMBIGUO({answer_norm})"
 
-        old_lbl = labels[frag_global_idx[0]]
         new_lbl = new_labels[frag_global_idx[0]]
-        changed = " <-- CAMBIO" if old_lbl != new_lbl else ""
-        print(f"    [{i+1}/{len(big_clusters)}] fragmento {c} ({len(frag_xyz)} pts, altura {np.ptp(frag_xyz[:, 2]):.2f}m): "
+        changed = " <-- CAMBIO" if source_label != new_lbl else ""
+        print(f"    [{i+1}/{len(frag_specs)}] origen={source_label} ({len(frag_xyz)} pts, altura {np.ptp(frag_xyz[:, 2]):.2f}m): "
               f"VLM={answer_norm} -> {new_lbl}{changed}")
         log.append({
-            "cluster": int(c), "n_points": int(len(frag_xyz)),
+            "n_points": int(len(frag_xyz)),
             "height_m": float(np.ptp(frag_xyz[:, 2])),
-            "vlm_answer": answer, "geometric_label": old_lbl, "final_label": new_lbl,
+            "vlm_answer": answer, "geometric_label": source_label, "final_label": new_lbl,
         })
 
     n_changed = int(np.sum(new_labels[wall_idx] != labels[wall_idx]))
