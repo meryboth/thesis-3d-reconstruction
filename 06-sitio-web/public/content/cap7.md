@@ -22,7 +22,7 @@ De los seis objetivos específicos planteados en el Capítulo 1 (sección 1.3.2)
 
 - **El relevamiento crítico del estado del arte** se completó (Capítulo 2).
 - **El diseño y ejecución de los benchmarks comparativos** se completó en cuatro de cinco casos con resultados sustantivos (B1, B3, B4, B5) y en el quinto (B2, preprocesamiento) con la salvedad metodológica de H2 (comparación 1:1 solo para Splatfacto).
-- **La propuesta de dos pipelines definitivos documentados** —integración HBIM y archivo digital web— se completó (Capítulo 6, Tabla 6.1).
+- **La propuesta de dos pipelines definitivos documentados** —integración HBIM y archivo digital web— se completó (Capítulo 6, Figuras 6.1–6.2, Tabla 6.1).
 - **El diseño de la propuesta de integración HBIM/Revit** se completó a nivel conceptual y propositivo, tal como delimitaba el alcance original (Capítulo 1, sección 1.6.2) — no incluye implementación ni validación con un modelador BIM real, y queda como línea de trabajo futura (sección 7.5).
 - **La evaluación de escalabilidad ante complejidad geométrica creciente** se completó (H3, sección 5.4), con el hallazgo no anticipado de la interacción entre complejidad y calidad de registro SfM.
 - **La validación de compatibilidad web** se completó en su componente documental (checklist, H5, sección 5.6); la carga real en visor web queda pendiente.

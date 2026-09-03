@@ -31,6 +31,10 @@ Ambos pipelines comparten el mismo tronco —captura y SfM— y divergen recién
 
 <h3 id="cap6-6-2-2">6.2.2 Pipeline A — Integración HBIM</h3>
 
+![Diagrama del Pipeline A: captura, SfM, segmentación geométrica y control de calidad humano (implementado y validado), seguidos de decimación, importación a Revit, modelado paramétrico y vínculo documental (propuesta conceptual)](/content/assets/cap6-pipeline-a-hbim.png)
+
+*Figura 6.1 — Pipeline A, integración HBIM: de la captura a la nube segmentada (implementado) y su continuación conceptual hacia un modelo BIM. Fuente: `build_pipeline_diagram_hbim.py`.*
+
 A partir del SfM del tronco común (sección 6.2.1), este pipeline se queda en la malla texturizada y la nube de puntos densa, no en un render:
 
 1. **Segmentación geométrica automática** de la nube de puntos densa de SfM en las cuatro clases relevantes para BIM (cubierta, columna, baranda/pared no estructural, piso), con el clasificador desarrollado para esta tesis (`poc_segmentation_multi_site.py`, detallado en la sección 6.3).
@@ -44,6 +48,10 @@ A partir del SfM del tronco común (sección 6.2.1), este pipeline se queda en l
 Los pasos 1 y 2 son la única parte de este pipeline que se implementó y validó sobre los tres casos de estudio; los pasos 4 a 7 son una propuesta conceptual (sección 6.3.4 desarrolla el detalle y las limitaciones de cada tramo).
 
 <h3 id="cap6-6-2-3">6.2.3 Pipeline B — Archivo digital web</h3>
+
+![Diagrama del Pipeline B: captura, SfM, entrenamiento de Splatfacto, edición en SuperSplat y exportación, publicado junto con la nube segmentada del Pipeline A como descarga dual](/content/assets/cap6-pipeline-b-web.png)
+
+*Figura 6.2 — Pipeline B, archivo digital web: de la captura al modelo de Gaussian Splatting editado, publicado junto con la nube segmentada del Pipeline A. Fuente: `build_pipeline_diagram_web.py`.*
 
 A partir del SfM del tronco común (sección 6.2.1) —nube de puntos dispersa y poses de cámara—, este pipeline entrena y publica un modelo de Gaussian Splatting:
 
@@ -83,21 +91,21 @@ La Tabla 6.2 resume el resultado sobre los tres casos de estudio, y las Figuras 
 
 ![Templete Central segmentado en el visor web: techo (rojo), columnas (verde), baranda no estructural (amarillo) y piso (azul)](/content/assets/cap6-segmentacion-templete.png)
 
-*Figura 6.2 — Templete Central: las cuatro clases mapean directamente a categorías de Revit (Roofs, Structural Columns, Railings, Floors).*
+*Figura 6.3 — Templete Central: las cuatro clases mapean directamente a categorías de Revit (Roofs, Structural Columns, Railings, Floors).*
 
 ![Los Paraguas segmentado: ambas cubiertas tipo hongo, vástago central y piso correctamente diferenciados](/content/assets/cap6-segmentacion-paraguas.png)
 
-*Figura 6.3 — Los Paraguas: la doble curvatura de las cubiertas se resuelve correctamente pese a no ser una geometría plana.*
+*Figura 6.4 — Los Paraguas: la doble curvatura de las cubiertas se resuelve correctamente pese a no ser una geometría plana.*
 
 ![Panteón Asociación Española segmentado, con la arboleda circundante excluida de la clasificación](/content/assets/cap6-segmentacion-panteon.png)
 
-*Figura 6.4 — Panteón Asociación Española: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
+*Figura 6.5 — Panteón Asociación Española: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
 
-**Control de calidad humano.** La clasificación puramente geométrica no es perfecta —el caso del Panteón, con arboledas cercanas que en algunos tramos comparten color con la pátina de la cúpula, y el caso de Los Paraguas, donde el borde curvo de la cubierta requirió un ajuste específico para no confundirse con piso, son evidencia directa de esto dentro de esta misma tesis—. Por esa razón se extendió el visor con una herramienta de edición manual: selección de puntos por rectángulo, eliminación, deshacer y guardado directo sobre el archivo segmentado (Figura 6.5). Esto no es un detalle secundario del visor sino la respuesta concreta a una limitación reconocida en la literatura: Croce et al. (2023) y Pan et al. (2024) framean sus propuestas como *"semi-automáticas"* precisamente porque ningún clasificador —ni el geométrico simple de esta tesis, ni los basados en aprendizaje profundo de la literatura relevada— elimina la necesidad de una revisión humana antes de que el resultado se use como base de un modelo BIM.
+**Control de calidad humano.** La clasificación puramente geométrica no es perfecta —el caso del Panteón, con arboledas cercanas que en algunos tramos comparten color con la pátina de la cúpula, y el caso de Los Paraguas, donde el borde curvo de la cubierta requirió un ajuste específico para no confundirse con piso, son evidencia directa de esto dentro de esta misma tesis—. Por esa razón se extendió el visor con una herramienta de edición manual: selección de puntos por rectángulo, eliminación, deshacer y guardado directo sobre el archivo segmentado (Figura 6.6). Esto no es un detalle secundario del visor sino la respuesta concreta a una limitación reconocida en la literatura: Croce et al. (2023) y Pan et al. (2024) framean sus propuestas como *"semi-automáticas"* precisamente porque ningún clasificador —ni el geométrico simple de esta tesis, ni los basados en aprendizaje profundo de la literatura relevada— elimina la necesidad de una revisión humana antes de que el resultado se use como base de un modelo BIM.
 
 ![Modo de selección manual activo sobre Templete Central, con un rectángulo de selección arrastrado sobre parte de la cubierta](/content/assets/cap6-segmentacion-edicion-manual.png)
 
-*Figura 6.5 — Editor manual del visor: control de calidad humano sobre la clasificación automática antes de exportar por clase.*
+*Figura 6.6 — Editor manual del visor: control de calidad humano sobre la clasificación automática antes de exportar por clase.*
 
 **Respaldo en la literatura y posicionamiento de este aporte.** La automatización de este paso —comúnmente llamada segmentación semántica de nubes de puntos para *scan-to-BIM*— es un área activa de investigación. Romero-Jarén y Arranz (2021) proponen un método de segmentación y clasificación automática de elementos BIM (pisos, techos, muros, columnas) a partir de nubes de puntos de interiores; Buldo et al. (2023) documentan un flujo *scan-to-BIM* específico para patrimonio cultural con segmentación automática y modelado paramétrico-adaptativo de sistemas abovedados; Croce et al. (2023) combinan clasificación por Random Forest con reconstrucción H-BIM semi-automática sobre claustros medievales; y Pan et al. (2024) usan una red neuronal profunda (KP-SG) para llevar nubes de puntos semánticas a modelos BIM semánticos en el contexto de un gemelo digital patrimonial. Frente a ese estado del arte, el aporte de esta tesis es modesto pero honesto: una clasificación geométrica simple —sin entrenamiento, sin dataset anotado, ejecutable con los mismos recursos consumer-grade del resto del pipeline (Capítulo 4, Tabla 4.2)— que demuestra, sobre los tres casos de estudio reales de esta investigación, que incluso ese enfoque liviano produce clases usables como punto de partida para el Pipeline A (sección 6.2.2). La adopción de un clasificador basado en aprendizaje profundo (siguiendo, por ejemplo, el enfoque de Pan et al., 2024) queda documentada como línea de trabajo futura (Capítulo 7), no como parte de esta implementación.
 
@@ -121,7 +129,7 @@ La Tabla 6.3 muestra un patrón más revelador que el porcentaje de acierto en s
 
 ![Fragmento de columna real (izquierda, proporciones reales) y en contexto dentro del Templete Central (derecha, en rojo), que Moondream2 clasificó incorrectamente como baranda](/content/assets/cap6-poc-vlm-frag-columna.png)
 
-*Figura 6.6 — Ejemplo de clasificación fallida: fragmento de 2,23 m de altura, geométricamente una columna, visualmente inequívoco en el panel izquierdo — el modelo respondió "baranda" de todas formas. Fuente: `poc_segmentation_vlm.py`.*
+*Figura 6.7 — Ejemplo de clasificación fallida: fragmento de 2,23 m de altura, geométricamente una columna, visualmente inequívoco en el panel izquierdo — el modelo respondió "baranda" de todas formas. Fuente: `poc_segmentation_vlm.py`.*
 
 **Lectura del resultado.** La infraestructura construida para esta prueba funciona de punta a punta —nodo de ComfyUI expuesto por API, entorno aislado para correr un modelo con dependencias incompatibles con las del resto del pipeline sin afectarlo, agrupamiento de fragmentos, render y reclasificación— y queda disponible como herramienta reusable. El resultado de clasificación en sí, sin embargo, es negativo: ni Moondream2 ni Qwen2-VL-2B-Instruct superaron al umbral geométrico simple en esta tarea puntual, con esta forma de preguntarles. La explicación más probable no es que la idea sea inviable, sino que estos dos modelos —livianos y entrenados mayormente sobre fotografías naturales— no generalizan bien a un tipo de imagen (una nube de puntos dispersa, renderizada de forma abstracta) que probablemente no vieron durante su entrenamiento, y que forzar una respuesta entre solo dos opciones, sin darle al modelo la posibilidad de contestar "no estoy seguro", probablemente amplifica ese problema en vez de dejarlo en evidencia. Queda como línea de trabajo futura (Capítulo 7) probar esta misma idea con un modelo de mayor tamaño, con *fine-tuning* sobre ejemplos de nubes de puntos arquitectónicas, o con un render más realista (por ejemplo, una malla sombreada en vez de puntos dispersos) antes de descartar el enfoque.
 
