@@ -1,0 +1,74 @@
+[
+  {
+    "cluster": 0,
+    "n_points": 957,
+    "height_m": 0.29443834542228753,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 1,
+    "n_points": 353,
+    "height_m": 0.8021008696728944,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 2,
+    "n_points": 201,
+    "height_m": 0.4736701394120882,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 7,
+    "n_points": 42517,
+    "height_m": 2.229515807595551,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 8,
+    "n_points": 1810,
+    "height_m": 2.226782309843108,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 15,
+    "n_points": 1769,
+    "height_m": 0.8795750099697942,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 19,
+    "n_points": 2059,
+    "height_m": 0.7629552770585168,
+    "vlm_answer": "RAILING",
+    "geometric_label": "baranda/pared no estructural",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 22,
+    "n_points": 1974,
+    "height_m": 2.2292197039360113,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  },
+  {
+    "cluster": 28,
+    "n_points": 421,
+    "height_m": 0.4569596349435554,
+    "vlm_answer": "RAILING",
+    "geometric_label": "columna",
+    "final_label": "baranda/pared no estructural"
+  }
+]
