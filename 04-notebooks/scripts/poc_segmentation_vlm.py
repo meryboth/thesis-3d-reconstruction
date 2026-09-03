@@ -74,11 +74,30 @@ QUESTION = (
 )
 
 
+MAX_CLUSTER_INPUT_POINTS = 40_000  # tree.query_pairs puede volarse en memoria
+# (O(n*vecinos) pares materializados) sobre nubes muy densas -- Los Paraguas
+# se carga sin sub-muestrear (sample_every_n=1, a diferencia de los otros
+# sitios) y tiene ~4x mas puntos de pared que Templete Central en el mismo
+# volumen. Se agrupa sobre una muestra y se propaga el cluster_id al resto
+# por vecino mas cercano, en vez de agrupar la nube completa de una.
+
+
 def cluster_points(xyz, radius=CLUSTER_RADIUS):
     """Componentes conexas via grilla de vecindad (mismo criterio de radio
     que el CELL_SIZE geometrico, pero en continuo -- no atado a la grilla de
-    celdas cuadradas del script original)."""
+    celdas cuadradas del script original). Devuelve un cluster_id por punto
+    de xyz (longitud n), agrupando sobre una muestra si n es grande."""
     n = len(xyz)
+    if n > MAX_CLUSTER_INPUT_POINTS:
+        rng = np.random.default_rng(0)
+        sample_idx = rng.choice(n, size=MAX_CLUSTER_INPUT_POINTS, replace=False)
+        sample_cluster_id = cluster_points(xyz[sample_idx], radius=radius)
+        # propaga el cluster de cada punto no muestreado desde su vecino
+        # muestreado mas cercano (mismo criterio, resolucion mas baja)
+        sample_tree = cKDTree(xyz[sample_idx])
+        _, nearest = sample_tree.query(xyz, k=1, workers=-1)
+        return sample_cluster_id[nearest]
+
     tree = cKDTree(xyz)
     pairs = tree.query_pairs(r=radius, output_type="ndarray")
 

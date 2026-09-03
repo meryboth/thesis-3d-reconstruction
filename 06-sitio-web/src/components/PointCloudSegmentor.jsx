@@ -16,7 +16,7 @@ const SITES = [
 // sitios que ya tienen el .ply -vlm generado (poc_segmentation_vlm.py) --
 // para el resto el metodo VLM queda deshabilitado en el selector en vez de
 // intentar cargar un archivo que no existe.
-const VLM_AVAILABLE = new Set(["templete-central-dji"]);
+const VLM_AVAILABLE = new Set(["templete-central-dji", "los-paraguas-dron", "panteon-asociacion-espanola-dji"]);
 
 const METHODS = [
   { id: "geometrica", label: "Geométrica (reglas fijas)" },
