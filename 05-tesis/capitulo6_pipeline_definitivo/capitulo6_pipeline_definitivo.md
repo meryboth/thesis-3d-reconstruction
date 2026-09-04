@@ -1,22 +1,40 @@
 **CAPÍTULO 6**
 
-**Pipeline Definitivo y Propuesta de Integración HBIM**
+**Pipeline y propuesta de integración HBIM**
 
-Este capítulo tiene dos objetivos. El primero es documentar, a partir de lo que efectivamente funcionó a lo largo de los tres casos de estudio (Capítulo 5), **dos pipelines definitivos** que comparten el mismo tronco de captura y SfM pero divergen según el destino del resultado: uno orientado a la integración con flujos HBIM/Revit (fotogrametría más nube de puntos segmentada), y otro orientado a la publicación en el archivo digital web (Gaussian Splatting editado en SuperSplat). El segundo objetivo es proponer, a nivel conceptual, cómo el primero de esos pipelines podría integrarse con flujos de trabajo HBIM/Revit para la gestión patrimonial profesional. Ambos objetivos responden directamente a los objetivos específicos planteados en el Capítulo 1 (sección 1.3.2).
+Este capitulo tiene como objetivo no solo documentar el conocimiento que se gano a partir de la busqueda de validacion de las hipotesis en el capitulo anterior, sino tambien definir, a partir de estas conclusiones, cual es el pipeline definitivo de reconstruccion en 3D recomendado para asegurar dos fines:
+
+- La integracion con HBIM
+
+- La construccion de un archivo digital web
+
+En la busqueda por garantizar este doble objetivo se genera una nueva propuesta que tiene el fin de asegurar mayor inteligencia en la interpretacion de los datos al momento de realizar la integracion: Se trata de la propuesta de un paso adicional dentro del flujo de trabajo que no habia sido previsto al momento de disenar la experimentacion. La oportunidad de sumar una herramienta propia de segmentacion dentro del pipeline que garantice una lectura mas clara de la arquitectura que brinda la nube de puntos densa y permita introducirnos en un flujo de reconstruccion con BIM de forma mas rapida y asertiva. 
+
+Lo que vamos a repasar durante este capitulo es la evidencia empirica que ganamos para fundamentar esta recomendacion y vamos a cruzar esta informacion con material academico que nos permita validar o contradecir algunas de las premisas que afirmamos en el capitulo previo. Podria afirmarse que este capitulo es una de las piezas claves de esta investigacion porque pretende dar respuesta a la principal pregunta que plantea esta tesis: ¿Puede una tecnica de reconstruccion de computer vision agilizar un trabajo de digitalizacion de obras construidas y colaborar en la construccion de un archivo digital?. 
 
 **<u>6.1 Criterios de selección de técnica según el objeto patrimonial</u>**
 
-El hallazgo central del Capítulo 5 es que **no existe una técnica óptima en términos absolutos** (confirmando H1), pero tampoco una elección arbitraria: la evidencia recogida permite formular un criterio de selección claro, resumido en la Tabla 6.1. De las tres técnicas evaluadas, solo dos —SfM y Splatfacto— entran en los pipelines definitivos de este capítulo; Nerfacto queda explícitamente excluida, por las razones que la propia tabla documenta.
+El hallazgo central del Capítulo 5 es que **no existe una técnica óptima en términos absolutos** (confirmando H1), pero identificamos potencialidad y desventajas en cada una de ellas para entender como estas tecnicas pueden ser mas o menos optimas para nuestro objetivo. Esta evidencia esta plasmada en la Tabla 6.1. De las tres técnicas evaluadas, solo dos —SfM y 3DGS— entran en los pipelines definitivos de este capítulo; Nerfacto queda explícitamente excluida, por las razones que documentamos. 
 
-| Técnica | Rol en los pipelines definitivos | Evidencia (Capítulo 5) |
-|---|---|---|
-| **SfM** (RealityScan, nube de puntos densa + malla texturizada) | Tronco común de ambos pipelines: registro de cámaras y geometría de partida para Splatfacto, y para la nube de puntos que el Pipeline A segmenta y usa como input hacia BIM (sección 6.2.2) — la malla queda como respaldo documental | Única técnica con geometría explícita, topología de malla y textura UV (sección 5.2.3) |
-| **Splatfacto (3DGS)** | Output principal del Pipeline B — archivo digital web (sección 6.2.3) | Superó a Nerfacto en PSNR/SSIM en los tres casos de estudio (Tabla 5.7); mejor compatibilidad de publicación web entre las tres técnicas (sección 5.6); archivo liviano (Tabla 5.16) |
-| **Nerfacto (NeRF)** | **Excluida de ambos pipelines definitivos** | No ofrece una ventaja decisiva en ningún criterio de uso evaluado en esta tesis: peor que Splatfacto en fidelidad de render en los tres casos (Tabla 5.7); sin ruta de publicación web estándar (sección 5.6); no produce geometría explícita utilizable para BIM (sección 6.3.1); y su output fue directamente inutilizable en el caso de mayor complejidad geométrica (fallo parcial, secciones 5.4.2 y 5.7) |
+| Técnica                 | Rol en los pipelines definitivos                                                                                                                                                      | Evidencia (Capítulo 5)                                                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SfM (Fotogrametria)** | Registro de cámaras y geometría de partida para Splatfacto. Output de nube de puntos para pipeline de segmentacion para integracion HBIM y mesh texturizada como respaldo documental. | Es la unica tecnica necesaria para correr otros procesos como 3DGS. Su output de nube de puntos tiene una integracion optima para flujos HBIM. Define geometria explicita a traves de su mesh (sección 5.2.3).                                                                                                                                                                                                 |
+| **Splatfacto (3DGS)**   | Procesamiento protagonista para el pipeline de construccion de archivo digital web. (sección 6.2.3)                                                                                   | Superó a Nerfacto en PSNR/SSIM en los tres casos de estudio (Tabla 5.7); mejor compatibilidad de publicación web entre las tres técnicas (sección 5.6); archivo liviano (Tabla 5.16)                                                                                                                                                                                                                           |
+| **Nerfacto (NeRF)**     | **Excluida de ambos pipelines definitivos**                                                                                                                                           | No ofrece una ventaja decisiva en ningún criterio de uso evaluado en esta tesis: peor que Splatfacto en fidelidad de render en los tres casos (Tabla 5.7); sin ruta de publicación web estándar (sección 5.6); no produce geometría explícita utilizable para BIM (sección 6.3.1); y su output fue directamente inutilizable en el caso de mayor complejidad geométrica (fallo parcial, secciones 5.4.2 y 5.7) |
 
 *Tabla 6.1 — Rol de cada técnica en los pipelines definitivos propuestos, y evidencia que respalda la exclusión de Nerfacto.*
 
-Esta exclusión de Nerfacto no es una particularidad de esta tesis: Rangelov et al. (2026), en una comparación directa entre NeRF y 3DGS sobre entornos interiores y exteriores, encuentran el mismo patrón —3DGS supera a NeRF en eficiencia computacional y reducción de ruido—. La literatura reconoce, sin embargo, escenarios donde la relación se invierte: Croce et al. (2024) muestran que NeRF puede superar a la fotogrametría cuando el dataset de entrada es escaso o de baja resolución, un escenario distinto al de esta tesis, donde los tres casos de estudio se capturaron con datasets abundantes (Capítulo 4, Tabla 4.6). La exclusión de Nerfacto de los pipelines definitivos, en consecuencia, es específica a las condiciones de captura de esta investigación —datasets ricos en imágenes—, no una afirmación universal sobre la técnica.
+Que NeRF es la tecnica menos compatible con nuestro objetivo es algo que algunos investigadores ya venian relevando en el material que consultamos para entender el estado del arte: Rangelov et al. (2026), en una comparación directa entre NeRF y 3DGS sobre entornos interiores y exteriores, encuentran el mismo patrón —3DGS supera a NeRF en eficiencia computacional y reducción de ruido—. 
+
+Hay excepciones puntuales que descubrieron otros investigaciones, sobre el potencial de NeRF cuando el dataset de entrada es pobre, aparentemente esta tecnica tiene mayor poder de reconstruccion con registros escasos. Croce et al. (2024) es uno de los autores que valida esta afirmacion demostrando como algunos resultados de NeRF superan procesamientos de fotogrametria si el dataset tiene pocas imagenes o estas tienen baja resolucion. Como parte de nuestra recomendacion del pipeline es la creacion de un registro completo que reconstruya de forma completa la obra brindando recorridos en 360 completos en al menos tres niveles de altura podriamos afirmas que la problematica de un dataset incompleto puede ser descartada dentro del flujo de trabajo que recomendamos. 
+
+Se puede afirmar que la tecnica de NeRF tiene mucha potencialidad para la resolucion de otros casos de uso, posiblemente vinculados a la reconstruccion de escenarios para eventos cinematograficos o generacion de material audiovisual (teniendo en cuenta la potencialidad de la tecnica para generar nuevos paths de camara y renderizar videos nuevos). 
+
+![Render de Nerfacto sobre Los Paraguas con un recorrido de cámara personalizado, distinto al del video de captura original](media/paraguas-nerf-custompath.gif)
+
+*Figura 6.1 — Los Paraguas, Nerfacto: recorrido de cámara nuevo, generado con el visor de Nerfstudio, no presente en el video de captura original. Fuente: `nerf-custompath.mp4`.*
+
+La literatura reconoce, sin embargo, escenarios donde la relación se invierte: Croce et al. (2024) muestran que NeRF puede superar a la fotogrametría cuando el dataset de entrada es escaso o de baja resolución, un escenario distinto al de esta tesis, donde los tres casos de estudio se capturaron con datasets abundantes (Capítulo 4, Tabla 4.6). La exclusión de Nerfacto de los pipelines definitivos, en consecuencia, es específica a las condiciones de captura de esta investigación —datasets ricos en imágenes—, no una afirmación universal sobre la técnica.
 
 Un matiz importante que la Tabla 6.1 no captura por sí sola, y que surge directamente de la sección 5.4.2: la fidelidad de Splatfacto en objetos de complejidad geométrica alta está **condicionada a un buen registro SfM previo**, no es una propiedad incondicional de la técnica. El tronco común de ambos pipelines (sección 6.2.1) incorpora esta condición como un paso explícito de verificación del registro SfM, no opcional.
 
@@ -39,7 +57,7 @@ Ambos pipelines comparten el mismo tronco —captura y SfM— y divergen recién
 
 ![Diagrama del Pipeline A: captura, SfM, nube de puntos densa, segmentación geométrica y control de calidad humano (implementado y validado), seguidos de importación de la nube ya clasificada a Revit, modelado paramétrico y vínculo documental (propuesta conceptual); la malla texturizada queda aparte, como respaldo documental](media/pipeline-a-hbim.png)
 
-*Figura 6.1 — Pipeline A, integración HBIM: de la captura a la nube segmentada (implementado) y su continuación conceptual hacia un modelo BIM. Fuente: `build_pipeline_diagram_hbim.py`.*
+*Figura 6.2 — Pipeline A, integración HBIM: de la captura a la nube segmentada (implementado) y su continuación conceptual hacia un modelo BIM. Fuente: `build_pipeline_diagram_hbim.py`.*
 
 A partir del SfM del tronco común (sección 6.2.1), este pipeline parte de la **nube de puntos densa** —no de un render, y no de la malla— y usa la malla texturizada únicamente como respaldo documental (paso 6):
 
@@ -47,7 +65,7 @@ A partir del SfM del tronco común (sección 6.2.1), este pipeline parte de la *
 2. **Control de calidad humano** sobre la clasificación automática, con el editor manual del visor web de esta tesis (sección 6.3.2).
 3. **Exportación de la nube segmentada por clase** (.ply) — este es, junto con el .splat del Pipeline B, uno de los dos archivos que el archivo digital web ofrece para descarga (sección 6.4).
 4. **Importación de la nube segmentada a un entorno de modelado** (por ejemplo, Recap Photo / Revit) como referencia *scan-to-BIM*, ya clasificada por elemento constructivo — no como modelo final. Al llegar ya etiquetada, evita el paso de identificación manual que la literatura de *scan-to-BIM* señala como el cuello de botella del flujo (sección 6.3.2) — propuesta conceptual, sin implementación en esta tesis (sección 6.3.4).
-5. **Modelado paramétrico manual o semiautomático** sobre esa nube ya clasificada, siguiendo el estándar de niveles de detalle (LOD) propio de HBIM para patrimonio histórico: cada clase mapea directamente a una categoría de Revit (Roofs, Structural Columns, Railings, Floors, Figura 6.3) — fuera del alcance técnico de esta tesis (sección 6.3.4).
+5. **Modelado paramétrico manual o semiautomático** sobre esa nube ya clasificada, siguiendo el estándar de niveles de detalle (LOD) propio de HBIM para patrimonio histórico: cada clase mapea directamente a una categoría de Revit (Roofs, Structural Columns, Railings, Floors, Figura 6.4) — fuera del alcance técnico de esta tesis (sección 6.3.4).
 6. **Vínculo documental bidireccional**: conservar la malla texturizada y el output original de SfM como evidencia fotográfica/geométrica de respaldo del modelo HBIM final, replicando el criterio de trazabilidad que esta tesis aplicó internamente a nivel de logs y datasets (Capítulo 4, sección 4.9).
 
 Los pasos 1 y 2 son la única parte de este pipeline que se implementó y validó sobre los tres casos de estudio; los pasos 4 a 6 son una propuesta conceptual (sección 6.3.4 desarrolla el detalle y las limitaciones de cada tramo).
@@ -56,7 +74,7 @@ Los pasos 1 y 2 son la única parte de este pipeline que se implementó y valid�
 
 ![Diagrama del Pipeline B: captura, SfM, entrenamiento de Splatfacto, edición en SuperSplat y exportación, publicado junto con la nube segmentada del Pipeline A como descarga dual](media/pipeline-b-web.png)
 
-*Figura 6.2 — Pipeline B, archivo digital web: de la captura al modelo de Gaussian Splatting editado, publicado junto con la nube segmentada del Pipeline A. Fuente: `build_pipeline_diagram_web.py`.*
+*Figura 6.3 — Pipeline B, archivo digital web: de la captura al modelo de Gaussian Splatting editado, publicado junto con la nube segmentada del Pipeline A. Fuente: `build_pipeline_diagram_web.py`.*
 
 A partir del SfM del tronco común (sección 6.2.1) —nube de puntos dispersa y poses de cámara—, este pipeline entrena y publica un modelo de Gaussian Splatting:
 
@@ -88,31 +106,31 @@ El script `poc_segmentation_multi_site.py` (Capítulo 4, sección 4.9) implement
 
 La Tabla 6.2 resume el resultado sobre los tres casos de estudio, y las Figuras 6.2 a 6.4 muestran la clasificación resultante en el visor web desarrollado para esta tesis (`06-sitio-web`, ruta `/segmentador`).
 
-| Caso de estudio | Puntos totales | Cubierta | Columna | Baranda/pared no estructural | Piso/base |
-|---|---|---|---|---|---|
-| Templete Central | 589.605 | 150.000 | 19.094 | 33.651 | 386.860 |
-| Los Paraguas | 502.817 | 196.453 | 127.293 | 6.044 | 173.027 |
-| Panteón Asociación Española (post-filtro de vegetación) | 356.234 | 39.346 | 48.555 | 96.249 | 172.084 |
+| Caso de estudio                                         | Puntos totales | Cubierta | Columna | Baranda/pared no estructural | Piso/base |
+| ------------------------------------------------------- | -------------- | -------- | ------- | ---------------------------- | --------- |
+| Templete Central                                        | 589.605        | 150.000  | 19.094  | 33.651                       | 386.860   |
+| Los Paraguas                                            | 502.817        | 196.453  | 127.293 | 6.044                        | 173.027   |
+| Panteón Asociación Española (post-filtro de vegetación) | 356.234        | 39.346   | 48.555  | 96.249                       | 172.084   |
 
 *Tabla 6.2 — Conteo de puntos por clase resultante de la segmentación automática, tres casos de estudio.*
 
 ![Templete Central segmentado en el visor web: techo (rojo), columnas (verde), baranda no estructural (amarillo) y piso (azul)](media/segmentacion-templete.png)
 
-*Figura 6.3 — Templete Central: las cuatro clases mapean directamente a categorías de Revit (Roofs, Structural Columns, Railings, Floors).*
+*Figura 6.4 — Templete Central: las cuatro clases mapean directamente a categorías de Revit (Roofs, Structural Columns, Railings, Floors).*
 
 ![Los Paraguas segmentado: ambas cubiertas tipo hongo, vástago central y piso correctamente diferenciados](media/segmentacion-paraguas.png)
 
-*Figura 6.4 — Los Paraguas: la doble curvatura de las cubiertas se resuelve correctamente pese a no ser una geometría plana.*
+*Figura 6.5 — Los Paraguas: la doble curvatura de las cubiertas se resuelve correctamente pese a no ser una geometría plana.*
 
 ![Panteón Asociación Española segmentado, con la arboleda circundante excluida de la clasificación](media/segmentacion-panteon.png)
 
-*Figura 6.5 — Panteón Asociación Española: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
+*Figura 6.6 — Panteón Asociación Española: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
 
-**Control de calidad humano.** La clasificación puramente geométrica no es perfecta —el caso del Panteón, con arboledas cercanas que en algunos tramos comparten color con la pátina de la cúpula, y el caso de Los Paraguas, donde el borde curvo de la cubierta requirió un ajuste específico para no confundirse con piso, son evidencia directa de esto dentro de esta misma tesis—. Por esa razón se extendió el visor con una herramienta de edición manual: selección de puntos por rectángulo, eliminación, deshacer y guardado directo sobre el archivo segmentado (Figura 6.6). Esto no es un detalle secundario del visor sino la respuesta concreta a una limitación reconocida en la literatura: Croce et al. (2023) y Pan et al. (2024) framean sus propuestas como *"semi-automáticas"* precisamente porque ningún clasificador —ni el geométrico simple de esta tesis, ni los basados en aprendizaje profundo de la literatura relevada— elimina la necesidad de una revisión humana antes de que el resultado se use como base de un modelo BIM.
+**Control de calidad humano.** La clasificación puramente geométrica no es perfecta —el caso del Panteón, con arboledas cercanas que en algunos tramos comparten color con la pátina de la cúpula, y el caso de Los Paraguas, donde el borde curvo de la cubierta requirió un ajuste específico para no confundirse con piso, son evidencia directa de esto dentro de esta misma tesis—. Por esa razón se extendió el visor con una herramienta de edición manual: selección de puntos por rectángulo, eliminación, deshacer y guardado directo sobre el archivo segmentado (Figura 6.7). Esto no es un detalle secundario del visor sino la respuesta concreta a una limitación reconocida en la literatura: Croce et al. (2023) y Pan et al. (2024) framean sus propuestas como *"semi-automáticas"* precisamente porque ningún clasificador —ni el geométrico simple de esta tesis, ni los basados en aprendizaje profundo de la literatura relevada— elimina la necesidad de una revisión humana antes de que el resultado se use como base de un modelo BIM.
 
 ![Modo de selección manual activo sobre Templete Central, con un rectángulo de selección arrastrado sobre parte de la cubierta](media/segmentacion-edicion-manual.png)
 
-*Figura 6.6 — Editor manual del visor: control de calidad humano sobre la clasificación automática antes de exportar por clase.*
+*Figura 6.7 — Editor manual del visor: control de calidad humano sobre la clasificación automática antes de exportar por clase.*
 
 **Respaldo en la literatura y posicionamiento de este aporte.** La automatización de este paso —comúnmente llamada segmentación semántica de nubes de puntos para *scan-to-BIM*— es un área activa de investigación. Romero-Jarén y Arranz (2021) proponen un método de segmentación y clasificación automática de elementos BIM (pisos, techos, muros, columnas) a partir de nubes de puntos de interiores; Buldo et al. (2023) documentan un flujo *scan-to-BIM* específico para patrimonio cultural con segmentación automática y modelado paramétrico-adaptativo de sistemas abovedados; Croce et al. (2023) combinan clasificación por Random Forest con reconstrucción H-BIM semi-automática sobre claustros medievales; y Pan et al. (2024) usan una red neuronal profunda (KP-SG) para llevar nubes de puntos semánticas a modelos BIM semánticos en el contexto de un gemelo digital patrimonial. Frente a ese estado del arte, el aporte de esta tesis es modesto pero honesto: una clasificación geométrica simple —sin entrenamiento, sin dataset anotado, ejecutable con los mismos recursos consumer-grade del resto del pipeline (Capítulo 4, Tabla 4.2)— que demuestra, sobre los tres casos de estudio reales de esta investigación, que incluso ese enfoque liviano produce clases usables como punto de partida para el Pipeline A (sección 6.2.2). La adopción de un clasificador basado en aprendizaje profundo (siguiendo, por ejemplo, el enfoque de Pan et al., 2024) queda documentada como línea de trabajo futura (Capítulo 7), no como parte de esta implementación.
 
@@ -122,13 +140,13 @@ El "control de calidad humano" descrito en la sección 6.3.2 —revisar y correg
 
 El pipeline construido para esta prueba: los puntos ya clasificados como columna o baranda por el método geométrico se agrupan por separado (dentro de cada clase) en fragmentos conectados espacialmente, cada fragmento se renderiza en dos paneles —aislado, con sus proporciones reales de alto y ancho, y en contexto dentro del edificio completo—, y la imagen se envía a un modelo de lenguaje-visión corriendo localmente a través de un nodo propio expuesto por la API de ComfyUI, con la pregunta de si el fragmento se parece más a una columna (alto y angosto) o a una baranda (bajo y horizontal). Se probaron dos modelos livianos, elegidos por poder correr en el mismo hardware consumer-grade del resto del pipeline (Capítulo 4, Tabla 4.2): Moondream2 (1.6B parámetros), corrido sobre los tres casos de estudio, y Qwen2-VL-2B-Instruct (2B), corrido sobre el caso de referencia como segundo punto de comparación.
 
-| Modelo | Caso de estudio | Fragmentos evaluados | Acierto | Sesgo observado |
-|---|---|---|---|---|
-| Moondream2 | Templete Central | 15 (8 columna, 7 baranda) | 7/15 (47%) | 100% "baranda" |
-| Moondream2 | Panteón Asociación Española | 19 (9 columna, 10 baranda) | 10/19 (53%) | 100% "baranda" |
-| Moondream2 | Los Paraguas | 7 (2 columna, 5 baranda) | 5/7 (71%) | 100% "baranda" |
-| Moondream2 | **Total, tres sitios** | **41 (19 columna, 22 baranda)** | **22/41 (54%)** | **100% "baranda"** |
-| Qwen2-VL-2B-Instruct | Templete Central | 15 (8 columna, 7 baranda) | 8/15 (53%) | 100% "columna" |
+| Modelo               | Caso de estudio             | Fragmentos evaluados            | Acierto         | Sesgo observado    |
+| -------------------- | --------------------------- | ------------------------------- | --------------- | ------------------ |
+| Moondream2           | Templete Central            | 15 (8 columna, 7 baranda)       | 7/15 (47%)      | 100% "baranda"     |
+| Moondream2           | Panteón Asociación Española | 19 (9 columna, 10 baranda)      | 10/19 (53%)     | 100% "baranda"     |
+| Moondream2           | Los Paraguas                | 7 (2 columna, 5 baranda)        | 5/7 (71%)       | 100% "baranda"     |
+| Moondream2           | **Total, tres sitios**      | **41 (19 columna, 22 baranda)** | **22/41 (54%)** | **100% "baranda"** |
+| Qwen2-VL-2B-Instruct | Templete Central            | 15 (8 columna, 7 baranda)       | 8/15 (53%)      | 100% "columna"     |
 
 *Tabla 6.3 — Acierto de dos modelos de visión livianos frente a la etiqueta del clasificador geométrico, sobre los fragmentos de columna/baranda de los tres casos de estudio (Moondream2) y del caso de referencia (Qwen2-VL-2B-Instruct). Fuente: `poc_segmentation_vlm.py`, `qwen_batch_test.py`.*
 
@@ -136,7 +154,7 @@ La Tabla 6.3 muestra un patrón más revelador que el porcentaje de acierto en s
 
 ![Fragmento de columna real (izquierda, proporciones reales) y en contexto dentro del Templete Central (derecha, en rojo), que Moondream2 clasificó incorrectamente como baranda](media/poc-vlm-frag-columna.png)
 
-*Figura 6.7 — Ejemplo de clasificación fallida: fragmento de 2,23 m de altura, geométricamente una columna, visualmente inequívoco en el panel izquierdo — el modelo respondió "baranda" de todas formas. Fuente: `poc_segmentation_vlm.py`.*
+*Figura 6.8 — Ejemplo de clasificación fallida: fragmento de 2,23 m de altura, geométricamente una columna, visualmente inequívoco en el panel izquierdo — el modelo respondió "baranda" de todas formas. Fuente: `poc_segmentation_vlm.py`.*
 
 **Lectura del resultado.** La infraestructura construida para esta prueba funciona de punta a punta —nodo de ComfyUI expuesto por API, entorno aislado para correr un modelo con dependencias incompatibles con las del resto del pipeline sin afectarlo, agrupamiento de fragmentos, render y reclasificación— y queda disponible como herramienta reusable. El resultado de clasificación en sí, sin embargo, es negativo: ni Moondream2 ni Qwen2-VL-2B-Instruct superaron al umbral geométrico simple en esta tarea puntual, con esta forma de preguntarles. La explicación más probable no es que la idea sea inviable, sino que estos dos modelos —livianos y entrenados mayormente sobre fotografías naturales— no generalizan bien a un tipo de imagen (una nube de puntos dispersa, renderizada de forma abstracta) que probablemente no vieron durante su entrenamiento, y que forzar una respuesta entre solo dos opciones, sin darle al modelo la posibilidad de contestar "no estoy seguro", probablemente amplifica ese problema en vez de dejarlo en evidencia. Queda como línea de trabajo futura (Capítulo 7) probar esta misma idea con un modelo de mayor tamaño, con *fine-tuning* sobre ejemplos de nubes de puntos arquitectónicas, o con un render más realista (por ejemplo, una malla sombreada en vez de puntos dispersos) antes de descartar el enfoque.
 
