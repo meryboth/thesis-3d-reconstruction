@@ -338,6 +338,103 @@
   margin-bottom: 0.6em;
 }
 
+/* ---------- cronologia de relevamientos (Archivo Digital) ---------- */
+
+.timeline-heading {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  margin: 2.2rem 0 0.4rem;
+}
+
+.timeline-intro {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.4rem;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 0 2.2rem;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--rule);
+}
+
+.timeline-item {
+  position: relative;
+  display: block;
+  padding: 0 0 1.5rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.71rem;
+  top: 0.3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+
+.timeline-marker-future {
+  background: var(--bg);
+  border: 2px solid var(--ink-faint);
+}
+
+.timeline-content {
+  font-family: var(--sans);
+}
+
+.timeline-date {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+
+.timeline-date-future {
+  color: var(--ink-faint);
+}
+
+.timeline-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+  color: var(--ink);
+}
+
+.timeline-item:hover .timeline-title {
+  color: var(--accent);
+}
+
+.timeline-devices {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.timeline-devices li {
+  line-height: 1.5;
+}
+
+.timeline-placeholder {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin: 0;
+}
+
 /* ---------- catalogo de splats (Archivo Digital) ---------- */
 
 .splat-catalog {
@@ -420,6 +517,13 @@
   font-size: 0.85rem;
   color: var(--ink-soft);
   line-height: 1.5;
+}
+
+.splat-card-meta {
+  margin: 0 0 0.9rem;
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  line-height: 1.4;
 }
 
 .splat-card-cta {

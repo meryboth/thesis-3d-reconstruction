@@ -54,7 +54,7 @@ Antes de avanzar con el análisis del benchmark es importante entender que el ou
 | Nerfacto (NeRF)                      | 19,466                                   | 0,602 | 0,323 | 46 min 1 s                                        | 167,9 MB (checkpoint)                           |
 | Splatfacto (3DGS)                    | 23,575                                   | 0,756 | 0,336 | 33 min 41 s                                       | 74,7 MB (splat.ply, 315 787 gaussianas)         |
 
-*Tabla 5.2 — B1, resultados cuantitativos sobre el caso de referencia (Templete Central, dataset DJI). Fuente: `analyze_render_benchmark.py`, `analyze_processing_time.py`, `analyze_output_weights.py`, `analyze_gaussian_splats.py`.*
+*Tabla 5.2 — B1, resultados cuantitativos sobre el caso de referencia (Templete Central, dataset DJI). Fuente: [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts), [`analyze_processing_time.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_processing_time.py#scripts), [`analyze_output_weights.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_output_weights.py#scripts), [`analyze_gaussian_splats.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_gaussian_splats.py#scripts).*
 
 ![Comparación Foto original / Nerfacto / Splatfacto — Templete Central, DJI, fotograma inicial](../../00-auditoria/fidelidad-geometrica/02-templete-central/dji/comparacion_00000.jpg)
 
@@ -76,13 +76,13 @@ Antes de avanzar con el análisis del benchmark es importante entender que el ou
 
 *Figura 5.5 — Quinto y último fotograma de la grilla, vista similar a la Figura 5.1 con peatones en el encuadre. Se sostiene el mismo patrón general: Splatfacto reproduce bordes y texturas con mayor nitidez, Nerfacto con un suavizado algo mayor en esas mismas zonas.*
 
-Las Figuras 5.1 a 5.5 son los cinco fotogramas analizados por el script `build_fidelity_comparisons.py`.
+Las Figuras 5.1 a 5.5 son los cinco fotogramas analizados por el script [`build_fidelity_comparisons.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_fidelity_comparisons.py#scripts).
 
 La Tabla 5.2 ya adelanta la magnitud del export de Splatfacto (315 787 gaussianas). El Gráfico 5.1 caracteriza esa nube de gaussianas: casi dos tercios (64,6%) tiene opacidad estimada por encima de 0,5, y solo un 7,3% está por debajo de 0,05 (gaussianas casi transparentes, ya vemos un resultado candidato a limpieza en SuperSplat por la cantidad de gaussianas que conforman el contexto del edificio y no solo la reproducción del mismo).
 
 ![Distribución de opacidad de las gaussianas — Templete Central, DJI, Splatfacto](../../02-templete-central/02-resultados-finales/dji/splatfacto/export/gaussian-splat-opacity-histogram.png)
 
-*Gráfico 5.1 — Distribución de opacidad estimada de las 315 787 gaussianas exportadas para el Templete Central (dataset DJI). Fuente: `analyze_gaussian_splats.py`.*
+*Gráfico 5.1 — Distribución de opacidad estimada de las 315 787 gaussianas exportadas para el Templete Central (dataset DJI). Fuente: [`analyze_gaussian_splats.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_gaussian_splats.py#scripts).*
 
 ![Distribución espacial de las gaussianas — Templete Central, DJI, Splatfacto](../../02-templete-central/02-resultados-finales/dji/splatfacto/export/gaussian-splat-spatial-scatter.png)
 
@@ -124,7 +124,7 @@ El procesamiento se hizo sobre el dataset completo de Templete Central que tení
 
 ![Detección de distractores por imagen — dataset DJI completo](../../00-auditoria/preprocesamiento-comfyui/batch_deteccion_conteo.png)
 
-*Gráfico 5.3 — Cantidad de imágenes con y sin distractor detectado, sobre las 1232 del dataset DJI completo. Fuente: `build_comfyui_batch_stats_charts.py`, a partir de `dataset-dji-comfyui-clean/logs/batch_log.csv`.*
+*Gráfico 5.3 — Cantidad de imágenes con y sin distractor detectado, sobre las 1232 del dataset DJI completo. Fuente: [`build_comfyui_batch_stats_charts.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comfyui_batch_stats_charts.py#scripts), a partir de `dataset-dji-comfyui-clean/logs/batch_log.csv`.*
 
 ![Distribución de cobertura de máscara entre las imágenes con detección](../../00-auditoria/preprocesamiento-comfyui/batch_cobertura_mascara_histograma.png)
 
@@ -154,7 +154,7 @@ A continuación realizamos un recorrido detallado sobre las decisiones de diseñ
 
 ![Diagrama del pipeline de limpieza de distractores en ComfyUI](../../00-auditoria/preprocesamiento-comfyui/pipeline-comfyui-limpieza.png)
 
-*Figura 5.9 — Pipeline de limpieza de distractores ejecutado en ComfyUI. Fuente: `build_comfyui_pipeline_diagram.py`.*
+*Figura 5.9 — Pipeline de limpieza de distractores ejecutado en ComfyUI. Fuente: [`build_comfyui_pipeline_diagram.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comfyui_pipeline_diagram.py#scripts).*
 
 Si bien el workflow completo tiene la funcionalidad de identificar y enmascarar la presencia de distractores en cada uno de los frames del dataset, cada nodo o componente de este sistema tiene una responsabilidad distinta en la obtención de este objetivo en común. A continuación se realiza un repaso por las principales decisiones de diseño que se realizaron al momento de pensar este workflow:
 
@@ -185,7 +185,7 @@ Al igual que las corridas sobre el dataset original se utilizó NerfStudio como 
 
 ![Comparación PSNR/SSIM/LPIPS, raw vs. Dataset B, por técnica](../../00-auditoria/h2-comfyui-comparison/h2_psnr_ssim_lpips_raw_vs_clean.png)
 
-*Gráfico 5.5 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. Dataset B (ComfyUI), por técnica. Fuente: `build_h2_comparison_chart.py`.*
+*Gráfico 5.5 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. Dataset B (ComfyUI), por técnica. Fuente: [`build_h2_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_h2_comparison_chart.py#scripts).*
 
 **Lectura de los resultados — H2 no se sostiene sin matices:**
 
@@ -205,27 +205,27 @@ A continuación se utilizan algunos fotogramas testigos con la finalidad de most
 
 ![Foto original / máscara / resultado aislado — fotograma 00000](../../00-auditoria/preprocesamiento-mascara/comparacion_00000_mascara.jpg)
 
-*Figura 5.10 — Fotograma 00000: foto original, máscara de entrenamiento RMBG-2.0 y resultado de aplicarla, de izquierda a derecha. Fuente: `build_masking_before_after.py`.*
+*Figura 5.10 — Fotograma 00000: foto original, máscara de entrenamiento RMBG-2.0 y resultado de aplicarla, de izquierda a derecha. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00308](../../00-auditoria/preprocesamiento-mascara/comparacion_00308_mascara.jpg)
 
-*Figura 5.11 — Fotograma 00308, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+*Figura 5.11 — Fotograma 00308, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00462](../../00-auditoria/preprocesamiento-mascara/comparacion_00462_mascara.jpg)
 
-*Figura 5.12 — Fotograma 00462, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+*Figura 5.12 — Fotograma 00462, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00616](../../00-auditoria/preprocesamiento-mascara/comparacion_00616_mascara.jpg)
 
-*Figura 5.13 — Fotograma 00616, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+*Figura 5.13 — Fotograma 00616, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00924](../../00-auditoria/preprocesamiento-mascara/comparacion_00924_mascara.jpg)
 
-*Figura 5.14 — Fotograma 00924, mismo procedimiento, con una persona en el encuadre. Fuente: `build_masking_before_after.py`.*
+*Figura 5.14 — Fotograma 00924, mismo procedimiento, con una persona en el encuadre. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 01078](../../00-auditoria/preprocesamiento-mascara/comparacion_01078_mascara.jpg)
 
-*Figura 5.15 — Fotograma 01078, mismo procedimiento. Fuente: `build_masking_before_after.py`.*
+*Figura 5.15 — Fotograma 01078, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 **5.3.6 Resultado de entrenar con la máscara**
 
@@ -240,11 +240,11 @@ Se entrenaron ambas técnicas sobre el Templete Central (DJI) con esta máscara:
 | Splatfacto | Raw           | 23,57     | 0,756 | 0,336 |
 | Splatfacto | Con máscara   | 13,34     | 0,486 | 0,426 |
 
-*Tabla 5.4 — Templete Central (DJI): métricas de render, dataset raw vs. dataset con máscara de entrenamiento RMBG, por técnica. † Nerfacto/con máscara corrió a downscale×4 (raw fue a resolución completa) — no comparable 1:1, ver nota metodológica abajo. Fuente: `build_masking_comparison_chart.py`.*
+*Tabla 5.4 — Templete Central (DJI): métricas de render, dataset raw vs. dataset con máscara de entrenamiento RMBG, por técnica. † Nerfacto/con máscara corrió a downscale×4 (raw fue a resolución completa) — no comparable 1:1, ver nota metodológica abajo. Fuente: [`build_masking_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_comparison_chart.py#scripts).*
 
 ![Comparación PSNR/SSIM/LPIPS, raw vs. máscara de entrenamiento, por técnica](../../00-auditoria/masking-comparison/masking_psnr_ssim_lpips_raw_vs_masked.png)
 
-*Gráfico 5.6 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. dataset con máscara de entrenamiento, por técnica. Fuente: `build_masking_comparison_chart.py`.*
+*Gráfico 5.6 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. dataset con máscara de entrenamiento, por técnica. Fuente: [`build_masking_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_comparison_chart.py#scripts).*
 
 Los resultados de este experimento fueron aún peores que con el preprocesamiento de distractores: las métricas son inferiores en ambas técnicas y en cada una de las variables a analizar. Acá el dato importante es que la reconstrucción se evalúa utilizando como ground truth la imagen completa: tanto el edificio como su contexto. Y extraer el edificio de su entorno no mejora su percepción sino que la empeora. Lo que hacen ambas técnicas es 'rellenar' la información que no tienen del edificio con un ruido que puede leerse como caótico en las imágenes (ver Figura 5.16). Mientras Gaussian Splatting le baja la opacidad a las gaussianas en las secciones donde no interpreta geometría, NeRF adhiere una región con contenido sin restricciones, sumando ruido y materialidad azarosa a regiones que con el dataset limpio pueden interpretarse como cielo o suelo. 
 
@@ -252,7 +252,7 @@ El aprendizaje de esta prueba da cuenta de algo muy importante: el contexto de u
 
 ![Comparación visual: foto original, predicción raw y predicción con máscara — Splatfacto y Nerfacto](../../00-auditoria/masking-comparison/visual_comparison_masking.jpg)
 
-*Figura 5.16 — Templete Central (DJI): foto original, predicción del modelo raw y predicción del modelo con máscara, sobre tres fotogramas de evaluación — bloque superior Splatfacto, bloque inferior Nerfacto. En ambas técnicas la predicción con máscara reproduce el edificio con fidelidad razonable, pero el fondo se renderiza como ruido en vez de quedar vacío o uniforme: motas de color en Splatfacto, una masa oscura/humosa en Nerfacto (degradación visual mayor). Fuente: `build_masking_visual_comparison.py`.*
+*Figura 5.16 — Templete Central (DJI): foto original, predicción del modelo raw y predicción del modelo con máscara, sobre tres fotogramas de evaluación — bloque superior Splatfacto, bloque inferior Nerfacto. En ambas técnicas la predicción con máscara reproduce el edificio con fidelidad razonable, pero el fondo se renderiza como ruido en vez de quedar vacío o uniforme: motas de color en Splatfacto, una masa oscura/humosa en Nerfacto (degradación visual mayor). Fuente: [`build_masking_visual_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_visual_comparison.py#scripts).*
 
 | Técnica    | Dataset       | Tiempo de entrenamiento | Render (fps) | Rayos/seg |
 | ---------- | ------------- | ----------------------- | ------------ | --------- |
@@ -276,7 +276,7 @@ Teniendo en cuenta que el objeto a reconstruir se encontraba aislado de su conte
 | Volumen bounding box             | 981.706              | 1.171.092            |
 | Opacidad media (alpha)           | 0,659                | 0,359                |
 
-*Tabla 5.6 — Templete Central (DJI), Splatfacto: nube de gaussianas exportada, raw vs. con máscara de entrenamiento. Fuente: `analyze_masked_splat_comparison.py`.*
+*Tabla 5.6 — Templete Central (DJI), Splatfacto: nube de gaussianas exportada, raw vs. con máscara de entrenamiento. Fuente: [`analyze_masked_splat_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_masked_splat_comparison.py#scripts).*
 
 El resultado indica que la máscara no reduce la cantidad de floaters ni el halo completo de gaussianas dispersas: el modelo exporta más del doble de gaussianas. Lo que sí cambia notablemente es la claridad y la distribución de las mismas: se reconocen más gaussianas transparentes concentradas, posiblemente para reemplazar aquellas regiones del contexto que el entrenamiento no llega a reconocer ni como fondo ni como suelo. 
 
@@ -304,7 +304,7 @@ Para el siguiente análisis se utilizaron distintos dataset, el mismo dispositiv
 | Media       | Templete Central            | 19,466        | 0,602         | 23,575          | 0,756           | +4,11                 |
 | Alta        | Panteón Asociación Española | 10,449        | 0,118         | 25,939          | 0,858           | +15,49                |
 
-*Tabla 5.7 — B3, matriz de PSNR/SSIM por técnica y nivel de complejidad geométrica (dataset DJI). Fuente: `analyze_render_benchmark.py`.*
+*Tabla 5.7 — B3, matriz de PSNR/SSIM por técnica y nivel de complejidad geométrica (dataset DJI). Fuente: [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts).*
 
 ![PSNR vs. nivel de complejidad geométrica, por técnica](../../00-auditoria/charts/07_psnr_vs_complejidad.png)
 
@@ -362,7 +362,7 @@ El análisis de las nubes densas de cada uno de los edificios nos permite entend
 | Templete Central            | RealityScan (export denso) | 17 688 149 | 38,3 mm                              | 7,2%                          |
 | Panteón Asociación Española | RealityScan (export denso) | 17 871 606 | 57,8 mm                              | 8,0%                          |
 
-*Tabla 5.8 — Densidad y calidad local de la nube de puntos densa por caso de estudio. Fuente: `analyze_dense_clouds.py`.*
+*Tabla 5.8 — Densidad y calidad local de la nube de puntos densa por caso de estudio. Fuente: [`analyze_dense_clouds.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_dense_clouds.py#scripts).*
 
 ![Nube de puntos densa — Los Paraguas, proyecciones XY/XZ](../../01-paraguas-vicentelopez/02-resultados-finales/colmap-fotogrametria-densa/fused_medium_high_clean-scatter.png)
 
@@ -392,7 +392,7 @@ Otra de las hipótesis que buscamos validar en esta investigación está vincula
 | Panteón Asociación Española | Solo Insta360                                               | 365      | 85,21%                                             | 85,21%                                                       |
 | Panteón Asociación Española | Híbrido DJI+Insta360 (COLMAP nativo, matching exhaustivo)   | 974      | — (corrida directa, sin wrapper `ns-process-data`) | **93,4%** (910/974, componente principal; ver sección 5.5.6) |
 
-*Tabla 5.9 — Registro SfM por composición de dataset. Fuente: `analyze_sfm_registration_comparison.py`, `parse_colmap_images_bin.py`.*
+*Tabla 5.9 — Registro SfM por composición de dataset. Fuente: [`analyze_sfm_registration_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_sfm_registration_comparison.py#scripts), [`parse_colmap_images_bin.py`](https://thesis-3d-reconstruction.vercel.app/?script=parse_colmap_images_bin.py#scripts).*
 
 **5.5.2 Hallazgo metodológico: componentes de reconstrucción desconectados**
 
@@ -432,7 +432,7 @@ A modo de síntesis podemos confirmar que el matching entre imágenes no es un p
 | Insta360–Insta360 | 45,7%                 | 189,0                              | 6.994          |
 | **DJI–Insta360**  | 40,1%                 | **43,2**                           | **183**        |
 
-*Tabla 5.10 — Calidad de matching por tipo de par de dispositivos, dataset híbrido de Templete Central. Fuente: `analyze_hybrid_cross_camera_matching.py`, sobre `database.db` de la corrida de matching exhaustivo.*
+*Tabla 5.10 — Calidad de matching por tipo de par de dispositivos, dataset híbrido de Templete Central. Fuente: [`analyze_hybrid_cross_camera_matching.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_hybrid_cross_camera_matching.py#scripts), sobre `database.db` de la corrida de matching exhaustivo.*
 
 ![Calidad de matching por tipo de par](../../00-auditoria/hybrid-cross-camera-matching/hybrid-cross-camera-matching-chart.png)
 
@@ -446,11 +446,11 @@ El diseño original de B4 (Capítulo 4, sección 4.5) acota la comparación entr
 
 ![PSNR y SSIM por sitio, dispositivo y técnica](../../00-auditoria/charts/05_psnr_ssim_por_sitio.png)
 
-*Gráfico 5.12 — PSNR (barras) y SSIM (línea) por sitio, dispositivo y técnica, las diez combinaciones medidas. Fuente: `build_comparison_charts.py`.*
+*Gráfico 5.12 — PSNR (barras) y SSIM (línea) por sitio, dispositivo y técnica, las diez combinaciones medidas. Fuente: [`build_comparison_charts.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comparison_charts.py#scripts).*
 
 ![LPIPS por sitio, dispositivo y técnica](../../00-auditoria/charts/06_lpips_por_sitio.png)
 
-*Gráfico 5.13 — LPIPS (distancia perceptual, más bajo es mejor) por sitio, dispositivo y técnica. Fuente: `build_comparison_charts.py`.*
+*Gráfico 5.13 — LPIPS (distancia perceptual, más bajo es mejor) por sitio, dispositivo y técnica. Fuente: [`build_comparison_charts.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comparison_charts.py#scripts).*
 
 Podemos deducir por el análisis del Gráfico 5.13 que no hay un dispositivo mejor que otro para la captura, hay índices que muestran que el registro con DJI fue superior, y otros casos donde los resultados con Insta360 superan el dataset de DJI. Lo que sí es consistente a modo de conclusión es que la utilización de un único dispositivo durante todo el registro optimiza mucho el procesamiento, el matching de pared en COLMAP y la reconstrucción de un único componente como geometría reconocida. En todos los casos en los cuales se utilizó un dataset híbrido los resultados fueron más pobres y complicaron mucho la generación del SfM incluso llegando a fallos catastróficos. 
 
@@ -473,11 +473,11 @@ Como se indicó de forma previa, la segunda corrida de COLMAP para el dataset h�
 | Splatfacto | Insta360  | 13,99     | 0,523 | 0,433 |
 | Splatfacto | Híbrido   | 15,51     | 0,555 | 0,557 |
 
-*Tabla 5.11 — Templete Central: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. † Nerfacto/Híbrido corrió a downscale×8 (DJI/Insta360-solo, a resolución completa) — confound adicional, ver nota metodológica arriba. DJI/Insta360 evaluados con `analyze_render_benchmark.py`; Híbrido con `ns-eval` (corrida fuera de la estructura curada de este proyecto) — mismo tipo de métrica, pipeline de cálculo distinto. Fuente: `build_hybrid_comparison_chart.py`.*
+*Tabla 5.11 — Templete Central: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. † Nerfacto/Híbrido corrió a downscale×8 (DJI/Insta360-solo, a resolución completa) — confound adicional, ver nota metodológica arriba. DJI/Insta360 evaluados con [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts); Híbrido con `ns-eval` (corrida fuera de la estructura curada de este proyecto) — mismo tipo de métrica, pipeline de cálculo distinto. Fuente: [`build_hybrid_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart.py#scripts).*
 
 ![Comparación PSNR/SSIM/LPIPS, DJI vs. Insta360 vs. Híbrido, por técnica](../../00-auditoria/hibrido-comparison/hibrido_psnr_ssim_lpips.png)
 
-*Gráfico 5.14 — PSNR, SSIM y LPIPS del Templete Central, por dispositivo y técnica. Fuente: `build_hybrid_comparison_chart.py`.*
+*Gráfico 5.14 — PSNR, SSIM y LPIPS del Templete Central, por dispositivo y técnica. Fuente: [`build_hybrid_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart.py#scripts).*
 
 **5.5.6 Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Española**
 
@@ -491,7 +491,7 @@ Para que la comparación sea lo más completa posible también se corrieron proc
 | Insta360–Insta360 | 25,1%                 | 170,0                              | 5.342          |
 | **DJI–Insta360**  | 17,6%                 | **49,9**                           | **811**        |
 
-*Tabla 5.12 — Calidad de matching por tipo de par de dispositivos, dataset híbrido del Panteón Asociación Española. Fuente: `analyze_hybrid_cross_camera_matching_panteon.py`, sobre `database.db` de la corrida `run-20260827-163722`.*
+*Tabla 5.12 — Calidad de matching por tipo de par de dispositivos, dataset híbrido del Panteón Asociación Española. Fuente: [`analyze_hybrid_cross_camera_matching_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_hybrid_cross_camera_matching_panteon.py#scripts), sobre `database.db` de la corrida `run-20260827-163722`.*
 
 ![Calidad de matching por tipo de par, Panteón Asociación Española](../../00-auditoria/hybrid-cross-camera-matching/hybrid-cross-camera-matching-chart-panteon.png)
 
@@ -506,11 +506,11 @@ Para que la comparación sea lo más completa posible también se corrieron proc
 | Splatfacto | Insta360 | 14,48     | 0,397 | 0,497 |
 | Splatfacto | Híbrido  | 12,90     | 0,269 | 0,854 |
 
-*Tabla 5.13 — Panteón Asociación Española: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. Misma metodología de cálculo mixta que la Tabla 5.11 (DJI/Insta360 con `analyze_render_benchmark.py`, Híbrido con `ns-eval`). Fuente: `build_hybrid_comparison_chart_panteon.py`.*
+*Tabla 5.13 — Panteón Asociación Española: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. Misma metodología de cálculo mixta que la Tabla 5.11 (DJI/Insta360 con [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts), Híbrido con `ns-eval`). Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
 
 ![Comparación PSNR/SSIM/LPIPS, DJI vs. Insta360 vs. Híbrido, Panteón Asociación Española](../../00-auditoria/hibrido-comparison/hibrido_psnr_ssim_lpips_panteon.png)
 
-*Gráfico 5.16 — PSNR, SSIM y LPIPS del Panteón Asociación Española, por dispositivo y técnica. Fuente: `build_hybrid_comparison_chart_panteon.py`.*
+*Gráfico 5.16 — PSNR, SSIM y LPIPS del Panteón Asociación Española, por dispositivo y técnica. Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
 
 Con Splatfacto el resultado calca al del Templete Central: el híbrido (12,90 dB) rinde peor que DJI solo (25,94 dB) y que Insta360 solo (14,48 dB), en las tres métricas, sin excepción. El export también lo confirma: el modelo híbrido tiene más gaussianas que el de DJI solo (673.437 vs. 315.327) en un archivo más pesado (97,5 vs. 74,6 MB) pero con peor render — la misma desconexión entre cantidad de gaussianas y calidad que ya vimos en el Templete Central.
 
@@ -548,7 +548,7 @@ Con el fin de garantizar la reproducibilidad del pipeline que va a proponer como
 | Templete Central            | 3                    | 0                             | Archivo de entrada faltante (`transforms.json`); excepción de configuración (`not_use_single_camera_mode` solo funciona con `hloc`); archivo faltante en dataset ds8 de Splatfacto |
 | Panteón Asociación Española | 0                    | 1 (3 reintentos)              | Reintentos del entrenamiento de Nerfacto (`04_nerfstudio_nerf_train`, 3 corridas)                                                                                                  |
 
-*Tabla 5.15 — Tasa de fallos por sitio. Fuente: `analyze_failure_rate.py`.*
+*Tabla 5.15 — Tasa de fallos por sitio. Fuente: [`analyze_failure_rate.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_failure_rate.py#scripts).*
 
 ![Fallos por sitio](../../00-auditoria/charts/04_fallos_por_sitio.png)
 
@@ -576,7 +576,7 @@ Teniendo en cuenta los aspectos mencionados podemos garantizar un índice de fal
 | Panteón Asociación Española | Nerfacto   | .ckpt          | 167,9 MB             |
 | Panteón Asociación Española | Splatfacto | splat.ply      | 74,6 MB              |
 
-*Tabla 5.16 — Peso del archivo de output final por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). El peso no es una métrica definida para H4 (Capítulo 4, sección 4.3.5); los valores de los outputs Insta360, del mismo orden de magnitud, están documentados en `00-auditoria/output-weights/` sin reproducirse aquí. Fuente: `analyze_output_weights.py`.*
+*Tabla 5.16 — Peso del archivo de output final por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). El peso no es una métrica definida para H4 (Capítulo 4, sección 4.3.5); los valores de los outputs Insta360, del mismo orden de magnitud, están documentados en `00-auditoria/output-weights/` sin reproducirse aquí. Fuente: [`analyze_output_weights.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_output_weights.py#scripts).*
 
 ![Peso de archivo por técnica](../../00-auditoria/charts/02_peso_archivo_por_tecnica.png)
 
@@ -592,7 +592,7 @@ Un aspecto interesante de este análisis es el gran peso que tienen los archivos
 | Templete Central            | 46 min 1 s      | 33 min 41 s     |
 | Panteón Asociación Española | 1 h 38 min 35 s | 36 min 15 s     |
 
-*Tabla 5.17 — Tiempo de entrenamiento (30 000 iteraciones) por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). Los tiempos de los datasets Insta360 están documentados en `00-auditoria/processing-time/`; el tiempo de procesamiento no es una métrica definida para H4 (Capítulo 4, sección 4.3.5), por lo que no se comparan aquí entre dispositivos. Fuente: `analyze_processing_time.py`, medido sobre las carpetas de trabajo originales (Capítulo 4, sección 4.3.6).*
+*Tabla 5.17 — Tiempo de entrenamiento (30 000 iteraciones) por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). Los tiempos de los datasets Insta360 están documentados en `00-auditoria/processing-time/`; el tiempo de procesamiento no es una métrica definida para H4 (Capítulo 4, sección 4.3.5), por lo que no se comparan aquí entre dispositivos. Fuente: [`analyze_processing_time.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_processing_time.py#scripts), medido sobre las carpetas de trabajo originales (Capítulo 4, sección 4.3.6).*
 
 Las conclusiones sobre el tiempo de procesamiento de cada técnica son ambiguas, mientras en algunos edificios NeRF se posiciona como la técnica más rápida (como en el caso de Los Paraguas), en otros como en el caso del Panteón y el Templete Central NeRF es más lenta que Splatfacto. Es probable que la complejidad geométrica del Panteón haya dificultado el procesamiento de NeRF y por eso la técnica fue casi tres veces más lenta que en 3DGS. 
 

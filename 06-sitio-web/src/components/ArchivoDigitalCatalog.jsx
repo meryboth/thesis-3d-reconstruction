@@ -1,3 +1,7 @@
+// `captures`: una entrada por dispositivo/sesion de relevamiento (fecha de
+// inicio y fin del registro en campo). Cuando se sume un futuro caso de
+// estudio, alcanza con agregar un objeto mas a este array -- tanto las
+// cards como la cronologia de abajo se arman solas a partir de esto.
 const SITES = [
   {
     id: "paraguas",
@@ -9,6 +13,11 @@ const SITES = [
     thumbnail: null,
     plyUrl: "/archivo-digital/paraguas/scene.ply",
     splatUrl: "/archivo-digital/paraguas/splat.splat",
+    captures: [{ device: "DJI Neo 2", start: "2026-06-20", end: "2026-06-20" }],
+    // dispositivo cuyo registro efectivamente se uso para entrenar el
+    // splat publicado (ver `captures` para el historial completo de
+    // relevamiento en campo, que puede incluir otros dispositivos).
+    splatDevice: "DJI Neo 2",
   },
   {
     id: "templete-central",
@@ -20,6 +29,11 @@ const SITES = [
     plyUrl: "/archivo-digital/templete-central/scene.ply",
     // .splat todavia no exportado -- pendiente de curar en SuperSplat
     splatUrl: null,
+    captures: [
+      { device: "Insta360 X5", start: "2026-08-02", end: "2026-08-09" },
+      { device: "DJI Neo 2", start: "2026-08-09", end: "2026-08-23" },
+    ],
+    splatDevice: "DJI Neo 2",
   },
   {
     id: "panteon",
@@ -31,8 +45,37 @@ const SITES = [
     plyUrl: "/archivo-digital/panteon/scene.ply",
     // .splat todavia no exportado -- pendiente de curar en SuperSplat
     splatUrl: null,
+    captures: [
+      { device: "DJI Neo 2", start: "2026-08-09", end: "2026-08-22" },
+      { device: "Insta360 X5", start: "2026-08-09", end: "2026-08-09" },
+    ],
+    splatDevice: "DJI Neo 2",
   },
 ];
+
+const MONTHS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+
+function formatDate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+function formatRange(start, end) {
+  if (start === end) return formatDate(start);
+  const [ys, ms, ds] = start.split("-").map(Number);
+  const [ye, me, de] = end.split("-").map(Number);
+  if (ys === ye && ms === me) return `${ds}–${de} ${MONTHS[ms - 1]} ${ys}`;
+  if (ys === ye) return `${ds} ${MONTHS[ms - 1]} – ${de} ${MONTHS[me - 1]} ${ys}`;
+  return `${formatDate(start)} – ${formatDate(end)}`;
+}
+
+function earliestDate(captures) {
+  return captures.reduce((min, c) => (c.start < min ? c.start : min), captures[0].start);
+}
+
+function latestDate(captures) {
+  return captures.reduce((max, c) => (c.end > max ? c.end : max), captures[0].end);
+}
 
 // icono placeholder generico (nube de puntos / splat) para las cards sin
 // thumbnail todavia -- reemplazar `thumbnail` en SITES por un gif/imagen
@@ -55,6 +98,10 @@ function PlaceholderIcon() {
 }
 
 export default function ArchivoDigitalCatalog({ registerRef }) {
+  const timeline = [...SITES].sort((a, b) =>
+    earliestDate(a.captures).localeCompare(earliestDate(b.captures))
+  );
+
   return (
     <section id="archivo-digital" className="chapter" ref={registerRef}>
       <header className="chapter-head">
@@ -75,9 +122,45 @@ export default function ArchivoDigitalCatalog({ registerRef }) {
             final del archivo digital.
           </em>
         </p>
+
+        <h2 className="timeline-heading">Cronología de relevamientos</h2>
+        <p className="timeline-intro">
+          Fecha de registro en campo de cada caso de estudio, por dispositivo. A medida que se sumen
+          nuevos relevamientos al archivo, se van a ir agregando acá en orden.
+        </p>
+        <div className="timeline">
+          {timeline.map((site) => (
+            <a key={site.id} href={`#archivo-digital-${site.id}`} className="timeline-item">
+              <div className="timeline-marker" aria-hidden="true" />
+              <div className="timeline-content">
+                <span className="timeline-date">
+                  {formatRange(earliestDate(site.captures), latestDate(site.captures))}
+                </span>
+                <h3 className="timeline-title">{site.title}</h3>
+                <ul className="timeline-devices">
+                  {site.captures.map((c) => (
+                    <li key={c.device}>
+                      {c.device} · {formatRange(c.start, c.end)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </a>
+          ))}
+          <div className="timeline-item timeline-item-future">
+            <div className="timeline-marker timeline-marker-future" aria-hidden="true" />
+            <div className="timeline-content">
+              <span className="timeline-date timeline-date-future">Próximo relevamiento</span>
+              <p className="timeline-placeholder">
+                Nuevos casos de estudio se van a documentar acá a medida que se sumen al archivo.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="splat-catalog">
           {SITES.map((site) => (
-            <div key={site.id} className="splat-card">
+            <div key={site.id} id={`archivo-digital-${site.id}`} className="splat-card">
               <a
                 className="splat-card-link"
                 href={site.viewerUrl || `/archivo-digital/${site.id}/index.html`}
@@ -102,6 +185,13 @@ export default function ArchivoDigitalCatalog({ registerRef }) {
                   <h3>{site.title}</h3>
                   <p className="splat-card-subtitle">{site.subtitle}</p>
                   <p className="splat-card-description">{site.description}</p>
+                  {site.captures
+                    .filter((c) => c.device === site.splatDevice)
+                    .map((c) => (
+                      <p key={c.device} className="splat-card-meta">
+                        Relevamiento usado: {c.device} · {formatRange(c.start, c.end)}
+                      </p>
+                    ))}
                   <span className="splat-card-cta">Ver en 3D →</span>
                 </div>
               </a>

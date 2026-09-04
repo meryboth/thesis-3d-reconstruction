@@ -216,6 +216,15 @@
     "url": "/scripts/files/build_comfyui_pipeline_diagram.py"
   },
   {
+    "name": "build_comfyui_workflow_overview.py",
+    "lang": "Python",
+    "description": "Diagrama de vision general del workflow de limpieza de distractores con ComfyUI (Cap. 5, seccion 5.3.1): deteccion+segmentacion (YOLOv8-seg) -> filtro de clase (COCO person/bird/car) -> inpainting (LaMa) -> dataset curado.",
+    "category": "Gráficos y datasets derivados",
+    "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
+    "sizeBytes": 3657,
+    "url": "/scripts/files/build_comfyui_workflow_overview.py"
+  },
+  {
     "name": "build_comparison_charts.py",
     "lang": "Python",
     "description": "Graficos comparativos (matplotlib) a partir de las tablas ya generadas por los demas scripts de analyze_*.py — no recalcula nada, solo visualiza.",
@@ -326,10 +335,10 @@
   {
     "name": "build_pipeline_diagram.py",
     "lang": "Python",
-    "description": "Diagrama de flujo del pipeline definitivo propuesto en el Capitulo 6. Generado con matplotlib (sin dependencias graficas adicionales).",
+    "description": "Diagrama del pipeline definitivo unico propuesto en el Capitulo 6, seccion 6.2: un tronco comun (captura + SfM) que se bifurca en dos ramas -- integracion HBIM (izquierda) y archivo digital web (derecha) -- y converge de nuevo en la…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 4465,
+    "sizeBytes": 6549,
     "url": "/scripts/files/build_pipeline_diagram.py"
   },
   {
@@ -428,7 +437,7 @@
     "description": "Corrige el Grafico 5.7 de Cap. 5: la nube densa de Los Paraguas sale de COLMAP nativo (a diferencia de Templete/Panteon, que salen de RealityScan) y tiene una convencion de ejes distinta -- ahi el \"arriba\" real es Y, no Z.…",
     "category": "Utilidades",
     "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
-    "sizeBytes": 3964,
+    "sizeBytes": 4490,
     "url": "/scripts/files/fix_paraguas_dense_cloud_scatter.py"
   },
   {
@@ -466,6 +475,15 @@
     "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
     "sizeBytes": 3752,
     "url": "/scripts/files/level_point_cloud.py"
+  },
+  {
+    "name": "moondream_infer.py",
+    "lang": "Python",
+    "description": "Inferencia de Moondream2 aislada en su propio venv (04-notebooks/.venv-moondream), separado del venv de ComfyUI porque el transformers que ya tiene ComfyUI (5.16, muy nueva) rompe la carga del remote code de moondream2 (moondream2 todavia…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1588,
+    "url": "/scripts/files/moondream_infer.py"
   },
   {
     "name": "parse_colmap_images_bin.py",
@@ -565,6 +583,33 @@
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
     "sizeBytes": 9162,
     "url": "/scripts/files/poc_segmentation_normals_densecloud.py"
+  },
+  {
+    "name": "poc_segmentation_vlm.py",
+    "lang": "Python",
+    "description": "POC: segmentacion asistida por un modelo de vision (Moondream2, via un nodo de ComfyUI expuesto por su API HTTP) para refinar la distincion columna estructural vs. baranda/pared no estructural de poc_segmentation_multi_site.py -- ahi esa…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 13513,
+    "url": "/scripts/files/poc_segmentation_vlm.py"
+  },
+  {
+    "name": "poc_vlm_color_render_test.py",
+    "lang": "Python",
+    "description": "Prueba ACOTADA: en vez de tocar la malla texturizada de RealityScan (4 GB, demasiado pesada para esta maquina -- ver notas), se prueba primero algo mucho mas barato: la nube de puntos que ya usamos (nube-densa.xyz) YA TIENE color real por…",
+    "category": "Pruebas de concepto",
+    "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
+    "sizeBytes": 6330,
+    "url": "/scripts/files/poc_vlm_color_render_test.py"
+  },
+  {
+    "name": "qwen_batch_test.py",
+    "lang": "Python",
+    "description": "Prueba rapida (sin pasar por ComfyUI, directo) de Qwen2-VL-2B sobre los renders de fragmentos ya generados por poc_segmentation_vlm.py, para comparar su tasa de acierto contra la etiqueta geometrica de origen antes de integrarlo al…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 2532,
+    "url": "/scripts/files/qwen_batch_test.py"
   },
   {
     "name": "audit_colmap_dji_insta360.ps1",

@@ -74,6 +74,14 @@ def main():
     ground_z = np.median(xyz_leveled[:, 2][np.abs(xyz @ normal + d) < 0.05])
     xyz_leveled[:, 2] -= ground_z
 
+    # El heuristico de orientacion (mediana de puntos del lado positivo de la
+    # normal) eligio el lado equivocado para este sitio -- la cubierta ancha
+    # terminaba proyectada cerca de Z=0 y la base angosta de la columna cerca
+    # del techo (al reves de la foto real, Imagen 3.1 del Cap. 3: columna
+    # delgada con base chica al piso, cubierta ancha arriba). Se espeja Z
+    # explicitamente para este sitio en vez de tocar el heuristico general.
+    xyz_leveled[:, 2] = xyz_leveled[:, 2].max() - xyz_leveled[:, 2]
+
     rng = np.random.default_rng(RANDOM_SEED)
     sample = xyz_leveled[rng.choice(len(xyz_leveled), size=min(SAMPLE_N, len(xyz_leveled)), replace=False)]
 
