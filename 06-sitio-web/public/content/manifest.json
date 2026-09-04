@@ -681,7 +681,7 @@
     "num": 6,
     "title": "Pipeline Definitivo",
     "file": "/content/cap6.md",
-    "conclusion": "Este capítulo tradujo los resultados del Capítulo 5 en cuatro productos aplicados: (a) un criterio de selección de técnica según el tipo de objeto patrimonial y el uso previsto (Tabla 6.1), directamente respaldado por la evidencia cuantitativa y cualitativa recogida, que deja fuera de los pipelines definitivos a Nerfacto —no aporta una ventaja decisiva en ningún criterio de uso evaluado— y descarta combinar dispositivos de captura o preprocesar las imágenes, ambas prácticas invalidadas por la evidencia de H4 y H2 respectivamente; (b) **dos pipelines definitivos documentados** (sección 6.2) que comparten el mismo tronco de captura con un único dispositivo y SfM con verificación binaria, y divergen en un Pipeline A hacia integración HBIM (fotogrametría más nube de puntos segmentada) y un Pipeline B hacia el archivo digital web (Splatfacto editado en SuperSplat); (c) una prueba de concepto de segmentación semántica de la nube de puntos con control de calidad manual (sección 6.3.2), la única pieza del Pipeline A que se implementó y validó sobre los tres casos de estudio, no solo se propuso conceptualmente; y (d) una propuesta conceptual de integración con flujos HBIM/Revit —los pasos 4 a 6 del Pipeline A, construidos sobre esa segmentación como punto de partida— y lineamientos para el archivo digital web, que ya ofrece para descarga tanto el .splat del Pipeline B como el .ply segmentado del Pipeline A. El Capítulo 7 retoma estos cuatro productos para las conclusiones generales y las líneas de investigación futura.",
+    "conclusion": "Este capítulo tradujo los resultados del Capítulo 5 en cuatro productos aplicados: (a) un criterio de selección de técnica según el tipo de objeto patrimonial y el uso previsto (Tabla 6.1), directamente respaldado por la evidencia cuantitativa y cualitativa recogida, que deja fuera de los pipelines definitivos a Nerfacto —no aporta una ventaja decisiva en ningún criterio de uso evaluado— y descarta combinar dispositivos de captura o preprocesar las imágenes, ambas prácticas invalidadas por la evidencia de H4 y H2 respectivamente; (b) **un pipeline definitivo documentado** (sección 6.2), con un tronco común de captura con un único dispositivo y SfM con verificación binaria, que se bifurca en una rama hacia integración HBIM (fotogrametría más nube de puntos segmentada) y otra hacia el archivo digital web (Splatfacto editado en SuperSplat); (c) una prueba de concepto de segmentación semántica de la nube de puntos con control de calidad manual (sección 6.3.2), la única pieza de la rama HBIM que se implementó y validó sobre los tres casos de estudio, no solo se propuso conceptualmente; y (d) una propuesta conceptual de integración con flujos HBIM/Revit —los pasos 4 a 6 de la rama HBIM, construidos sobre esa segmentación como punto de partida— y lineamientos para el archivo digital web, que ya ofrece para descarga tanto el .splat de la rama web como el .ply segmentado de la rama HBIM. El Capítulo 7 retoma estos cuatro productos para las conclusiones generales y las líneas de investigación futura.",
     "sections": [
       {
         "id": "cap6-6-1",
@@ -692,7 +692,7 @@
       {
         "id": "cap6-6-2",
         "num": "6.2",
-        "title": "Dos pipelines definitivos: HBIM y archivo digital web",
+        "title": "Pipeline definitivo: de la captura a BIM y al archivo digital web",
         "children": [
           {
             "id": "cap6-6-2-1",
@@ -702,12 +702,12 @@
           {
             "id": "cap6-6-2-2",
             "num": "6.2.2",
-            "title": "Pipeline A — Integración HBIM"
+            "title": "Rama hacia integración HBIM"
           },
           {
             "id": "cap6-6-2-3",
             "num": "6.2.3",
-            "title": "Pipeline B — Archivo digital web"
+            "title": "Rama hacia el archivo digital web"
           }
         ]
       },
