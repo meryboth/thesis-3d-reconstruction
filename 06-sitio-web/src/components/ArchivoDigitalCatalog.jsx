@@ -7,6 +7,8 @@ const SITES = [
     viewerUrl: "https://superspl.at/s?id=08270ab6",
     // GIF/imagen de preview pendiente -- ver thumbnail abajo
     thumbnail: null,
+    plyUrl: "/archivo-digital/paraguas/scene.ply",
+    splatUrl: "/archivo-digital/paraguas/splat.splat",
   },
   {
     id: "templete-central",
@@ -15,6 +17,9 @@ const SITES = [
     description:
       "Splatfacto, dataset DJI. Export crudo, sin curar todavía en SuperSplat — sirve para probar el visor, no como versión final.",
     thumbnail: null,
+    plyUrl: "/archivo-digital/templete-central/scene.ply",
+    // .splat todavia no exportado -- pendiente de curar en SuperSplat
+    splatUrl: null,
   },
   {
     id: "panteon",
@@ -23,6 +28,9 @@ const SITES = [
     description:
       "Splatfacto, dataset DJI. Export crudo, sin curar todavía en SuperSplat — sirve para probar el visor, no como versión final.",
     thumbnail: null,
+    plyUrl: "/archivo-digital/panteon/scene.ply",
+    // .splat todavia no exportado -- pendiente de curar en SuperSplat
+    splatUrl: null,
   },
 ];
 
@@ -69,34 +77,49 @@ export default function ArchivoDigitalCatalog({ registerRef }) {
         </p>
         <div className="splat-catalog">
           {SITES.map((site) => (
-            <a
-              key={site.id}
-              className="splat-card"
-              href={site.viewerUrl || `/archivo-digital/${site.id}/index.html`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="splat-card-thumb" aria-hidden="true">
-                {site.thumbnail ? (
-                  <img
-                    className="splat-card-thumb-img"
-                    src={site.thumbnail}
-                    alt=""
-                    loading="lazy"
-                  />
+            <div key={site.id} className="splat-card">
+              <a
+                className="splat-card-link"
+                href={site.viewerUrl || `/archivo-digital/${site.id}/index.html`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="splat-card-thumb" aria-hidden="true">
+                  {site.thumbnail ? (
+                    <img
+                      className="splat-card-thumb-img"
+                      src={site.thumbnail}
+                      alt=""
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="splat-card-thumb-placeholder">
+                      <PlaceholderIcon />
+                    </div>
+                  )}
+                </div>
+                <div className="splat-card-body">
+                  <h3>{site.title}</h3>
+                  <p className="splat-card-subtitle">{site.subtitle}</p>
+                  <p className="splat-card-description">{site.description}</p>
+                  <span className="splat-card-cta">Ver en 3D →</span>
+                </div>
+              </a>
+              <div className="splat-card-downloads">
+                <a className="splat-card-download" href={site.plyUrl} download>
+                  Descargar .ply
+                </a>
+                {site.splatUrl ? (
+                  <a className="splat-card-download" href={site.splatUrl} download>
+                    Descargar .splat
+                  </a>
                 ) : (
-                  <div className="splat-card-thumb-placeholder">
-                    <PlaceholderIcon />
-                  </div>
+                  <span className="splat-card-download splat-card-download-pending">
+                    .splat (pendiente)
+                  </span>
                 )}
               </div>
-              <div className="splat-card-body">
-                <h3>{site.title}</h3>
-                <p className="splat-card-subtitle">{site.subtitle}</p>
-                <p className="splat-card-description">{site.description}</p>
-                <span className="splat-card-cta">Ver en 3D →</span>
-              </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

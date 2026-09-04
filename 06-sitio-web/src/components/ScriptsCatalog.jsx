@@ -20,6 +20,17 @@ export default function ScriptsCatalog({ registerRef }) {
       .catch(() => setScripts([]));
   }, []);
 
+  // Deep-link desde los capitulos: ?script=<nombre.py>#scripts abre
+  // directamente el visor de codigo de ese script, en vez de mandar a la
+  // descarga cruda del archivo.
+  useEffect(() => {
+    if (scripts.length === 0) return;
+    const target = new URLSearchParams(window.location.search).get("script");
+    if (!target) return;
+    const match = scripts.find((s) => s.name === target);
+    if (match) setOpenScript(match);
+  }, [scripts]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return scripts;

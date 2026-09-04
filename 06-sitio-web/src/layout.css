@@ -353,14 +353,23 @@
   border: 1px solid var(--rule);
   border-radius: 6px;
   overflow: hidden;
-  text-decoration: none;
-  color: inherit;
   background: var(--bg-panel);
-  transition: border-color 0.15s, transform 0.15s;
+  transition: border-color 0.15s;
 }
 
 .splat-card:hover {
   border-color: var(--accent-soft);
+}
+
+.splat-card-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s;
+}
+
+.splat-card-link:hover {
   transform: translateY(-2px);
   color: inherit;
 }
@@ -417,6 +426,34 @@
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--accent);
+}
+
+.splat-card-downloads {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0 1.2rem 1.1rem;
+  font-family: var(--sans);
+}
+
+.splat-card-download {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.splat-card-download:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.splat-card-download-pending {
+  color: var(--ink-faint);
+  cursor: default;
 }
 
 /* ---------- catalogo de scripts ---------- */

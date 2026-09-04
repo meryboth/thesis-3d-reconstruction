@@ -697,12 +697,12 @@
           {
             "id": "cap6-6-2-1",
             "num": "6.2.1",
-            "title": "Tronco común: captura y SfM"
+            "title": "Comienzo del pipeline con SfM y aprendizajes"
           },
           {
             "id": "cap6-6-2-2",
             "num": "6.2.2",
-            "title": "Rama hacia integración HBIM"
+            "title": "Integracion con HBIM"
           },
           {
             "id": "cap6-6-2-3",
@@ -716,11 +716,6 @@
         "num": "6.3",
         "title": "Detalle de implementación: segmentación semántica de la nube de puntos",
         "children": [
-          {
-            "id": "cap6-6-3-1",
-            "num": "6.3.1",
-            "title": "Punto de entrada: la nube de puntos densa de SfM"
-          },
           {
             "id": "cap6-6-3-2",
             "num": "6.3.2",
