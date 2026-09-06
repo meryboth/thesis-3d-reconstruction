@@ -15,6 +15,7 @@ export default function CodeViewerModal({ script, onClose }) {
 
   useEffect(() => {
     if (!script) return;
+    let cancelled = false;
     setCode(null);
     setError(false);
     setCopied(false);
@@ -23,8 +24,17 @@ export default function CodeViewerModal({ script, onClose }) {
         if (!r.ok) throw new Error("fetch failed");
         return r.text();
       })
-      .then(setCode)
-      .catch(() => setError(true));
+      .then((text) => {
+        if (!cancelled) setCode(text);
+      })
+      .catch(() => {
+        if (!cancelled) setError(true);
+      });
+    // si el usuario abre otro script antes de que esta respuesta llegue, ignorarla --
+    // evita que un fetch viejo pise el estado del script que se esta mostrando ahora.
+    return () => {
+      cancelled = true;
+    };
   }, [script]);
 
   useEffect(() => {

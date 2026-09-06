@@ -35,6 +35,11 @@ export default function ChapterSection({ chapter, registerRef }) {
             rehypePlugins={[rehypeRaw]}
             components={{
               img: (props) => <img {...props} loading="lazy" decoding="async" />,
+              table: (props) => (
+                <div className="table-scroll">
+                  <table {...props} />
+                </div>
+              ),
             }}
           >
             {markdown}
