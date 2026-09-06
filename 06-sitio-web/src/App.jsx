@@ -9,6 +9,17 @@ import "./layout.css";
 // no vienen del manifest (no son capitulos en markdown) -- son secciones de
 // UI propia, pero se suman al nav como una entrada mas para que el scroll-spy
 // y el acordeon de ChapterNav las traten igual que a un capitulo.
+
+// al igual que el segmentador, es una ruta aparte (slides a pantalla completa),
+// por eso lleva `href` propio en vez de anclar por id.
+const PRESENTACION_NAV_ENTRY = {
+  id: "presentacion",
+  href: "/presentacion",
+  num: null,
+  title: "Presentación",
+  sections: [],
+};
+
 const ARCHIVO_DIGITAL_NAV_ENTRY = {
   id: "archivo-digital",
   num: null,
@@ -65,7 +76,13 @@ export default function App() {
 
   const activeChapter = chapters.find((c) => c.id === activeId);
   const navChapters = chapters.length
-    ? [...chapters, ARCHIVO_DIGITAL_NAV_ENTRY, SCRIPTS_NAV_ENTRY, SEGMENTADOR_NAV_ENTRY]
+    ? [
+        PRESENTACION_NAV_ENTRY,
+        ...chapters,
+        ARCHIVO_DIGITAL_NAV_ENTRY,
+        SCRIPTS_NAV_ENTRY,
+        SEGMENTADOR_NAV_ENTRY,
+      ]
     : chapters;
 
   return (

@@ -1,0 +1,470 @@
+/* Presentacion de tesis -- toma toda la pantalla, independiente del layout
+   de lectura continua del resto del sitio. Reusa los tokens de color/tipografia
+   definidos en index.css para que se sienta parte del mismo sistema. */
+
+.pz-root {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  background-image: radial-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 22px 22px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  font-family: var(--sans);
+}
+
+.pz-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px dashed var(--rule);
+  background: var(--bg);
+}
+
+.pz-back {
+  font-family: var(--mono-ui);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.pz-back:hover {
+  color: var(--accent);
+}
+
+.pz-progress-track {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-panel);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.pz-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.pz-counter {
+  font-family: var(--mono-ui);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+}
+
+.pz-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 2.5rem 4vw;
+}
+
+/* ---------- slide layouts ---------- */
+
+.pz-slide {
+  width: 100%;
+  max-width: 1080px;
+}
+
+.pz-slide-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pz-slide-media-full {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pz-kicker {
+  display: inline-block;
+  font-family: var(--mono-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.pz-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  line-height: 1.25;
+  margin: 0 0 1.3rem;
+  color: var(--ink);
+}
+
+.pz-title-xl {
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  max-width: 16em;
+}
+
+.pz-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 38em;
+}
+
+.pz-lead {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 1.2rem;
+}
+
+.pz-thanks {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-top: 2rem;
+}
+
+.pz-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.pz-bullets li {
+  padding-left: 1.3em;
+  position: relative;
+}
+
+.pz-bullets li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.pz-bullets-lg {
+  font-size: 1.15rem;
+  gap: 1rem;
+}
+
+.pz-bullets-center {
+  text-align: left;
+  max-width: 34em;
+  margin: 0.5rem 0 1.8rem;
+}
+
+.pz-bullets-compact {
+  list-style: decimal;
+  padding-left: 1.3em;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  display: block;
+}
+
+.pz-bullets-compact li {
+  padding-left: 0.3em;
+}
+
+.pz-bullets-compact li::before {
+  content: none;
+}
+
+.pz-footnote {
+  font-family: var(--mono-ui);
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  margin-top: 1.2rem;
+}
+
+.pz-source {
+  display: inline-block;
+  font-family: var(--mono-ui);
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  margin-top: 1.2rem;
+}
+
+.pz-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pz-cols-3-imgs img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+}
+
+.pz-card {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1.3rem;
+  background: var(--bg-panel);
+}
+
+.pz-card-tag {
+  font-family: var(--mono-ui);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.pz-card h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.pz-card p {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pz-photo-card {
+  text-align: left;
+}
+
+.pz-photo-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  margin-bottom: 0.7rem;
+}
+
+.pz-photo-card-wireframe img {
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: #fff;
+  padding: 0.4rem;
+}
+
+/* ---------- portada: collage de recortes arquitectonicos ---------- */
+
+.pz-cover-collage {
+  width: 100%;
+  max-width: 900px;
+  height: 26vh;
+  min-height: 160px;
+  display: flex;
+  gap: 3px;
+  margin-bottom: 2rem;
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 92%);
+}
+
+.pz-cover-frag {
+  flex: 1;
+  background-repeat: no-repeat;
+  background-size: 220% auto;
+  border-radius: 0 0 10px 10px;
+  opacity: 0.9;
+}
+
+.pz-cover-frag-tall {
+  flex: 1.3;
+}
+
+.pz-photo-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin: 0 0 0.3rem;
+}
+
+.pz-photo-card p {
+  font-family: var(--mono-ui);
+  font-size: 0.74rem;
+  color: var(--ink-faint);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pz-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+  margin-top: 1rem;
+}
+
+.pz-table th,
+.pz-table td {
+  text-align: left;
+  padding: 0.6em 0.9em;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pz-table th {
+  font-family: var(--mono-ui);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--ink);
+}
+
+.pz-diagram {
+  max-width: 100%;
+  max-height: 58vh;
+  object-fit: contain;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  margin-top: 0.5rem;
+}
+
+.pz-diagram-tall {
+  max-height: 68vh;
+}
+
+.pz-code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin: 1.3rem 0 0.8rem;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.pz-btn {
+  display: inline-block;
+  font-family: var(--mono-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  text-decoration: none;
+  margin: 0.3rem 0 1.2rem;
+}
+
+.pz-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- split (texto + media) ---------- */
+
+.pz-split {
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.pz-split-media img,
+.pz-split-media iframe {
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.pz-split-media-frame iframe {
+  height: 60vh;
+  border: 1px solid var(--rule);
+}
+
+/* ---------- bottom nav ---------- */
+
+.pz-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 1.75rem 1.5rem;
+}
+
+.pz-nav button:not(.pz-dot) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono-ui);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--ink);
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+.pz-nav button:not(.pz-dot):hover:not(:disabled) {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.pz-nav button:not(.pz-dot):disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.pz-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  max-width: 60vw;
+  justify-content: center;
+}
+
+.pz-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--rule);
+  cursor: pointer;
+}
+
+.pz-dot.is-active {
+  background: var(--accent);
+  width: 18px;
+  border-radius: 4px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .pz-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .pz-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  .pz-dots {
+    display: none;
+  }
+}
