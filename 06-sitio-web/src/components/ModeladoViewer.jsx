@@ -46,7 +46,10 @@ const SITES = [
   {
     id: "panteon",
     label: "Panteón Asociación Catalana",
-    ply: null,
+    ply: "/modelado/panteon/nube-densa.ply",
+    // igual que Templete Central: Z sale como la altura real en este export
+    // (rango mas angosto que X/Y) -- se confirma visualmente al cargar.
+    plyAxisMode: "rotateXNeg90",
     glb: null,
     splatFrame: "/archivo-digital/panteon/editado.html",
     segPly: "/segmentacion/panteon-asociacion-catalana-dji.ply",
