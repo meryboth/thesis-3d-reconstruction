@@ -1,82 +1,82 @@
 **Fuentes sobre patrimonio arquitectónico**
 
-Consejo de Europa (1985). Convención para la Salvaguardia del Patrimonio Arquitectónico de Europa. Granada, 3 de octubre de 1985.
+<span id="ref-consejo-europa-1985"></span>Consejo de Europa (1985). Convención para la Salvaguardia del Patrimonio Arquitectónico de Europa. Granada, 3 de octubre de 1985.
 
-Ley Nacional 12.665 (1940). Comisión Nacional de Museos y de Monumentos y Lugares Históricos. Boletín Oficial nº 13.851, 15 de octubre de 1940.
+<span id="ref-ley-12665-1940"></span>Ley Nacional 12.665 (1940). Comisión Nacional de Museos y de Monumentos y Lugares Históricos. Boletín Oficial nº 13.851, 15 de octubre de 1940.
 
-Azkarate, A., Ruiz de Ael, M. J. y Santana, A. (2003). El Patrimonio Arquitectónico. Vitoria-Gasteiz: Consejo Vasco de Cultura / Plan Vasco de Cultura.
+<span id="ref-azkarate-2003"></span>Azkarate, A., Ruiz de Ael, M. J. y Santana, A. (2003). El Patrimonio Arquitectónico. Vitoria-Gasteiz: Consejo Vasco de Cultura / Plan Vasco de Cultura.
 
-Sabatté, A. E. (2016). *Instrumentos para la conservación del patrimonio arquitectónico hacia un plan de gestión* \[Tesis de Maestría, Universidad Nacional de Córdoba\]. Repositorio Digital UNC. https://rdu.unc.edu.ar/
+<span id="ref-sabatte-2016"></span>Sabatté, A. E. (2016). *Instrumentos para la conservación del patrimonio arquitectónico hacia un plan de gestión* \[Tesis de Maestría, Universidad Nacional de Córdoba\]. Repositorio Digital UNC. https://rdu.unc.edu.ar/
 
-Prats, L. (1997). Antropología y patrimonio. Barcelona: Ariel.
+<span id="ref-prats-1997"></span>Prats, L. (1997). Antropología y patrimonio. Barcelona: Ariel.
 
-Conti, A. (2016). El patrimonio como representación del "nosotros". El caso de Argentina. Conversaciones. Revista de Conservación, (2), 35–44.
+<span id="ref-conti-2016"></span>Conti, A. (2016). El patrimonio como representación del "nosotros". El caso de Argentina. Conversaciones. Revista de Conservación, (2), 35–44.
 
-González Bracco, M. (2014). Entre la renovación edilicia y la preservación patrimonial: cien años de planificación urbana en la ciudad de Buenos Aires. Urbana, 6(9), 3–24.
+<span id="ref-gonzalez-bracco-2014"></span>González Bracco, M. (2014). Entre la renovación edilicia y la preservación patrimonial: cien años de planificación urbana en la ciudad de Buenos Aires. Urbana, 6(9), 3–24.
 
-Murphy, M., McGovern, E., & Pavia, S. (2009). Historic building information modelling (HBIM). *Structural Survey, 27*(4), 311–327.
+<span id="ref-murphy-2009"></span>Murphy, M., McGovern, E., & Pavia, S. (2009). Historic building information modelling (HBIM). *Structural Survey, 27*(4), 311–327.
 
 **Fuentes sobre técnicas de reconstrucción 3D**
 
-Chen, G. y Wang, W. (2024). A Survey on 3D Gaussian Splatting. *IEEE Transactions on Pattern Analysis and Machine Intelligence.* arXiv:2401.03890v4.
+<span id="ref-chen-wang-2024"></span>Chen, G. y Wang, W. (2024). A Survey on 3D Gaussian Splatting. *IEEE Transactions on Pattern Analysis and Machine Intelligence.* arXiv:2401.03890v4.
 
-Croce, V., Billi, D., Caroti, G., Piemonte, A., De Luca, L. y Véron, P. (2024). Comparative Assessment of Neural Radiance Fields and Photogrammetry in Digital Heritage: Impact of Varying Image Conditions on 3D Reconstruction. *Remote Sensing, 16,* 301. https://doi.org/10.3390/rs16020301
+<span id="ref-croce-2024"></span>Croce, V., Billi, D., Caroti, G., Piemonte, A., De Luca, L. y Véron, P. (2024). Comparative Assessment of Neural Radiance Fields and Photogrammetry in Digital Heritage: Impact of Varying Image Conditions on 3D Reconstruction. *Remote Sensing, 16,* 301. https://doi.org/10.3390/rs16020301
 
-Fang, S., Shen, I-C., Igarashi, T., Wang, Y., Wang, Z., Yang, Y., Ding, W. y Zhou, S. (2025). NeRF Is a Valuable Assistant for 3D Gaussian Splatting. arXiv:2507.23374v1.
+<span id="ref-fang-2025"></span>Fang, S., Shen, I-C., Igarashi, T., Wang, Y., Wang, Z., Yang, Y., Ding, W. y Zhou, S. (2025). NeRF Is a Valuable Assistant for 3D Gaussian Splatting. arXiv:2507.23374v1.
 
-Kerbl, B., Kopanas, G., Leimkühler, T. y Drettakis, G. (2023). 3D Gaussian Splatting for Real-Time Radiance Field Rendering. *ACM Transactions on Graphics, 42*(4). https://doi.org/10.1145/3592433
+<span id="ref-kerbl-2023"></span>Kerbl, B., Kopanas, G., Leimkühler, T. y Drettakis, G. (2023). 3D Gaussian Splatting for Real-Time Radiance Field Rendering. *ACM Transactions on Graphics, 42*(4). https://doi.org/10.1145/3592433
 
-Lyu, X., Sun, Y-T., Huang, Y-H., Wu, X., Yang, Z., Chen, Y., Pang, J. y Qi, X. (2025). 3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting. *ACM Transactions on Graphics, 43*(6), Article 198. https://doi.org/10.1145/3687952
+<span id="ref-lyu-2025"></span>Lyu, X., Sun, Y-T., Huang, Y-H., Wu, X., Yang, Z., Chen, Y., Pang, J. y Qi, X. (2025). 3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting. *ACM Transactions on Graphics, 43*(6), Article 198. https://doi.org/10.1145/3687952
 
-Mildenhall, B., Srinivasan, P. P., Tancik, M., Barron, J. T., Ramamoorthi, R. y Ng, R. (2020). NeRF: Representing scenes as neural radiance fields for view synthesis. *European Conference on Computer Vision (ECCV 2020).*
+<span id="ref-mildenhall-2020"></span>Mildenhall, B., Srinivasan, P. P., Tancik, M., Barron, J. T., Ramamoorthi, R. y Ng, R. (2020). NeRF: Representing scenes as neural radiance fields for view synthesis. *European Conference on Computer Vision (ECCV 2020).*
 
-Rangelov, D., Waanders, S., Waanders, K., Genchev, E., van Keulen, M. y Miltchev, R. (2026). Evaluating 3D Reconstruction: A Side-by-Side Comparison of NeRF and Gaussian Splatting in Indoor and Outdoor Environments. *Engineering, Technology & Applied Science Research, 16*(2), 33736–33745. https://doi.org/10.48084/etasr.16947
+<span id="ref-rangelov-2026"></span>Rangelov, D., Waanders, S., Waanders, K., Genchev, E., van Keulen, M. y Miltchev, R. (2026). Evaluating 3D Reconstruction: A Side-by-Side Comparison of NeRF and Gaussian Splatting in Indoor and Outdoor Environments. *Engineering, Technology & Applied Science Research, 16*(2), 33736–33745. https://doi.org/10.48084/etasr.16947
 
-Yu, Y., Verbree, E., van Oosterom, P. y Pottgiesser, U. (2025). 3D Gaussian Splatting for Modern Architectural Heritage: Integrating UAV-Based Data Acquisition and Advanced Photorealistic 3D Techniques. *AGILE: GIScience Series, 6,* 51. https://doi.org/10.5194/agile-giss-6-51-2025
+<span id="ref-yu-2025"></span>Yu, Y., Verbree, E., van Oosterom, P. y Pottgiesser, U. (2025). 3D Gaussian Splatting for Modern Architectural Heritage: Integrating UAV-Based Data Acquisition and Advanced Photorealistic 3D Techniques. *AGILE: GIScience Series, 6,* 51. https://doi.org/10.5194/agile-giss-6-51-2025
 
-Lu, C.-Y., Hung, Y.-S., Chi, W.-L., Wang, H.-P., Tsai, C. L.-T., Chang, Y.-C., Liu, Y.-L., Do, T., & Lin, C.-T. (2026). DF3DV-1K: A large-scale dataset and benchmark for distractor-free novel view synthesis. arXiv. https://arxiv.org/abs/2604.13416
+<span id="ref-lu-2026"></span>Lu, C.-Y., Hung, Y.-S., Chi, W.-L., Wang, H.-P., Tsai, C. L.-T., Chang, Y.-C., Liu, Y.-L., Do, T., & Lin, C.-T. (2026). DF3DV-1K: A large-scale dataset and benchmark for distractor-free novel view synthesis. arXiv. https://arxiv.org/abs/2604.13416
 
 **Fuentes genealógicas y fundacionales**
 
-Grimm, A. (2007). The origin of the term photogrammetry. *International Society for Photogrammetry and Remote Sensing.*
+<span id="ref-grimm-2007"></span>Grimm, A. (2007). The origin of the term photogrammetry. *International Society for Photogrammetry and Remote Sensing.*
 
-Polidori, L. (2020). On Laussedat's contribution to the emergence of photogrammetry. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLIII-B2-2020,* 893–899.
+<span id="ref-polidori-2020"></span>Polidori, L. (2020). On Laussedat's contribution to the emergence of photogrammetry. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLIII-B2-2020,* 893–899.
 
-Ullman, S. (1979). The interpretation of structure from motion. *Proceedings of the Royal Society of London. Series B. Biological Sciences, 203*(1153), 405–426. https://doi.org/10.1098/rspb.1979.0006
+<span id="ref-ullman-1979"></span>Ullman, S. (1979). The interpretation of structure from motion. *Proceedings of the Royal Society of London. Series B. Biological Sciences, 203*(1153), 405–426. https://doi.org/10.1098/rspb.1979.0006
 
-Westover, L. (1990). Footprint evaluation for volume rendering. *Proceedings of SIGGRAPH 1990,* 367–376.
+<span id="ref-westover-1990"></span>Westover, L. (1990). Footprint evaluation for volume rendering. *Proceedings of SIGGRAPH 1990,* 367–376.
 
-Westover, L. A. (1991). *Splatting: A parallel, feed-forward volume rendering algorithm* \[Tesis doctoral, University of North Carolina at Chapel Hill\].
+<span id="ref-westover-1991"></span>Westover, L. A. (1991). *Splatting: A parallel, feed-forward volume rendering algorithm* \[Tesis doctoral, University of North Carolina at Chapel Hill\].
 
-ModernaBuenosAires.org. (s.f.). Testa, Clorindo Manuel José. https://www.modernabuenosaires.org/arquitectos/clorindo-manuel-jose-testa
+<span id="ref-modernabuenosaires-sf"></span>ModernaBuenosAires.org. (s.f.). Testa, Clorindo Manuel José. https://www.modernabuenosaires.org/arquitectos/clorindo-manuel-jose-testa
 
-Müller, L. (2025). Amancio Williams: la invención como proyecto. Prólogo de Jorge Francisco Liernur. Bernal: Universidad Nacional de Quilmes; Santa Fe: Universidad Nacional del Litoral. ISBN 978-987-558-996-4.
+<span id="ref-muller-2025"></span>Müller, L. (2025). Amancio Williams: la invención como proyecto. Prólogo de Jorge Francisco Liernur. Bernal: Universidad Nacional de Quilmes; Santa Fe: Universidad Nacional del Litoral. ISBN 978-987-558-996-4.
 
-Namer, L. (2024). *Chacarita Moderna: la necrópolis brutalista de Buenos Aires / The Brutalist Necropolis of Buenos Aires*. Edición bilingüe castellano-inglés, con el apoyo de la Graham Foundation for Advanced Studies in the Fine Arts.
+<span id="ref-namer-2024"></span>Namer, L. (2024). *Chacarita Moderna: la necrópolis brutalista de Buenos Aires / The Brutalist Necropolis of Buenos Aires*. Edición bilingüe castellano-inglés, con el apoyo de la Graham Foundation for Advanced Studies in the Fine Arts.
 
-Vekstein, C. (s.f.). Monumento en Homenaje a Amancio Williams, con motivo del Fin del Milenio (1999-00). https://monoambiente.com.ar/amanciowilliams/portfolio/monumento-en-homenaje-a-amancio-williams-con-motivo-del-fin-del-milenio-1999-00/
+<span id="ref-vekstein-sf"></span>Vekstein, C. (s.f.). Monumento en Homenaje a Amancio Williams, con motivo del Fin del Milenio (1999-00). https://monoambiente.com.ar/amanciowilliams/portfolio/monumento-en-homenaje-a-amancio-williams-con-motivo-del-fin-del-milenio-1999-00/
 
-de la Fuente, M. L. (2021/2022). "Peripheral Architectural Hierophanies. Claudio Caveri's Sacred Architecture". En: Bartolomei, C., Ippolito, A. y Vizioli, S. H. T. (eds.), Digital Modernism Heritage Lexicon. Springer International Publishing. https://doi.org/10.1007/978-3-030-76239-1_50
+<span id="ref-de-la-fuente-2021"></span>de la Fuente, M. L. (2021/2022). "Peripheral Architectural Hierophanies. Claudio Caveri's Sacred Architecture". En: Bartolomei, C., Ippolito, A. y Vizioli, S. H. T. (eds.), Digital Modernism Heritage Lexicon. Springer International Publishing. https://doi.org/10.1007/978-3-030-76239-1_50
 
-Morena, S. (2022). "Application of Action Camera Video for Fast and Low-Cost Photogrammetric Survey of Cultural Heritage." *International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-2/W1-2022*, 177–184. https://doi.org/10.5194/isprs-archives-XLVIII-2-W1-2022-177-2022
+<span id="ref-morena-2022"></span>Morena, S. (2022). "Application of Action Camera Video for Fast and Low-Cost Photogrammetric Survey of Cultural Heritage." *International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-2/W1-2022*, 177–184. https://doi.org/10.5194/isprs-archives-XLVIII-2-W1-2022-177-2022
 
 
-Barron, J. T., Mildenhall, B., Verbin, D., Srinivasan, P. P., & Hedman, P. (2022). "Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 5470–5479. https://arxiv.org/abs/2111.12077
+<span id="ref-barron-2022"></span>Barron, J. T., Mildenhall, B., Verbin, D., Srinivasan, P. P., & Hedman, P. (2022). "Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 5470–5479. https://arxiv.org/abs/2111.12077
 
-Gangi, F., Shafqat, M. U., & Guidi, G. (2025). "Evaluating the Impact of Lighting Conditions on Photogrammetric Acquisition of Cultural Heritage." Digital Heritage 2025 (Eurographics Workshop on Graphics and Cultural Heritage), Politecnico di Milano.
+<span id="ref-gangi-2025"></span>Gangi, F., Shafqat, M. U., & Guidi, G. (2025). "Evaluating the Impact of Lighting Conditions on Photogrammetric Acquisition of Cultural Heritage." Digital Heritage 2025 (Eurographics Workshop on Graphics and Cultural Heritage), Politecnico di Milano.
 
-Rangelov, D., Waanders, S., Waanders, K., van Keulen, M., & Miltchev, R. (2025). "Impact of Data Capture Methods on 3D Reconstruction with Gaussian Splatting." Journal of Imaging, 11(2), 65.
+<span id="ref-rangelov-2025"></span>Rangelov, D., Waanders, S., Waanders, K., van Keulen, M., & Miltchev, R. (2025). "Impact of Data Capture Methods on 3D Reconstruction with Gaussian Splatting." Journal of Imaging, 11(2), 65.
 
-LA NACION. (2024). "El cementerio de Chacarita abre al público capillas de importantes panteones en el marco de Open House 2024." https://www.lanacion.com.ar/revista-lugares/el-cementerio-de-chacarita-abre-al-publico-capillas-de-importantes-panteones-en-el-marco-de-open-nid25102024/
+<span id="ref-lanacion-2024"></span>LA NACION. (2024). "El cementerio de Chacarita abre al público capillas de importantes panteones en el marco de Open House 2024." https://www.lanacion.com.ar/revista-lugares/el-cementerio-de-chacarita-abre-al-publico-capillas-de-importantes-panteones-en-el-marco-de-open-nid25102024/
 
-Asociación Catalana de Socorros Mutuos Montepío de Montserrat. (s.f.). Historia. https://montepio.com.ar/historia/
+<span id="ref-asociacion-catalana-sf"></span>Asociación Catalana de Socorros Mutuos Montepío de Montserrat. (s.f.). Historia. https://montepio.com.ar/historia/
 
 **Fuentes sobre segmentación semántica y automatización scan-to-BIM**
 
-Croce, V., Caroti, G., Piemonte, A., De Luca, L. y Véron, P. (2023). H-BIM and Artificial Intelligence: Classification of Architectural Heritage for Semi-Automatic Scan-to-BIM Reconstruction. *Sensors, 23*(5), 2497. https://doi.org/10.3390/s23052497
+<span id="ref-croce-2023"></span>Croce, V., Caroti, G., Piemonte, A., De Luca, L. y Véron, P. (2023). H-BIM and Artificial Intelligence: Classification of Architectural Heritage for Semi-Automatic Scan-to-BIM Reconstruction. *Sensors, 23*(5), 2497. https://doi.org/10.3390/s23052497
 
-Pan, X., Lin, Q., Ye, S., Li, L., Guo, L. y Harmon, B. (2024). Deep learning based approaches from semantic point clouds to semantic BIM models for heritage digital twin. *Heritage Science, 12,* Artículo 65. https://doi.org/10.1186/s40494-024-01179-4
+<span id="ref-pan-2024"></span>Pan, X., Lin, Q., Ye, S., Li, L., Guo, L. y Harmon, B. (2024). Deep learning based approaches from semantic point clouds to semantic BIM models for heritage digital twin. *Heritage Science, 12,* Artículo 65. https://doi.org/10.1186/s40494-024-01179-4
 
-Romero-Jarén, R. y Arranz, J. J. (2021). Automatic segmentation and classification of BIM elements from point clouds. *Automation in Construction, 124,* 103576. https://doi.org/10.1016/j.autcon.2021.103576
+<span id="ref-romero-jaren-2021"></span>Romero-Jarén, R. y Arranz, J. J. (2021). Automatic segmentation and classification of BIM elements from point clouds. *Automation in Construction, 124,* 103576. https://doi.org/10.1016/j.autcon.2021.103576
 
-Buldo, M., Agustín-Hernández, L., Verdoscia, C. y Tavolare, R. (2023). A scan-to-BIM workflow proposal for cultural heritage. Automatic point cloud segmentation and parametric-adaptive modelling of vaulted systems. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-M-2-2023,* 333–340. https://doi.org/10.5194/isprs-archives-xlviii-m-2-2023-333-2023
+<span id="ref-buldo-2023"></span>Buldo, M., Agustín-Hernández, L., Verdoscia, C. y Tavolare, R. (2023). A scan-to-BIM workflow proposal for cultural heritage. Automatic point cloud segmentation and parametric-adaptive modelling of vaulted systems. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-M-2-2023,* 333–340. https://doi.org/10.5194/isprs-archives-xlviii-m-2-2023-333-2023

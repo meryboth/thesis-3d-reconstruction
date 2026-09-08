@@ -51,12 +51,12 @@ box(TRUNK_CX - TRUNK_W / 2, 10.4, TRUNK_W, 1.0, "Nube de puntos (densa + dispers
     color="#eaf0fb", edge="#2c5282")
 arrow(TRUNK_CX, 11.8, TRUNK_CX, 11.4)
 
-# --- POC lateral (6.3.4): reconstruccion geometrica asistida por IA ---
+# --- Experimento lateral (6.3.4): reconstruccion geometrica asistida por IA ---
 # alternativa exploratoria a la malla texturizada como punto de partida
-# limpio para HBIM y archivo digital -- solo 1/3 sitios validado, por eso
+# limpio para HBIM y archivo digital -- 2/3 sitios validados, por eso
 # usa el mismo estilo (gris punteado) que las etapas conceptuales
 box(8.3, 10.25, 2.85, 1.15,
-    "POC — reconstrucción geométrica\nasistida por IA (Blender MCP)\nalternativa a la malla · 1/3 sitios",
+    "Experimento — reconstrucción geométrica\nasistida por IA (Blender MCP)\nalternativa a la malla · 2/3 sitios",
     color="#f7f7f7", edge="#718096", dashed=True, fontsize=7.8)
 arrow(TRUNK_CX + TRUNK_W / 2, 10.9, 8.3, 10.85, color="#718096")
 

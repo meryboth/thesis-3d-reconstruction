@@ -25,7 +25,7 @@ const SITES = [
     plyAxisMode: "flipY",
     glb: "/modelado/paraguas/modelo.glb",
     splatFrame: "/archivo-digital/paraguas/editado.html",
-    // nube coloreada por clase (POC de segmentacion, Cap.6 6.3.2/6.3.3):
+    // nube coloreada por clase (experimento de segmentacion, Cap.6 6.3.2/6.3.3):
     // /segmentador ya la usa, generada por poc_segmentation_multi_site.py.
     // Convencion propia (Z-arriba, sin relacion con plyAxisMode de arriba).
     segPly: "/segmentacion/los-paraguas-dron.ply",

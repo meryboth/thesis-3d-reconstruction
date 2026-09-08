@@ -1,6 +1,6 @@
 **Patrimonio y gestión**
 
-**Patrimonio arquitectónico nacional:** A los efectos de esta tesis: conjunto de bienes construidos —edificios, conjuntos urbanos, obras de ingeniería y sitios históricos— con valor histórico, cultural, artístico o social reconocido, que representan la identidad de comunidades argentinas a lo largo del tiempo. Definición basada en la Convención de Granada (1985) y la Ley Nacional 12.665 (1940).
+**Patrimonio arquitectónico nacional:** A los efectos de esta tesis: conjunto de bienes construidos —edificios, conjuntos urbanos, obras de ingeniería y sitios históricos— con valor histórico, cultural, artístico o social reconocido, que representan la identidad de comunidades argentinas a lo largo del tiempo. Definición basada en la [Convención de Granada (1985)](#ref-consejo-europa-1985) y la [Ley Nacional 12.665 (1940)](#ref-ley-12665-1940).
 
 **BIM (Building Information Modelling):** Metodología de trabajo colaborativa para la creación y gestión de un proyecto de construcción. Su objetivo es centralizar toda la información del proyecto en un modelo de información digital creado por todos sus agentes.
 
@@ -12,15 +12,15 @@
 
 **Técnicas de reconstrucción**
 
-**3D Gaussian Splatting (3DGS):** Técnica de reconstrucción y renderizado 3D introducida por Kerbl et al. (2023) que representa escenas mediante millones de elipsoides gaussianos tridimensionales optimizables, permitiendo renderizado en tiempo real. Técnica de referencia para integración con motores de videojuegos y entornos interactivos.
+**3D Gaussian Splatting (3DGS):** Técnica de reconstrucción y renderizado 3D introducida por [Kerbl et al. (2023)](#ref-kerbl-2023) que representa escenas mediante millones de elipsoides gaussianos tridimensionales optimizables, permitiendo renderizado en tiempo real. Técnica de referencia para integración con motores de videojuegos y entornos interactivos.
 
-**3DGSR:** Extensión de 3DGS propuesta por Lyu et al. (2025) que incorpora una función de distancia implícita firmada (SDF) dentro de las gaussianas para habilitar la reconstrucción de superficies métricamente precisas.
+**3DGSR:** Extensión de 3DGS propuesta por [Lyu et al. (2025)](#ref-lyu-2025) que incorpora una función de distancia implícita firmada (SDF) dentro de las gaussianas para habilitar la reconstrucción de superficies métricamente precisas.
 
 **Fotogrametría:** Ciencia y técnica que permite obtener medidas tridimensionales de un objeto o escena a partir del análisis de fotografías. Término introducido por Albrecht Meydenbauer en 1867. En su forma computacional moderna se apoya en los algoritmos SfM y MVS. Técnica de referencia para documentación patrimonial con integración BIM.
 
-**NeRF (Neural Radiance Fields):** Método de representación de escenas 3D como campos de radiancia continuos y volumétricos, optimizados mediante un MLP a partir de imágenes 2D. Introducido por Mildenhall et al. (2020). Técnica de referencia para producción cinemática y síntesis de vistas fotorrealistas desde trayectorias inéditas.
+**NeRF (Neural Radiance Fields):** Método de representación de escenas 3D como campos de radiancia continuos y volumétricos, optimizados mediante un MLP a partir de imágenes 2D. Introducido por [Mildenhall et al. (2020)](#ref-mildenhall-2020). Técnica de referencia para producción cinemática y síntesis de vistas fotorrealistas desde trayectorias inéditas.
 
-**SfM (Structure from Motion):** Familia de algoritmos de visión computacional que recupera la estructura tridimensional de una escena y las posiciones de las cámaras a partir de imágenes, analizando el movimiento aparente de puntos de interés entre vistas. Formalizado por Ullman (1979).
+**SfM (Structure from Motion):** Familia de algoritmos de visión computacional que recupera la estructura tridimensional de una escena y las posiciones de las cámaras a partir de imágenes, analizando el movimiento aparente de puntos de interés entre vistas. Formalizado por [Ullman (1979)](#ref-ullman-1979).
 
 **Nerfacto:** Implementación de NeRF dentro de Nerfstudio, optimizada para velocidad de entrenamiento mediante hash encoding multiresolución y muestreo por importancia. Una de las dos técnicas comparadas en los tres casos de estudio de esta tesis.
 

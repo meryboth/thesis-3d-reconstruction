@@ -61,6 +61,53 @@ export default function App() {
       });
   }, []);
 
+  // Los capitulos se cargan de a uno via fetch (ChapterSection), asincronico
+  // y despues del render inicial -- el salto nativo del navegador a #hash en
+  // la carga de la pagina ocurre ANTES de que ese contenido (y por lo tanto
+  // el elemento con ese id) exista en el DOM, asi que nunca hace nada. Mismo
+  // problema si el usuario clickea un link a una seccion/referencia que
+  // todavia no se monto. Ademas, si el destino esta mas abajo en la pagina
+  // que contenido (imagenes, sobre todo) que todavia no termino de cargar,
+  // ese contenido sigue empujando todo hacia abajo despues del primer
+  // scroll y el destino termina desalineado -- por eso este efecto sigue
+  // re-scrolleando ante cada mutacion del DOM durante toda la ventana, no
+  // solo la primera vez que aparece el elemento.
+  useEffect(() => {
+    let observer;
+    let quietTimer;
+    let hardStop;
+    const tryScroll = () => {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return;
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ block: "start" });
+    };
+    const disconnect = () => {
+      observer?.disconnect();
+      clearTimeout(quietTimer);
+      clearTimeout(hardStop);
+    };
+    const onMutation = () => {
+      tryScroll();
+      // sigue reintentando hasta que el DOM este "quieto" 800ms seguidos --
+      // asi se adapta solo, aguante lo que aguante en cargar (esta pagina
+      // tiene bastantes imagenes pesadas), en vez de una ventana fija que
+      // corta demasiado pronto.
+      clearTimeout(quietTimer);
+      quietTimer = setTimeout(disconnect, 800);
+    };
+    tryScroll();
+    observer = new MutationObserver(onMutation);
+    observer.observe(document.body, { childList: true, subtree: true });
+    quietTimer = setTimeout(disconnect, 800);
+    hardStop = setTimeout(disconnect, 20000);
+    window.addEventListener("hashchange", tryScroll);
+    return () => {
+      disconnect();
+      window.removeEventListener("hashchange", tryScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (chapters.length === 0) return;
     const observer = new IntersectionObserver(
