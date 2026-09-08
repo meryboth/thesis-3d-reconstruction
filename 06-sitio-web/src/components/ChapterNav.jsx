@@ -1,13 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ChapterNav({ chapters, activeId }) {
   const [expanded, setExpanded] = useState(() => new Set());
+  // activeId arranca en null y pasa a ser el primer capitulo (la
+  // introduccion) apenas resuelve el fetch del manifest -- ese primer valor
+  // no cuenta como "el usuario navego hasta aca", asi que se guarda sin
+  // disparar el auto-expand. Recien desde el proximo cambio (scroll real,
+  // o el usuario clickeando otro capitulo) se considera navegacion.
+  const initialIdSeen = useRef(null);
 
   // al activarse un capitulo por scroll, se auto-expande (sin cerrar los que
   // el usuario ya abrio a mano) -- asi el sub-indice del capitulo que se esta
-  // leyendo siempre queda visible sin tener que tocar nada.
+  // leyendo siempre queda visible sin tener que tocar nada. Pero no en la
+  // carga inicial de la pagina (ver initialIdSeen arriba).
   useEffect(() => {
     if (!activeId) return;
+    if (initialIdSeen.current === null) {
+      initialIdSeen.current = activeId;
+      return;
+    }
     setExpanded((prev) => (prev.has(activeId) ? prev : new Set(prev).add(activeId)));
   }, [activeId]);
 

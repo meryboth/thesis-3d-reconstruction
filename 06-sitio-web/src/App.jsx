@@ -47,14 +47,6 @@ const SEGMENTADOR_NAV_ENTRY = {
   sections: [],
 };
 
-const MODELADO_NAV_ENTRY = {
-  id: "modelado",
-  href: "/modelado",
-  num: null,
-  title: "Modelado — nube / IA / splat",
-  sections: [],
-};
-
 export default function App() {
   const [chapters, setChapters] = useState([]);
   const [activeId, setActiveId] = useState(null);
@@ -92,7 +84,6 @@ export default function App() {
         ARCHIVO_DIGITAL_NAV_ENTRY,
         SCRIPTS_NAV_ENTRY,
         SEGMENTADOR_NAV_ENTRY,
-        MODELADO_NAV_ENTRY,
       ]
     : chapters;
 

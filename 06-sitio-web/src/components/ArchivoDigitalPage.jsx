@@ -17,7 +17,7 @@ const SITES = [
     description: "Splatfacto, dataset DJI. Editado en SuperSplat (limpieza de floaters, encuadre de cámara).",
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=templete-central",
-    thumbnail: null,
+    thumbnail: "/archivo-digital/templete-central/preview.gif",
     plyUrl: "/archivo-digital/templete-central/splat-editado-v2.ply",
     // .splat todavia no exportado -- pendiente de curar en SuperSplat
     splatUrl: null,
