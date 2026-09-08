@@ -48,7 +48,7 @@ const SITES = [
     label: "Panteón Asociación Catalana",
     ply: null,
     glb: null,
-    splatFrame: "/archivo-digital/panteon/index.html",
+    splatFrame: "/archivo-digital/panteon/editado.html",
     segPly: "/segmentacion/panteon-asociacion-catalana-dji.ply",
   },
 ];

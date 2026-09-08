@@ -26,12 +26,11 @@ const SITES = [
     id: "panteon",
     title: "Panteón Asociación Catalana",
     subtitle: "Cementerio de la Chacarita",
-    description:
-      "Splatfacto, dataset DJI. Export crudo, sin curar todavía en SuperSplat — sirve para probar el visor, no como versión final.",
+    description: "Splatfacto, dataset DJI. Editado en SuperSplat (limpieza de floaters, encuadre de cámara).",
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=panteon",
     thumbnail: null,
-    plyUrl: "/archivo-digital/panteon/scene.ply",
+    plyUrl: "/archivo-digital/panteon/splat-editado.ply",
     // .splat todavia no exportado -- pendiente de curar en SuperSplat
     splatUrl: null,
   },
