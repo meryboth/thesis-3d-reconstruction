@@ -19,7 +19,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 data = {
     "Los Paraguas": {"DJI Neo 2": (12.28, 707)},
     "Templete Central": {"DJI Neo 2": (14.40, 1232), "Insta360 X5": (5.46, 306)},
-    "Panteón Asociación Española": {"DJI Neo 2": (17.63, 1506), "Insta360 X5": (3.04, 311)},
+    "Panteón Asociación Catalana": {"DJI Neo 2": (17.63, 1506), "Insta360 X5": (3.04, 311)},
 }
 
 casos = list(data.keys())

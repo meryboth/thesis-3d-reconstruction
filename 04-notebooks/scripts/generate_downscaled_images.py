@@ -12,7 +12,7 @@ Uso:
 
 Ejemplo:
     python generate_downscaled_images.py \
-        "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-espanola\\03-datasets\\hibrido\\dataset-splatfacto-910-full" \
+        "C:\\nerfstudio_work\\thesis\\03-panteon-asociacion-catalana\\03-datasets\\hibrido\\dataset-splatfacto-910-full" \
         8
 """
 import sys

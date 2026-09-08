@@ -1,0 +1,276 @@
+======================================================================
+SFM BENCHMARK — NERFSTUDIO + COLMAP
+======================================================================
+
+Proyecto:
+Panteón Asociación Española / Catalana - Chacarita
+
+Dataset:
+dataset-onlydji
+
+Pipeline:
+Nerfstudio ns-process-data + COLMAP
+
+Método de matching:
+Sequential
+
+SfM tool:
+COLMAP
+
+----------------------------------------------------------------------
+DATASET
+----------------------------------------------------------------------
+
+Imágenes de entrada:
+1507
+
+Resolución dataset:
+3840 x 2160
+
+Origen:
+Video DJI Neo 2
+
+Extracción:
+2 fps
+
+----------------------------------------------------------------------
+CAMERA REGISTRATION / POSES
+----------------------------------------------------------------------
+
+Imágenes de entrada:
+1507
+
+Imágenes registradas:
+1506
+
+Imágenes no registradas:
+1
+
+Registration rate:
+99.93 %
+
+Poses de cámara estimadas:
+1506
+
+Resultado reportado por Nerfstudio:
+
+Starting with 1507 images
+Colmap matched 1506 images
+COLMAP found poses for 99.93% of the images.
+
+----------------------------------------------------------------------
+PIPELINE TIMESTAMPS
+----------------------------------------------------------------------
+
+Images copied:
+20:01:09
+
+COLMAP feature extraction completed:
+20:25:42
+
+COLMAP feature matching completed:
+21:01:54
+
+COLMAP bundle adjustment completed:
+00:09:06
+
+Intrinsic refinement completed:
+03:02:00
+
+Pipeline completed:
+03:02:42
+
+----------------------------------------------------------------------
+APPROXIMATE STAGE DURATIONS
+----------------------------------------------------------------------
+
+Copy -> Feature extraction:
+00:24:33
+
+Feature extraction -> Feature matching:
+00:36:12
+
+Feature matching -> Bundle adjustment:
+03:07:12
+
+Bundle adjustment -> Intrinsic refinement:
+02:52:54
+
+Intrinsic refinement -> Final conversion:
+00:00:42
+
+Observed elapsed time:
+07:01:33
+
+NOTA:
+El tiempo observado comienza en el primer timestamp disponible
+("Done copying images") y no exactamente en el inicio de ejecución
+de ns-process-data. Por lo tanto, el tiempo total real es ligeramente
+superior a 07:01:33.
+
+----------------------------------------------------------------------
+PRELIMINARY INTERPRETATION
+----------------------------------------------------------------------
+
+El pipeline Nerfstudio + COLMAP registró 1506 de las 1507 imágenes
+del dataset, alcanzando una cobertura de poses del 99.93%.
+
+Solamente una imagen del dataset no obtuvo una pose válida.
+
+En términos de camera registration, el resultado presenta una
+cobertura prácticamente completa de la trayectoria capturada por
+el DJI Neo 2.
+
+Este resultado supera preliminarmente al procesamiento realizado
+mediante RealityScan sobre el mismo dataset:
+
+RealityScan:
+1462 / 1507
+97.014 %
+
+Nerfstudio + COLMAP:
+1506 / 1507
+99.93 %
+
+Diferencia absoluta de cámaras registradas:
+44 cámaras adicionales mediante Nerfstudio + COLMAP.
+
+Diferencia en tasa de registro:
+aprox. +2.92 puntos porcentuales.
+
+----------------------------------------------------------------------
+IMPORTANT
+----------------------------------------------------------------------
+
+El registration rate mide únicamente la capacidad del pipeline de
+estimar poses para las imágenes.
+
+No implica por sí mismo una mejor reconstrucción geométrica.
+
+La comparación completa deberá incorporar:
+
+- coherencia espacial de las poses
+- continuidad de trayectoria
+- cierre del recorrido
+- cantidad de puntos 3D
+- observaciones
+- track length
+- reprojection error
+- calibración/intrínsecos
+- distribución espacial de la sparse point cloud
+
+----------------------------------------------------------------------
+OUTPUT
+----------------------------------------------------------------------
+
+Resultado Nerfstudio:
+
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\sfm-djionly\colmap-nerfstudio
+
+======================================================================
+END LOG
+======================================================================
+
+======================================================================
+UPDATE — COLMAP MODEL ANALYZER
+======================================================================
+
+Fuente:
+COLMAP model_analyzer
+
+Modelo analizado:
+sfm-djionly\colmap-nerfstudio\colmap\sparse\0
+
+----------------------------------------------------------------------
+CAMERAS / REGISTRATION
+----------------------------------------------------------------------
+
+Cameras:
+1
+
+Images:
+1506
+
+Registered images:
+1506
+
+Input images:
+1507
+
+Unregistered images:
+1
+
+Registration rate:
+99.93 %
+
+NOTA:
+COLMAP utiliza una única cámara/calibración intrínseca compartida
+para las 1506 imágenes registradas.
+
+----------------------------------------------------------------------
+SPARSE POINT CLOUD
+----------------------------------------------------------------------
+
+Points3D:
+532339
+
+Observations:
+5820948
+
+Mean track length:
+10.934664
+
+Mean observations per image:
+3865.171315
+
+Mean reprojection error:
+0.948046 px
+
+----------------------------------------------------------------------
+INTERPRETATION
+----------------------------------------------------------------------
+
+El modelo sparse contiene 532339 puntos tridimensionales.
+
+Las 5820948 observaciones representan asociaciones entre puntos
+tridimensionales y observaciones bidimensionales en las imágenes.
+
+El mean track length de 10.934664 indica que cada punto 3D fue
+observado, en promedio, desde aproximadamente 10.9 imágenes.
+
+Esto sugiere una alta redundancia multivista y una buena continuidad
+entre frames del recorrido.
+
+El mean reprojection error de 0.948046 px indica una discrepancia
+media inferior a un pixel entre las observaciones detectadas y las
+proyecciones generadas por el modelo SfM.
+
+Este valor se utilizará como indicador de consistencia geométrica
+interna del modelo.
+
+----------------------------------------------------------------------
+PRELIMINARY COMPARISON WITH REALITYSCAN
+----------------------------------------------------------------------
+
+Metric                          RealityScan      Nerfstudio + COLMAP
+----------------------------------------------------------------------
+Input images                    1507             1507
+Registered images               1462             1506
+Unregistered images             45               1
+Registration rate               97.014 %         99.93 %
+Camera entries                  1462             1
+Points3D                        N/A              532339
+Observations                    N/A              5820948
+Mean track length               N/A              10.934664
+Mean observations/image         N/A              3865.171315
+Mean reprojection error         N/A              0.948046 px
+
+NOTA:
+La columna RealityScan presenta N/A en las métricas de sparse point
+cloud porque el export COLMAP realizado desde RealityScan no incluyó
+puntos en points3D.txt.
+
+======================================================================
+END UPDATE — COLMAP MODEL ANALYZER
+======================================================================
+

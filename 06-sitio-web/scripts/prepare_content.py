@@ -124,10 +124,10 @@ MANUAL_CONCLUSIONS = {
     ),
     "cap3": (
         "Los tres casos de estudio —Los Paraguas de Amancio Williams, el Templete Central del "
-        "Sexto Panteón y el Panteón de la Asociación Española, todos en el Cementerio de la "
-        "Chacarita— representan niveles crecientes de complejidad geométrica y ornamental: de "
-        "geometría simple y regular, a formas repetitivas de un único material, a ornamentación "
-        "densa con deterioro documentado."
+        "Sexto Panteón y el Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de "
+        "Montserrat), todos en el Cementerio de la Chacarita— representan niveles crecientes de "
+        "complejidad geométrica y ornamental: de geometría simple y regular, a formas repetitivas "
+        "de un único material, a ornamentación densa con deterioro documentado."
     ),
 }
 

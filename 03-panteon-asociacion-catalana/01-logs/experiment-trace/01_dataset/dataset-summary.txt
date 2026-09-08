@@ -1,0 +1,20 @@
+========================================================================
+DATASET: /workspace/sfm-djionly/colmap-nerfstudio
+Frames en transforms.json: 1506
+images: 1507 imágenes
+  Resolución ejemplo: 3840 x 2160
+images_2: 1507 imágenes
+  Resolución ejemplo: 1920 x 1080
+images_4: 1507 imágenes
+  Resolución ejemplo: 960 x 540
+images_8: 1507 imágenes
+  Resolución ejemplo: 480 x 270
+========================================================================
+DATASET: /workspace/sfm-djionly/colmap-nerfstudio-nerf300
+Frames en transforms.json: 302
+images: 302 imágenes
+  Resolución ejemplo: 960 x 540
+images_2: 302 imágenes
+  Resolución ejemplo: 480 x 270
+images_4: 302 imágenes
+  Resolución ejemplo: 240 x 135

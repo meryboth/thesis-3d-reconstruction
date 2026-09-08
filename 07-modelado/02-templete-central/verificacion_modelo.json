@@ -1,0 +1,12 @@
+{
+  "objetos_arquitectonicos": 196,
+  "mallas_con_aristas_no_manifold": [],
+  "comparacion_cubierta": {
+    "muestra": 10000,
+    "distancia_mediana_unidades_reconstruccion": 0.01531078852713108,
+    "distancia_p95": 0.05722471140325068
+  },
+  "nota": "Distancias a nube usada como referencia; no validacion independiente. Accesos y ornamentacion regularizados por interpretacion fotografica.",
+  "nodos_glb": 196,
+  "referencia_excluida_glb": true
+}

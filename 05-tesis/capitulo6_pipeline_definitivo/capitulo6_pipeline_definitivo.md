@@ -54,7 +54,7 @@ Una de las principales conclusiones de la H1 es entender qué técnica es mejor 
 
 La Tabla 6.1 permite visualizar de forma gráfica la propuesta y los pasos del pipeline completo de reconstrucción. 
 
-![Diagrama del pipeline definitivo: tronco común de captura y SfM que se bifurca en una rama HBIM (segmentación, control de calidad humano, nube segmentada — implementado; importación a Revit, modelado paramétrico, vínculo documental — conceptual) y una rama de archivo digital web (Splatfacto, SuperSplat, exportación), que convergen en la descarga dual del archivo digital web](media/pipeline-definitivo.png)
+![Diagrama del pipeline definitivo: tronco común de captura y SfM que se bifurca en una rama HBIM (segmentación, control de calidad humano, nube segmentada — implementado; importación a Revit, modelado paramétrico, vínculo documental — conceptual) y una rama de archivo digital web (Splatfacto, SuperSplat, exportación), que convergen en la descarga dual del archivo digital web. A la derecha del tronco común, un recuadro conceptual señala la prueba de concepto de reconstrucción geométrica asistida por IA (sección 6.3.4), explorada como alternativa a la malla texturizada](media/pipeline-definitivo.png)
 
 *Figura 6.2 — Pipeline definitivo: tronco común, rama HBIM y rama archivo digital web. Fuente: [`build_pipeline_diagram.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_pipeline_diagram.py#scripts).*
 
@@ -74,11 +74,13 @@ Para garantizar la integración con sistemas BIM el pipeline propone utilizar la
 
 Además de la segmentación se propone el uso de un editor online que le permita a los usuarios manipular la nube de puntos generada y poder eliminar puntos del entorno si lo consideran necesario. Este mismo visor permite la posibilidad de exportar en formato .ply la nube segmentada y editada. Tanto este archivo .ply como el .splat que se genere con el procesamiento de Splatfacto van a ser los dos archivos que van a acompañar la publicación de las obras en el archivo digital. 
 
+Como alternativa exploratoria a la malla texturizada como punto de partida geométrico, la sección 6.3.4 documenta una prueba de concepto de reconstrucción asistida por un agente de IA con control directo sobre un software de modelado 3D. 
+
 Hay una parte del flujo de HBIM que queda por fuera del alcance de esta tesis y tiene que ver con la integración de este archivo .ply dentro de un entorno de trabajo (como por ejemplo en Revit), y cómo la importación de este archivo como referencia de scan-to-BIM puede convertirse en parte del proceso de modelado y parametrización del edificio. Este proyecto de investigación propone de forma conceptual esta integración y disponibiliza los archivos segmentados y editados, pero no implementa la solución ya que es parte de un flujo de trabajo que escapa del fin de esta tesis. El pipeline propone documentar también y conservar la malla texturizada producto de SfM para acompañar cualquier referencia adicional del modelo que un proceso de BIM necesite con el fin de entender la complejidad de la obra. 
 
 **6.2.3 Rama hacia el archivo digital web**
 
-La otra rama del pipeline propone utilizar entrenamiento de Gaussian Splatting para generar un archivo de gaussianas que permita representar la escena para visualizarse en cualquier navegador web utilizando Play Canvas como dependencia para el visualizador. Una vez obtenido el archivo en formato .ply/.splat se invita a la utilización de SuperSplat para la edición manual del mismo, esta herramienta open source permite editar gaussianas de escenas de gran complejidad y borrar primitivas con el fin de limpiar la escena y hacer foco en la obra de arquitectura. La publicación en el archivo digital propone publicar tanto el archivo segmentado para HBIM como el archivo .splat con la escena. En el siguiente enlace se puede visualizar una muestra del archivo digital propuesto: [Archivo digital](https://thesis-3d-reconstruction.vercel.app/#archivo-digital). 
+La otra rama del pipeline propone utilizar entrenamiento de Gaussian Splatting para generar un archivo de gaussianas que permita representar la escena para visualizarse en cualquier navegador web utilizando Play Canvas como dependencia para el visualizador. Una vez obtenido el archivo en formato .ply/.splat se invita a la utilización de SuperSplat para la edición manual del mismo, esta herramienta open source permite editar gaussianas de escenas de gran complejidad y borrar primitivas con el fin de limpiar la escena y hacer foco en la obra de arquitectura. La publicación en el archivo digital propone publicar tanto el archivo segmentado para HBIM como el archivo .splat con la escena. En el siguiente enlace se puede visualizar una muestra del archivo digital propuesto: [Archivo digital](https://thesis-3d-reconstruction.vercel.app/archivo-digital). 
 
 **<u>6.3 Detalle de implementación: segmentación semántica de la nube de puntos</u>**
 
@@ -103,7 +105,7 @@ La Tabla 6.2 resume el resultado sobre los tres casos de estudio y representa lo
 | --------------------------- | -------------- | -------- | ------- | ---------------------------- | --------- |
 | Templete Central            | 589.605        | 150.000  | 19.094  | 33.651                       | 386.860   |
 | Los Paraguas                | 502.817        | 196.453  | 127.293 | 6.044                        | 173.027   |
-| Panteón Asociación Española | 356.234        | 39.346   | 48.555  | 96.249                       | 172.084   |
+| Panteón Asociación Catalana | 356.234        | 39.346   | 48.555  | 96.249                       | 172.084   |
 
 *Tabla 6.2 — Conteo de puntos por clase resultante de la segmentación automática, tres casos de estudio.*
 
@@ -115,9 +117,9 @@ La Tabla 6.2 resume el resultado sobre los tres casos de estudio y representa lo
 
 *Figura 6.4 — Los Paraguas: la doble curvatura de las cubiertas se resuelve correctamente pese a no ser una geometría plana.*
 
-![Panteón Asociación Española segmentado, con la arboleda circundante excluida de la clasificación](media/segmentacion-panteon.png)
+![Panteón Asociación Catalana segmentado, con la arboleda circundante excluida de la clasificación](media/segmentacion-panteon.png)
 
-*Figura 6.5 — Panteón Asociación Española: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
+*Figura 6.5 — Panteón Asociación Catalana: el filtrado por color (índice ExG) excluye la vegetación circundante antes de clasificar, evitando que contamine las clases estructurales.*
 
 **Visor de segmentación y herramientas de edición** 
 
@@ -136,7 +138,7 @@ Se probaron dos modelos livianos, elegidos por poder correr en el mismo hardware
 | Modelo               | Caso de estudio             | Fragmentos evaluados            | Acierto         | Sesgo observado    |
 | -------------------- | --------------------------- | ------------------------------- | --------------- | ------------------ |
 | Moondream2           | Templete Central            | 15 (8 columna, 7 baranda)       | 7/15 (47%)      | 100% "baranda"     |
-| Moondream2           | Panteón Asociación Española | 19 (9 columna, 10 baranda)      | 10/19 (53%)     | 100% "baranda"     |
+| Moondream2           | Panteón Asociación Catalana | 19 (9 columna, 10 baranda)      | 10/19 (53%)     | 100% "baranda"     |
 | Moondream2           | Los Paraguas                | 7 (2 columna, 5 baranda)        | 5/7 (71%)       | 100% "baranda"     |
 | Moondream2           | **Total, tres sitios**      | **41 (19 columna, 22 baranda)** | **22/41 (54%)** | **100% "baranda"** |
 | Qwen2-VL-2B-Instruct | Templete Central            | 15 (8 columna, 7 baranda)       | 8/15 (53%)      | 100% "columna"     |
@@ -153,7 +155,38 @@ Si bien podemos confirmar que el pipeline de ComfyUI con VLM funciona de forma c
 
 2. Fine-tuning sobre ejemplos de nube de puntos arquitectónicas
 
+**6.3.4 Exploración: reconstrucción geométrica asistida por agente de IA (Blender MCP)**
 
+La malla texturizada que produce SfM (sección 5.2.3) es un respaldo documental útil, pero conserva los artefactos propios de la reconstrucción fotogramétrica de superficies —ruido, huecos interpolados, geometría no explícita por elemento— que la alejan de ser un punto de partida limpio para un flujo BIM. Esta sección explora una vía alternativa: en lugar de segmentar la nube densa por clase (sección 6.3.2), se probó ajustar geometría paramétrica explícita directamente sobre la nube, utilizando un agente de IA con control directo sobre un software de modelado 3D.
+
+El proceso utiliza **GPT-6 Astra (OpenAI)**, operado desde **Codex** y conectado a Blender mediante el servidor **Blender MCP** (*Model Context Protocol*), que expone la API de Python de Blender como herramientas invocables por el agente. La fuente geométrica es la misma nube densa de RealityScan usada en el resto del capítulo (`fused_medium_high_clean.ply`, 502.817 puntos); la malla Poisson se usó únicamente como referencia visual, sin copiar sus artefactos al modelo resultante. El agente no genera una malla libre a partir de la nube: ajusta geometría paramétrica explícita a los puntos. Para las columnas, circunferencias en nueve cortes de altura, con el radio final tomado como la mediana de esos cortes y una recta para el desplazamiento de sus centros. Para cada cubierta, primero se estima su orientación minimizando el área del rectángulo envolvente robusto y luego se divide la planta en una grilla de 34×34 celdas, sobre la que se ajustan dos superficies suaves (cuantiles de altura 0,18 y 0,82 por celda, con una base de términos radiales y correcciones direccionales) para las caras superior e inferior.
+
+*[Falta completar: capturas de pantalla de la sesión con Codex/GPT-6 Astra si la usuaria quiere documentar el proceso de prompting, no solo el resultado en Blender.]*
+
+![Escena de Blender con el modelo reconstruido de Los Paraguas y el panel del addon Blender MCP, con los cuatro objetos arquitectónicos (dos cubiertas, dos columnas) y la colección de referencias COLMAP ocultas](media/paraguas-blender-mcp-escena.png)
+
+*Figura 6.8 — Escena de Blender tras la reconstrucción: cuatro objetos arquitectónicos ajustados a la nube COLMAP, con el panel de Blender MCP a la derecha. Fuente: `captura_blender.png`, `07-modelado/01-paraguas-vicentelopez/`.*
+
+![Render del modelo reconstruido de Los Paraguas: dos cubiertas tipo hongo sobre sus columnas, en perspectiva](media/paraguas-reconstruccion-ia-blender.png)
+
+*Figura 6.9 — Los Paraguas, resultado final: render del modelo ajustado, con materiales de interpretación visual (no texturas fotogramétricas).*
+
+| Objeto                          | Vértices | Caras | Aristas no manifold | Distancia mediana a la nube (unidades SfM) | Distancia p95 (unidades SfM) |
+| -------------------------------- | -------- | ----- | -------------------- | -------------------------------------------- | ------------------------------ |
+| Paraguas 1 — cubierta            | 24.962   | 25.152 | 0                     | 0,0044                                        | 0,0151                          |
+| Paraguas 1 — columna             | 384      | 194    | 0                     | 0,0044                                        | 0,0192                          |
+| Paraguas 2 — cubierta            | 24.962   | 25.152 | 0                     | 0,0047                                        | 0,0182                          |
+| Paraguas 2 — columna             | 384      | 194    | 0                     | 0,0023                                        | 0,0166                          |
+
+*Tabla 6.4 — Topología y distancia del modelo ajustado contra una muestra de 8.000 puntos de la misma nube utilizada para el ajuste, por objeto. Fuente: `verificacion_modelo.json`, `07-modelado/01-paraguas-vicentelopez/`.*
+
+Es importante remarcar el alcance real de estas cifras: la distancia se mide contra puntos de la **misma nube** que se usó para ajustar el modelo, por lo tanto **no constituye una validación independiente ni una medición de precisión métrica** — solo confirma que el ajuste converge cerca de los datos que lo definieron. Las unidades son las de la escala SfM, sin calibración métrica; no deben interpretarse como metros. Otras limitaciones documentadas en el proceso: la zona central superior de cada cubierta (dentro de un radio de 0,22 unidades SfM) tiene cobertura insuficiente en la nube y quedó interpolada; cubiertas y columnas son sólidos separados, no una única pieza booleana; y el modelo no reconstruye terreno, barandas, cimentaciones ni armaduras — su alcance es la geometría principal de cubiertas y columnas.
+
+Como verificación adicional a la reportada en la Tabla 6.4, se recalculó la distancia contra la nube completa (502.817 puntos, no una muestra de 8.000) midiendo distancia punto-a-superficie sobre el `.glb` exportado, en lugar de distancia punto-a-punto. Sobre el subconjunto de puntos plausiblemente pertenecientes a cada paraguas (~406.000 puntos dentro de un radio de 1,3 unidades SfM de cada centro), la mediana resultó 0,0063 unidades SfM —consistente con la Tabla 6.4— y entre el 66% y el 81% de esos puntos quedaron a menos de 0,02 unidades de la superficie ajustada.
+
+**Conclusión del experimento.** El resultado es doble. Por un lado, el modelo es un ajuste geométrico consistente y ceñido a los datos de SfM que lo originan: no se aparta de la nube de puntos que le dio origen, y esto se confirma tanto sobre la muestra original como sobre la nube completa. Por otro lado, esa consistencia interna **no equivale a precisión métrica**: la escala no está calibrada, y toda comparación disponible —tanto la original como esta verificación adicional— se realiza contra la misma fuente que se usó para ajustar el modelo, no contra una referencia independiente (un escaneo láser, una medición manual, o una segunda captura del mismo objeto). Confirmar la precisión real de este método frente a una referencia externa queda como línea de trabajo futura (Capítulo 7).
+
+*[Falta completar: resultados de Templete Central y Panteón Asociación Catalana. Al momento de escribir esta sección solo Los Paraguas tiene un modelo terminado; los otros dos casos están en proceso de validación por la usuaria.]*
 
 **<u>6.4 Lineamientos para el archivo digital de patrimonio arquitectónico web</u>**
 
@@ -184,6 +217,8 @@ Este capítulo propone formalizar la propuesta de pipeline de reconstrucción su
 
 3. Una prueba de concepto de segmentación semántica de la nube de puntos con control de calidad manual (sección 6.3.2) y una exploración sobre la posible utilización de VLMs para la segmentación, proponiendo un pipeline de integración con BIM más óptimo. 
 
-4. Lineamientos para el archivo digital web, que ya ofrece para descarga tanto el .splat como el .ply segmentado y que documenta una cronología histórica de registros con el fin de obtener trazabilidad.  
+4. Una prueba de concepto de reconstrucción geométrica asistida por un agente de IA con control directo sobre Blender (sección 6.3.4), como alternativa exploratoria a la malla texturizada — validada en Los Paraguas, con Templete Central y el Panteón Asociación Catalana todavía en proceso.
+
+5. Lineamientos para el archivo digital web, que ya ofrece para descarga tanto el .splat como el .ply segmentado y que documenta una cronología histórica de registros con el fin de obtener trazabilidad.  
 
 El Capítulo 7 retoma algunos de estos puntos para finalizar con futuras líneas de investigación y oportunidades de continuar ampliando lo aprendido. 

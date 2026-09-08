@@ -1,7 +1,7 @@
 """
 Arma los datasets Nerfstudio del componente principal (972 registradas en el
 pico, 910 tras el filtrado final -- ver colmap_component_to_nerfstudio.py)
-del COLMAP nativo hibrido DJI+Insta360 de Panteon Asociacion Espanola
+del COLMAP nativo hibrido DJI+Insta360 de Panteon Asociacion Catalana
 (run-20260827-163722), siguiendo el mismo criterio ya aplicado en Templete
 Central (thesis/02-templete-central/03-datasets/hibrido/):
 
@@ -20,9 +20,9 @@ import shutil
 from pathlib import Path
 
 RAW_IMAGES_SOURCE = Path(r"C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-clean")
-NERFSTUDIO_EXPORT = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\nerfstudio")
+NERFSTUDIO_EXPORT = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\nerfstudio")
 
-OUT_ROOT = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\03-datasets\hibrido")
+OUT_ROOT = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\03-datasets\hibrido")
 
 
 def copy_images(names, src_dir, dst_dir):

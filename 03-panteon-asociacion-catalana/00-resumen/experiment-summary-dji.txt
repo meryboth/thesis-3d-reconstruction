@@ -1,0 +1,285 @@
+PANTEÓN DE LA ASOCIACIÓN CATALANA
+PIPELINE DE RECONSTRUCCIÓN 3D
+============================================================
+
+1. DATASET ORIGINAL
+-------------------
+Imágenes disponibles: 1507
+Resolución original: 3840 x 2160 px
+
+Pirámide de imágenes generada:
+
+images:
+1507 imágenes
+3840 x 2160 px
+
+images_2:
+1507 imágenes
+1920 x 1080 px
+
+images_4:
+1507 imágenes
+960 x 540 px
+
+images_8:
+1507 imágenes
+480 x 270 px
+
+
+2. STRUCTURE FROM MOTION — COLMAP
+---------------------------------
+Imágenes iniciales: 1507
+
+Imágenes registradas:
+1506 / 1507
+
+Tasa de registro:
+99.93 %
+
+Cámaras:
+1
+
+Puntos 3D:
+532339
+
+Observaciones:
+5820948
+
+Mean track length:
+10.934664
+
+Mean observations per image:
+3865.171315
+
+Mean reprojection error:
+0.948046 px
+
+Archivo de métricas:
+02_sfm/model-analyzer.txt
+
+
+3. DATASET REDUCIDO PARA NERFACTO
+---------------------------------
+Dataset:
+/workspace/sfm-djionly/colmap-nerfstudio-nerf300
+
+Frames:
+302
+
+Resolución base:
+960 x 540 px
+
+images:
+302 imágenes
+960 x 540 px
+
+images_2:
+302 imágenes
+480 x 270 px
+
+images_4:
+302 imágenes
+240 x 135 px
+
+Motivo de reducción:
+El procesamiento del dataset completo generaba una presión excesiva
+sobre la memoria durante la carga de imágenes del ParallelDataManager.
+
+Se utilizó aproximadamente una de cada cinco vistas del dataset completo
+para mantener cobertura espacial reduciendo el consumo de memoria.
+
+
+4. NERFACTO
+-----------
+Modelo:
+Nerfacto
+
+Dataset:
+302 vistas
+
+Resolución base:
+960 x 540 px
+
+Iteraciones:
+30000
+
+Checkpoint:
+step-000029999.ckpt
+
+Config:
+/workspace/outputs-djionly-nerf300/colmap-nerfstudio-nerf300/nerfacto/2026-08-23_191033/config.yml
+
+Estado del entrenamiento:
+COMPLETADO
+
+
+5. SPLATFACTO
+-------------
+Modelo:
+Splatfacto
+
+Dataset:
+1507 imágenes
+
+Downscale factor:
+8
+
+Resolución aproximada utilizada:
+480 x 270 px
+
+Iteraciones:
+30000
+
+Checkpoint:
+step-000029999.ckpt
+
+Config:
+/workspace/outputs-djionly-splat/panteon-asociacion-catalana-dji-splatfacto-full-ds8/splatfacto/2026-08-24_004501/config.yml
+
+Estado del entrenamiento:
+COMPLETADO
+
+
+6. EXPORT GAUSSIAN SPLATTING
+----------------------------
+Gaussianas antes del filtrado:
+319958
+
+Gaussianas con NaN / Inf:
+0
+
+Gaussianas descartadas por baja opacidad:
+4631
+
+Gaussianas exportadas:
+315327
+
+Porcentaje exportado:
+98.55 %
+
+Archivo:
+/workspace/exports-djionly-splat-ds8/splat.ply
+
+
+7. LIMITACIONES E INCIDENTES
+----------------------------
+El dataset completo de 1507 imágenes presentó problemas de consumo de
+memoria para determinados procesos de Nerfacto debido al comportamiento
+del ParallelDataManager.
+
+Se creó un subset de 302 vistas para hacer viable el entrenamiento de
+Nerfacto dentro del hardware disponible.
+
+El intento de exportar una point cloud desde Nerfacto quedó bloqueado
+durante la adquisición de datos del ParallelDataManager.
+
+Splatfacto pudo entrenarse utilizando las vistas completas mediante
+downscale factor 8.
+
+El intento de entrenar Splatfacto con downscale factor 4 sobre las 1507
+imágenes produjo un OOM durante la carga de imágenes.
+
+El entrenamiento ds8 fue completado correctamente.
+
+8. RENDERS
+==========
+
+8.1 NERFACTO
+------------
+Estado:
+COMPLETADO
+
+Split:
+train
+
+Frames renderizados:
+272
+
+Tiempo total de render:
+1 h 20 min 39 s
+
+Tiempo total:
+4839 s
+
+Velocidad media calculada:
+0.056 fps
+
+Tiempo medio:
+17.8 s/frame
+
+Checkpoint:
+step-000029999.ckpt
+
+Auto image downscale factor reportado:
+1
+
+Resolución de los frames renderizados:
+1920 x 1080 px
+
+VIDEO NERFACTO
+--------------
+Codec:
+H.264 / libx264
+
+Resolución:
+1920 x 1080 px
+
+Frame rate:
+30 fps
+
+Frames:
+272
+
+Duración:
+9.067 s
+
+Frames:
+/workspace/renders/nerf/panteon-catalan-nerfacto-train/train
+
+Video:
+/workspace/renders/videos/panteon-catalan-nerfacto-train.mp4
+
+Nota metodológica:
+La resolución utilizada para entrenar el subset Nerfacto fue 960 x 540 px,
+mientras que los frames producidos durante este render fueron 1920 x 1080 px.
+Por lo tanto, resolución de entrenamiento y resolución del render deben
+registrarse como variables diferentes.
+
+
+8.2 SPLATFACTO
+--------------
+Estado:
+PENDIENTE DE RENDER.
+
+
+SPLATFACTO RENDER — RESULTADO FINAL
+-----------------------------------
+Estado:
+COMPLETADO
+
+Split:
+train
+
+Frames renderizados:
+1356
+
+Tiempo total:
+3 min 12 s
+
+Tiempo total en segundos:
+192 s
+
+Velocidad media:
+7.38 fps
+
+Checkpoint:
+step-000029999.ckpt
+
+Downscale factor:
+8
+
+Salida de frames:
+/workspace/renders/splat/panteon-catalan-splat-ds8-train/train
+
+Video final:
+/workspace/renders/videos/panteon-catalan-splat-ds8-train.mp4

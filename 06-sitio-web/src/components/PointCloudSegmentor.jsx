@@ -10,13 +10,13 @@ import { PLYLoader } from "three/addons/loaders/PLYLoader.js";
 const SITES = [
   { id: "templete-central-dji", label: "Templete Central" },
   { id: "los-paraguas-dron", label: "Los Paraguas" },
-  { id: "panteon-asociacion-espanola-dji", label: "Panteón Asociación Española" },
+  { id: "panteon-asociacion-catalana-dji", label: "Panteón Asociación Catalana" },
 ];
 
 // sitios que ya tienen el .ply -vlm generado (poc_segmentation_vlm.py) --
 // para el resto el metodo VLM queda deshabilitado en el selector en vez de
 // intentar cargar un archivo que no existe.
-const VLM_AVAILABLE = new Set(["templete-central-dji", "los-paraguas-dron", "panteon-asociacion-espanola-dji"]);
+const VLM_AVAILABLE = new Set(["templete-central-dji", "los-paraguas-dron", "panteon-asociacion-catalana-dji"]);
 
 const METHODS = [
   { id: "geometrica", label: "Geométrica (reglas fijas)" },

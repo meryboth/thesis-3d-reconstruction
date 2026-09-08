@@ -42,6 +42,10 @@ node_modules/
 00-auditoria/torre-mardel-eval/nerfacto_renders/
 00-auditoria/torre-mardel-eval/splatfacto_renders/
 
+# Autoguardado de Blender (copia de respaldo del .blend anterior, se regenera
+# en cada guardado -- no aporta nada versionar el historial de estos)
+*.blend1
+
 # Sistema
 .DS_Store
 Thumbs.db

@@ -8,9 +8,9 @@ Esta carpeta es la versión **curada y duplicada** (no los originales) de los re
 |---|---|---|---|
 | 1 | [01-paraguas-vicentelopez](01-paraguas-vicentelopez/README.md) | Dron (video) | COLMAP denso (nube+malla Poisson) **vs.** Nerfacto **vs.** Splatfacto — único con los 3 métodos |
 | 2 | [02-templete-central](02-templete-central/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
-| 3 | [03-panteon-asociacion-espanola](03-panteon-asociacion-espanola/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
+| 3 | [03-panteon-asociacion-catalana](03-panteon-asociacion-catalana/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
 
-> Nombre del sitio 3 resuelto (01/09): **Asociación Española** (arquitecto Alejandro Christophersen, 1896), no Catalana. Corregido en la prosa del Cap. 3 y renombrada la carpeta curada a `03-panteon-asociacion-espanola/`. La carpeta cruda (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre original, como todas las carpetas crudas.
+> **Nombre del sitio 3 — corregido nuevamente (07/09):** es el **Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat)**, no la Asociación Española (la resolución del 01/09 estaba mal). El Decreto 525/2010 y el arquitecto Alejandro Christophersen son de un panteón *distinto* — confirmado leyendo el propio decreto, que nombra a la Asociación Española de Socorros Mutuos, no a la Catalana. Arquitecto candidato de este panteón: **Santiago Barris** (constructores Bruguera y Noguera, según prensa), sin confirmar con fuente académica todavía. **Pendiente de la usuaria:** validar el arquitecto y encontrar el respaldo documental de que esta obra es patrimonio, ya que el Decreto 525/2010 no aplica acá — ver el párrafo marcado para reescribir en Cap. 3, sección 3.4.1. Prosa corregida en el resto de los capítulos. La carpeta cruda (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre original, como todas las carpetas crudas. La carpeta curada de acá se renombró a `03-panteon-asociacion-catalana/` (scripts, configs y rutas de imágenes actualizados en consecuencia).
 
 ## Estructura interna de cada `0X-<proyecto>/`
 

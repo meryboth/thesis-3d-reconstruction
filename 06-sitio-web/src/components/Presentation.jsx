@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 // completo durante la defensa si hace falta.
 
 const A = "/content/assets/"; // assets derivados de 05-tesis, copiados por prepare_content.py
+const W = "/presentacion-assets/"; // assets propios de la presentacion, fuera de public/content -- prepare_content.py borra y reconstruye ese directorio en cada sync, así que cualquier imagen puesta ahí a mano (como los wireframes) desaparece en el próximo run
 
 function Kicker({ children }) {
   return <span className="pz-kicker">{children}</span>;
@@ -21,19 +22,20 @@ const SLIDES = [
     render: () => (
       <div className="pz-slide pz-slide-center pz-slide-cover">
         <div className="pz-cover-collage" aria-hidden="true">
-          <div className="pz-cover-frag" style={{ backgroundImage: `url(${A}presentacion-paraguas-wireframe.png)`, backgroundPosition: "50% 22%" }} />
-          <div className="pz-cover-frag pz-cover-frag-tall" style={{ backgroundImage: `url(${A}presentacion-panteon-wireframe.png)`, backgroundPosition: "50% 62%", backgroundSize: "140% auto" }} />
-          <div className="pz-cover-frag" style={{ backgroundImage: `url(${A}presentacion-templete-wireframe.png)`, backgroundPosition: "50% 55%" }} />
+          <div className="pz-cover-frag" style={{ backgroundImage: `url(${W}paraguas-wireframe.png)`, backgroundPosition: "50% 22%" }} />
+          <div className="pz-cover-frag" style={{ backgroundImage: `url(${W}templete-wireframe.png)`, backgroundPosition: "50% 55%" }} />
+          <div className="pz-cover-frag pz-cover-frag-tall" style={{ backgroundImage: `url(${W}panteon-wireframe.png)`, backgroundPosition: "50% 62%", backgroundSize: "140% auto" }} />
         </div>
-        <Kicker>Tesis de Maestría en Tecnología de la Información · Universidad de Palermo</Kicker>
+        <img src="/branding/logo-up.jpg" alt="Universidad de Palermo" className="pz-logo" />
+        <Kicker>Tesis de Maestría en Tecnología de la Información</Kicker>
         <h1 className="pz-title pz-title-xl">
-          Reconstrucción 3D de patrimonio arquitectónico argentino
+          Reconstrucción 3D de patrimonio arquitectónico argentino con técnicas de Computer Vision
         </h1>
         <p className="pz-subtitle">
-          Fotogrametría (SfM) · NeRF · 3D Gaussian Splatting
+          Comparativa de SfM, NeRF y 3DGS
           <br />
-          Un criterio de selección de técnica, un pipeline definitivo y una propuesta de
-          integración con HBIM
+          Con el fin de obtener un pipeline de reconstrucción e integración con sistemas HBIM
+          para la conformación de un archivo digital
         </p>
       </div>
     ),
@@ -43,7 +45,7 @@ const SLIDES = [
     render: () => (
       <div className="pz-slide">
         <Kicker>Motivación · Capítulo 1</Kicker>
-        <h2 className="pz-title">El patrimonio se pierde antes de poder documentarse</h2>
+        <h2 className="pz-title">No hay planes de restauración que permitan entender el estado actual de las obras</h2>
         <ul className="pz-bullets pz-bullets-lg">
           <li>La documentación tradicional (fotografía, planos CAD) es costosa, lenta y difícil de reproducir ante intervenciones futuras.</li>
           <li>Argentina no cuenta con un archivo digital nacional de referencia para su patrimonio arquitectónico.</li>
@@ -112,19 +114,19 @@ const SLIDES = [
         <h2 className="pz-title">Tres obras, complejidad geométrica creciente</h2>
         <div className="pz-cols-3">
           <div className="pz-photo-card pz-photo-card-wireframe">
-            <img src={`${A}presentacion-paraguas-wireframe.png`} alt="Los Paraguas, estilo wireframe" />
+            <img src={`${W}paraguas-wireframe.png`} alt="Los Paraguas, estilo wireframe" />
             <h3>Los Paraguas</h3>
-            <p>Amancio Williams · Vicente López<br />Geometría simple, un material</p>
+            <p>Amancio Williams<br />1999–2000</p>
           </div>
           <div className="pz-photo-card pz-photo-card-wireframe">
-            <img src={`${A}presentacion-templete-wireframe.png`} alt="Templete Central, estilo wireframe" />
+            <img src={`${W}templete-wireframe.png`} alt="Templete Central, estilo wireframe" />
             <h3>Templete Central</h3>
-            <p>Ítala Fulvia Villa · Sexto Panteón, Chacarita<br />Complejidad media</p>
+            <p>Ítala Fulvia Villa<br />1958</p>
           </div>
           <div className="pz-photo-card pz-photo-card-wireframe">
-            <img src={`${A}presentacion-panteon-wireframe.png`} alt="Panteón Asociación Española, estilo wireframe" />
-            <h3>Panteón Asoc. Española</h3>
-            <p>A. Christophersen (1896) · Monumento Histórico Nacional<br />Alta complejidad ornamental</p>
+            <img src={`${W}panteon-wireframe.png`} alt="Panteón Asociación Catalana, estilo wireframe" />
+            <h3>Panteón Asoc. Catalana</h3>
+            <p>Santiago Barris<br />1899</p>
           </div>
         </div>
       </div>
@@ -167,13 +169,74 @@ const SLIDES = [
           <ul className="pz-bullets">
             <li>Los Paraguas (baja complejidad): 30,6 dB vs. 25,9 dB</li>
             <li>Templete Central (media): 23,6 dB vs. 19,5 dB</li>
-            <li>Panteón Asoc. Española (alta): 25,9 dB vs. 10,4 dB — Nerfacto casi inutilizable</li>
+            <li>Panteón Asoc. Catalana (alta): 25,9 dB vs. 10,4 dB — Nerfacto casi inutilizable</li>
           </ul>
           <Source>Capítulo 5, Tabla 5.7</Source>
         </div>
         <div className="pz-split-media">
           <img src={`${A}cap5-05-psnr-ssim-por-sitio.png`} alt="PSNR y SSIM por sitio y técnica" />
+          <div className="pz-render-compare">
+            <div>
+              <img src={`${W}panteon-nerfacto-render.gif`} alt="Render Nerfacto del Panteón Asociación Catalana, con floaters" />
+              <span>Nerfacto</span>
+            </div>
+            <div>
+              <img src={`${W}panteon-splatfacto-render.gif`} alt="Render Splatfacto del Panteón Asociación Catalana" />
+              <span>Splatfacto</span>
+            </div>
+          </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    id: "renders-galeria",
+    render: () => (
+      <div className="pz-slide">
+        <Kicker>Resultados · Capítulo 5</Kicker>
+        <h2 className="pz-title">Nerfacto vs. Splatfacto, en los tres casos</h2>
+        <div className="pz-render-gallery">
+          <div className="pz-render-gallery-col">
+            <h3>Los Paraguas</h3>
+            <div className="pz-render-compare pz-render-compare-stacked">
+              <div>
+                <img src={`${W}paraguas-nerfacto-render.gif`} alt="Render Nerfacto de Los Paraguas" />
+                <span>Nerfacto</span>
+              </div>
+              <div>
+                <img src={`${W}paraguas-splatfacto-render.gif`} alt="Render Splatfacto de Los Paraguas" />
+                <span>Splatfacto</span>
+              </div>
+            </div>
+          </div>
+          <div className="pz-render-gallery-col">
+            <h3>Templete Central</h3>
+            <div className="pz-render-compare pz-render-compare-stacked">
+              <div>
+                <img src={`${W}templete-nerfacto-render.gif`} alt="Render Nerfacto del Templete Central" />
+                <span>Nerfacto</span>
+              </div>
+              <div>
+                <img src={`${W}templete-splatfacto-render.gif`} alt="Render Splatfacto del Templete Central" />
+                <span>Splatfacto</span>
+              </div>
+            </div>
+          </div>
+          <div className="pz-render-gallery-col">
+            <h3>Panteón Asoc. Catalana</h3>
+            <div className="pz-render-compare pz-render-compare-stacked">
+              <div>
+                <img src={`${W}panteon-nerfacto-render.gif`} alt="Render Nerfacto del Panteón Asociación Catalana" />
+                <span>Nerfacto</span>
+              </div>
+              <div>
+                <img src={`${W}panteon-splatfacto-render.gif`} alt="Render Splatfacto del Panteón Asociación Catalana" />
+                <span>Splatfacto</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Source>Capítulo 5 · Renders finales por sitio y técnica (dataset DJI)</Source>
       </div>
     ),
   },
@@ -264,7 +327,7 @@ const SLIDES = [
           </p>
           <a
             className="pz-btn"
-            href="https://thesis-3d-reconstruction.vercel.app/#archivo-digital"
+            href="https://thesis-3d-reconstruction.vercel.app/archivo-digital"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -346,6 +409,32 @@ const SLIDES = [
     ),
   },
   {
+    id: "reconstruccion-ia",
+    render: () => (
+      <div className="pz-split">
+        <div className="pz-split-text">
+          <Kicker>Exploración · Capítulo 6, sección 6.3.4</Kicker>
+          <h2 className="pz-title">Reconstrucción geométrica asistida por un agente de IA</h2>
+          <p className="pz-lead">
+            Alternativa a la malla texturizada: en vez de segmentar la nube por clase, un agente de
+            IA con control directo sobre Blender <strong>ajusta geometría paramétrica explícita</strong> —
+            círculos, superficies suaves — directamente sobre la nube densa de SfM.
+          </p>
+          <ul className="pz-bullets">
+            <li>GPT-6 Astra (OpenAI), operado desde Codex, conectado a Blender vía Blender MCP.</li>
+            <li>Columnas: circunferencias en 9 cortes de altura. Cubiertas: grilla 34×34, superficie ajustada por cuantiles de altura.</li>
+            <li>Distancia mediana a la nube: 0,0044 unidades SfM — pero contra los mismos puntos usados para ajustar, no es validación independiente.</li>
+            <li>Solo Los Paraguas tiene modelo completo — Templete Central y Panteón Asoc. Catalana en validación.</li>
+          </ul>
+          <Source>Capítulo 6, sección 6.3.4 y Tabla 6.4</Source>
+        </div>
+        <div className="pz-split-media">
+          <img src={`${W}paraguas-reconstruccion-ia.png`} alt="Render del modelo reconstruido de Los Paraguas, dos cubiertas sobre columnas" />
+        </div>
+      </div>
+    ),
+  },
+  {
     id: "nerf-potencial",
     render: () => (
       <div className="pz-split">
@@ -368,10 +457,23 @@ const SLIDES = [
   {
     id: "sfm-animado",
     render: () => (
-      <div className="pz-slide pz-slide-media-full">
-        <Kicker>Reconstrucción SfM · Templete Central</Kicker>
+      <div className="pz-slide">
+        <Kicker>Reconstrucción SfM · Capítulo 5</Kicker>
         <h2 className="pz-title">De la nube dispersa a la malla texturizada</h2>
-        <img className="pz-diagram pz-diagram-tall" src={`${A}cap5-templete-central-sfm.gif`} alt="Reconstrucción SfM del Templete Central" />
+        <div className="pz-render-gallery">
+          <div className="pz-render-gallery-col">
+            <h3>Los Paraguas</h3>
+            <img className="pz-diagram" src={`${W}paraguas-sfm-render.gif`} alt="Reconstrucción SfM de Los Paraguas" />
+          </div>
+          <div className="pz-render-gallery-col">
+            <h3>Templete Central</h3>
+            <img className="pz-diagram" src={`${A}cap5-templete-central-sfm.gif`} alt="Reconstrucción SfM del Templete Central" />
+          </div>
+          <div className="pz-render-gallery-col">
+            <h3>Panteón Asoc. Catalana</h3>
+            <img className="pz-diagram" src={`${W}panteon-sfm-render.gif`} alt="Reconstrucción SfM del Panteón Asociación Catalana" />
+          </div>
+        </div>
       </div>
     ),
   },

@@ -56,7 +56,7 @@
   {
     "name": "analyze_hybrid_cross_camera_matching_panteon.py",
     "lang": "Python",
-    "description": "Calidad de matching cruzado entre dispositivos en el dataset hibrido DJI + Insta360 del Panteon Asociacion Espanola (H4) -- misma logica que analyze_hybrid_cross_camera_matching.py (Templete Central), aplicada al segundo caso de estudio…",
+    "description": "Calidad de matching cruzado entre dispositivos en el dataset hibrido DJI + Insta360 del Panteon Asociacion Catalana (H4) -- misma logica que analyze_hybrid_cross_camera_matching.py (Templete Central), aplicada al segundo caso de estudio…",
     "category": "Análisis",
     "categoryBlurb": "Calculan métricas a partir de datasets/resultados ya generados (PSNR/SSIM/LPIPS, tiempos, tasas de fallo, geometría de nubes/mallas/splats).",
     "sizeBytes": 6701,
@@ -167,7 +167,7 @@
     "description": "Resumen de la sesion de captura por caso de estudio y dispositivo -- duracion de video y fotogramas totales antes del preprocesamiento, para el Capitulo 3 (seccion 3.6.4). Datos crudos: metadata de video (ffprobe) sobre los archivos…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 2505,
+    "sizeBytes": 2504,
     "url": "/scripts/files/build_capture_summary_chart.py"
   },
   {
@@ -272,10 +272,10 @@
   {
     "name": "build_hybrid_comparison_chart_panteon.py",
     "lang": "Python",
-    "description": "Comparacion de H4 (dataset multi-dispositivo): DJI solo vs. Insta360 solo vs. Hibrido DJI+Insta360, sobre el Panteon Asociacion Espanola, por tecnica -- misma logica que build_hybrid_comparison_chart.py (Templete Central), aplicada al…",
+    "description": "Comparacion de H4 (dataset multi-dispositivo): DJI solo vs. Insta360 solo vs. Hibrido DJI+Insta360, sobre el Panteon Asociacion Catalana, por tecnica -- misma logica que build_hybrid_comparison_chart.py (Templete Central), aplicada al…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 4650,
+    "sizeBytes": 4649,
     "url": "/scripts/files/build_hybrid_comparison_chart_panteon.py"
   },
   {
@@ -326,7 +326,7 @@
   {
     "name": "build_panteon_hibrido_datasets.py",
     "lang": "Python",
-    "description": "Arma los datasets Nerfstudio del componente principal (972 registradas en el pico, 910 tras el filtrado final -- ver colmap_component_to_nerfstudio.py) del COLMAP nativo hibrido DJI+Insta360 de Panteon Asociacion Espanola…",
+    "description": "Arma los datasets Nerfstudio del componente principal (972 registradas en el pico, 910 tras el filtrado final -- ver colmap_component_to_nerfstudio.py) del COLMAP nativo hibrido DJI+Insta360 de Panteon Asociacion Catalana…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
     "sizeBytes": 3341,
@@ -563,7 +563,7 @@
     "description": "Segmentacion semantica basica (cubierta / columna / baranda-no-estructural / piso-base) por geometria local, corrida sobre los 3 casos de estudio. Version consolidada de poc_segmentation_normals_densecloud.py + level_point_cloud.py.",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 14888,
+    "sizeBytes": 14887,
     "url": "/scripts/files/poc_segmentation_multi_site.py"
   },
   {

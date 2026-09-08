@@ -28,7 +28,7 @@ Con estos parámetros quedó definida una selección que compone las siguientes 
 
 2) El templete central del Sexto Panteón de Chacarita de Ítala Fulvia Villa
 
-3) Panteón de la Asociación Española de Socorros Mutuos en el cementerio de Chacarita, del arquitecto Alejandro Christophersen.
+3) Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat) en el cementerio de Chacarita.
 
 En el siguiente capítulo se explica en profundidad por qué se eligieron estas obras y cuál es el valor patrimonial que sustentan.
 
@@ -36,7 +36,7 @@ En el siguiente capítulo se explica en profundidad por qué se eligieron estas 
 
 **3.2.1 Justificación como caso de estudio**
 
-El nombre original de esta obra es El monumento al fin del Milenio, pero popularmente se la conoce como Los Paraguas de Amancio Williams. Se encuentra ubicada a metros del Río de la Plata, sobre el Vial Costero de Vicente López. La obra es de fácil acceso porque forma parte de un paseo público junto al río y se trata incluso de un sector habilitado para el vuelo de drones, por lo tanto la creación del registro fotográfico que permitirá la generación del dataset no propone un desafío que involucra permisos especiales.
+El nombre original de esta obra es El monumento al fin del Milenio, pero popularmente se la conoce como Los Paraguas de Amancio Williams. Se encuentra ubicada a metros del Río de la Plata, sobre el Vial Costero de Vicente López. La obra es de fácil acceso porque forma parte de un paseo público junto al río y se trata incluso de un sector habilitado para el vuelo de drones, por lo tanto la creación del registro fotográfico que permitirá la generación del dataset no propone un desafío que involucra permisos especiales. Si bien el diseño de los paraguas es parte de la obra en vida del prestigioso arquitecto Amancio Williams, su ejecución fue un proyecto de Claudio Vekstein, quien lo cuenta en primera persona en la plataforma que documenta parte de su obra (Vekstein, s.f.). 
 
 ![](media/image5.jpg)
 
@@ -82,17 +82,21 @@ Hay nervaduras que generan un patrón repetitivo y que al sol genera sombras sob
 
 La cara inferior de la losa, vista desde el pórtico, solo es visible desde ángulos muy oblicuos y con poca luz directa. Es esperable que SfM tenga dificultad para triangular esta zona con precisión, mientras que NeRF y 3DGS podrían interpolar mejor la geometría en esa zona. Para conseguir esto es necesario garantizar una cobertura lo más completa posible de la obra desde todo su perímetro.
 
-**3.4 Caso de estudio 3: El Panteón de la Asociación Española de Socorros Mutuos**
+**3.4 Caso de estudio 3: El Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat)**
 
 **3.4.1 Justificación como caso de estudio**
 
-Esta pieza de arquitectura se encuentra en el cementerio de Chacarita y fue diseñada por el arquitecto Alejandro Christophersen en el año 1896. Considerar a esta obra patrimonio en pos de justificar su elección es uno de los ejercicios más sencillos de esta investigación porque fue declarada oficialmente Monumento Histórico Nacional en el año 2010 a partir del [<u>Decreto 525</u>](https://www.argentina.gob.ar/normativa/nacional/norma-166496/texto). El motivo por el cual se le otorgó este título está relacionado con el tipo de arquitectura promovida por asociaciones mutuales de colectividades extranjeras, en su mayoría piezas de gran valor por sus ornamentos y prácticas de materialización inspiradas en los orígenes de sus contratistas.
+Esta pieza de arquitectura se encuentra en el cementerio de Chacarita y, si bien hay poca bibliografía que nos pueda dar referencias de su origen, algunas fuentes atribuyen su diseño al arquitecto Santiago Barris. Un dato interesante sobre su historia es que originalmente fue emplazada en otro cementerio: en el de Recoleta en el año 1858, y en el año 1899 se trasladó al cementerio de Chacarita donde se encuentra en la actualidad. Esta parece haber estado vinculada a la impronta popular del Cementerio de Chacarita y varios traslados que se dieron en aquella época con el fin de reubicar panteones vinculados a asociaciones y mutuales extranjeras. 
 
-No existe literatura o publicaciones oficiales que hagan mención a esta obra, pero tanto la declaración de su patrimonio como su valor arquitectónico son validadas por el decreto oficial que la oficializó como pieza patrimonial. Tal vez lo más interesante de incluir esta pieza sea su estado actual y la urgencia por incluirla dentro de algún programa que ponga como prioridad su restauración. Una nota de 2023 la reconoce como una de las obras de arquitectura en mayor estado de abandono dentro del cementerio de Chacarita e incluso manifiesta peligro de derrumbe.
+Actualmente el Panteón Catalán es una de las visitas del evento OpenHouse, que todos los años convoca a visitantes de todo el país que buscan recorrer y conocer la historia de las obras que construyen el patrimonio local. Si analizamos la obra podemos afirmar que contiene varios aspectos que la hacen una pieza capaz de representar el valor ornamental y la complejidad geométrica alta que esperamos para este caso de estudio. 
+
+Su estilo tiene una tendencia modernista que está inspirada en la arquitectura catalana de siglo XX, y es una expresión de obras construidas durante esa época que, si bien se realizaron en Argentina, llevan en su estilo y en su ejecución referencias del origen de sus diseñadores y su fin, en este caso la cultura catalana. 
+
+Si bien, no hay literatura que mencione esta obra o que destaque su valor patrimonial de forma directa, podemos afirmar que sus características y su validado valor turístico la convierten en una candidata apta como caso de estudio: su remate en forma de cúpula para el acceso secundario habla de una característica distintiva que es incluso anormal para la arquitectura de la época; su fachada contiene ornamentos que fueron trabajados por el escultor Torcuato Tasso Nadal; incluso el diseño de la baranda de acceso aparece destacado en su documentación como un estilo único de materializar este tipo de piezas que tiene el sello de autor de sus constructores: Bruguera y Noguera. 
 
 ![](media/image4.webp)
 
-*Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Española de Socorros Mutuos en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
+*Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat) en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
 
 **3.4.2 Desafíos de reconstrucción 3D aplicados a la obra**
 
@@ -198,12 +202,12 @@ El siguiente gráfico da cuenta de la cantidad de frames que se van a estar anal
 | Los Paraguas                | DJI Neo 2      | 12 min 17 s             | 707                                             | 4,82 GB             |
 | Templete Central            | DJI Neo 2      | 14 min 24 s             | 1232                                            | 6,67 GB             |
 | Templete Central            | Insta360 X5    | 5 min 28 s              | 306                                             | 2,62 GB             |
-| Panteón Asociación Española | DJI Neo 2      | 17 min 38 s             | 1506                                            | 9,21 GB             |
-| Panteón Asociación Española | Insta360 X5    | 3 min 2 s               | 311                                             | 1,46 GB             |
+| Panteón Asociación Catalana | DJI Neo 2      | 17 min 38 s             | 1506                                            | 9,21 GB             |
+| Panteón Asociación Catalana | Insta360 X5    | 3 min 2 s               | 311                                             | 1,46 GB             |
 
 *Tabla 3.1 — Duración de video, fotogramas totales y tamaño del material capturado, por caso de estudio y dispositivo. Fuente: metadata de video (ffprobe) sobre los archivos originales en `videos/`; conteo de fotogramas según Tabla 4.6 (Capítulo 4).*
 
-Como incidencia de captura: en Templete Central y Panteón Asociación Española el registro DJI se realizó en más de un vuelo (2 y 4 archivos de video respectivamente) por la autonomía de batería de 15 minutos del dispositivo (sección 3.5.2); Los Paraguas se cubrió en un único vuelo continuo.
+Como incidencia de captura: en Templete Central y Panteón Asociación Catalana el registro DJI se realizó en más de un vuelo (2 y 4 archivos de video respectivamente) por la autonomía de batería de 15 minutos del dispositivo (sección 3.5.2); Los Paraguas se cubrió en un único vuelo continuo.
 
 **3.7 Pipeline de preprocesamiento con ComfyUI**
 

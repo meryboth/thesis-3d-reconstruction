@@ -10,10 +10,10 @@ const SEGMENTACION_DIR = path.resolve(import.meta.dirname, 'public/segmentacion'
 const KNOWN_SITE_IDS = new Set([
   'templete-central-dji',
   'los-paraguas-dron',
-  'panteon-asociacion-espanola-dji',
+  'panteon-asociacion-catalana-dji',
   'templete-central-dji-vlm',
   'los-paraguas-dron-vlm',
-  'panteon-asociacion-espanola-dji-vlm',
+  'panteon-asociacion-catalana-dji-vlm',
 ])
 
 // Plugin dev-only: permite que el visor de segmentacion (/segmentador)

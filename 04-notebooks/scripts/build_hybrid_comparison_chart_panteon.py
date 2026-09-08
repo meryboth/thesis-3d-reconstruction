@@ -1,6 +1,6 @@
 """
 Comparacion de H4 (dataset multi-dispositivo): DJI solo vs. Insta360 solo vs.
-Hibrido DJI+Insta360, sobre el Panteon Asociacion Espanola, por tecnica --
+Hibrido DJI+Insta360, sobre el Panteon Asociacion Catalana, por tecnica --
 misma logica que build_hybrid_comparison_chart.py (Templete Central),
 aplicada al segundo caso de estudio con dataset hibrido, una vez rescatado el
 componente COLMAP principal (Capitulo 5, seccion 5.5.1 -- fila que decia
@@ -17,13 +17,13 @@ import numpy as np
 OUT_DIR = Path(r"C:\nerfstudio_work\thesis\00-auditoria\hibrido-comparison")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-DJI_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\02-resultados-finales\dji\nerfacto\render\render-benchmark-metadata.json")
-DJI_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\02-resultados-finales\dji\splatfacto\render\render-benchmark-metadata.json")
-INSTA_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\02-resultados-finales\insta360\nerfacto\render\render-benchmark-metadata.json")
-INSTA_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\02-resultados-finales\insta360\splatfacto\render\render-benchmark-metadata.json")
+DJI_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\02-resultados-finales\dji\nerfacto\render\render-benchmark-metadata.json")
+DJI_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\02-resultados-finales\dji\splatfacto\render\render-benchmark-metadata.json")
+INSTA_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\02-resultados-finales\insta360\nerfacto\render\render-benchmark-metadata.json")
+INSTA_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\02-resultados-finales\insta360\splatfacto\render\render-benchmark-metadata.json")
 
-HIB_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\training-nerfacto\eval_results.json")
-HIB_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\training-splatfacto\eval_results.json")
+HIB_NERFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\training-nerfacto\eval_results.json")
+HIB_SPLATFACTO = Path(r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\training-splatfacto\eval_results.json")
 
 
 def load_raw(path):
@@ -76,9 +76,9 @@ for ax, (key, label) in zip(axes, metrics):
     ax.set_ylim(top=vmax * 1.2)
 
 fig.legend(datasets, loc="upper center", ncol=3, fontsize=9, bbox_to_anchor=(0.5, 1.08), frameon=False)
-fig.suptitle("Panteón Asociación Española: DJI vs. Insta360 vs. Híbrido, por técnica", fontsize=11.5, y=1.0)
+fig.suptitle("Panteón Asociación Catalana: DJI vs. Insta360 vs. Híbrido, por técnica", fontsize=11.5, y=1.0)
 fig.text(0.5, -0.03,
-          "DJI/Insta360: analyze_render_benchmark.py. Hibrido: ns-eval (corrida fuera de la estructura curada, en thesis/03-panteon-asociacion-espanola/01-experimentos/) -- mismo tipo de metrica, pipeline de calculo distinto.\n"
+          "DJI/Insta360: analyze_render_benchmark.py. Hibrido: ns-eval (corrida fuera de la estructura curada, en thesis/03-panteon-asociacion-catalana/01-experimentos/) -- mismo tipo de metrica, pipeline de calculo distinto.\n"
           "Nerfacto e Insta360-solo/DJI-solo evaluados en condiciones distintas de resolucion/subset -- ver nota metodologica en el capitulo.",
           ha="center", fontsize=7.5, color="#555", style="italic")
 fig.tight_layout()

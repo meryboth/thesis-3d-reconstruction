@@ -23,6 +23,7 @@ export default function ChapterNav({ chapters, activeId }) {
   return (
     <nav className="nav-rail" aria-label="Capítulos">
       <div className="nav-brand">
+        <img src="/branding/logo-up.jpg" alt="Universidad de Palermo" className="nav-brand-logo" />
         <span className="nav-brand-kicker">Tesis</span>
         <span className="nav-brand-title">Reconstrucción 3D de Patrimonio</span>
       </div>

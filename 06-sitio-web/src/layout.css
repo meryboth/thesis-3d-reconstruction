@@ -25,6 +25,13 @@
   gap: 0.35rem;
 }
 
+.nav-brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 0.15rem;
+}
+
 .nav-brand-kicker {
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -353,117 +360,65 @@
   margin-bottom: 0.6em;
 }
 
-/* ---------- cronologia de relevamientos (Archivo Digital) ---------- */
+/* ---------- Archivo Digital: pagina fullscreen (sin nav lateral) ---------- */
 
-.timeline-heading {
-  font-family: var(--mono-ui);
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 0.95rem;
-  margin: 2.2rem 0 0.6rem;
-}
-
-.timeline-intro {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin: 0 0 1.4rem;
-}
-
-.timeline {
-  position: relative;
-  margin: 0 0 2.2rem;
-  padding-left: 1.6rem;
-  border-left: 2px solid var(--rule);
-}
-
-.timeline-item {
-  position: relative;
-  display: block;
-  padding: 0 0 1.5rem 1.1rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -1.71rem;
-  top: 0.3rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--bg);
-}
-
-.timeline-marker-future {
+.ad-root {
+  position: fixed;
+  inset: 0;
   background: var(--bg);
-  border: 2px solid var(--ink-faint);
-}
-
-.timeline-content {
+  background-image: radial-gradient(var(--rule) 1px, transparent 1px);
+  background-size: 22px 22px;
+  overflow-y: auto;
+  z-index: 100;
   font-family: var(--sans);
 }
 
-.timeline-date {
-  display: block;
+.ad-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 1.75rem;
+  border-bottom: 1px dashed var(--rule);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+}
+
+.ad-back {
   font-family: var(--mono-ui);
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.ad-back:hover {
   color: var(--accent);
-  margin-bottom: 0.15rem;
 }
 
-.timeline-date-future {
-  color: var(--ink-faint);
-}
-
-.timeline-title {
+.ad-title {
   font-family: var(--serif);
-  text-transform: none;
-  letter-spacing: normal;
-  font-size: 1.05rem;
-  margin: 0 0 0.3rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0;
   color: var(--ink);
 }
 
-.timeline-item:hover .timeline-title {
-  color: var(--accent);
-}
-
-.timeline-devices {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-}
-
-.timeline-devices li {
-  line-height: 1.5;
-}
-
-.timeline-placeholder {
-  font-size: 0.85rem;
-  color: var(--ink-faint);
-  font-style: italic;
-  margin: 0;
+.ad-stage {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem 4rem;
 }
 
 /* ---------- catalogo de splats (Archivo Digital) ---------- */
 
 .splat-catalog {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
-  margin: 2rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+  margin: 0;
 }
 
 .splat-card {
@@ -523,67 +478,11 @@
 }
 
 .splat-card-body h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.02rem;
+  margin: 0;
+  font-size: 1.25rem;
   font-family: var(--serif);
   text-transform: none;
   letter-spacing: normal;
-}
-
-.splat-card-subtitle {
-  margin: 0 0 0.6rem;
-  font-size: 0.78rem;
-  color: var(--ink-faint);
-}
-
-.splat-card-description {
-  margin: 0 0 0.9rem;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-
-.splat-card-meta {
-  margin: 0 0 0.9rem;
-  font-family: var(--mono-ui);
-  font-size: 0.7rem;
-  color: var(--ink-faint);
-  line-height: 1.4;
-}
-
-.splat-card-cta {
-  font-family: var(--mono-ui);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.splat-card-downloads {
-  display: flex;
-  gap: 0.7rem;
-  padding: 0 1.2rem 1.1rem;
-  font-family: var(--sans);
-}
-
-.splat-card-download {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--ink-soft);
-  text-decoration: none;
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 0.25rem 0.6rem;
-  transition: border-color 0.15s, color 0.15s;
-}
-
-.splat-card-download:hover {
-  border-color: var(--accent-soft);
-  color: var(--accent);
-}
-
-.splat-card-download-pending {
-  color: var(--ink-faint);
-  cursor: default;
 }
 
 /* ---------- catalogo de scripts ---------- */

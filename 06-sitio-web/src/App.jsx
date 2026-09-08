@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import ChapterNav from "./components/ChapterNav";
 import MarginNote from "./components/MarginNote";
 import ChapterSection from "./components/ChapterSection";
-import ArchivoDigitalCatalog from "./components/ArchivoDigitalCatalog";
 import ScriptsCatalog from "./components/ScriptsCatalog";
 import "./layout.css";
 
@@ -20,8 +19,11 @@ const PRESENTACION_NAV_ENTRY = {
   sections: [],
 };
 
+// ruta aparte a pantalla completa (sin nav lateral), igual que Presentacion
+// y el Segmentador -- por eso lleva `href` propio en vez de anclar por id.
 const ARCHIVO_DIGITAL_NAV_ENTRY = {
   id: "archivo-digital",
+  href: "/archivo-digital",
   num: null,
   title: "Archivo Digital",
   sections: [],
@@ -42,6 +44,14 @@ const SEGMENTADOR_NAV_ENTRY = {
   href: "/segmentador",
   num: null,
   title: "Segmentador de nube de puntos",
+  sections: [],
+};
+
+const MODELADO_NAV_ENTRY = {
+  id: "modelado",
+  href: "/modelado",
+  num: null,
+  title: "Modelado — nube / IA / splat",
   sections: [],
 };
 
@@ -82,6 +92,7 @@ export default function App() {
         ARCHIVO_DIGITAL_NAV_ENTRY,
         SCRIPTS_NAV_ENTRY,
         SEGMENTADOR_NAV_ENTRY,
+        MODELADO_NAV_ENTRY,
       ]
     : chapters;
 
@@ -102,7 +113,6 @@ export default function App() {
             registerRef={(el) => (refs.current[chapter.id] = el)}
           />
         ))}
-        <ArchivoDigitalCatalog registerRef={(el) => (refs.current["archivo-digital"] = el)} />
         <ScriptsCatalog registerRef={(el) => (refs.current["scripts"] = el)} />
       </main>
       <MarginNote chapter={activeChapter} />

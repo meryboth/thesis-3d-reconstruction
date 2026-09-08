@@ -1,0 +1,42 @@
+============================================================
+DATASET INFO
+============================================================
+
+Fecha:
+2026-08-13 09:39:58
+
+Dataset:
+insta360
+
+Ruta:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-insta360
+
+Cantidad de imágenes:
+365
+
+Tamaño total bytes:
+549328932
+
+Tamaño total MB:
+523.88
+
+Primer frame:
+frame_00001.jpg
+
+Último frame:
+frame_00365.jpg
+
+============================================================
+RESOLUCIONES
+============================================================
+
+frame_00001.jpg
+frame_00002.jpg
+frame_00003.jpg
+frame_00004.jpg
+frame_00005.jpg
+frame_00006.jpg
+frame_00007.jpg
+frame_00008.jpg
+frame_00009.jpg
+frame_00010.jpg

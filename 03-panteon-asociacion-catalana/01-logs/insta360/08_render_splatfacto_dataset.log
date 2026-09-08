@@ -1,0 +1,17 @@
+[18:13:22]  Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Warning: load_3D_points set to true but no point cloud found. splatfacto will use random point cloud initialization.
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Loading latest checkpoint from load_dir
+✅ Done loading checkpoint from 
+/workspace/outputs/panteon-catalana-insta360-realityscan-splatfacto/splatfacto/2026-08-13_153432/nerfstudio_models/step-
+000029999.ckpt
+[18:13:30] Auto image downscale factor of 4                                                 nerfstudio_dataparser.py:484
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+Warning: load_3D_points set to true but no point cloud found. splatfacto will use random point cloud initialization.
+            Dataset is overriding orientation method to none                                nerfstudio_dataparser.py:232
+🎥 Rendering split train 🎥 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280/280(100.0%) 5.31 fps 0:00:00 0:00:59
+╭────────────────────────────── 🎉 Render on split {} Complete 🎉 ───────────────────────────────╮
+│                 ╷                                                                              │
+│   Outputs train │ /workspace/renders/panteon-catalana-insta360-splatfacto-dataset-traj/train   │
+│                 ╵                                                                              │
+╰────────────────────────────────────────────────────────────────────────────────────────────────╯

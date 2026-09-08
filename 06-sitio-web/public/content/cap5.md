@@ -20,8 +20,8 @@ Antes de profundizar en el detalle de los resultados de cada benchmark, la sigui
 | ---------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | B1 — Técnicas (caso de referencia) | H1        | Ejecutado (SfM, NeRF, 3DGS)                                                                                                                                                            | Templete Central, dataset DJI                               |
 | B2 — Preprocesamiento              | H2        | Ejecutado (dataset curado + comparación de reconstrucción 1:1 para ambas técnicas)                                                                                                     | Templete Central, dataset DJI                               |
-| B3 — Complejidad geométrica        | H3        | Ejecutado (NeRF, 3DGS; SfM cualitativo)                                                                                                                                                | Los Paraguas, Templete Central, Panteón Asociación Española |
-| B4 — Dataset multi-dispositivo     | H4        | Ejecutado (SfM + reconstrucción completa sobre Templete Central **y** Panteón Asociación Española); cobertura reconstruida (%) pendiente por falta de referencia geométrica de control | Templete Central, Panteón Asociación Española               |
+| B3 — Complejidad geométrica        | H3        | Ejecutado (NeRF, 3DGS; SfM cualitativo)                                                                                                                                                | Los Paraguas, Templete Central, Panteón Asociación Catalana |
+| B4 — Dataset multi-dispositivo     | H4        | Ejecutado (SfM + reconstrucción completa sobre Templete Central **y** Panteón Asociación Catalana); cobertura reconstruida (%) pendiente por falta de referencia geométrica de control | Templete Central, Panteón Asociación Catalana               |
 | B5 — Web y reproducibilidad        | H5        | Checklist documental completo; carga real en visor pendiente                                                                                                                           | Los tres casos (evaluación de formatos)                     |
 
 *Tabla 5.1 — Estado de ejecución de los cinco benchmarks al cierre de esta tesis.*
@@ -298,7 +298,7 @@ Para el siguiente análisis se utilizaron distintos dataset, el mismo dispositiv
 | ----------- | --------------------------- | ------------- | ------------- | --------------- | --------------- | --------------------- |
 | Baja        | Los Paraguas                | 25,914        | 0,816         | 30,559          | 0,910           | +4,65                 |
 | Media       | Templete Central            | 19,466        | 0,602         | 23,575          | 0,756           | +4,11                 |
-| Alta        | Panteón Asociación Española | 10,449        | 0,118         | 25,939          | 0,858           | +15,49                |
+| Alta        | Panteón Asociación Catalana | 10,449        | 0,118         | 25,939          | 0,858           | +15,49                |
 
 *Tabla 5.7 — B3, matriz de PSNR/SSIM por técnica y nivel de complejidad geométrica (dataset DJI). Fuente: [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts).*
 
@@ -322,9 +322,9 @@ A continuación vamos a analizar en detalle la comparación entre los renders de
 
 - **Splatfacto relacionado directamente con la calidad del SfM:** Podemos afirmar que 3DGS sostiene la hipótesis ya que mantiene un resultado sostenido en los tres edificios, y decae un poco en el caso del Templete Central. El factor que mejor explica este resultado ascendiente a medida que la complejidad geométrica sube está también vinculado a la calidad del dataset original y al resultado increíble del SfM de entrada, que obtuvo un índice de 99,93% (Tabla 5.8, sección 5.5), el más alto de los tres casos. Podemos entonces asumir que un resultado alto en la reconstrucción de fotogrametría puede incidir directamente en el resultado final del Gaussian Splatting, algo que en NeRF no se verifica. 
 
-![Render Nerfacto — Panteón Asociación Española, floaters](/content/assets/cap5-comparacion-frame-00714.jpg)
+![Render Nerfacto — Panteón Asociación Catalana, floaters](/content/assets/cap5-comparacion-frame-00714.jpg)
 
-*Figura 5.18 — Comparación Foto / Nerfacto / Splatfacto sobre el Panteón Asociación Española (dataset DJI). Nerfacto (centro) degenera en floaters de color sin relación con la geometría real; Splatfacto (derecha) reconstruye la fachada y la ornamentación con fidelidad visual comparable a la fotografía.*
+*Figura 5.18 — Comparación Foto / Nerfacto / Splatfacto sobre el Panteón Asociación Catalana (dataset DJI). Nerfacto (centro) degenera en floaters de color sin relación con la geometría real; Splatfacto (derecha) reconstruye la fachada y la ornamentación con fidelidad visual comparable a la fotografía.*
 
 Esta asimetría entre esta comparativa de técnicas es uno de los hallazgos más importantes de esta tesis y está vinculado tanto a la H1 como a la H3 combinadas: la calidad en el resultado no depende solamente de la complejidad geométrica sino que está fuertemente vinculado a la técnica de reconstrucción utilizada. Mientras 3DGS tolera la complejidad ornamental alta del Panteón, NeRF con el mismo dataset y el mismo registro de entrada de SfM ofrece un resultado inconcluso y lleno de errores. 
 
@@ -356,21 +356,21 @@ El análisis de las nubes densas de cada uno de los edificios nos permite entend
 | --------------------------- | -------------------------- | ---------- | ------------------------------------ | ----------------------------- |
 | Los Paraguas                | COLMAP (fusión densa)      | 502 817    | 8,8 mm                               | 3,1%                          |
 | Templete Central            | RealityScan (export denso) | 17 688 149 | 38,3 mm                              | 7,2%                          |
-| Panteón Asociación Española | RealityScan (export denso) | 17 871 606 | 57,8 mm                              | 8,0%                          |
+| Panteón Asociación Catalana | RealityScan (export denso) | 17 871 606 | 57,8 mm                              | 8,0%                          |
 
 *Tabla 5.8 — Densidad y calidad local de la nube de puntos densa por caso de estudio. Fuente: [`analyze_dense_clouds.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_dense_clouds.py#scripts).*
 
 ![Nube de puntos densa — Los Paraguas, proyecciones XY/XZ](/content/assets/cap5-fused-medium-high-clean-scatter.png)
 
-*Gráfico 5.8 — Los Paraguas: proyecciones XY (planta) y XZ (perfil) de la nube densa, nivelada respecto al plano del piso (a diferencia de Templete Central y Panteón Asociación Española, este caso proviene de COLMAP nativo en vez de RealityScan y no trae los ejes alineados de fábrica). La silueta de ambas cubiertas tipo "hongo" es reconocible en la proyección de perfil, incluyendo el vástago central de cada una; la proyección de planta muestra el contorno romboidal de ambas cubiertas vistas desde arriba.*
+*Gráfico 5.8 — Los Paraguas: proyecciones XY (planta) y XZ (perfil) de la nube densa, nivelada respecto al plano del piso (a diferencia de Templete Central y Panteón Asociación Catalana, este caso proviene de COLMAP nativo en vez de RealityScan y no trae los ejes alineados de fábrica). La silueta de ambas cubiertas tipo "hongo" es reconocible en la proyección de perfil, incluyendo el vástago central de cada una; la proyección de planta muestra el contorno romboidal de ambas cubiertas vistas desde arriba.*
 
 ![Nube de puntos densa — Templete Central, proyecciones XY/XZ](/content/assets/cap5-nube-densa-scatter.png)
 
 *Gráfico 5.9 — Templete Central: proyecciones XY/XZ de la nube densa (RealityScan, dataset DJI). La proyección de planta muestra el anillo de la trayectoria de vuelo del dron rodeando la losa cuadrada; el perfil XZ reconstruye con nitidez la cubierta plana elevada sobre la fila de columnas, coherente con las Figuras 5.3 y 5.20.*
 
-![Nube de puntos densa — Panteón Asociación Española, proyecciones XY/XZ](/content/assets/cap5-nube-densa-scatter-643e89.png)
+![Nube de puntos densa — Panteón Asociación Catalana, proyecciones XY/XZ](/content/assets/cap5-nube-densa-scatter-6e2806.png)
 
-*Gráfico 5.10 — Panteón Asociación Española: proyecciones XY/XZ de la nube densa (RealityScan, dataset DJI). El perfil XZ reconstruye con claridad la silueta de las dos cúpulas del panteón entre la arboleda circundante mencionada en el Capítulo 3 (sección 3.4.2) como fuente de distracciones para el registro.*
+*Gráfico 5.10 — Panteón Asociación Catalana: proyecciones XY/XZ de la nube densa (RealityScan, dataset DJI). El perfil XZ reconstruye con claridad la silueta de las dos cúpulas del panteón entre la arboleda circundante mencionada en el Capítulo 3 (sección 3.4.2) como fuente de distracciones para el registro.*
 
 <h2 id="cap5-5-5">5.5 B4 — Dataset multi-dispositivo (H4)</h2>
 
@@ -384,9 +384,9 @@ Otra de las hipótesis que buscamos validar en esta investigación está vincula
 | Templete Central            | Solo Insta360 (final)                                       | 307      | 99,67%                                             | 99,67%                                                       |
 | Templete Central            | Híbrido DJI+Insta360, corrida 1 (COLMAP nativo, exhaustivo) | 794      | 0,38%                                              | **100,00%**                                                  |
 | Templete Central            | Híbrido DJI+Insta360, corrida 2 (COLMAP nativo, exhaustivo) | 794      | 0,63%                                              | 0,63%                                                        |
-| Panteón Asociación Española | Solo DJI (final)                                            | 1507     | 99,93%                                             | 99,93%                                                       |
-| Panteón Asociación Española | Solo Insta360                                               | 365      | 85,21%                                             | 85,21%                                                       |
-| Panteón Asociación Española | Híbrido DJI+Insta360 (COLMAP nativo, matching exhaustivo)   | 974      | — (corrida directa, sin wrapper `ns-process-data`) | **93,4%** (910/974, componente principal; ver sección 5.5.6) |
+| Panteón Asociación Catalana | Solo DJI (final)                                            | 1507     | 99,93%                                             | 99,93%                                                       |
+| Panteón Asociación Catalana | Solo Insta360                                               | 365      | 85,21%                                             | 85,21%                                                       |
+| Panteón Asociación Catalana | Híbrido DJI+Insta360 (COLMAP nativo, matching exhaustivo)   | 974      | — (corrida directa, sin wrapper `ns-process-data`) | **93,4%** (910/974, componente principal; ver sección 5.5.6) |
 
 *Tabla 5.9 — Registro SfM por composición de dataset. Fuente: [`analyze_sfm_registration_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_sfm_registration_comparison.py#scripts), [`parse_colmap_images_bin.py`](https://thesis-3d-reconstruction.vercel.app/?script=parse_colmap_images_bin.py#scripts).*
 
@@ -438,7 +438,7 @@ A modo de síntesis podemos confirmar que el matching entre imágenes no es un p
 
 En el Capítulo 4 se definió una métrica cuantitativa de cobertura reconstruida en porcentaje, pero dicha métrica no pudo conseguirse por la ausencia una nube de puntos que permita correr una comparativa del tipo TLS. Es por eso que para reemplazar esta evidencia, y con el fin de seguir validando la viabilidad de operar con un dataset híbrido pese a las conclusiones de SfM, se realizó un análisis en base al renderizado de Nerfacto y Splatfacto por dispositivo. 
 
-El diseño original de B4 (Capítulo 4, sección 4.5) acota la comparación entre dispositivos a la etapa de SfM. Sin embargo, para el Templete Central y el Panteón Asociación Española también se entrenaron Nerfacto y Splatfacto por separado sobre el dataset Insta360 (con fines de documentación del caso, no como parte del diseño formal de B4), lo que permite una comparación DJI vs. Insta360 a nivel de calidad de render — evidencia complementaria a H4 que no estaba contemplada en el alcance original del benchmark, pero que es la única comparación de dispositivo pertinente para esta hipótesis (a diferencia de B1/B3, que fijan el dispositivo en DJI por diseño, sección 5.4.1).
+El diseño original de B4 (Capítulo 4, sección 4.5) acota la comparación entre dispositivos a la etapa de SfM. Sin embargo, para el Templete Central y el Panteón Asociación Catalana también se entrenaron Nerfacto y Splatfacto por separado sobre el dataset Insta360 (con fines de documentación del caso, no como parte del diseño formal de B4), lo que permite una comparación DJI vs. Insta360 a nivel de calidad de render — evidencia complementaria a H4 que no estaba contemplada en el alcance original del benchmark, pero que es la única comparación de dispositivo pertinente para esta hipótesis (a diferencia de B1/B3, que fijan el dispositivo en DJI por diseño, sección 5.4.1).
 
 ![PSNR y SSIM por sitio, dispositivo y técnica](/content/assets/cap5-05-psnr-ssim-por-sitio.png)
 
@@ -475,7 +475,7 @@ Como se indicó de forma previa, la segunda corrida de COLMAP para el dataset h�
 
 *Gráfico 5.14 — PSNR, SSIM y LPIPS del Templete Central, por dispositivo y técnica. Fuente: [`build_hybrid_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart.py#scripts).*
 
-<h3 id="cap5-5-5-6">5.5.6 Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Española</h3>
+<h3 id="cap5-5-5-6">5.5.6 Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Catalana</h3>
 
 Con el fin de definir el impacto del dataset híbrido sobre el caso de mayor complejidad arquitectónica, se suma un análisis más para terminar de definir si la hipótesis H4 queda finalmente invalidada. La primera parte de esta investigación fue la generación de un proceso de COLMAP sobre el dataset híbrido de DJI y Insta360 (Compuesto por 974 imágenes). El proceso corrió en una instancia de Docker y se utilizó NerfStudio, y se trató de una ejecución de 83 horas, la más extensa de todas las que conforman esta tesis. El componente principal registró 910 de las 974 imágenes (93,4%, verificado sobre `images.bin`); el resto quedó repartido en ocho componentes desconectados de 21 a 41 imágenes cada uno, el mismo patrón de fragmentación que ya vimos en el Templete Central. 
 
@@ -487,11 +487,11 @@ Para que la comparación sea lo más completa posible también se corrieron proc
 | Insta360–Insta360 | 25,1%                 | 170,0                              | 5.342          |
 | **DJI–Insta360**  | 17,6%                 | **49,9**                           | **811**        |
 
-*Tabla 5.12 — Calidad de matching por tipo de par de dispositivos, dataset híbrido del Panteón Asociación Española. Fuente: [`analyze_hybrid_cross_camera_matching_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_hybrid_cross_camera_matching_panteon.py#scripts), sobre `database.db` de la corrida `run-20260827-163722`.*
+*Tabla 5.12 — Calidad de matching por tipo de par de dispositivos, dataset híbrido del Panteón Asociación Catalana. Fuente: [`analyze_hybrid_cross_camera_matching_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_hybrid_cross_camera_matching_panteon.py#scripts), sobre `database.db` de la corrida `run-20260827-163722`.*
 
-![Calidad de matching por tipo de par, Panteón Asociación Española](/content/assets/cap5-hybrid-cross-camera-matching-chart-panteon.png)
+![Calidad de matching por tipo de par, Panteón Asociación Catalana](/content/assets/cap5-hybrid-cross-camera-matching-chart-panteon.png)
 
-*Gráfico 5.15 — Inliers geométricamente verificados (promedio y máximo), por tipo de par de dispositivos, Panteón Asociación Española.*
+*Gráfico 5.15 — Inliers geométricamente verificados (promedio y máximo), por tipo de par de dispositivos, Panteón Asociación Catalana.*
 
 | Técnica    | Dataset  | PSNR (dB) | SSIM  | LPIPS |
 | ---------- | -------- | --------- | ----- | ----- |
@@ -502,19 +502,19 @@ Para que la comparación sea lo más completa posible también se corrieron proc
 | Splatfacto | Insta360 | 14,48     | 0,397 | 0,497 |
 | Splatfacto | Híbrido  | 12,90     | 0,269 | 0,854 |
 
-*Tabla 5.13 — Panteón Asociación Española: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. Misma metodología de cálculo mixta que la Tabla 5.11 (DJI/Insta360 con [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts), Híbrido con `ns-eval`). Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
+*Tabla 5.13 — Panteón Asociación Catalana: métricas de render por dispositivo (DJI, Insta360, Híbrido) y técnica. Misma metodología de cálculo mixta que la Tabla 5.11 (DJI/Insta360 con [`analyze_render_benchmark.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_render_benchmark.py#scripts), Híbrido con `ns-eval`). Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
 
-![Comparación PSNR/SSIM/LPIPS, DJI vs. Insta360 vs. Híbrido, Panteón Asociación Española](/content/assets/cap5-hibrido-psnr-ssim-lpips-panteon.png)
+![Comparación PSNR/SSIM/LPIPS, DJI vs. Insta360 vs. Híbrido, Panteón Asociación Catalana](/content/assets/cap5-hibrido-psnr-ssim-lpips-panteon.png)
 
-*Gráfico 5.16 — PSNR, SSIM y LPIPS del Panteón Asociación Española, por dispositivo y técnica. Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
+*Gráfico 5.16 — PSNR, SSIM y LPIPS del Panteón Asociación Catalana, por dispositivo y técnica. Fuente: [`build_hybrid_comparison_chart_panteon.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_hybrid_comparison_chart_panteon.py#scripts).*
 
 Con Splatfacto el resultado calca al del Templete Central: el híbrido (12,90 dB) rinde peor que DJI solo (25,94 dB) y que Insta360 solo (14,48 dB), en las tres métricas, sin excepción. El export también lo confirma: el modelo híbrido tiene más gaussianas que el de DJI solo (673.437 vs. 315.327) en un archivo más pesado (97,5 vs. 74,6 MB) pero con peor render — la misma desconexión entre cantidad de gaussianas y calidad que ya vimos en el Templete Central.
 
 Con Nerfacto el resultado matiza un poco esa lectura, sin contradecirla: el híbrido (11,34 dB) mejora apenas sobre DJI solo (10,45 dB) pero se queda muy por debajo de Insta360 solo (15,62 dB). A diferencia del Templete Central, acá el híbrido no es el peor de los tres — pero hay que leer esto con cuidado, no como evidencia a favor de combinar datasets: el punto de comparación (Nerfacto/DJI en el Panteón) ya era en sí mismo un fallo parcial, con floaters masivos (Figura 5.18). Mejorar un poco sobre un resultado que ya era inservible no lo vuelve servible: con PSNR 11,34 dB y SSIM 0,191, el híbrido de Nerfacto sigue muy por debajo de cualquier umbral razonable de fidelidad para documentación patrimonial.
 
-<img title="" src="../../00-auditoria/fidelidad-geometrica/03-panteon-asociacion-espanola/hibrido/comparacion_frame_00001.jpg" alt="Comparación Foto / Nerfacto / Splatfacto — Panteón Asociación Española, dataset híbrido" width="415">
+<img title="" src="../../00-auditoria/fidelidad-geometrica/03-panteon-asociacion-catalana/hibrido/comparacion_frame_00001.jpg" alt="Comparación Foto / Nerfacto / Splatfacto — Panteón Asociación Catalana, dataset híbrido" width="415">
 
-*Figura 5.23 — Panteón Asociación Española, dataset híbrido DJI+Insta360, mismo frame renderizado por ambas técnicas. Nerfacto (centro) degenera en floaters sin correspondencia geométrica reconocible, el mismo patrón que su fallo parcial sobre el dataset DJI solo (Figura 5.18). Splatfacto (abajo) reconstruye la escena con fidelidad visual reconocible, aunque —consistente con la Tabla 5.13— por debajo de su propio resultado con DJI solo.*
+*Figura 5.23 — Panteón Asociación Catalana, dataset híbrido DJI+Insta360, mismo frame renderizado por ambas técnicas. Nerfacto (centro) degenera en floaters sin correspondencia geométrica reconocible, el mismo patrón que su fallo parcial sobre el dataset DJI solo (Figura 5.18). Splatfacto (abajo) reconstruye la escena con fidelidad visual reconocible, aunque —consistente con la Tabla 5.13— por debajo de su propio resultado con DJI solo.*
 
 La prueba con el Panteón reafirma la evidencia que fuimos recolectando de cara a la conclusión de H4: los datasets híbridos generan resultados desfavorables en todos los escenarios. A nivel de resultado: en 3 de las 4 combinaciones técnica por caso evaluadas, el dataset híbrido rindió peor que cualquiera de los dos dispositivos solos, sin excepción. La única que no sigue ese patrón (Nerfacto/Panteón) no lo hace porque el híbrido haya sido bueno, sino porque el punto de comparación —Nerfacto solo con DJI— ya era en sí mismo un resultado inutilizable.
 
@@ -542,7 +542,7 @@ Con el fin de garantizar la reproducibilidad del pipeline que va a proponer como
 | --------------------------- | -------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Los Paraguas                | 2                    | 0                             | OOM de sistema y SIGKILL durante la fusión densa de COLMAP (`colmap stereo_fusion`)                                                                                                |
 | Templete Central            | 3                    | 0                             | Archivo de entrada faltante (`transforms.json`); excepción de configuración (`not_use_single_camera_mode` solo funciona con `hloc`); archivo faltante en dataset ds8 de Splatfacto |
-| Panteón Asociación Española | 0                    | 1 (3 reintentos)              | Reintentos del entrenamiento de Nerfacto (`04_nerfstudio_nerf_train`, 3 corridas)                                                                                                  |
+| Panteón Asociación Catalana | 0                    | 1 (3 reintentos)              | Reintentos del entrenamiento de Nerfacto (`04_nerfstudio_nerf_train`, 3 corridas)                                                                                                  |
 
 *Tabla 5.15 — Tasa de fallos por sitio. Fuente: [`analyze_failure_rate.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_failure_rate.py#scripts).*
 
@@ -568,9 +568,9 @@ Teniendo en cuenta los aspectos mencionados podemos garantizar un índice de fal
 | Templete Central            | SfM        | .obj + textura | 3 934,3 MB + 62,4 MB |
 | Templete Central            | Nerfacto   | .ckpt          | 167,9 MB             |
 | Templete Central            | Splatfacto | splat.ply      | 74,7 MB              |
-| Panteón Asociación Española | SfM        | .obj + textura | 3 993,9 MB + 83,6 MB |
-| Panteón Asociación Española | Nerfacto   | .ckpt          | 167,9 MB             |
-| Panteón Asociación Española | Splatfacto | splat.ply      | 74,6 MB              |
+| Panteón Asociación Catalana | SfM        | .obj + textura | 3 993,9 MB + 83,6 MB |
+| Panteón Asociación Catalana | Nerfacto   | .ckpt          | 167,9 MB             |
+| Panteón Asociación Catalana | Splatfacto | splat.ply      | 74,6 MB              |
 
 *Tabla 5.16 — Peso del archivo de output final por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). El peso no es una métrica definida para H4 (Capítulo 4, sección 4.3.5); los valores de los outputs Insta360, del mismo orden de magnitud, están documentados en `00-auditoria/output-weights/` sin reproducirse aquí. Fuente: [`analyze_output_weights.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_output_weights.py#scripts).*
 
@@ -586,7 +586,7 @@ Un aspecto interesante de este análisis es el gran peso que tienen los archivos
 | --------------------------- | --------------- | --------------- |
 | Los Paraguas                | 55 min 32 s     | 1 h 13 min 17 s |
 | Templete Central            | 46 min 1 s      | 33 min 41 s     |
-| Panteón Asociación Española | 1 h 38 min 35 s | 36 min 15 s     |
+| Panteón Asociación Catalana | 1 h 38 min 35 s | 36 min 15 s     |
 
 *Tabla 5.17 — Tiempo de entrenamiento (30 000 iteraciones) por caso y técnica (dataset DJI, el mismo criterio de B1/B3 — sección 5.4.1). Los tiempos de los datasets Insta360 están documentados en `00-auditoria/processing-time/`; el tiempo de procesamiento no es una métrica definida para H4 (Capítulo 4, sección 4.3.5), por lo que no se comparan aquí entre dispositivos. Fuente: [`analyze_processing_time.py`](https://thesis-3d-reconstruction.vercel.app/?script=analyze_processing_time.py#scripts), medido sobre las carpetas de trabajo originales (Capítulo 4, sección 4.3.6).*
 

@@ -39,9 +39,9 @@ SITES = [
         "sample_every_n": 30,
     },
     {
-        "id": "panteon-asociacion-espanola-dji",
-        "label": "Panteón Asociación Española (DJI)",
-        "path": THESIS_ROOT / "03-panteon-asociacion-espanola/02-resultados-finales/dji/colmap-fotogrametria/nube-densa.xyz",
+        "id": "panteon-asociacion-catalana-dji",
+        "label": "Panteón Asociación Catalana (DJI)",
+        "path": THESIS_ROOT / "03-panteon-asociacion-catalana/02-resultados-finales/dji/colmap-fotogrametria/nube-densa.xyz",
         "format": "xyz_text",
         "sample_every_n": 30,
         "exg_max": 5,  # arboledas cercanas (Cap. 3): filtra vegetacion por color antes de nivelar/segmentar

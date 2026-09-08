@@ -54,6 +54,8 @@ Müller, L. (2025). Amancio Williams: la invención como proyecto. Prólogo de J
 
 Namer, L. (2024). *Chacarita Moderna: la necrópolis brutalista de Buenos Aires / The Brutalist Necropolis of Buenos Aires*. Edición bilingüe castellano-inglés, con el apoyo de la Graham Foundation for Advanced Studies in the Fine Arts.
 
+Vekstein, C. (s.f.). Monumento en Homenaje a Amancio Williams, con motivo del Fin del Milenio (1999-00). https://monoambiente.com.ar/amanciowilliams/portfolio/monumento-en-homenaje-a-amancio-williams-con-motivo-del-fin-del-milenio-1999-00/
+
 de la Fuente, M. L. (2021/2022). "Peripheral Architectural Hierophanies. Claudio Caveri's Sacred Architecture". En: Bartolomei, C., Ippolito, A. y Vizioli, S. H. T. (eds.), Digital Modernism Heritage Lexicon. Springer International Publishing. https://doi.org/10.1007/978-3-030-76239-1_50
 
 Morena, S. (2022). "Application of Action Camera Video for Fast and Low-Cost Photogrammetric Survey of Cultural Heritage." *International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, XLVIII-2/W1-2022*, 177–184. https://doi.org/10.5194/isprs-archives-XLVIII-2-W1-2022-177-2022
@@ -65,7 +67,9 @@ Gangi, F., Shafqat, M. U., & Guidi, G. (2025). "Evaluating the Impact of Lightin
 
 Rangelov, D., Waanders, S., Waanders, K., van Keulen, M., & Miltchev, R. (2025). "Impact of Data Capture Methods on 3D Reconstruction with Gaussian Splatting." Journal of Imaging, 11(2), 65.
 
-Poder Ejecutivo Nacional. (2010). Decreto 525/2010. https://www.argentina.gob.ar/normativa/nacional/norma-166496/texto
+LA NACION. (2024). "El cementerio de Chacarita abre al público capillas de importantes panteones en el marco de Open House 2024." https://www.lanacion.com.ar/revista-lugares/el-cementerio-de-chacarita-abre-al-publico-capillas-de-importantes-panteones-en-el-marco-de-open-nid25102024/
+
+Asociación Catalana de Socorros Mutuos Montepío de Montserrat. (s.f.). Historia. https://montepio.com.ar/historia/
 
 **Fuentes sobre segmentación semántica y automatización scan-to-BIM**
 

@@ -1,6 +1,6 @@
 """
 Calidad de matching cruzado entre dispositivos en el dataset hibrido
-DJI + Insta360 del Panteon Asociacion Espanola (H4) -- misma logica que
+DJI + Insta360 del Panteon Asociacion Catalana (H4) -- misma logica que
 analyze_hybrid_cross_camera_matching.py (Templete Central), aplicada al
 segundo caso de estudio con dataset hibrido (Capitulo 5, seccion 5.5.7).
 
@@ -24,7 +24,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-DB = r"C:\nerfstudio_work\thesis\03-panteon-asociacion-espanola\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\colmap\database.db"
+DB = r"C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\01-experimentos\hybrid-dji-insta360-colmap\run-20260827-163722\colmap\database.db"
 OUT_DIR = Path(r"C:\nerfstudio_work\thesis\00-auditoria\hybrid-cross-camera-matching")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -83,7 +83,7 @@ def main():
         }
 
     meta = {
-        "case": "03-panteon-asociacion-espanola",
+        "case": "03-panteon-asociacion-catalana",
         "artifact": "hybrid-cross-camera-matching",
         "source_database": DB,
         "dataset": "dataset-clean (973 img = 608 DJI + 365 Insta360), run-20260827-163722",
@@ -100,7 +100,7 @@ def main():
     )
 
     with open(OUT_DIR / "hybrid-cross-camera-matching-panteon.log", "w", encoding="utf-8") as f:
-        f.write("CALIDAD DE MATCHING CRUZADO ENTRE DISPOSITIVOS -- Panteon Asociacion Espanola (hibrido DJI+Insta360)\n")
+        f.write("CALIDAD DE MATCHING CRUZADO ENTRE DISPOSITIVOS -- Panteon Asociacion Catalana (hibrido DJI+Insta360)\n")
         f.write("=" * 100 + "\n\n")
         f.write(f"{'Tipo de par':<20}{'pares intentados':>18}{'con match (>0)':>16}{'% con match':>14}"
                 f"{'media inliers':>16}{'mediana':>10}{'p90':>8}{'max':>8}\n")
@@ -126,7 +126,7 @@ def main():
     ax.set_xticks(x)
     ax.set_xticklabels(labels)
     ax.set_ylabel("Inliers geometricamente verificados")
-    ax.set_title("Calidad de matching por tipo de par -- Panteon Asociacion Espanola (hibrido DJI+Insta360)")
+    ax.set_title("Calidad de matching por tipo de par -- Panteon Asociacion Catalana (hibrido DJI+Insta360)")
     ax.legend()
     ax.grid(True, alpha=0.3, axis="y")
     for i, (m, mx) in enumerate(zip(means, maxes)):

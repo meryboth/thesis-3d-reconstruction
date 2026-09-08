@@ -1,0 +1,22 @@
+RENDER FIDELITY BENCHMARK
+======================================================================
+
+Case: 03-panteon-asociacion-catalana
+Method: insta360/nerfacto
+GT dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\panteon-catalana-insta360-nerfacto-dataset-traj\train\gt-rgb
+Pred dir: C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\renders\panteon-catalana-insta360-nerfacto-dataset-traj\train\rgb
+
+Total paired frames: 280
+Sampled frames: 100 (seed=42)
+
+METRICS (mean / std / median / min / max)
+-------------------------------------------
+PSNR  : 15.621379 / 1.770964 / 15.576653 / 10.637401 / 20.254076
+SSIM  : 0.376455 / 0.112078 / 0.364458 / 0.187094 / 0.627904
+LPIPS : 0.652671 / 0.094307 / 0.631109 / 0.506608 / 0.947604
+MSE   : 0.029894 / 0.013780 / 0.027691 / 0.009432 / 0.086350
+MAE   : 0.132039 / 0.031010 / 0.129383 / 0.070673 / 0.239179
+
+METHODOLOGICAL NOTE
+--------------------
+Metricas calculadas sobre una muestra aleatoria reproducible de frames (no todos), emparejados por nombre de archivo entre gt-rgb y rgb de la carpeta de render de Nerfstudio. PSNR/SSIM: mas alto es mejor. LPIPS/MSE/MAE: mas bajo es mejor.

@@ -1,0 +1,65 @@
+DENSE POINT CLOUD ANALYSIS
+======================================================================
+
+Case: 03-panteon-asociacion-catalana
+Source: RealityScan dense reconstruction export
+
+FILE
+----
+Path: C:\nerfstudio_work\thesis\03-panteon-asociacion-catalana\02-resultados-finales\dji\colmap-fotogrametria\nube-densa.xyz
+Format: .xyz
+Size bytes: 1193055785
+Size MB: 1137.787
+SHA256: 671f2866be9f86d645ae64cd140478947b614c16f686cf3bdc06e0c0cc3633a8
+
+POINT CLOUD
+-----------
+Points: 17871606
+Has RGB: True
+Has normals: False
+
+BOUNDING BOX
+------------
+X min: -21.978322983
+X max: 27.922536850
+X range: 49.900859833
+Y min: -31.495445251
+Y max: 22.711698532
+Y range: 54.207143784
+Z min: -1.475232124
+Z max: 17.596145630
+Z range: 19.071377754
+BBox diagonal: 76.106686294
+BBox volume: 51587.754211396
+
+CENTROID
+--------
+X: -0.183028854
+Y: -1.009402765
+Z: 3.364072881
+
+LOCAL POINT DISTRIBUTION
+------------------------
+Sample size: 150000
+NN mean: 0.057771556
+NN median: 0.037182779
+NN std: 0.090726690
+NN P05: 0.008001312
+NN P25: 0.020614645
+NN P75: 0.064426491
+NN P95: 0.176563037
+
+OUTLIER INDICATOR
+-----------------
+Method: NN > Q3 + 1.5*IQR
+Threshold: 0.130144261
+Sample outliers: 11996
+Sample outlier %: 7.9973
+
+METHODOLOGICAL NOTE
+-------------------
+Point count, centroid and bounding box are computed from the full cloud.
+Nearest-neighbor statistics and the outlier indicator are computed from
+a deterministic random sample of at most 150,000 points.
+
+No points were modified or deleted during this analysis.

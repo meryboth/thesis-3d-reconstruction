@@ -246,7 +246,7 @@
     "num": 3,
     "title": "Caso de Estudio",
     "file": "/content/cap3.md",
-    "conclusion": "Los tres casos de estudio —Los Paraguas de Amancio Williams, el Templete Central del Sexto Panteón y el Panteón de la Asociación Española, todos en el Cementerio de la Chacarita— representan niveles crecientes de complejidad geométrica y ornamental: de geometría simple y regular, a formas repetitivas de un único material, a ornamentación densa con deterioro documentado.",
+    "conclusion": "Los tres casos de estudio —Los Paraguas de Amancio Williams, el Templete Central del Sexto Panteón y el Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat), todos en el Cementerio de la Chacarita— representan niveles crecientes de complejidad geométrica y ornamental: de geometría simple y regular, a formas repetitivas de un único material, a ornamentación densa con deterioro documentado.",
     "sections": [
       {
         "id": "cap3-3-1",
@@ -291,7 +291,7 @@
       {
         "id": "cap3-3-4",
         "num": "3.4",
-        "title": "Caso de estudio 3: El Panteón de la Asociación Española de Socorros Mutuos",
+        "title": "Caso de estudio 3: El Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat)",
         "children": [
           {
             "id": "cap3-3-4-1",
@@ -634,7 +634,7 @@
           {
             "id": "cap5-5-5-6",
             "num": "5.5.6",
-            "title": "Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Española"
+            "title": "Segundo caso de estudio híbrido: reconstrucción completa del Panteón Asociación Catalana"
           }
         ]
       },
@@ -725,6 +725,11 @@
             "id": "cap6-6-3-3",
             "num": "6.3.3",
             "title": "Exploración: segmentación asistida por un modelo de visión (VLM)"
+          },
+          {
+            "id": "cap6-6-3-4",
+            "num": "6.3.4",
+            "title": "Exploración: reconstrucción geométrica asistida por agente de IA (Blender MCP)"
           }
         ]
       },

@@ -1,0 +1,96 @@
+======================================================================
+DATASET INPUT LOG
+======================================================================
+
+Proyecto:
+Panteón Asociación Española / Catalana - Chacarita
+
+Dataset:
+dataset-onlydji
+
+Fecha de relevamiento:
+2026-08-22 16:00:36
+
+----------------------------------------------------------------------
+RUTAS
+----------------------------------------------------------------------
+
+Proyecto:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana
+
+Video original:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\videos\DJI_20260822133808_0001_D.MP4
+
+Dataset:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\dataset-onlydji
+
+Logs:
+C:\nerfstudio_work\panteon-chacarita\panteon-asociacion-catalana\logs\dji-only
+
+----------------------------------------------------------------------
+DATASET DE IMÁGENES
+----------------------------------------------------------------------
+
+Cantidad total de imágenes:
+1507
+
+Tamaño total:
+2255.64 MB
+2.203 GB
+
+Primera imagen:
+frame_00001.jpg
+
+Última imagen:
+frame_01507.jpg
+
+----------------------------------------------------------------------
+CARACTERÍSTICAS DE LAS IMÁGENES
+----------------------------------------------------------------------
+
+width=3840 height=2160 pix_fmt=yuvj420p
+
+----------------------------------------------------------------------
+VIDEO ORIGINAL
+----------------------------------------------------------------------
+
+Archivo:
+DJI_20260822133808_0001_D.MP4
+
+codec_name=hevc width=3840 height=2160 r_frame_rate=60000/1001 avg_frame_rate=60000/1001 duration=753.469383 duration=753.469383 size=6495785512
+
+----------------------------------------------------------------------
+EXTRACCIÓN
+----------------------------------------------------------------------
+
+Método:
+FFmpeg
+
+FPS utilizados para extracción:
+2 fps
+
+Formato:
+JPEG
+
+Calidad FFmpeg:
+-q:v 2
+
+Patrón de nombres:
+frame_XXXXX.jpg
+
+----------------------------------------------------------------------
+USO DEL DATASET
+----------------------------------------------------------------------
+
+Este dataset será utilizado como entrada común para comparar:
+
+1. RealityScan / RealityCapture SfM
+2. COLMAP nativo
+3. COLMAP ejecutado mediante Nerfstudio
+
+El dataset de entrada deberá permanecer sin modificaciones entre
+los tres experimentos.
+
+======================================================================
+END LOG
+======================================================================

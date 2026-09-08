@@ -1,0 +1,41 @@
+{
+  "nota": "Distancia a puntos utilizados en el ajuste; no validacion metrica independiente.",
+  "objetos": [
+    {
+      "objeto": "Paraguas 1 | cubierta de doble cara",
+      "vertices": 24962,
+      "caras": 25152,
+      "aristas_no_manifold": 0,
+      "puntos_comparados": 8000,
+      "distancia_mediana_SfM": 0.004370309878140688,
+      "distancia_p95_SfM": 0.015122226905077685
+    },
+    {
+      "objeto": "Paraguas 1 | columna ajustada",
+      "vertices": 384,
+      "caras": 194,
+      "aristas_no_manifold": 0,
+      "puntos_comparados": 8000,
+      "distancia_mediana_SfM": 0.004367409739643335,
+      "distancia_p95_SfM": 0.01924991421401499
+    },
+    {
+      "objeto": "Paraguas 2 | cubierta de doble cara",
+      "vertices": 24962,
+      "caras": 25152,
+      "aristas_no_manifold": 0,
+      "puntos_comparados": 8000,
+      "distancia_mediana_SfM": 0.004700449761003256,
+      "distancia_p95_SfM": 0.018164792098104936
+    },
+    {
+      "objeto": "Paraguas 2 | columna ajustada",
+      "vertices": 384,
+      "caras": 194,
+      "aristas_no_manifold": 0,
+      "puntos_comparados": 8000,
+      "distancia_mediana_SfM": 0.002304881578311324,
+      "distancia_p95_SfM": 0.016639454010874032
+    }
+  ]
+}
