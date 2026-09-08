@@ -1,5 +1,5 @@
 """
-POC: segmentacion semantica basica de una nube de gaussianas por geometria
+Experimento: segmentacion semantica basica de una nube de gaussianas por geometria
 local, sin modelos de deep learning -- heuristica sobre normales estimadas
 (PCA local via k vecinos cercanos, con scipy.cKDTree) y altura relativa.
 
@@ -99,7 +99,7 @@ def main():
     axes[1].set_xlabel("X"); axes[1].set_ylabel("Z")
     axes[1].set_aspect("equal", adjustable="datalim")
 
-    fig.suptitle("POC segmentación por normales locales — Templete Central (DJI)", fontsize=12)
+    fig.suptitle("Experimento — segmentación por normales locales — Templete Central (DJI)", fontsize=12)
     fig.tight_layout()
     out = OUT_DIR / "poc_segmentation_normals.png"
     fig.savefig(out, dpi=150, bbox_inches="tight")

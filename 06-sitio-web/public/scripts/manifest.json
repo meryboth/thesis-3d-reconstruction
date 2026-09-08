@@ -155,10 +155,10 @@
   {
     "name": "build_aggressive_poc_grid.py",
     "lang": "Python",
-    "description": "Arma un grid comparativo (original | RMBG foreground | mascara final | limpio) por cada muestra del POC de limpieza agresiva, para revision visual rapida.",
+    "description": "Arma un grid comparativo (original | RMBG foreground | mascara final | limpio) por cada muestra del experimento de limpieza agresiva, para revision visual rapida.",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 1608,
+    "sizeBytes": 1664,
     "url": "/scripts/files/build_aggressive_poc_grid.py"
   },
   {
@@ -284,7 +284,7 @@
     "description": "Arma el dataset \"dataset-masked-raw-1232-splatfacto\": el dataset RAW del Templete Central (imagenes originales, sin tocar) + una mascara de entrenamiento Nerfstudio por frame (RMBG-2.0, ver build_rmbg_masks_full_dataset.py) para que…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 3732,
+    "sizeBytes": 3835,
     "url": "/scripts/files/build_masked_raw_dataset.py"
   },
   {
@@ -338,7 +338,7 @@
     "description": "Diagrama del pipeline definitivo unico propuesto en el Capitulo 6, seccion 6.2: un tronco comun (captura + SfM) que se bifurca en dos ramas -- integracion HBIM (izquierda) y archivo digital web (derecha) -- y converge de nuevo en la…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 6549,
+    "sizeBytes": 7116,
     "url": "/scripts/files/build_pipeline_diagram.py"
   },
   {
@@ -353,10 +353,10 @@
   {
     "name": "build_rmbg_masks_full_dataset.py",
     "lang": "Python",
-    "description": "Genera mascaras de entrenamiento Nerfstudio (RMBG-2.0, saliencia) para el dataset DJI completo del Templete Central (1232 imagenes CRUDAS, sin tocar pixeles). No inpaintea nada -- ver POC previo (clean_dataset_comfyui_aggressive_poc.py)…",
+    "description": "Genera mascaras de entrenamiento Nerfstudio (RMBG-2.0, saliencia) para el dataset DJI completo del Templete Central (1232 imagenes CRUDAS, sin tocar pixeles). No inpaintea nada -- ver experimento previo…",
     "category": "Gráficos y datasets derivados",
     "categoryBlurb": "Generan las figuras/gráficos/tablas que se citan en los capítulos, o arman datasets intermedios (máscaras, subsets, datasets híbridos).",
-    "sizeBytes": 5797,
+    "sizeBytes": 5962,
     "url": "/scripts/files/build_rmbg_masks_full_dataset.py"
   },
   {
@@ -389,10 +389,10 @@
   {
     "name": "clean_dataset_comfyui_aggressive_poc.py",
     "lang": "Python",
-    "description": "POC de una version MAS AGRESIVA de limpieza con ComfyUI: ademas de los distractores discretos (persona/pajaro/auto via YOLO, igual que clean_dataset_comfyui.py), esta version tambien intenta borrar el CONTEXTO que no es la estructura…",
+    "description": "Experimento de una version MAS AGRESIVA de limpieza con ComfyUI: ademas de los distractores discretos (persona/pajaro/auto via YOLO, igual que clean_dataset_comfyui.py), esta version tambien intenta borrar el CONTEXTO que no es la…",
     "category": "Utilidades",
     "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
-    "sizeBytes": 8359,
+    "sizeBytes": 8571,
     "url": "/scripts/files/clean_dataset_comfyui_aggressive_poc.py"
   },
   {
@@ -468,6 +468,24 @@
     "url": "/scripts/files/generate_mask_pyramid.py"
   },
   {
+    "name": "inspeccionar_panteon_geometria.py",
+    "lang": "Python",
+    "description": "Genera una hoja de referencia (planta y alzados) de la nube muestreada del Panteón Asociación Catalana, para orientarse antes de ajustar geometría en Blender.",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1059,
+    "url": "/scripts/files/inspeccionar_panteon_geometria.py"
+  },
+  {
+    "name": "inspect_paraguas_model.py",
+    "lang": "Python",
+    "description": "Arma una hoja de contacto con fotogramas muestreados del dataset de Los Paraguas, como referencia visual al ajustar geometría en Blender.",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 826,
+    "url": "/scripts/files/inspect_paraguas_model.py"
+  },
+  {
     "name": "level_point_cloud.py",
     "lang": "Python",
     "description": "Nivela una nube de puntos cruda de RealityScan (sin gravity-alignment, a diferencia de los datasets procesados por Nerfstudio que si tienen ese ajuste via dataparser_transforms.json) ajustando un plano por RANSAC al piso/ pavimento -- la…",
@@ -497,64 +515,64 @@
   {
     "name": "poc_floater_cleanup.py",
     "lang": "Python",
-    "description": "POC: limpieza automatica de floaters en un export de Gaussian Splatting (splat.ply), combinando dos criterios baratos de calcular:",
+    "description": "Experimento: limpieza automatica de floaters en un export de Gaussian Splatting (splat.ply), combinando dos criterios baratos de calcular:",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 4744,
+    "sizeBytes": 4877,
     "url": "/scripts/files/poc_floater_cleanup.py"
   },
   {
     "name": "poc_floater_cleanup_aggressive.py",
     "lang": "Python",
-    "description": "POC (parte 3): version mucho mas agresiva de la limpieza de floaters, sobre el checkpoint completo. Suma un tercer criterio a los dos anteriores (opacidad baja + aislamiento KNN): distancia al centroide de la \"masa densa\" (el edificio…",
+    "description": "Experimento (parte 3): version mucho mas agresiva de la limpieza de floaters, sobre el checkpoint completo. Suma un tercer criterio a los dos anteriores (opacidad baja + aislamiento KNN): distancia al centroide de la \"masa densa\" (el…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 4539,
+    "sizeBytes": 4667,
     "url": "/scripts/files/poc_floater_cleanup_aggressive.py"
   },
   {
     "name": "poc_floater_cleanup_checkpoint.py",
     "lang": "Python",
-    "description": "POC (parte 2): aplica el mismo criterio de limpieza de floaters (opacidad baja + aislamiento espacial via KNN, igual que poc_floater_cleanup.py) directamente sobre los tensores del checkpoint entrenado de Splatfacto (no sobre el .ply ya…",
+    "description": "Experimento (parte 2): aplica el mismo criterio de limpieza de floaters (opacidad baja + aislamiento espacial via KNN, igual que poc_floater_cleanup.py) directamente sobre los tensores del checkpoint entrenado de Splatfacto (no sobre el…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 3430,
+    "sizeBytes": 3526,
     "url": "/scripts/files/poc_floater_cleanup_checkpoint.py"
   },
   {
     "name": "poc_floater_cleanup_manual_match.py",
     "lang": "Python",
-    "description": "POC (parte 4, con alineacion): mapea la edicion manual de la usuaria en SuperSplat (splat-editado.ply, en el espacio de coordenadas propio de SuperSplat) contra el checkpoint original de Nerfstudio, usando la transformacion resuelta por…",
+    "description": "Experimento (parte 4, con alineacion): mapea la edicion manual de la usuaria en SuperSplat (splat-editado.ply, en el espacio de coordenadas propio de SuperSplat) contra el checkpoint original de Nerfstudio, usando la transformacion…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 3325,
+    "sizeBytes": 3421,
     "url": "/scripts/files/poc_floater_cleanup_manual_match.py"
   },
   {
     "name": "poc_floater_cleanup_manual_region.py",
     "lang": "Python",
-    "description": "POC (parte 4b): en vez de matchear gaussiana-por-gaussiana (fallo por colision de vecinos, ver poc_floater_cleanup_manual_match.py), usa la nube de puntos editada a mano (ya alineada al espacio del checkpoint) como PLANTILLA DE REGION:…",
+    "description": "Experimento (parte 4b): en vez de matchear gaussiana-por-gaussiana (fallo por colision de vecinos, ver poc_floater_cleanup_manual_match.py), usa la nube de puntos editada a mano (ya alineada al espacio del checkpoint) como PLANTILLA DE…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 3365,
+    "sizeBytes": 3453,
     "url": "/scripts/files/poc_floater_cleanup_manual_region.py"
   },
   {
     "name": "poc_floater_cleanup_render.py",
     "lang": "Python",
-    "description": "Render rapido (proyeccion de puntos con color real, no rasterizacion de gaussianas completa) del splat original vs. el limpio de la POC, para verificar visualmente que la limpieza no se come geometria real del edificio. No reemplaza un…",
+    "description": "Render rapido (proyeccion de puntos con color real, no rasterizacion de gaussianas completa) del splat original vs. el limpio del experimento, para verificar visualmente que la limpieza no se come geometria real del edificio. No reemplaza…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 4057,
+    "sizeBytes": 4178,
     "url": "/scripts/files/poc_floater_cleanup_render.py"
   },
   {
     "name": "poc_floater_cleanup_sphere_only.py",
     "lang": "Python",
-    "description": "POC (parte 5): replica el metodo real que uso la usuaria en SuperSplat -- una esfera simple que contiene al edificio, borrando todo lo de afuera. Sin criterios de opacidad ni aislamiento, solo distancia al centro.",
+    "description": "Experimento (parte 5): replica el metodo real que uso la usuaria en SuperSplat -- una esfera simple que contiene al edificio, borrando todo lo de afuera. Sin criterios de opacidad ni aislamiento, solo distancia al centro.",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 2951,
+    "sizeBytes": 3033,
     "url": "/scripts/files/poc_floater_cleanup_sphere_only.py"
   },
   {
@@ -569,28 +587,28 @@
   {
     "name": "poc_segmentation_normals.py",
     "lang": "Python",
-    "description": "POC: segmentacion semantica basica de una nube de gaussianas por geometria local, sin modelos de deep learning -- heuristica sobre normales estimadas (PCA local via k vecinos cercanos, con scipy.cKDTree) y altura relativa.",
+    "description": "Experimento: segmentacion semantica basica de una nube de gaussianas por geometria local, sin modelos de deep learning -- heuristica sobre normales estimadas (PCA local via k vecinos cercanos, con scipy.cKDTree) y altura relativa.",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 4763,
+    "sizeBytes": 4893,
     "url": "/scripts/files/poc_segmentation_normals.py"
   },
   {
     "name": "poc_segmentation_normals_densecloud.py",
     "lang": "Python",
-    "description": "POC: misma segmentacion por normales locales (ver poc_segmentation_normals.py) pero sobre la nube de puntos DENSA de SfM (RealityScan, nube-densa.xyz) en vez de los centros de gaussianas de Splatfacto -- la nube densa no tiene el problema…",
+    "description": "Experimento: misma segmentacion por normales locales (ver poc_segmentation_normals.py) pero sobre la nube de puntos DENSA de SfM (RealityScan, nube-densa.xyz) en vez de los centros de gaussianas de Splatfacto -- la nube densa no tiene el…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 9162,
+    "sizeBytes": 9394,
     "url": "/scripts/files/poc_segmentation_normals_densecloud.py"
   },
   {
     "name": "poc_segmentation_vlm.py",
     "lang": "Python",
-    "description": "POC: segmentacion asistida por un modelo de vision (Moondream2, via un nodo de ComfyUI expuesto por su API HTTP) para refinar la distincion columna estructural vs. baranda/pared no estructural de poc_segmentation_multi_site.py -- ahi esa…",
+    "description": "Experimento: segmentacion asistida por un modelo de vision (Moondream2, via un nodo de ComfyUI expuesto por su API HTTP) para refinar la distincion columna estructural vs. baranda/pared no estructural de poc_segmentation_multi_site.py --…",
     "category": "Pruebas de concepto",
     "categoryBlurb": "Exploraciones puntuales (limpieza de floaters, segmentación) que no forman parte del pipeline final pero documentan el proceso.",
-    "sizeBytes": 13513,
+    "sizeBytes": 13529,
     "url": "/scripts/files/poc_segmentation_vlm.py"
   },
   {
@@ -603,6 +621,24 @@
     "url": "/scripts/files/poc_vlm_color_render_test.py"
   },
   {
+    "name": "preparar_panteon_modelado.py",
+    "lang": "Python",
+    "description": "Prepara insumos de referencia (hoja de contacto de fotogramas, nube muestreada) para la reconstrucción geométrica asistida por IA del Panteón Asociación Catalana (Cap.6, sección 6.3.4).",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 1559,
+    "url": "/scripts/files/preparar_panteon_modelado.py"
+  },
+  {
+    "name": "preparar_templete_modelado.py",
+    "lang": "Python",
+    "description": "Prepara insumos de referencia (hoja de contacto de fotogramas, nube muestreada) para la reconstrucción geométrica asistida por IA de Templete Central (Cap.6, sección 6.3.4).",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 2154,
+    "url": "/scripts/files/preparar_templete_modelado.py"
+  },
+  {
     "name": "qwen_batch_test.py",
     "lang": "Python",
     "description": "Prueba rapida (sin pasar por ComfyUI, directo) de Qwen2-VL-2B sobre los renders de fragmentos ya generados por poc_segmentation_vlm.py, para comparar su tasa de acierto contra la etiqueta geometrica de origen antes de integrarlo al…",
@@ -610,6 +646,15 @@
     "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
     "sizeBytes": 2532,
     "url": "/scripts/files/qwen_batch_test.py"
+  },
+  {
+    "name": "reconstruir_paraguas_blender.py",
+    "lang": "Python",
+    "description": "Reconstruccion de los dos paraguas a partir de parametros ajustados a COLMAP. Ejecutar en Blender: exec(compile(open(__file__,encoding='utf-8').read(),__file__,'exec')) Las unidades son SfM, sin calibracion metrica. No modifica los…",
+    "category": "Utilidades",
+    "categoryBlurb": "Conversión de formatos, auditoría de logs y otras tareas de soporte del pipeline.",
+    "sizeBytes": 7964,
+    "url": "/scripts/files/reconstruir_paraguas_blender.py"
   },
   {
     "name": "audit_colmap_dji_insta360.ps1",

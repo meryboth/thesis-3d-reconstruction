@@ -1,5 +1,5 @@
 """
-POC (parte 3): version mucho mas agresiva de la limpieza de floaters, sobre
+Experimento (parte 3): version mucho mas agresiva de la limpieza de floaters, sobre
 el checkpoint completo. Suma un tercer criterio a los dos anteriores
 (opacidad baja + aislamiento KNN): distancia al centroide de la "masa
 densa" (el edificio real) -- la evidencia visual en SuperSplat muestra que
@@ -97,7 +97,7 @@ def main():
             shutil.copy2(src, DST_RUN_DIR / fname)
             print(f"[OK] copiado: {fname}")
 
-    # tambien exportamos un .ply liviano para poder verla en SuperSplat, igual que la POC anterior
+    # tambien exportamos un .ply liviano para poder verla en SuperSplat, igual que el experimento anterior
     from plyfile import PlyData
     orig_ply_path = SRC_RUN_DIR.parent / "export" / "splat.ply"
     if orig_ply_path.exists():

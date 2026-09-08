@@ -1,9 +1,9 @@
 """
-POC (parte 4, con alineacion): mapea la edicion manual de la usuaria en
+Experimento (parte 4, con alineacion): mapea la edicion manual de la usuaria en
 SuperSplat (splat-editado.ply, en el espacio de coordenadas propio de
 SuperSplat) contra el checkpoint original de Nerfstudio, usando la
 transformacion resuelta por align_supersplat_export.py, para poder evaluarla
-con ns-eval igual que las otras versiones de la POC.
+con ns-eval igual que las otras versiones del experimento.
 """
 from pathlib import Path
 import shutil

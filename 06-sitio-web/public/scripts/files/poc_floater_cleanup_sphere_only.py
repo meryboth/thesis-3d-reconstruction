@@ -1,5 +1,5 @@
 """
-POC (parte 5): replica el metodo real que uso la usuaria en SuperSplat --
+Experimento (parte 5): replica el metodo real que uso la usuaria en SuperSplat --
 una esfera simple que contiene al edificio, borrando todo lo de afuera.
 Sin criterios de opacidad ni aislamiento, solo distancia al centro.
 

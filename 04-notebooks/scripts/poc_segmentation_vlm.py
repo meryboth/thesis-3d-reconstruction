@@ -1,9 +1,9 @@
 """
-POC: segmentacion asistida por un modelo de vision (Moondream2, via un nodo
+Experimento: segmentacion asistida por un modelo de vision (Moondream2, via un nodo
 de ComfyUI expuesto por su API HTTP) para refinar la distincion columna
 estructural vs. baranda/pared no estructural de poc_segmentation_multi_site.py
 -- ahi esa distincion se resuelve con un umbral geometrico fijo (altura
-maxima de la celda, COLUMN_HEIGHT_FRAC), esta POC prueba si un VLM liviano,
+maxima de la celda, COLUMN_HEIGHT_FRAC), este experimento prueba si un VLM liviano,
 mirando la forma de cada fragmento, puede tomar la misma decision con
 evidencia visual en vez de un umbral fijo.
 

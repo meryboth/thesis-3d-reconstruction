@@ -1,5 +1,5 @@
 """
-POC: limpieza automatica de floaters en un export de Gaussian Splatting
+Experimento: limpieza automatica de floaters en un export de Gaussian Splatting
 (splat.ply), combinando dos criterios baratos de calcular:
 
   A) Opacidad baja (alpha < ALPHA_THRESHOLD) -- ya cuantificado en Cap. 5,
@@ -102,7 +102,7 @@ def main():
     axes[1].set_aspect("equal", adjustable="datalim")
     axes[1].legend(markerscale=8, fontsize=8)
 
-    fig.suptitle("POC limpieza de floaters — Templete Central (DJI), vista XY", fontsize=12)
+    fig.suptitle("Experimento — limpieza de floaters — Templete Central (DJI), vista XY", fontsize=12)
     fig.tight_layout()
     out_png = OUT_DIR / "poc_floater_cleanup_xy.png"
     fig.savefig(out_png, dpi=150, bbox_inches="tight")

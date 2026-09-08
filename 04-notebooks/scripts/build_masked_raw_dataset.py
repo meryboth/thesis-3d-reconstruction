@@ -5,7 +5,7 @@ entrenamiento Nerfstudio por frame (RMBG-2.0, ver build_rmbg_masks_full_dataset.
 para que Splatfacto ignore el fondo (cielo, edificios de contexto, piso)
 durante el entrenamiento en vez de reconstruirlo -- ver conversacion sobre
 por que el inpainting agresivo con LaMa no funciona para mascaras de ese
-tamano (POC en clean_dataset_comfyui_aggressive_poc.py).
+tamano (experimento en clean_dataset_comfyui_aggressive_poc.py).
 
 No copia las imagenes originales (pesarian ~10GB de nuevo) -- crea una
 junction de Windows a la carpeta images/ del dataset raw ya existente, asi

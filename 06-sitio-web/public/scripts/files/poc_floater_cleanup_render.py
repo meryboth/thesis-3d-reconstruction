@@ -1,9 +1,9 @@
 """
 Render rapido (proyeccion de puntos con color real, no rasterizacion de
-gaussianas completa) del splat original vs. el limpio de la POC, para
+gaussianas completa) del splat original vs. el limpio del experimento, para
 verificar visualmente que la limpieza no se come geometria real del
 edificio. No reemplaza un render real de Nerfstudio/SuperSplat -- es un
-chequeo de sanidad rapido para la POC.
+chequeo de sanidad rapido para el experimento.
 """
 from pathlib import Path
 import numpy as np
@@ -71,7 +71,7 @@ def main():
     fig, axes = plt.subplots(1, 2, figsize=(13, 6.2))
     render_view(axes[0], xyz_o, rgb_o, alpha_o, ELEV, AZIM, f"Original ({len(xyz_o):,} gaussianas)")
     render_view(axes[1], xyz_c, rgb_c, alpha_c, ELEV, AZIM, f"Limpio ({len(xyz_c):,} gaussianas, -{100*(1-len(xyz_c)/len(xyz_o)):.1f}%)")
-    fig.suptitle("POC limpieza de floaters — Templete Central (DJI) — proyección de puntos con color real", fontsize=12)
+    fig.suptitle("Experimento — limpieza de floaters — Templete Central (DJI) — proyección de puntos con color real", fontsize=12)
     fig.tight_layout()
     out = OUT_DIR / "poc_floater_cleanup_render_wide.png"
     fig.savefig(out, dpi=150, facecolor="white", bbox_inches="tight")

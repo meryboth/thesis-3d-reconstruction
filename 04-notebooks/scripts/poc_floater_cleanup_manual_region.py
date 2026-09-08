@@ -1,5 +1,5 @@
 """
-POC (parte 4b): en vez de matchear gaussiana-por-gaussiana (fallo por
+Experimento (parte 4b): en vez de matchear gaussiana-por-gaussiana (fallo por
 colision de vecinos, ver poc_floater_cleanup_manual_match.py), usa la nube
 de puntos editada a mano (ya alineada al espacio del checkpoint) como
 PLANTILLA DE REGION: cualquier gaussiana del checkpoint que caiga cerca de

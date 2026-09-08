@@ -1,5 +1,5 @@
 """
-POC: misma segmentacion por normales locales (ver poc_segmentation_normals.py)
+Experimento: misma segmentacion por normales locales (ver poc_segmentation_normals.py)
 pero sobre la nube de puntos DENSA de SfM (RealityScan, nube-densa.xyz) en vez
 de los centros de gaussianas de Splatfacto -- la nube densa no tiene el
 problema de floaters ya documentado en Cap. 5, deberia dar un resultado mas
@@ -179,7 +179,7 @@ def main():
     axes[1, 1].set_title("Segmentación por normales — perfil (XZ)", fontsize=10)
     axes[1, 1].set_aspect("equal", adjustable="datalim")
 
-    fig.suptitle("POC segmentación por normales — Templete Central, nube densa SfM (DJI)", fontsize=13)
+    fig.suptitle("Experimento — segmentación por normales — Templete Central, nube densa SfM (DJI)", fontsize=13)
     fig.tight_layout()
     out = OUT_DIR / "poc_segmentation_normals_densecloud.png"
     fig.savefig(out, dpi=150, bbox_inches="tight")

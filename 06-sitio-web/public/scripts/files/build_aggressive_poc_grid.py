@@ -1,5 +1,5 @@
 """Arma un grid comparativo (original | RMBG foreground | mascara final | limpio)
-por cada muestra del POC de limpieza agresiva, para revision visual rapida."""
+por cada muestra del experimento de limpieza agresiva, para revision visual rapida."""
 from pathlib import Path
 from PIL import Image
 

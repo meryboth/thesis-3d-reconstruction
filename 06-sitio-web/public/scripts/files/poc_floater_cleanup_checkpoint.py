@@ -1,5 +1,5 @@
 """
-POC (parte 2): aplica el mismo criterio de limpieza de floaters (opacidad baja
+Experimento (parte 2): aplica el mismo criterio de limpieza de floaters (opacidad baja
 + aislamiento espacial via KNN, igual que poc_floater_cleanup.py) directamente
 sobre los tensores del checkpoint entrenado de Splatfacto (no sobre el .ply ya
 exportado, que tiene menos gaussianas por el recorte que hace el exportador),

@@ -1,5 +1,5 @@
 """
-POC de una version MAS AGRESIVA de limpieza con ComfyUI: ademas de los
+Experimento de una version MAS AGRESIVA de limpieza con ComfyUI: ademas de los
 distractores discretos (persona/pajaro/auto via YOLO, igual que
 clean_dataset_comfyui.py), esta version tambien intenta borrar el CONTEXTO
 que no es la estructura principal que se esta relevando (cielo, edificios de

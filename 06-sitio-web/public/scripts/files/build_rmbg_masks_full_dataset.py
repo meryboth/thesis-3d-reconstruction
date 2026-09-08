@@ -1,7 +1,7 @@
 """
 Genera mascaras de entrenamiento Nerfstudio (RMBG-2.0, saliencia) para el
 dataset DJI completo del Templete Central (1232 imagenes CRUDAS, sin tocar
-pixeles). No inpaintea nada -- ver POC previo (clean_dataset_comfyui_aggressive_poc.py)
+pixeles). No inpaintea nada -- ver experimento previo (clean_dataset_comfyui_aggressive_poc.py)
 que mostro que LaMa no puede rellenar una mascara de ese tamano. En cambio,
 la mascara se usa directamente por Nerfstudio para IGNORAR el fondo durante
 el entrenamiento (mask_path en transforms.json): blanco=entrenar aca (sujeto),
