@@ -96,7 +96,7 @@ Si bien, no hay literatura que mencione esta obra o que destaque su valor patrim
 
 ![](/content/assets/cap3-image4.webp)
 
-*Imagen 3.4 — Captura aérea propia de El Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat) en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
+*Imagen 3.3 — Captura aérea propia de El Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat) en el Cementerio de Chacarita, obtenida mediante un drone DJI Neo 2 con el propósito de generar el dataset respectivo.*
 
 <h3 id="cap3-3-4-2">3.4.2 Desafíos de reconstrucción 3D aplicados a la obra</h3>
 
@@ -133,11 +133,15 @@ El Neo 2 es uno de los modelos más recientes de la compañía DJI por lo tanto 
 | Navegación BEV con ortomosaico de DJI Neo          | 2026    | Ortomosaicos, representación BEV y navegación robótica                      |
 | Certificación EASA y soporte técnico del DJI Neo 2 | 2026    | Clasificación regulatoria, seguridad operacional y características técnicas |
 
+*Tabla 3.1 — Antecedentes académicos y técnicos del DJI Neo 2 y de sus modelos antecesores, por año y dominio de aplicación.*
+
 Podemos afirmar que no se encontró evidencia del uso de DJI Neo 2 en aplicativos e investigaciones vinculadas a la generación de 3D a partir de métodos de computer vision, por lo tanto se trata de una exploración en la cual esta tesis va a ser pionera. Sin embargo lo que se puede visualizar en el diagrama que se encuentra a continuación es una adopción gradual en el ámbito académico. A continuación voy a describir de forma breve lo que aportaron cada uno de estos hitos: el trabajo de Arab et al. demostró la viabilidad para captura aérea aplicada a vigilancia y detección de objetos mediante técnicas de computer vision. Wang et al., a través de ADG-YOLO, aportaron evidencia sobre su estabilidad de vuelo y utilidad en tareas de detección y estimación de distancias; por su parte, Poma et al. validaron el empleo en procesos automatizados de inspección de infraestructura. En 2026, PathPainter amplió estos antecedentes al utilizar imágenes capturadas con un DJI Neo para generar un ortomosaico georreferenciado destinado a la navegación robótica. Finalmente, la certificación de EASA y la documentación técnica oficial consolidaron la caracterización operativa del DJI Neo 2.
 
 Si bien, como se indica con anterioridad no hay evidencia empírica de que este dispositivo es idóneo para la investigación, hay otras características del modelo que lo convierten en un candidato perfecto para el fin de la captura de imágenes en altura. Se trata de un dispositivo de apenas 151 gramos, que cabe en la palma de la mano y que puede guardarse en cualquier bolsillo de amplia dimensión. Es portable y su autonomía es de 15 minutos, una variable que no complica en absoluto el registro continuo en edificios de las dimensiones propuestas dentro de los casos de uso. Su carga es rápida y se puede operar desde cualquier dispositivo móvil sin contar con controles o accesorios adicionales. Su costo es el más bajo del mercado (entre 500.000 pesos y 600.000 pesos, dependiendo del proveedor), lo cual lo convierte en un dispositivo accesible para aquellos que quieran explorar la implementación de drones para generación de 3D con bajos costos.
 
 ![](/content/assets/cap3-image1.png)
+
+*Imagen 3.4 — Línea de tiempo de la adopción del DJI Neo y del DJI Neo 2 en la literatura, entre 2025 y 2026: del lanzamiento del Neo 2 y los primeros usos en vigilancia, detección e inspección de pavimentos, al ortomosaico para navegación robótica de PathPainter y a la certificación EASA con la documentación técnica oficial.*
 
 <h2 id="cap3-3-6">3.6 Protocolo de captura de imágenes</h2>
 
@@ -149,9 +153,13 @@ El primer paso para definir este diseño es consultar el estado del arte vincula
 
 Una publicación previa, que data del 2022 titulada *“Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields”* propone que los trayectos dispongan un recorrido de 360 grados alrededor del objetivo de la captura, pero también establece que el ángulo y la altura deben ser fijos. Algo interesante es que la publicación de Rangelov et al. propone lo contrario y asegura que el recorrido con múltiples alturas mejora la fidelidad en especial en construcciones de carácter vertical que pueden llegar a tener ornamentos o geometrías complejas. ![](/content/assets/cap3-image3.jpg)
 
+*Imagen 3.5 — Esquema de recorrido de captura en tres bucles cerrados y concéntricos, a alturas crecientes alrededor de la obra, numerados de la más baja a la más alta.*
+
 Teniendo en cuenta que las publicaciones más recientes sostienen que la mejor técnica es la de bucles con distintas alturas, y sólo papers y publicaciones vinculadas a la construcción utilizando NeRF sostienen que es importante una única altura durante los recorridos voy a implementar este criterio como el válido y más recomendado. En promedio el despegue del drone debería garantizar un primer recorrido a una altura de entre 1 a 1.5 metros, mientras que el segundo recorrido debería contener la altura media del edificio y el último recorrido debería contener el remate. La existencia de entre dos a tres recorridos va a depender de la altura del edificio: para proyectos de hasta dos plantas con dos recorridos se establece una cobertura suficiente, mientras que para las obras que tengan más de 6 metros de alto se recomienda un tercer recorrido que permita extender la zona de cobertura.
 
 ![](/content/assets/cap3-image2.jpg)
+
+*Imagen 3.6 — Esquema de recorrido de captura alternativo: un único bucle continuo que asciende en espiral alrededor de la obra, sin altura fija.*
 
 <h3 id="cap3-3-6-2">3.6.2 Condiciones de captura</h3>
 
@@ -177,6 +185,8 @@ Otro parámetro de configuración personalizado es la cantidad de frames por seg
 | Formato            | Apaisado  |
 | Relación           | 16:9      |
 
+*Tabla 3.2 — Parámetros de captura configurados en el DJI Neo 2: navegación manual, salida .mp4 a 60 fps, formato apaisado y relación de aspecto 16:9.*
+
 Para la cámara Insta360 el usuario puede elegir si utilizar la cámara con un gran angular pronunciado o si filmar directamente con los dos lentes obteniendo un resultado de 360 grados. El primer enfoque fue mejor para los registros, ya que la disposición de 360 grados implica un preprocesamiento más intensivo: esto ocurre porque el usuario que captura las imágenes queda capturado dentro de la imagen panorámica que obtiene como resultado. Una aclaración importante es que en junio de 2026, RealityCapture, uno de los software más utilizados para procesamiento con SfM incluye soporte para imágenes 360, lo que facilita mucho la implementación de un pipeline de reconstrucción 3D utilizando este tipo de imágenes panorámicas que ofrece Insta360. El motivo por el cual esta tesis no incluye esto en su pipeline de investigación es que RealityCapture no ofrece tantas posibilidades de configuración como otros softwares open source que permiten configurar de forma más específica las variables de salida de SfM, como por ejemplo NerfStudio. Por ese motivo este proyecto de investigación no utiliza las imágenes panorámicas de Insta360 y en su lugar utiliza las posibilidades de captura de video haciendo uso del gran angular de la cámara. A continuación se especifican los parámetros de salida configurados al momento de realizar capturas con este dispositivo:
 
 - Se elige la relación de 16:9, es decir, una disposición apaisada de las imágenes. Esta selección busca que el resultado obtenido pueda emparejarse mejor con el output de los videos generados por el drone ante la posibilidad de generar un dataset único con ambos registros.
@@ -195,7 +205,7 @@ El siguiente gráfico da cuenta de la cantidad de frames que se van a estar anal
 
 ![Resumen de la sesión de captura por caso de estudio](/content/assets/cap3-resumen-captura-por-caso.png)
 
-*Imagen 3.3 — Duración de video y fotogramas totales (antes del preprocesamiento), por caso de estudio y dispositivo.*
+*Imagen 3.7 — Duración de video y fotogramas totales (antes del preprocesamiento), por caso de estudio y dispositivo.*
 
 | Caso de estudio             | Dispositivo(s) | Duración total de video | Fotogramas totales (antes del preprocesamiento) | Tamaño del material |
 | --------------------------- | -------------- | ----------------------- | ----------------------------------------------- | ------------------- |
@@ -205,7 +215,7 @@ El siguiente gráfico da cuenta de la cantidad de frames que se van a estar anal
 | Panteón Asociación Catalana | DJI Neo 2      | 17 min 38 s             | 1506                                            | 9,21 GB             |
 | Panteón Asociación Catalana | Insta360 X5    | 3 min 2 s               | 311                                             | 1,46 GB             |
 
-*Tabla 3.1 — Duración de video, fotogramas totales y tamaño del material capturado, por caso de estudio y dispositivo. Fuente: metadata de video (ffprobe) sobre los archivos originales en `videos/`; conteo de fotogramas según Tabla 4.6 (Capítulo 4).*
+*Tabla 3.3 — Duración de video, fotogramas totales y tamaño del material capturado, por caso de estudio y dispositivo. Fuente: metadata de video (ffprobe) sobre los archivos originales en `videos/`; conteo de fotogramas según Tabla 4.6 (Capítulo 4).*
 
 Como incidencia de captura: en Templete Central y Panteón Asociación Catalana el registro DJI se realizó en más de un vuelo (2 y 4 archivos de video respectivamente) por la autonomía de batería de 15 minutos del dispositivo (sección 3.5.2); Los Paraguas se cubrió en un único vuelo continuo.
 

@@ -22,6 +22,13 @@ WEB_DIR = ROOT / "06-sitio-web"
 ASSETS_DIR = WEB_DIR / "public" / "content" / "assets"
 CONTENT_DIR = WEB_DIR / "public" / "content"
 
+# Paginas preliminares: van antes de los capitulos. El resumen se publica solo
+# cuando tiene texto escrito -- mientras el .md solo tenga el comentario con las
+# instrucciones, esta seccion se omite (ver tiene_contenido()).
+FRONT_PAGES = [
+    ("resumen", None, "Resumen", "resumen/resumen.md"),
+]
+
 CHAPTERS = [
     ("cap1", 1, "Introducción", "capitulo1_introduccion/capitulo1_introduccion.md"),
     ("cap2", 2, "Marco Teórico", "capitulo2_marco_teorico/capitulo2_marco_teorico.md"),
@@ -43,6 +50,11 @@ REFERENCE_PAGES = [
 ]
 
 IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
+# Mark Text a veces deja la imagen como <img ...> en vez de markdown (p. ej. cuando
+# se le fija un ancho). Hay que copiar ese asset y reescribir el src igual que los
+# markdown, si no la web queda con una ruta relativa que no resuelve.
+HTML_IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
+HTML_SRC_RE = re.compile(r'(\bsrc\s*=\s*")([^"]*)(")', re.I)
 
 # el markdown fuente arranca con "**CAPITULO N**\n\n**Titulo**\n\n" -- lo sacamos
 # porque ChapterSection ya renderiza ese encabezado (evita duplicarlo).
@@ -180,27 +192,53 @@ def extract_conclusion(md_text: str, max_chars: int = 600) -> str:
     return "\n\n".join(out)
 
 
+def tiene_contenido(md_path):
+    """True si el .md tiene texto real (no solo comentarios HTML de instrucciones)."""
+    if not md_path.exists():
+        return False
+    t = re.sub(r"<!--.*?-->", "", md_path.read_text(encoding="utf-8"), flags=re.S)
+    return bool(t.strip())
+
+
 def process_chapter(chapter_id, num, title, rel_md_path, used):
     md_path = TESIS_DIR / rel_md_path
     chapter_dir = md_path.parent
     text = md_path.read_text(encoding="utf-8")
+    # los comentarios HTML de los .md son notas de trabajo (p. ej. las instrucciones
+    # del resumen), no contenido: no viajan al sitio
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S).lstrip()
     text = LEADING_TITLE_RE.sub("", text, count=1)
 
-    def replace_img(m):
-        alt, src = m.group(1), m.group(2)
+    def copiar_asset(src):
+        """Copia la imagen a assets/ y devuelve su ruta web, o None si no resuelve."""
         if src.startswith("http://") or src.startswith("https://"):
-            return m.group(0)
+            return None
         resolved = (chapter_dir / src).resolve()
         if not resolved.exists():
             print(f"  [WARN] no existe: {resolved} (referenciado en {chapter_id})")
-            return m.group(0)
+            return None
         new_name = slugify_name(resolved, used, chapter_id)
         dest = ASSETS_DIR / new_name
         if not dest.exists():
             shutil.copy2(resolved, dest)
-        return f"![{alt}](/content/assets/{new_name})"
+        return f"/content/assets/{new_name}"
+
+    def replace_img(m):
+        alt, src = m.group(1), m.group(2)
+        web = copiar_asset(src)
+        return m.group(0) if web is None else f"![{alt}]({web})"
+
+    def replace_html_img(m):
+        tag = m.group(0)
+
+        def sub_src(sm):
+            web = copiar_asset(sm.group(2))
+            return sm.group(0) if web is None else f"{sm.group(1)}{web}{sm.group(3)}"
+
+        return HTML_SRC_RE.sub(sub_src, tag)
 
     new_text = IMG_RE.sub(replace_img, text)
+    new_text = HTML_IMG_RE.sub(replace_html_img, new_text)
     new_text, sections = extract_and_tag_headings(new_text, chapter_id)
 
     conclusion = MANUAL_CONCLUSIONS.get(chapter_id) or extract_conclusion(text)
@@ -224,9 +262,21 @@ def main():
         old.unlink()  # limpieza: evita que queden assets huerfanos de nombres viejos
     manifest = []
     used = {}
-    for chapter_id, num, title, rel_md_path in CHAPTERS + REFERENCE_PAGES:
+    for chapter_id, num, title, rel_md_path in FRONT_PAGES + CHAPTERS + REFERENCE_PAGES:
+        if not tiene_contenido(TESIS_DIR / rel_md_path):
+            print(f"Omitiendo {chapter_id}: {rel_md_path} todavia sin texto")
+            continue
         print(f"Procesando {chapter_id}: {rel_md_path}")
         manifest.append(process_chapter(chapter_id, num, title, rel_md_path, used))
+
+    # limpieza: .md de secciones que ya no estan en el manifest (una seccion que se
+    # saco, o el resumen mientras todavia no tiene texto). Si quedaran, el sitio
+    # tendria archivos sueltos que no reflejan ningun capitulo.
+    vigentes = {entrada["id"] for entrada in manifest}
+    for viejo in CONTENT_DIR.glob("*.md"):
+        if viejo.stem not in vigentes:
+            print(f"  Quitando {viejo.name}: ya no corresponde a ninguna sección")
+            viejo.unlink()
 
     manifest_path = CONTENT_DIR / "manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")

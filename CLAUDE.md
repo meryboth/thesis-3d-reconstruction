@@ -10,7 +10,7 @@ Esta carpeta es la versión **curada y duplicada** (no los originales) de los re
 | 2 | [02-templete-central](02-templete-central/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
 | 3 | [03-panteon-asociacion-catalana](03-panteon-asociacion-catalana/README.md) | Dron DJI + Insta360 (360°) | Nerfacto vs. Splatfacto, por cada método de captura |
 
-> **Nombre del sitio 3 — corregido nuevamente (07/09):** es el **Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat)**, no la Asociación Española (la resolución del 01/09 estaba mal). El Decreto 525/2010 y el arquitecto Alejandro Christophersen son de un panteón *distinto* — confirmado leyendo el propio decreto, que nombra a la Asociación Española de Socorros Mutuos, no a la Catalana. Arquitecto candidato de este panteón: **Santiago Barris** (constructores Bruguera y Noguera, según prensa), sin confirmar con fuente académica todavía. **Pendiente de la usuaria:** validar el arquitecto y encontrar el respaldo documental de que esta obra es patrimonio, ya que el Decreto 525/2010 no aplica acá — ver el párrafo marcado para reescribir en Cap. 3, sección 3.4.1. Prosa corregida en el resto de los capítulos. La carpeta cruda (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre original, como todas las carpetas crudas. La carpeta curada de acá se renombró a `03-panteon-asociacion-catalana/` (scripts, configs y rutas de imágenes actualizados en consecuencia).
+> **Nombre del sitio 3 — corregido nuevamente (07/09):** es el **Panteón de la Asociación Catalana de Socorros Mutuos (Montepío de Montserrat)**, no la Asociación Española (la resolución del 01/09 estaba mal). El Decreto 525/2010 y el arquitecto Alejandro Christophersen son de un panteón *distinto* — confirmado leyendo el propio decreto, que nombra a la Asociación Española de Socorros Mutuos, no a la Catalana. Arquitecto candidato de este panteón: **Santiago Barris** (constructores Bruguera y Noguera, según prensa). **Resuelto (09/09):** la sección 3.4.1 ya atribuye el arquitecto con la cautela correcta (*«algunas fuentes atribuyen su diseño al arquitecto Santiago Barris»*) y justifica el valor patrimonial por otra vía, sin el Decreto 525/2010: el circuito de OpenHouse, la impronta modernista catalana, el remate en cúpula, los ornamentos de Torcuato Tasso Nadal y el sello de los constructores Bruguera y Noguera. No queda nada pendiente por este tema. La carpeta cruda (`panteon-chacarita/panteon-asociacion-catalana/`) mantiene su nombre original, como todas las carpetas crudas. La carpeta curada de acá se renombró a `03-panteon-asociacion-catalana/` (scripts, configs y rutas de imágenes actualizados en consecuencia).
 
 ## Estructura interna de cada `0X-<proyecto>/`
 
@@ -76,9 +76,21 @@ Sigue permitido en el resto de los capítulos, porque no es "escribir la tesis" 
 
 Ante la duda de si algo cuenta como "escribir texto de la tesis" fuera de Cap. 5, preguntar antes de tocar un `.md` de `05-tesis/`.
 
-## ⚠️ Regla no-negociable: capítulos y sitio web SIEMPRE sincronizados
+## ⚠️ Regla no-negociable: capítulos, sitio web y `.docx` SIEMPRE sincronizados
 
-Cada vez que se cree, edite o reescriba cualquier `.md` dentro de `05-tesis/`, correr la skill **`sync-tesis-web`** (o directamente `06-sitio-web/scripts/prepare_content.py`) antes de dar la tarea por terminada — sin que la usuaria tenga que pedirlo. `06-sitio-web/public/content/` es 100% derivado de `05-tesis/`, nunca se edita a mano ahí. Pedido explícito de la usuaria (26/08): que ambos queden siempre completamente sincronizados.
+La tesis existe en tres formas, y **`05-tesis/` es la única fuente de verdad**. Las otras dos son 100% derivadas y **nunca se editan a mano**:
+
+| Versión | Dónde | Se genera con |
+|---|---|---|
+| Capítulos (fuente) | `05-tesis/*/*.md` (incluye `resumen/`) | se editan a mano |
+| Sitio web | `06-sitio-web/public/content/` | `06-sitio-web/scripts/prepare_content.py` |
+| `.docx` de entrega | `formato-entrega/Tesis-Reconstruccion3D-Patrimonio.docx` | `formato-entrega/build_docx.py` |
+
+Cada vez que se cree, edite o reescriba cualquier `.md` dentro de `05-tesis/`, correr la skill **`sync-tesis`** antes de dar la tarea por terminada — sin que la usuaria tenga que pedirlo. La skill hace los tres pasos en orden: propagar epígrafes y numeración a los `.md` (`formato-entrega/propagar_epigrafes.py`), regenerar el sitio y regenerar el `.docx`.
+
+Pedido explícito de la usuaria: que el sitio quede siempre sincronizado (26/08) y que las tres versiones digan siempre exactamente lo mismo (09/09).
+
+**Epígrafes de figuras y tablas.** La tesis usa cuatro series (`Tabla`, `Figura`, `Gráfico`, `Imagen`), cada una correlativa por capítulo. Toda figura y toda tabla tiene que tener epígrafe con descripción — pedido de la usuaria del 09/09. Escribir esos epígrafes **no** cae bajo la regla de "no escribir prosa de la tesis" de más arriba: son leyenda factual de una imagen, sin interpretación ni conclusiones. Van en `formato-entrega/epigrafes.py` y de ahí los lleva `propagar_epigrafes.py` a los `.md`. Si `formato-entrega/renumeracion.md` no dice "Alineados", hay algo sin propagar.
 
 ## Sitio web (`06-sitio-web/`)
 

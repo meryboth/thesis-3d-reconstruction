@@ -49,6 +49,8 @@ Esta interpretación de los pasos que suceden durante el procesamiento de SFM en
 
 ![](/content/assets/cap2-image3.webp)
 
+*Figura 2.1 — Pipeline de fotogrametría SfM+MVS, de las imágenes de entrada a la nube de puntos densa: detección de puntos de interés con descriptores SIFT o SURF, emparejamiento de correspondencias entre pares de imágenes, estimación de la pose relativa de cada cámara con RANSAC, triangulación incremental o global y ajuste de haces (bundle adjustment); sobre la nube dispersa resultante, Multi-View Stereo produce la nube densa por correlación fotométrica entre vistas adyacentes. Elaboración propia a partir de Croce et al. (2024).*
+
 <h3 id="cap2-2-2-3">2.2.3 Fortalezas y desafíos para la documentación patrimonial</h3>
 
 Lo más interesante de esta técnica, que podríamos decir que se remonta a conceptos geométricos y algoritmos de al menos un siglo atrás, es que su resultado tiene una precisión geométrica de mucha exactitud. Si bien es importante destacar que el output final va a depender siempre de la calidad del dataset implementado y de las técnicas de captura de imagen, podemos confirmar que la literatura indica que ante un registro completo de un edificio el pipeline de fotogrametría puede generar un resultado de precisión alta que es compatible con flujos de trabajo BIM ya utilizados en la industria (obteniendo formatos como .obj y .ply que ya tienen alta compatibilidad con softwares de modelado como Blender o Revit). [Yu et al. (2025)](#ref-yu-2025) confirman que SfM es la opción más compatible para la integración con herramientas de documentación y análisis patrimonial profesional.
@@ -82,6 +84,8 @@ Cuando se corre un entrenamiento de un modelo NeRF lo que sucede podría resumir
 Que el procesamiento se base en la interpretación de píxeles y sus características de densidad y color ya es un cambio significativo en relación al proceso de fotogrametría, y también anticipa algo importante a considerar de cara a entender el proceso de NeRF: el output de un NeRF lo vamos a analizar a partir del renderizado de rutas y no tanto a partir de la interpretación volumétrica del archivo. Esta descripción del procesamiento de NeRF es una interpretación de los pasos que menciona Croce et al., en su publicación de 2024. 
 
 ![](/content/assets/cap2-image4.webp)
+
+*Figura 2.2 — Pipeline de NeRF, de las imágenes de entrada con poses conocidas a la síntesis de nuevas vistas: lanzamiento de un rayo por píxel, muestreo de puntos 3D a lo largo del rayo, predicción de color y densidad volumétrica mediante un MLP, renderizado volumétrico por integración a lo largo del rayo y optimización del modelo minimizando el error cuadrático medio contra la imagen real. Elaboración propia a partir de Mildenhall et al. (2020) y Croce et al. (2024).*
 
 <h3 id="cap2-2-3-3">2.3.3 Fortalezas y desafíos para la documentación patrimonial</h3>
 
@@ -124,6 +128,8 @@ A continuación vamos a repasar los distintos procesos que se ponen en juego al 
 - **Resultado:** El resultado final es una escena en tres dimensiones, donde las gaussianas se acomodan a la visualización del usuario para permitirle que en cada visual vea una reconstrucción de la escena fiel a lo generado durante el entrenamiento. 
 
 ![](/content/assets/cap2-image2.webp)
+
+*Figura 2.3 — Pipeline de 3D Gaussian Splatting, de la nube dispersa de SfM al renderizado en tiempo real: inicialización de una gaussiana 3D por punto (posición, covarianza, opacidad y color codificado con armónicos esféricos), proyección sobre el plano de imagen, rasterización diferenciable en GPU, optimización iterativa por pérdida fotométrica y densificación adaptativa con clonado, división y poda de gaussianas. Elaboración propia a partir de Westover (1990, 1991), Kerbl et al. (2023), Chen y Wang (2024) y Lyu et al. (2025).*
 
 <h3 id="cap2-2-4-3">2.4.3 Fortalezas y desafíos para la documentación patrimonial</h3>
 

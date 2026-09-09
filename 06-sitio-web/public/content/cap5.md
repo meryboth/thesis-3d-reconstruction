@@ -94,19 +94,27 @@ Como última instancia vamos a comparar los resultados de SfM, el video/gif a co
 
 ![templete-central-sfm-2.gif](/content/assets/cap5-templete-central-sfm-2.gif)
 
+*Figura 5.6 — Templete Central, reconstrucción SfM en RealityScan: vista a nivel del suelo de la nube de puntos junto a las posiciones de cámara recuperadas del recorrido con DJI, que rodean el edificio en anillos a distinta altura.*
+
 <h3 id="cap5-5-2-3">5.2.3 SfM — Malla texturizada y potencial de integración BIM</h3>
 
 La malla texturizada obtenida con RealityScan para el Templete Central tiene 17 688 149 vértices y 35 376 582 triángulos, con una textura única de 8192×8192 px (62,4 MB). Su geometría es consistente, a excepción de estos defectos mencionados en la sección anterior donde se identifican ausencias de continuidad en la cubierta. 
 
 ![](/content/assets/cap5-2026-09-01-13-31-22-image.png)
 
+*Figura 5.7 — Templete Central, malla texturizada obtenida con RealityScan: vista cenital de la cubierta, donde se aprecian las discontinuidades —zonas sin geometría— sobre la losa superior.*
+
 ![](/content/assets/cap5-2026-09-01-13-33-17-image.png)
+
+*Figura 5.8 — Templete Central, malla texturizada obtenida con RealityScan: vista desde el nivel del suelo, con las columnas, la losa nervurada y los carteles y rejas bajo la cubierta, junto a las posiciones de cámara del recorrido.*
 
 Como mencionamos con anterioridad, el output de SfM no puede ser comparable con NeRF y 3DGS por lo tanto su evaluación en este benchmark está orientada a cualidades visuales que podamos identificar a simple vista. Podemos afirmar que la interpretación de SfM dio como resultado una geometría explícita, que su materialidad asignada se corresponde visualmente con lo capturado en el dataset, y quitando excepciones puntuales ya mencionadas la representación se ve completa y representa fielmente a la obra. Su resultado podría utilizarse tranquilamente como referencia para construir un modelado 3D preciso utilizando el mesh de RealityScan como parámetro de representación. 
 
 Algo importante a considerar sobre el output de SfM, es que su nube de puntos y su malla 3D podrían utilizarse en flujos HBIM: en Autocad, Revit, Sketchup, y Blender, por mencionar algunos de los software más utilizados que permiten abrir este tipo de archivos con alta compatibilidad. Por otro lado, si evaluamos el output de NeRF y de 3DGS, si bien el segundo es bastante más liviano por su formato .ply lo cierto es que habría que encarar un proceso de conversión para hacer compatible estos archivos con un flujo de reconstrucción BIM. 
 
 ![templete-central-sfm.gif](/content/assets/cap5-templete-central-sfm.gif)
+
+*Figura 5.9 — Templete Central, reconstrucción SfM en RealityScan: vista aérea de la nube de puntos y del anillo de posiciones de cámara que envuelve al edificio.*
 
 <h2 id="cap5-5-3">5.3 B2 — Benchmark de preprocesamiento ComfyUI (H2)</h2>
 
@@ -116,6 +124,8 @@ La primera etapa de este benchmark tiene como finalidad medir el impacto de los 
 
 ![](/content/assets/cap5-2026-09-01-13-54-22-image.png)
 
+*Figura 5.10 — Workflow de limpieza de distractores en ComfyUI: del dataset original de 1232 imágenes DJI a la detección y segmentación por instancia con YOLOv8-seg, el filtro de clases COCO person/bird/car, el inpainting con LaMa y el Dataset B curado.*
+
 El procesamiento se hizo sobre el dataset completo de Templete Central que tenía 1232 imágenes, generando como resultado un Dataset B curado con 1232 imágenes alteradas por el workflow.  De las 1232 imágenes, **648 (52,6%) tenían al menos un distractor detectado y removido**; en las 584 restantes el pipeline no encontró nada que remover y la imagen quedó sin alterar. La cobertura promedio de máscara sobre las imágenes con detección fue bastante baja (0,22% del cuadro), consistente con el hecho de que los distractores son objetos puntuales (una persona, un grupo de aves) y no ocupan una porción grande dentro de los frames.
 
 ![Detección de distractores por imagen — dataset DJI completo](/content/assets/cap5-batch-deteccion-conteo.png)
@@ -124,7 +134,7 @@ El procesamiento se hizo sobre el dataset completo de Templete Central que tení
 
 ![Distribución de cobertura de máscara entre las imágenes con detección](/content/assets/cap5-batch-cobertura-mascara-histograma.png)
 
-*Gráfico 5.4 — Distribución de la cobertura de máscara (% del cuadro reconstruido) entre las 648 imágenes con al menos una detección. La mayoría concentra menos del 0,3% del cuadro; la cola larga hacia la derecha corresponde a los casos de múltiples distractores en un mismo fotograma (p. ej. la Figura 5.7).*
+*Gráfico 5.4 — Distribución de la cobertura de máscara (% del cuadro reconstruido) entre las 648 imágenes con al menos una detección. La mayoría concentra menos del 0,3% del cuadro; la cola larga hacia la derecha corresponde a los casos de múltiples distractores en un mismo fotograma (p. ej. la Figura 5.12).*
 
 Esta primera parte aún no nos permite validar nuestra hipótesis: lo que se obtiene es un nuevo dataset para correr nuevamente los tres procesamientos de reconstrucción 3D, pero aún no tenemos información valiosa sobre el impacto que este procesamiento de ComfyUI tuvo en los resultados.
 
@@ -134,15 +144,15 @@ A continuación se detalla una comparación visual entre el dataset original y e
 
 ![Comparación Foto original / Dataset limpio — aves en cielo](/content/assets/cap5-comparacion-00607-aves-en-cielo.jpg)
 
-*Figura 5.6 — Fotograma 00607: siete aves en vuelo detectadas y eliminadas del cielo. Caso favorable para el inpainting (fondo uniforme, sin textura que reconstruir): el resultado es indistinguible de una toma sin aves.*
+*Figura 5.11 — Fotograma 00607: siete aves en vuelo detectadas y eliminadas del cielo. Caso favorable para el inpainting (fondo uniforme, sin textura que reconstruir): el resultado es indistinguible de una toma sin aves.*
 
 ![Comparación Foto original / Dataset limpio — tres personas removidas](/content/assets/cap5-comparacion-00839-tres-personas.jpg)
 
-*Figura 5.7 — Fotograma 00839: tres personas detectadas y eliminadas simultáneamente (una parcialmente en el borde inferior izquierdo, dos caminando sobre el solado). Confirma que el pipeline escala a múltiples distractores en un mismo cuadro, no solo a casos de un único objeto.*
+*Figura 5.12 — Fotograma 00839: tres personas detectadas y eliminadas simultáneamente (una parcialmente en el borde inferior izquierdo, dos caminando sobre el solado). Confirma que el pipeline escala a múltiples distractores en un mismo cuadro, no solo a casos de un único objeto.*
 
 ![Comparación Foto original / Dataset limpio — persona sobre piso de piedra](/content/assets/cap5-comparacion-00522-persona-piso-piedra.jpg)
 
-*Figura 5.8 — Fotograma 00522: persona eliminada sobre el solado de piedra irregular. Caso desfavorable para el inpainting: la persona desaparece por completo (no queda hueco ni silueta), pero el área reconstruida es perceptiblemente más borrosa que el patrón de piedra circundante — la misma limitación de LaMa en texturas complejas ya documentada en la sección 5.2.2 para el inpainting de Splatfacto. Es el tipo de caso, junto con la Figura 5.7, más representativo del dataset real: la mayoría de las detecciones ocurren sobre el solado de piedra que rodea la construcción, no contra fondos uniformes como el cielo.*
+*Figura 5.13 — Fotograma 00522: persona eliminada sobre el solado de piedra irregular. Caso desfavorable para el inpainting: la persona desaparece por completo (no queda hueco ni silueta), pero el área reconstruida es perceptiblemente más borrosa que el patrón de piedra circundante — la misma limitación de LaMa en texturas complejas ya documentada en la sección 5.2.2 para el inpainting de Splatfacto. Es el tipo de caso, junto con la Figura 5.12, más representativo del dataset real: la mayoría de las detecciones ocurren sobre el solado de piedra que rodea la construcción, no contra fondos uniformes como el cielo.*
 
 <h3 id="cap5-5-3-3">5.3.3 Pipeline de limpieza: nodos y decisiones de diseño</h3>
 
@@ -150,7 +160,7 @@ A continuación realizamos un recorrido detallado sobre las decisiones de diseñ
 
 ![Diagrama del pipeline de limpieza de distractores en ComfyUI](/content/assets/cap5-pipeline-comfyui-limpieza.png)
 
-*Figura 5.9 — Pipeline de limpieza de distractores ejecutado en ComfyUI. Fuente: [`build_comfyui_pipeline_diagram.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comfyui_pipeline_diagram.py#scripts).*
+*Figura 5.14 — Pipeline de limpieza de distractores ejecutado en ComfyUI. Fuente: [`build_comfyui_pipeline_diagram.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_comfyui_pipeline_diagram.py#scripts).*
 
 Si bien el workflow completo tiene la funcionalidad de identificar y enmascarar la presencia de distractores en cada uno de los frames del dataset, cada nodo o componente de este sistema tiene una responsabilidad distinta en la obtención de este objetivo en común. A continuación se realiza un repaso por las principales decisiones de diseño que se realizaron al momento de pensar este workflow:
 
@@ -201,27 +211,27 @@ A continuación se utilizan algunos fotogramas testigos con la finalidad de most
 
 ![Foto original / máscara / resultado aislado — fotograma 00000](/content/assets/cap5-comparacion-00000-mascara.jpg)
 
-*Figura 5.10 — Fotograma 00000: foto original, máscara de entrenamiento RMBG-2.0 y resultado de aplicarla, de izquierda a derecha. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.15 — Fotograma 00000: foto original, máscara de entrenamiento RMBG-2.0 y resultado de aplicarla, de izquierda a derecha. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00308](/content/assets/cap5-comparacion-00308-mascara.jpg)
 
-*Figura 5.11 — Fotograma 00308, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.16 — Fotograma 00308, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00462](/content/assets/cap5-comparacion-00462-mascara.jpg)
 
-*Figura 5.12 — Fotograma 00462, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.17 — Fotograma 00462, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00616](/content/assets/cap5-comparacion-00616-mascara.jpg)
 
-*Figura 5.13 — Fotograma 00616, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.18 — Fotograma 00616, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 00924](/content/assets/cap5-comparacion-00924-mascara.jpg)
 
-*Figura 5.14 — Fotograma 00924, mismo procedimiento, con una persona en el encuadre. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.19 — Fotograma 00924, mismo procedimiento, con una persona en el encuadre. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 ![Foto original / máscara / resultado aislado — fotograma 01078](/content/assets/cap5-comparacion-01078-mascara.jpg)
 
-*Figura 5.15 — Fotograma 01078, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
+*Figura 5.20 — Fotograma 01078, mismo procedimiento. Fuente: [`build_masking_before_after.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_before_after.py#scripts).*
 
 <h3 id="cap5-5-3-6">5.3.6 Resultado de entrenar con la máscara</h3>
 
@@ -242,13 +252,13 @@ Se entrenaron ambas técnicas sobre el Templete Central (DJI) con esta máscara:
 
 *Gráfico 5.6 — PSNR, SSIM y LPIPS del Templete Central (DJI), dataset raw vs. dataset con máscara de entrenamiento, por técnica. Fuente: [`build_masking_comparison_chart.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_comparison_chart.py#scripts).*
 
-Los resultados de este experimento fueron aún peores que con el preprocesamiento de distractores: las métricas son inferiores en ambas técnicas y en cada una de las variables a analizar. Acá el dato importante es que la reconstrucción se evalúa utilizando como ground truth la imagen completa: tanto el edificio como su contexto. Y extraer el edificio de su entorno no mejora su percepción sino que la empeora. Lo que hacen ambas técnicas es 'rellenar' la información que no tienen del edificio con un ruido que puede leerse como caótico en las imágenes (ver Figura 5.16). Mientras Gaussian Splatting le baja la opacidad a las gaussianas en las secciones donde no interpreta geometría, NeRF adhiere una región con contenido sin restricciones, sumando ruido y materialidad azarosa a regiones que con el dataset limpio pueden interpretarse como cielo o suelo. 
+Los resultados de este experimento fueron aún peores que con el preprocesamiento de distractores: las métricas son inferiores en ambas técnicas y en cada una de las variables a analizar. Acá el dato importante es que la reconstrucción se evalúa utilizando como ground truth la imagen completa: tanto el edificio como su contexto. Y extraer el edificio de su entorno no mejora su percepción sino que la empeora. Lo que hacen ambas técnicas es 'rellenar' la información que no tienen del edificio con un ruido que puede leerse como caótico en las imágenes (ver Figura 5.21). Mientras Gaussian Splatting le baja la opacidad a las gaussianas en las secciones donde no interpreta geometría, NeRF adhiere una región con contenido sin restricciones, sumando ruido y materialidad azarosa a regiones que con el dataset limpio pueden interpretarse como cielo o suelo. 
 
 El aprendizaje de esta prueba da cuenta de algo muy importante: el contexto de una construcción ayuda a la interpretación de la misma en lugar de jugar en su contra. Que exista un cielo y una superficie verde en la parte inferior colabora en que los entrenamientos sean completos y la información de la reconstrucción sea fiel al registro original. 
 
 ![Comparación visual: foto original, predicción raw y predicción con máscara — Splatfacto y Nerfacto](/content/assets/cap5-visual-comparison-masking.jpg)
 
-*Figura 5.16 — Templete Central (DJI): foto original, predicción del modelo raw y predicción del modelo con máscara, sobre tres fotogramas de evaluación — bloque superior Splatfacto, bloque inferior Nerfacto. En ambas técnicas la predicción con máscara reproduce el edificio con fidelidad razonable, pero el fondo se renderiza como ruido en vez de quedar vacío o uniforme: motas de color en Splatfacto, una masa oscura/humosa en Nerfacto (degradación visual mayor). Fuente: [`build_masking_visual_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_visual_comparison.py#scripts).*
+*Figura 5.21 — Templete Central (DJI): foto original, predicción del modelo raw y predicción del modelo con máscara, sobre tres fotogramas de evaluación — bloque superior Splatfacto, bloque inferior Nerfacto. En ambas técnicas la predicción con máscara reproduce el edificio con fidelidad razonable, pero el fondo se renderiza como ruido en vez de quedar vacío o uniforme: motas de color en Splatfacto, una masa oscura/humosa en Nerfacto (degradación visual mayor). Fuente: [`build_masking_visual_comparison.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_masking_visual_comparison.py#scripts).*
 
 | Técnica    | Dataset       | Tiempo de entrenamiento | Render (fps) | Rayos/seg |
 | ---------- | ------------- | ----------------------- | ------------ | --------- |
@@ -316,7 +326,7 @@ A continuación vamos a analizar en detalle la comparación entre los renders de
 
 ![Comparación Foto / Nerfacto / Splatfacto — Los Paraguas, DJI](/content/assets/cap5-comparacion-frame-00177.jpg)
 
-*Figura 5.17 — Los Paraguas (complejidad baja), dataset DJI. Ambas técnicas son visualmente indistinguibles de la fotografía original a esta resolución — la referencia contra la que se mide la caída de calidad en los otros dos casos.*
+*Figura 5.22 — Los Paraguas (complejidad baja), dataset DJI. Ambas técnicas son visualmente indistinguibles de la fotografía original a esta resolución — la referencia contra la que se mide la caída de calidad en los otros dos casos.*
 
 - **Nerfacto sigue el patrón esperado por H3:** El análisis preliminar que anticipaba la hipótesis 3 es correcto para NeRF y se cumple al analizar el resultado de las tres obras. A medida que cree el detalle ornamental de la arquitectura el valor de PSNR disminuye notablemente y la comparación píxel a píxel se hace imprecisa. En el caso del Panteón se llega a un extremo ya que el mismo render nos permite ver floaters masivos sin correspondencia geométrica que inundan la escena. 
 
@@ -324,7 +334,7 @@ A continuación vamos a analizar en detalle la comparación entre los renders de
 
 ![Render Nerfacto — Panteón Asociación Catalana, floaters](/content/assets/cap5-comparacion-frame-00714.jpg)
 
-*Figura 5.18 — Comparación Foto / Nerfacto / Splatfacto sobre el Panteón Asociación Catalana (dataset DJI). Nerfacto (centro) degenera en floaters de color sin relación con la geometría real; Splatfacto (derecha) reconstruye la fachada y la ornamentación con fidelidad visual comparable a la fotografía.*
+*Figura 5.23 — Comparación Foto / Nerfacto / Splatfacto sobre el Panteón Asociación Catalana (dataset DJI). Nerfacto (centro) degenera en floaters de color sin relación con la geometría real; Splatfacto (derecha) reconstruye la fachada y la ornamentación con fidelidad visual comparable a la fotografía.*
 
 Esta asimetría entre esta comparativa de técnicas es uno de los hallazgos más importantes de esta tesis y está vinculado tanto a la H1 como a la H3 combinadas: la calidad en el resultado no depende solamente de la complejidad geométrica sino que está fuertemente vinculado a la técnica de reconstrucción utilizada. Mientras 3DGS tolera la complejidad ornamental alta del Panteón, NeRF con el mismo dataset y el mismo registro de entrada de SfM ofrece un resultado inconcluso y lleno de errores. 
 
@@ -336,19 +346,23 @@ En el caso de Los Paraguas podemos identificar que, si bien la geometría es sim
 
 ![Vista lateral de la malla SfM — Los Paraguas](/content/assets/cap5-vista-lateral.webp)
 
-*Figura 5.19 — Vista lateral de la malla SfM (RealityScan) de Los Paraguas, a nivel de piso. Columnas y cubierta se reconstruyen con nitidez y sin huecos visibles desde este ángulo; se aprecia la doble curvatura de la losa mencionada en el Capítulo 3 (sección 3.2.2), con el río de fondo.*
+*Figura 5.24 — Vista lateral de la malla SfM (RealityScan) de Los Paraguas, a nivel de piso. Columnas y cubierta se reconstruyen con nitidez y sin huecos visibles desde este ángulo; se aprecia la doble curvatura de la losa mencionada en el Capítulo 3 (sección 3.2.2), con el río de fondo.*
 
 ![Vista lateral de la malla SfM — Templete Central](/content/assets/cap5-vista-lateral-01.webp)
 
-*Figura 5.20 — Vista lateral de la malla SfM (RealityScan) del Templete Central, a nivel de piso. Buen detalle de las nervaduras/molduras de la cara inferior de la losa y del ritmo de columnas; los objetos bajo la cubierta (carteles, elementos reflectantes) no quedan registrados con textura limpia.*
+*Figura 5.25 — Vista lateral de la malla SfM (RealityScan) del Templete Central, a nivel de piso. Buen detalle de las nervaduras/molduras de la cara inferior de la losa y del ritmo de columnas; los objetos bajo la cubierta (carteles, elementos reflectantes) no quedan registrados con textura limpia.*
 
 ![Vista lateral de la malla SfM — Templete Central, ángulo cercano](/content/assets/cap5-vista-lateral-02.webp)
 
-*Figura 5.21 — Segunda vista lateral del Templete Central, más cercana, con el piso empedrado en primer plano. Confirma la lectura de la Figura 5.20: buen detalle estructural de la losa y las columnas, con pérdida de calidad en los objetos y carteles bajo la cubierta.*
+*Figura 5.26 — Segunda vista lateral del Templete Central, más cercana, con el piso empedrado en primer plano. Confirma la lectura de la Figura 5.25: buen detalle estructural de la losa y las columnas, con pérdida de calidad en los objetos y carteles bajo la cubierta.*
 
 ![](/content/assets/cap5-2026-09-01-16-22-50-image.png)
 
+*Figura 5.27 — Panteón Asociación Catalana, nube de puntos densa en RealityScan: vista general del edificio con las posiciones de cámara del recorrido y la arboleda circundante reconstruida de forma dispersa.*
+
 ![](/content/assets/cap5-2026-09-01-16-25-50-image.png)
+
+*Figura 5.28 — Panteón Asociación Catalana, nube de puntos densa en RealityScan: plano cercano sobre el frente, con los frontones ornamentados, la inscripción de la institución y las puertas de acceso.*
 
 El análisis de las nubes densas de cada uno de los edificios nos permite entender con mayor precisión la calidad de reconstrucción de esta técnica. La identificación de ascenso en la cantidad de puntos de cada modelo habla del ascenso en la complejidad geométrica, y otro dato importante es el creciente outlier que asciende de un edificio a otro, lo cual indica también cierta degradación entre una geometría de complejidad baja a una de complejidad alta. La distancia media a vecino más cercano indica la dispersión de puntos, y también vemos que esta es mayor cuando la complejidad geométrica sube. 
 
@@ -366,7 +380,7 @@ El análisis de las nubes densas de cada uno de los edificios nos permite entend
 
 ![Nube de puntos densa — Templete Central, proyecciones XY/XZ](/content/assets/cap5-nube-densa-scatter.png)
 
-*Gráfico 5.9 — Templete Central: proyecciones XY/XZ de la nube densa (RealityScan, dataset DJI). La proyección de planta muestra el anillo de la trayectoria de vuelo del dron rodeando la losa cuadrada; el perfil XZ reconstruye con nitidez la cubierta plana elevada sobre la fila de columnas, coherente con las Figuras 5.3 y 5.20.*
+*Gráfico 5.9 — Templete Central: proyecciones XY/XZ de la nube densa (RealityScan, dataset DJI). La proyección de planta muestra el anillo de la trayectoria de vuelo del dron rodeando la losa cuadrada; el perfil XZ reconstruye con nitidez la cubierta plana elevada sobre la fila de columnas, coherente con las Figuras 5.3 y 5.25.*
 
 ![Nube de puntos densa — Panteón Asociación Catalana, proyecciones XY/XZ](/content/assets/cap5-nube-densa-scatter-6e2806.png)
 
@@ -398,11 +412,17 @@ El siguiente diagrama muestra como RealityScan en un intento por reconstruir el 
 
 ![](/content/assets/cap5-2026-09-01-17-19-01-image.png)
 
+*Figura 5.29 — Panteón Asociación Catalana, dataset híbrido DJI + Insta360 en RealityScan: los dos componentes de reconstrucción que el software genera para el mismo edificio, superpuestos y a escalas distintas.*
+
 Algo muy parecido sucedió con el Templete Central, donde RealityScan reconstruyó dos componentes separados, por un lado una nube de puntos de 306 cámaras identificadas (de un total de 1281), y por otro lado un segundo componente de 728 cámaras (de un total de 1281 frames). Los intentos de alinear ambos componentes fallaron: RealityScan cuenta con una funcionalidad que permite seleccionar hasta seis puntos de referencia coincidentes entre ambos modelos con el fin de alinearlos en una segunda corrida. Estos intentos fallaron en ambos edificios generando nuevamente resultados de componentes dispersos y no una reconstrucción total. 
 
 ![](/content/assets/cap5-2026-09-01-17-22-11-image.png)
 
+*Figura 5.30 — Templete Central, dataset híbrido en RealityScan: primero de los dos componentes reconstruidos, con la mayor parte de los puntos sobre el terreno y apenas un fragmento del edificio resuelto.*
+
 ![](/content/assets/cap5-2026-09-01-17-23-52-image.png)
+
+*Figura 5.31 — Templete Central, dataset híbrido en RealityScan: segundo componente reconstruido, con la losa y las columnas del templete resueltas y el recorrido de cámaras cerrado alrededor del edificio.*
 
 Pero RealityScan no fue la única herramienta en intentar correr un proceso de COLMAP y fallar en el intento: en un intento por correr el proceso de reconstrucción utilizando COLMAP desde Nerfstudio el software corriendo en Docker registró un fallo catastrófico y demostró solo un 0,38% en su porcentaje de avance. Analizando el output y el resultado binario de COLMAP se llegó a la conclusión de que se habían generado dos componentes desconectados en su reconstrucción y eso había generado la falla. Si bien el primer componente tenía solo un 0,38%, el segundo logró un 100% en el posicionamiento de las 794 imágenes que encontró, y este segundo componente se utilizó como referencia de análisis para la evaluación de los resultados de Nerfacto y Splatfacto dentro de Nerfstudio en la sección 5.5.5.
 
@@ -452,9 +472,9 @@ Podemos deducir por el análisis del Gráfico 5.13 que no hay un dispositivo mej
 
 ![Comparación Foto / Nerfacto / Splatfacto — Templete Central, Insta360](/content/assets/cap5-comparacion-frame-00155.jpg)
 
-*Figura 5.22 — Templete Central, dataset Insta360. Nerfacto (centro) introduce un patrón de distorsión radial concéntrica en los bordes de la vista sintetizada, ausente tanto en la fotografía original (izquierda) como en Splatfacto (derecha).*
+*Figura 5.32 — Templete Central, dataset Insta360. Nerfacto (centro) introduce un patrón de distorsión radial concéntrica en los bordes de la vista sintetizada, ausente tanto en la fotografía original (izquierda) como en Splatfacto (derecha).*
 
-Otra conclusión interesante de la comparativa de frames de renders indica que NeRF es más sensible a la óptica de la cámara que otros tipos de procesamiento. Como vemos en la Figura 5.22 el render de NeRF muestra que se generaron circunferencias radicales que marcan la lente gran angular del dispositivo marcando el efecto de ojo de pez del lente. 3DGS no tiene registro de las características del lente, a pesar de haber generado una reconstrucción fiel del dataset en los resultados. 
+Otra conclusión interesante de la comparativa de frames de renders indica que NeRF es más sensible a la óptica de la cámara que otros tipos de procesamiento. Como vemos en la Figura 5.32 el render de NeRF muestra que se generaron circunferencias radicales que marcan la lente gran angular del dispositivo marcando el efecto de ojo de pez del lente. 3DGS no tiene registro de las características del lente, a pesar de haber generado una reconstrucción fiel del dataset en los resultados. 
 
 <h3 id="cap5-5-5-5">5.5.5 Resultado de reconstrucción sobre el dataset híbrido — contraste directo de H4</h3>
 
@@ -510,11 +530,11 @@ Para que la comparación sea lo más completa posible también se corrieron proc
 
 Con Splatfacto el resultado calca al del Templete Central: el híbrido (12,90 dB) rinde peor que DJI solo (25,94 dB) y que Insta360 solo (14,48 dB), en las tres métricas, sin excepción. El export también lo confirma: el modelo híbrido tiene más gaussianas que el de DJI solo (673.437 vs. 315.327) en un archivo más pesado (97,5 vs. 74,6 MB) pero con peor render — la misma desconexión entre cantidad de gaussianas y calidad que ya vimos en el Templete Central.
 
-Con Nerfacto el resultado matiza un poco esa lectura, sin contradecirla: el híbrido (11,34 dB) mejora apenas sobre DJI solo (10,45 dB) pero se queda muy por debajo de Insta360 solo (15,62 dB). A diferencia del Templete Central, acá el híbrido no es el peor de los tres — pero hay que leer esto con cuidado, no como evidencia a favor de combinar datasets: el punto de comparación (Nerfacto/DJI en el Panteón) ya era en sí mismo un fallo parcial, con floaters masivos (Figura 5.18). Mejorar un poco sobre un resultado que ya era inservible no lo vuelve servible: con PSNR 11,34 dB y SSIM 0,191, el híbrido de Nerfacto sigue muy por debajo de cualquier umbral razonable de fidelidad para documentación patrimonial.
+Con Nerfacto el resultado matiza un poco esa lectura, sin contradecirla: el híbrido (11,34 dB) mejora apenas sobre DJI solo (10,45 dB) pero se queda muy por debajo de Insta360 solo (15,62 dB). A diferencia del Templete Central, acá el híbrido no es el peor de los tres — pero hay que leer esto con cuidado, no como evidencia a favor de combinar datasets: el punto de comparación (Nerfacto/DJI en el Panteón) ya era en sí mismo un fallo parcial, con floaters masivos (Figura 5.23). Mejorar un poco sobre un resultado que ya era inservible no lo vuelve servible: con PSNR 11,34 dB y SSIM 0,191, el híbrido de Nerfacto sigue muy por debajo de cualquier umbral razonable de fidelidad para documentación patrimonial.
 
-<img title="" src="../../00-auditoria/fidelidad-geometrica/03-panteon-asociacion-catalana/hibrido/comparacion_frame_00001.jpg" alt="Comparación Foto / Nerfacto / Splatfacto — Panteón Asociación Catalana, dataset híbrido" width="415">
+<img title="" src="/content/assets/cap5-comparacion-frame-00001.jpg" alt="Comparación Foto / Nerfacto / Splatfacto — Panteón Asociación Catalana, dataset híbrido" width="415">
 
-*Figura 5.23 — Panteón Asociación Catalana, dataset híbrido DJI+Insta360, mismo frame renderizado por ambas técnicas. Nerfacto (centro) degenera en floaters sin correspondencia geométrica reconocible, el mismo patrón que su fallo parcial sobre el dataset DJI solo (Figura 5.18). Splatfacto (abajo) reconstruye la escena con fidelidad visual reconocible, aunque —consistente con la Tabla 5.13— por debajo de su propio resultado con DJI solo.*
+*Figura 5.33 — Panteón Asociación Catalana, dataset híbrido DJI+Insta360, mismo frame renderizado por ambas técnicas. Nerfacto (centro) degenera en floaters sin correspondencia geométrica reconocible, el mismo patrón que su fallo parcial sobre el dataset DJI solo (Figura 5.23). Splatfacto (abajo) reconstruye la escena con fidelidad visual reconocible, aunque —consistente con la Tabla 5.13— por debajo de su propio resultado con DJI solo.*
 
 La prueba con el Panteón reafirma la evidencia que fuimos recolectando de cara a la conclusión de H4: los datasets híbridos generan resultados desfavorables en todos los escenarios. A nivel de resultado: en 3 de las 4 combinaciones técnica por caso evaluadas, el dataset híbrido rindió peor que cualquiera de los dos dispositivos solos, sin excepción. La única que no sigue ese patrón (Nerfacto/Panteón) no lo hace porque el híbrido haya sido bueno, sino porque el punto de comparación —Nerfacto solo con DJI— ya era en sí mismo un resultado inutilizable.
 

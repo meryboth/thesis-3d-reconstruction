@@ -1,5 +1,13 @@
 [
   {
+    "id": "resumen",
+    "num": null,
+    "title": "Resumen",
+    "file": "/content/resumen.md",
+    "conclusion": "",
+    "sections": []
+  },
+  {
     "id": "cap1",
     "num": 1,
     "title": "Introducción",
