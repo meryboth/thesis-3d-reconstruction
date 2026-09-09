@@ -713,20 +713,8 @@
   opacity: 0.5;
   align-self: start;
   margin-top: 48px;
-  position: relative;
 }
 
-.pz-rama-linea::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: -5px;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-top: 2px solid var(--accent);
-  border-right: 2px solid var(--accent);
-  transform: rotate(45deg);
-}
 
 /* --- nodo --- */
 .pz-nodo {
