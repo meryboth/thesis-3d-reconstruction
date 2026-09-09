@@ -25,6 +25,9 @@ const SITES = [
     plyAxisMode: "flipY",
     glb: "/modelado/paraguas/modelo.glb",
     splatFrame: "/archivo-digital/paraguas/editado.html",
+    // archivo del splat para descarga (el iframe de arriba solo lo muestra)
+    splatFile: "/archivo-digital/paraguas/splat-editado.ply",
+    splatCompact: "/archivo-digital/paraguas/splat.splat",
     // nube coloreada por clase (experimento de segmentacion, Cap.6 6.3.2/6.3.3):
     // /segmentador ya la usa, generada por poc_segmentation_multi_site.py.
     // Convencion propia (Z-arriba, sin relacion con plyAxisMode de arriba).
@@ -41,6 +44,7 @@ const SITES = [
     plyAxisMode: "rotateXNeg90",
     glb: "/modelado/templete-central/modelo.glb",
     splatFrame: "/archivo-digital/templete-central/editado.html",
+    splatFile: "/archivo-digital/templete-central/splat-editado-v2.ply",
     segPly: "/segmentacion/templete-central-dji.ply",
   },
   {
@@ -52,6 +56,7 @@ const SITES = [
     plyAxisMode: "rotateXNeg90",
     glb: "/modelado/panteon/modelo.glb",
     splatFrame: "/archivo-digital/panteon/editado.html",
+    splatFile: "/archivo-digital/panteon/splat-editado.ply",
     segPly: "/segmentacion/panteon-asociacion-catalana-dji.ply",
   },
 ];
@@ -270,10 +275,47 @@ function getInitialSiteId() {
   return SITES.some((s) => s.id === requested) ? requested : SITES[0].id;
 }
 
+// Archivos que el usuario puede bajarse de cada sitio. El peso se consulta con
+// un HEAD al montar, para no hardcodear numeros que quedan viejos cuando se
+// regenera un export.
+function descargasDe(site) {
+  return [
+    { id: "nube", label: "Nube de puntos densa (SfM)", url: site.ply, ext: "ply" },
+    { id: "segmentada", label: "Nube de puntos segmentada", url: site.segPly, ext: "ply" },
+    { id: "modelo", label: "Modelo 3D (IA asistida)", url: site.glb, ext: "glb" },
+    { id: "splat", label: "Gaussian Splatting", url: site.splatFile, ext: "ply" },
+    { id: "splatCompact", label: "Gaussian Splatting (compacto)", url: site.splatCompact, ext: "splat" },
+  ].filter((d) => !!d.url);
+}
+
+function formatearPeso(bytes) {
+  if (!bytes && bytes !== 0) return "";
+  return bytes >= 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${Math.round(bytes / 1e3)} kB`;
+}
+
 export default function ModeladoViewer() {
   const [siteId, setSiteId] = useState(getInitialSiteId);
   const site = SITES.find((s) => s.id === siteId);
   const [layer, setLayer] = useState(site.ply ? "nube" : "splat");
+  const [pesos, setPesos] = useState({});
+
+  // peso real de cada descarga, via HEAD (no bloquea el visor si falla)
+  useEffect(() => {
+    let vigente = true;
+    const archivos = descargasDe(site);
+    Promise.all(
+      archivos.map((d) =>
+        fetch(d.url, { method: "HEAD" })
+          .then((r) => [d.url, Number(r.headers.get("content-length")) || null])
+          .catch(() => [d.url, null]),
+      ),
+    ).then((pares) => {
+      if (vigente) setPesos(Object.fromEntries(pares));
+    });
+    return () => {
+      vigente = false;
+    };
+  }, [site]);
 
   useEffect(() => {
     // al cambiar de sitio, si la capa activa no existe para el sitio nuevo
@@ -373,6 +415,43 @@ export default function ModeladoViewer() {
               </button>
             );
           })}
+        </div>
+
+        <div style={{ marginTop: 14, borderTop: "1px solid #333", paddingTop: 10 }}>
+          <h2 style={{ fontSize: 12, margin: "0 0 2px", letterSpacing: 0.3 }}>Descargar archivos</h2>
+          <p style={{ fontSize: 11, opacity: 0.6, margin: "0 0 8px", lineHeight: 1.35 }}>
+            Los outputs de este caso de estudio, para abrir en CloudCompare, Blender, Revit o
+            SuperSplat.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            {descargasDe(site).map((d) => (
+              <a
+                key={d.id}
+                href={d.url}
+                download
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: 8,
+                  padding: "6px 8px",
+                  fontSize: 11.5,
+                  color: "#9ecbff",
+                  background: "#161618",
+                  border: "1px solid #2a2a2e",
+                  borderRadius: 4,
+                  textDecoration: "none",
+                }}
+              >
+                <span>
+                  ↓ {d.label} <span style={{ opacity: 0.5 }}>.{d.ext}</span>
+                </span>
+                <span style={{ opacity: 0.55, whiteSpace: "nowrap" }}>
+                  {formatearPeso(pesos[d.url])}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
