@@ -24,13 +24,13 @@ const SITES = [
     description: "Splatfacto, dataset DJI. Editado en SuperSplat (limpieza de floaters, encuadre de cámara).",
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=panteon",
-    thumbnail: null,
+    thumbnail: "/archivo-digital/panteon/preview.gif",
   },
 ];
 
-// icono placeholder generico (nube de puntos / splat) para las cards sin
-// thumbnail todavia -- reemplazar `thumbnail` en SITES por un gif/imagen
-// (ej. "/archivo-digital/paraguas/preview.gif") apenas este disponible.
+// icono de reserva por si alguna card se queda sin thumbnail. Hoy las 3
+// tienen su preview.gif (turntable del modelo, renderizado desde el .blend
+// de 07-modelado con 04-notebooks/scripts/render_turntable.py).
 function PlaceholderIcon() {
   return (
     <svg viewBox="0 0 64 64" width="40" height="40" fill="none" aria-hidden="true">
