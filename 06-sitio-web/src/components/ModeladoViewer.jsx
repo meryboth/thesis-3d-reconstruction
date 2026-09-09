@@ -50,7 +50,7 @@ const SITES = [
     // igual que Templete Central: Z sale como la altura real en este export
     // (rango mas angosto que X/Y) -- se confirma visualmente al cargar.
     plyAxisMode: "rotateXNeg90",
-    glb: null,
+    glb: "/modelado/panteon/modelo.glb",
     splatFrame: "/archivo-digital/panteon/editado.html",
     segPly: "/segmentacion/panteon-asociacion-catalana-dji.ply",
   },
@@ -324,8 +324,7 @@ export default function ModeladoViewer() {
         <p style={{ fontSize: 12, opacity: 0.75, margin: "0 0 10px", lineHeight: 1.4 }}>
           Un mismo caso de estudio, tres formas de verlo: la nube de puntos que produce SfM, el modelo
           geométrico ajustado por un agente de IA (Capítulo 6, sección 6.3.4) y el resultado de Gaussian
-          Splatting. Los Paraguas tiene las tres capas completas; los otros dos casos todavía solo tienen
-          Gaussian Splatting — las capas restantes se suman cuando tengan su modelo terminado.
+          Splatting. Los 3 sitios ya tienen las tres capas completas.
         </p>
 
         <select

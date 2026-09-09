@@ -1,0 +1,30 @@
+{
+  "nube_original_puntos": 17871606,
+  "muestreo_cada": 24,
+  "puntos_referencia": 744651,
+  "transformacion": {
+    "angle": -0.07399999999999998,
+    "center_uv": [
+      1.2625594871613317,
+      -1.1423162756914058
+    ]
+  },
+  "anexo_ajuste_circular": [
+    [
+      -7.507517547600351,
+      7.3987165501171495
+    ],
+    1.8704785041934273
+  ],
+  "ancho_cuerpo_aprox": [
+    8.14,
+    8.3
+  ],
+  "fuentes_ornamento": [
+    "frame_01110.jpg",
+    "frame_01348.jpg",
+    "frame_00238.jpg",
+    "frame_00714.jpg"
+  ],
+  "escala": "Unidades de reconstruccion sin calibracion metrica"
+}

@@ -157,13 +157,17 @@ Otro de los experimentos que se llevaron adelante para esta tesis tiene como pro
 
 El agente no genera una malla libre a partir de la nube: ajusta geometría paramétrica explícita a los puntos. Los resultados fueron positivos y se pudo validar la precisión de los modelos generados estableciendo una comparativa con la nube de puntos y la distancia promedio: entre el 66% y el 81% de esos puntos quedaron a menos de 0,02 unidades de la superficie ajustada, un promedio que indica el nivel de precisión alto en relación a lo registrado en el procesamiento de SfM. 
 
+![Diagrama de arquitectura del experimento: inputs (nube densa SfM, malla Poisson de referencia, dataset original de imágenes), cadena de herramientas del agente (GPT-6 Astra, Codex, Blender MCP, Blender), el ajuste de geometría paramétrica sobre columnas y cubiertas, el output (escena .blend y export .glb) y la verificación por distancia punto-a-superficie](/content/assets/cap6-mcp-arquitectura.png)
+
+*Figura 6.8 — Arquitectura del experimento de reconstrucción geométrica asistida por agente de IA: inputs, cadena de herramientas (GPT-6 Astra → Codex → Blender MCP → Blender), ajuste de geometría paramétrica y output, con la verificación de distancia punto-a-superficie contra la misma nube de entrada. Fuente: [`build_mcp_architecture_diagram.py`](https://thesis-3d-reconstruction.vercel.app/?script=build_mcp_architecture_diagram.py#scripts).*
+
 ![Escena de Blender con el modelo reconstruido de Los Paraguas y el panel del addon Blender MCP, con los cuatro objetos arquitectónicos (dos cubiertas, dos columnas) y la colección de referencias COLMAP ocultas](/content/assets/cap6-paraguas-blender-mcp-escena.png)
 
-*Figura 6.8 — Escena de Blender tras la reconstrucción: cuatro objetos arquitectónicos ajustados a la nube COLMAP, con el panel de Blender MCP a la derecha. Fuente: `captura_blender.png`, `07-modelado/01-paraguas-vicentelopez/`.*
+*Figura 6.9 — Escena de Blender tras la reconstrucción: cuatro objetos arquitectónicos ajustados a la nube COLMAP, con el panel de Blender MCP a la derecha. Fuente: `captura_blender.png`, `07-modelado/01-paraguas-vicentelopez/`.*
 
 ![Render del modelo reconstruido de Los Paraguas: dos cubiertas tipo hongo sobre sus columnas, en perspectiva](/content/assets/cap6-paraguas-reconstruccion-ia-blender.png)
 
-*Figura 6.9 — Los Paraguas, resultado final: render del modelo ajustado, con materiales de interpretación visual (no texturas fotogramétricas).*
+*Figura 6.10 — Los Paraguas, resultado final: render del modelo ajustado, con materiales de interpretación visual (no texturas fotogramétricas).*
 
 | Objeto                                    | Vértices | Caras  | Aristas no manifold | Distancia mediana a la nube (unidades SfM) | Distancia p95 (unidades SfM) |
 | ----------------------------------------- | -------- | ------ | ------------------- | ------------------------------------------ | ---------------------------- |
@@ -172,52 +176,59 @@ El agente no genera una malla libre a partir de la nube: ajusta geometría param
 | Paraguas 2 — cubierta                     | 24.962   | 25.152 | 0                   | 0,0047                                     | 0,0182                       |
 | Paraguas 2 — columna                      | 384      | 194    | 0                   | 0,0023                                     | 0,0166                       |
 | Templete Central — 196 objetos (agregado) | —        | —      | 0                   | 0,0153                                     | 0,0572                       |
+| Panteón Asociación Catalana — 926 objetos (agregado) | — | — | 0                   | 0,0580                                     | 0,2877                       |
 
-*Tabla 6.4 — Topología y distancia del modelo ajustado contra una muestra de puntos de la misma nube utilizada para el ajuste, por objeto (Los Paraguas: 8.000 puntos, por objeto) o agregado (Templete Central: 10.000 puntos, sobre sus 196 objetos en conjunto — columnas y cubierta con relieves/accesos, sin desglose por pieza individual). Fuente: `verificacion_modelo.json` en `07-modelado/01-paraguas-vicentelopez/` y `07-modelado/02-templete-central/` respectivamente.*
+*Tabla 6.4 — Topología y distancia del modelo ajustado contra una muestra de puntos de la misma nube utilizada para el ajuste, por objeto (Los Paraguas: 8.000 puntos, por objeto) o agregado (Templete Central: 10.000 puntos, sobre sus 196 objetos en conjunto — columnas y cubierta con relieves/accesos; Panteón Asociación Catalana: 10.000 puntos, sobre sus 926 objetos en conjunto — 88 de geometría núcleo y 838 de detalle ornamental/acceso, sin desglose por pieza individual). Fuente: `verificacion_modelo.json` en `07-modelado/01-paraguas-vicentelopez/`, `07-modelado/02-templete-central/` y `07-modelado/03-panteon-asociacion-catalana/` respectivamente.*
 
 **Registro del proceso — Templete Central**
 
 ![Nube de puntos densa de Templete Central importada y orientada en Blender como referencia](/content/assets/cap6-templete-proceso-01-nube-alineada.png)
 
-*Figura 6.10 — Templete Central, paso 1: referencia fotogramétrica importada y orientada. Fuente: `07-modelado/02-templete-central/proceso/`.*
+*Figura 6.11 — Templete Central, paso 1: referencia fotogramétrica importada y orientada. Fuente: `07-modelado/02-templete-central/proceso/`.*
 
 ![Geometría principal de columnas y cubierta ajustada sobre la nube, antes de agregar relieves y accesos](/content/assets/cap6-templete-proceso-02-estructura-ajustada.png)
 
-*Figura 6.11 — Templete Central, paso 2: geometría principal ajustada, antes de los relieves y accesos.*
+*Figura 6.12 — Templete Central, paso 2: geometría principal ajustada, antes de los relieves y accesos.*
 
 ![Superposición de la nube de puntos del edificio con las aristas del modelo, usada para verificar la alineación](/content/assets/cap6-templete-proceso-03-superposicion.png)
 
-*Figura 6.12 — Templete Central, paso 3: superposición de la nube y las aristas del modelo para comprobar alineación.*
+*Figura 6.13 — Templete Central, paso 3: superposición de la nube y las aristas del modelo para comprobar alineación.*
 
 ![Modelo con el patrón de relieves de la cubierta y los accesos ya agregados como detalle interpretativo](/content/assets/cap6-templete-proceso-04-relieves-accesos.png)
 
-*Figura 6.13 — Templete Central, paso 4: etapa de detalle interpretativo (relieves y accesos).*
+*Figura 6.14 — Templete Central, paso 4: etapa de detalle interpretativo (relieves y accesos).*
 
 ![Escena final del modelo de Templete Central en Blender tras la revisión geométrica y visual](/content/assets/cap6-templete-proceso-05-final.png)
 
-*Figura 6.14 — Templete Central, resultado final tras la revisión geométrica y visual.*
+*Figura 6.15 — Templete Central, resultado final tras la revisión geométrica y visual.*
 
-**Registro del proceso — Panteón Asociación Catalana (en curso)**
+**Registro del proceso — Panteón Asociación Catalana**
 
 ![Nube de puntos densa del Panteón Asociación Catalana importada y orientada en Blender como referencia](/content/assets/cap6-panteon-proceso-01-nube-alineada.png)
 
-*Figura 6.15 — Panteón Asociación Catalana, paso 1: referencia fotogramétrica importada y orientada.*
+*Figura 6.16 — Panteón Asociación Catalana, paso 1: referencia fotogramétrica importada y orientada.*
 
 ![Volúmenes arquitectónicos principales ajustados sobre la nube del Panteón](/content/assets/cap6-panteon-proceso-02-volumenes.png)
 
-*Figura 6.16 — Panteón Asociación Catalana, paso 2: volúmenes principales ajustados.*
+*Figura 6.17 — Panteón Asociación Catalana, paso 2: volúmenes principales ajustados.*
 
-![Superposición de la nube de puntos del Panteón con las aristas del modelo en su estado actual](/content/assets/cap6-panteon-proceso-03-superposicion.png)
+![Superposición de la nube de puntos del Panteón con las aristas del modelo](/content/assets/cap6-panteon-proceso-03-superposicion.png)
 
-*Figura 6.17 — Panteón Asociación Catalana, paso 3 (estado actual): superposición de la nube y las aristas del modelo. Proceso todavía sin terminar al momento de escribir esta sección — sin verificación de distancia ni modelo final exportado aún.*
+*Figura 6.18 — Panteón Asociación Catalana, paso 3: superposición de la nube y las aristas del modelo para comprobar alineación.*
+
+![Ornamentos del Panteón refinados en Blender: follaje, volutas, medallón e inscripción sobre la fachada](/content/assets/cap6-panteon-proceso-04-ornamentos.png)
+
+*Figura 6.19 — Panteón Asociación Catalana, paso 4: etapa de detalle interpretativo (ornamentos de fachada, acceso, puertas de hierro y barandas).*
+
+![Render final del modelo reconstruido del Panteón Asociación Catalana, con fachada, cúpula, linterna, escalinata y anexo circular](/content/assets/cap6-panteon-proceso-05-final.png)
+
+*Figura 6.20 — Panteón Asociación Catalana, resultado final tras la revisión geométrica y visual. Fuente: `panteon_perspectiva.png`, `07-modelado/03-panteon-asociacion-catalana/`.*
 
 **Conclusión del experimento.** 
 
 El resultado fue muy óptimo, se logró representar de forma automatizada la geometría que representa a cada uno de los edificios en un tiempo acotado y sin intervención manual. El modelo no se aparta de la nube de puntos, y a la vez genera un modelado compuesto por componentes que es más limpio y preciso que la malla texturizada que genera el proceso de SfM. 
 
 Este archivo no solo nos permite acompañar la documentación de los edificios en su archivo digital, sino que además nos habilita a utilizar este output como referencia y punto de partida dentro del procesamiento HBIM que podría derivar en un proyecto de restauración. 
-
-*[Falta completar: resultados del Panteón Asociación Catalana — al momento de escribir esta sección el modelo todavía está en proceso (Figura 6.17); Los Paraguas y Templete Central ya tienen su modelo terminado y verificado.]*
 
 <h2 id="cap6-6-4">6.4 Lineamientos para el archivo digital de patrimonio arquitectónico web</h2>
 
@@ -248,7 +259,7 @@ Este capítulo propone formalizar la propuesta de pipeline de reconstrucción su
 
 3. Una prueba de concepto de segmentación semántica de la nube de puntos con control de calidad manual (sección 6.3.2) y una exploración sobre la posible utilización de VLMs para la segmentación, proponiendo un pipeline de integración con BIM más óptimo. 
 
-4. Una prueba de concepto de reconstrucción geométrica asistida por un agente de IA con control directo sobre Blender (sección 6.3.4), como alternativa exploratoria a la malla texturizada — validada en Los Paraguas y Templete Central, con el Panteón Asociación Catalana todavía en proceso.
+4. Una prueba de concepto de reconstrucción geométrica asistida por un agente de IA con control directo sobre Blender (sección 6.3.4), como alternativa exploratoria a la malla texturizada — validada en los 3 casos de estudio: Los Paraguas, Templete Central y Panteón Asociación Catalana.
 
 5. Lineamientos para el archivo digital web, que ya ofrece para descarga tanto el .splat como el .ply segmentado y que documenta una cronología histórica de registros con el fin de obtener trazabilidad.  
 

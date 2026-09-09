@@ -424,7 +424,7 @@ const SLIDES = [
             <li>GPT-6 Astra (OpenAI), operado desde Codex, conectado a Blender vía Blender MCP.</li>
             <li>Columnas: circunferencias en 9 cortes de altura. Cubiertas: grilla 34×34, superficie ajustada por cuantiles de altura.</li>
             <li>Distancia mediana a la nube: 0,0044 unidades SfM — pero contra los mismos puntos usados para ajustar, no es validación independiente.</li>
-            <li>Los Paraguas y Templete Central tienen modelo completo — Panteón Asoc. Catalana todavía en proceso.</li>
+            <li>Los 3 sitios tienen modelo completo: Los Paraguas, Templete Central y Panteón Asoc. Catalana.</li>
           </ul>
           <Source>Capítulo 6, sección 6.3.4 y Tabla 6.4</Source>
         </div>

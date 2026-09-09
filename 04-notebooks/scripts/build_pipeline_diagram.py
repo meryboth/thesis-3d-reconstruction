@@ -53,10 +53,10 @@ arrow(TRUNK_CX, 11.8, TRUNK_CX, 11.4)
 
 # --- Experimento lateral (6.3.4): reconstruccion geometrica asistida por IA ---
 # alternativa exploratoria a la malla texturizada como punto de partida
-# limpio para HBIM y archivo digital -- 2/3 sitios validados, por eso
+# limpio para HBIM y archivo digital -- 3/3 sitios validados, por eso
 # usa el mismo estilo (gris punteado) que las etapas conceptuales
 box(8.3, 10.25, 2.85, 1.15,
-    "Experimento — reconstrucción geométrica\nasistida por IA (Blender MCP)\nalternativa a la malla · 2/3 sitios",
+    "Experimento — reconstrucción geométrica\nasistida por IA (Blender MCP)\nalternativa a la malla · 3/3 sitios",
     color="#f7f7f7", edge="#718096", dashed=True, fontsize=7.8)
 arrow(TRUNK_CX + TRUNK_W / 2, 10.9, 8.3, 10.85, color="#718096")
 
@@ -68,8 +68,14 @@ LX, LW = 0.3, 5.0    # rama HBIM (izquierda)
 RX, RW = 6.2, 5.0    # rama archivo digital web (derecha)
 LCX, RCX = LX + LW / 2, RX + RW / 2
 
-arrow(TRUNK_CX - 0.3, 10.4, LCX, 9.5, color="#276749", connectionstyle="arc3,rad=0.15")
-arrow(TRUNK_CX + 0.3, 10.4, RCX, 9.5, color="#2c5282", connectionstyle="arc3,rad=-0.15")
+# un arco arc3 nacido justo en el borde de la caja (y=10.4) se comba hacia
+# arriba antes de bajar y vuelve a pisar la caja "Nube de puntos" -- baja
+# primero con un tramo recto (sin punta de flecha, es un simple Line2D) y
+# recien ahi arranca el arco, ya despejado de la caja
+ax.plot([TRUNK_CX - 0.3, TRUNK_CX - 0.3], [10.4, 9.75], color="#276749", linewidth=1.6)
+ax.plot([TRUNK_CX + 0.3, TRUNK_CX + 0.3], [10.4, 9.75], color="#2c5282", linewidth=1.6)
+arrow(TRUNK_CX - 0.3, 9.75, LCX, 9.5, color="#276749", connectionstyle="arc3,rad=0.1")
+arrow(TRUNK_CX + 0.3, 9.75, RCX, 9.5, color="#2c5282", connectionstyle="arc3,rad=-0.1")
 
 # --- Rama HBIM (6.2.2), izquierda ---
 ax.text(LCX, 9.7, "Rama HBIM (6.2.2)", ha="center", fontsize=10.5, weight="bold", color="#276749")

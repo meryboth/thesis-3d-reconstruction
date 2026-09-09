@@ -1,0 +1,16 @@
+{
+  "objetos_nucleo": 88,
+  "objetos_detalle": 838,
+  "mallas_con_aristas_no_manifold": [],
+  "muestra_comparada": 10000,
+  "distancia_mediana": 0.05801433324813843,
+  "distancia_p95": 0.2876798152923582,
+  "nota": "Distancia nube-modelo sobre puntos utilizados como referencia, recorte automatico con posible vegetacion residual. No constituye validacion independiente. Unidades SfM sin escala metrica calibrada; ornamentos no evaluados.",
+  "revision_acceso": {
+    "peldaños_centrales": 12,
+    "peldaños_por_lateral": 7,
+    "respiraderos_modelados": 15,
+    "basamento_aristas_no_manifold": 0,
+    "nota": "Cantidades interpretativas, no certificadas. Métricas de ajuste anteriores no reevaluadas para este detalle."
+  }
+}
