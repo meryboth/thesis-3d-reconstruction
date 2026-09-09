@@ -578,3 +578,68 @@
   color: var(--accent);
   margin-top: 0.2rem;
 }
+
+/* Columna de media con varias piezas apiladas (grafico + ejemplos visuales).
+   Cada pieza se limita por altura de viewport en vez de repartir con flex-grow:
+   con flex-grow y sin alto definido las imagenes colapsaban a cero. */
+.pz-split-media-apilada {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pz-split-media-apilada > img,
+.pz-split-media-apilada figure {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.pz-split-media-apilada img {
+  width: 100%;
+  height: auto;
+  max-height: 24vh;
+  object-fit: contain;
+  display: block;
+}
+
+.pz-split-media-apilada figcaption {
+  font-size: 0.66rem;
+  line-height: 1.3;
+  opacity: 0.62;
+  text-align: center;
+  margin-top: 0.22rem;
+}
+
+/* dos imagenes lado a lado dentro de una pieza apilada */
+.pz-par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.pz-par img {
+  max-height: 18vh;
+}
+
+/* Comparativa de tecnicas: los 9 recuadros, todos del mismo tamano.
+   Los gif ya se exportan a 440x248, el object-fit cubre cualquier resto. */
+.pz-render-compare img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* la galeria de 3x3 entra justa: se ajustan separaciones y etiquetas */
+.pz-render-gallery {
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+
+.pz-render-compare-stacked {
+  gap: 0.35rem;
+}
+
+.pz-render-compare span {
+  font-size: 0.62rem;
+}

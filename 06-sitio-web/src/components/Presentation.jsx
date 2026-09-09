@@ -270,7 +270,15 @@ const SLIDES = [
           </ul>
           <Source>Capítulo 5, secciones 5.3.4 y 5.3.6</Source>
         </div>
-        <div className="pz-split-media">
+        <div className="pz-split-media pz-split-media-apilada">
+          <figure>
+            <img src={`${W}preproc-distractores.jpg`} alt="Fotograma original y fotograma con las personas eliminadas" />
+            <figcaption>1 · Distractores: original arriba, con las personas borradas por YOLOv8-seg + LaMa abajo.</figcaption>
+          </figure>
+          <figure>
+            <img src={`${W}preproc-mascara.jpg`} alt="Fotograma original, máscara de entrenamiento y edificio aislado del fondo" />
+            <figcaption>2 · Fondo: original, máscara de entrenamiento y edificio aislado.</figcaption>
+          </figure>
           <img src={`${A}cap5-masking-psnr-ssim-lpips-raw-vs-masked.png`} alt="PSNR/SSIM/LPIPS raw vs. dataset con máscara" />
         </div>
       </div>
@@ -294,8 +302,12 @@ const SLIDES = [
           </ul>
           <Source>Capítulo 5, sección 5.4</Source>
         </div>
-        <div className="pz-split-media">
+        <div className="pz-split-media pz-split-media-apilada">
           <img src={`${A}cap5-07-psnr-vs-complejidad.png`} alt="PSNR vs. nivel de complejidad geométrica" />
+          <figure>
+            <img src={`${W}panteon-nerf-vs-splat.jpg`} alt="Panteón Asociación Catalana: foto original, render de Nerfacto y render de Splatfacto" />
+            <figcaption>Panteón: foto · Nerfacto · Splatfacto. Nerfacto degenera en floaters; Splatfacto sostiene la geometría.</figcaption>
+          </figure>
         </div>
       </div>
     ),
@@ -319,8 +331,15 @@ const SLIDES = [
           </ul>
           <Source>Capítulo 5, secciones 5.5.2–5.5.6</Source>
         </div>
-        <div className="pz-split-media">
+        <div className="pz-split-media pz-split-media-apilada">
           <img src={`${A}cap5-hybrid-cross-camera-matching-chart.png`} alt="Calidad de matching por tipo de par de dispositivos" />
+          <figure>
+            <div className="pz-par">
+              <img src={`${W}hibrido-componente-a.png`} alt="Primer componente reconstruido del dataset híbrido" />
+              <img src={`${W}hibrido-componente-b.png`} alt="Segundo componente reconstruido del dataset híbrido" />
+            </div>
+            <figcaption>El fallo, a la vista: del mismo dataset híbrido salen dos componentes separados que nunca llegan a alinearse.</figcaption>
+          </figure>
         </div>
       </div>
     ),
@@ -439,8 +458,17 @@ const SLIDES = [
           </ul>
           <Source>Capítulo 6, sección 6.3.4 y Tabla 6.4</Source>
         </div>
-        <div className="pz-split-media">
-          <img src={`${W}paraguas-reconstruccion-ia.png`} alt="Render del modelo reconstruido de Los Paraguas, dos cubiertas sobre columnas" />
+        <div className="pz-split-media pz-split-media-apilada">
+          {[
+            ["paraguas", "Los Paraguas"],
+            ["templete", "Templete Central"],
+            ["panteon", "Panteón Asoc. Catalana"],
+          ].map(([id, nombre]) => (
+            <figure key={id}>
+              <img src={`${W}${id}-reconstruccion-ia.png`} alt={`Modelo reconstruido por el agente de IA: ${nombre}`} />
+              <figcaption>{nombre}</figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     ),
