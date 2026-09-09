@@ -155,6 +155,37 @@ const SLIDES = [
     ),
   },
   {
+    id: "recorrido",
+    render: () => (
+      <div className="pz-slide">
+        <Kicker>El recorrido completo · Capítulos 3 a 6</Kicker>
+        <h2 className="pz-title">De las fotos al modelo, paso a paso</h2>
+        <ol className="pz-recorrido">
+          {[
+            ["pipeline-1-dataset.jpg", "Dataset", "1232 fotogramas de un vuelo con DJI Neo 2"],
+            ["pipeline-2-sfm.gif", "SfM", "Poses de cámara recuperadas del recorrido"],
+            ["pipeline-3-nube.jpg", "Nube densa", "La geometría del edificio, punto a punto"],
+            ["pipeline-4-splat.gif", "Gaussian Splatting", "La escena navegable en el archivo web"],
+            ["pipeline-5-segmentacion.jpg", "Segmentación", "Cada parte etiquetada, de cara a BIM"],
+            ["pipeline-6-modelo.jpg", "Modelo 3D", "Geometría paramétrica ajustada por un agente"],
+          ].map(([archivo, titulo, pie], i) => (
+            <li key={archivo}>
+              <img src={`${W}${archivo}`} alt={`${titulo}: ${pie}`} />
+              <h3>
+                <span className="pz-recorrido-n">{i + 1}</span> {titulo}
+              </h3>
+              <p>{pie}</p>
+            </li>
+          ))}
+        </ol>
+        <Source>
+          Un mismo caso —el Templete Central— de punta a punta. Capítulo 3 (captura),
+          Capítulo 5 (reconstrucción) y Capítulo 6 (segmentación y modelado).
+        </Source>
+      </div>
+    ),
+  },
+  {
     id: "h1",
     render: () => (
       <div className="pz-split">
