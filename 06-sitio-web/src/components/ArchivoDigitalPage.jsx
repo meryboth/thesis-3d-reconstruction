@@ -7,8 +7,6 @@ const SITES = [
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=paraguas",
     thumbnail: "/archivo-digital/paraguas/preview.gif",
-    plyUrl: "/archivo-digital/paraguas/splat-editado.ply",
-    splatUrl: "/archivo-digital/paraguas/splat.splat",
   },
   {
     id: "templete-central",
@@ -18,9 +16,6 @@ const SITES = [
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=templete-central",
     thumbnail: "/archivo-digital/templete-central/preview.gif",
-    plyUrl: "/archivo-digital/templete-central/splat-editado-v2.ply",
-    // .splat todavia no exportado -- pendiente de curar en SuperSplat
-    splatUrl: null,
   },
   {
     id: "panteon",
@@ -30,9 +25,6 @@ const SITES = [
     // visor comparativo de las 3 capas (nube / modelo IA / splat), no el splat solo
     viewerUrl: "/modelado?site=panteon",
     thumbnail: null,
-    plyUrl: "/archivo-digital/panteon/splat-editado.ply",
-    // .splat todavia no exportado -- pendiente de curar en SuperSplat
-    splatUrl: null,
   },
 ];
 

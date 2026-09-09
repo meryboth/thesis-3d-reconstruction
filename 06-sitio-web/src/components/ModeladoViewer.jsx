@@ -8,11 +8,9 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 // nube de puntos (SfM), modelo geometrico (reconstruccion asistida por IA,
 // Cap.6 seccion 6.3.4) y gaussian splatting (embebido via iframe, reusa el
 // visor SuperSplat ya publicado en /archivo-digital/). Es el visor unico al
-// que apuntan las 3 cards del Archivo Digital -- Los Paraguas es el unico
-// caso con las 3 capas completas por ahora; Templete Central y Panteon
-// todavia no tienen nube-densa.ply/modelo.glb propios (Cap.6 6.3.4 en
-// proceso), asi que arrancan directo en la capa "splat" y las otras dos
-// quedan deshabilitadas hasta que esos archivos existan.
+// que apuntan las 3 cards del Archivo Digital (/archivo-digital -> /modelado
+// ?site=<id>): los 3 sitios ya tienen las 4 capas completas.
+// El panel tambien deja descargar los archivos de cada capa.
 const SITES = [
   {
     id: "paraguas",

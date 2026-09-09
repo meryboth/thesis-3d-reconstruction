@@ -34,6 +34,5 @@ Node.js no estaba instalado en esta máquina — se instaló la versión LTS ví
 
 ## Pendiente / próximas iteraciones
 
-- Sumar GIFs de los videos de captura de cada sitio (para dar contexto de cómo se hizo el relevamiento) — la idea es agregarlos junto a las imágenes de cada capítulo, probablemente en el Cap. 3 (caso de estudio) y/o Cap. 5 (fidelidad geométrica).
-- Deploy (GitHub Pages / Vercel / Netlify — a definir).
+- Sumar más GIFs de relevamiento: hoy hay dos, del recorrido SfM del Templete Central, integrados en el Cap. 5. Faltarían los equivalentes de Los Paraguas y del Panteón.
 - Ajustes de diseño a medida que se revise en el navegador real.
