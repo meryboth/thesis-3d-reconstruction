@@ -292,6 +292,10 @@ function formatearPeso(bytes) {
 }
 
 export default function ModeladoViewer() {
+  // ?embed=1: el visor va dentro de un iframe (slide H5 de la presentacion).
+  // Se ocultan el volver, el texto introductorio y las descargas: en una slide
+  // lo unico que importa es poder cambiar de capa a la vista de todos.
+  const embebido = new URLSearchParams(window.location.search).has("embed");
   const [siteId, setSiteId] = useState(getInitialSiteId);
   const site = SITES.find((s) => s.id === siteId);
   const [layer, setLayer] = useState(site.ply ? "nube" : "splat");
@@ -354,18 +358,24 @@ export default function ModeladoViewer() {
           maxWidth: 320,
         }}
       >
-        <a
-          href="/"
-          style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: "#9ecbff", textDecoration: "none", marginBottom: 8 }}
-        >
-          ← Volver a la tesis
-        </a>
-        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>Modelado — comparativa de representaciones</h1>
+        {!embebido && (
+          <a
+            href="/"
+            style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: "#9ecbff", textDecoration: "none", marginBottom: 8 }}
+          >
+            ← Volver a la tesis
+          </a>
+        )}
+        <h1 style={{ fontSize: 15, margin: "0 0 8px" }}>
+          {embebido ? "Las tres representaciones" : "Modelado — comparativa de representaciones"}
+        </h1>
+        {!embebido && (
         <p style={{ fontSize: 12, opacity: 0.75, margin: "0 0 10px", lineHeight: 1.4 }}>
           Un mismo caso de estudio, tres formas de verlo: la nube de puntos que produce SfM, el modelo
           geométrico ajustado por un agente de IA (Capítulo 6, sección 6.3.4) y el resultado de Gaussian
           Splatting. Los 3 sitios ya tienen las tres capas completas.
         </p>
+        )}
 
         <select
           value={siteId}
@@ -415,6 +425,7 @@ export default function ModeladoViewer() {
           })}
         </div>
 
+        {!embebido && (
         <div style={{ marginTop: 14, borderTop: "1px solid #333", paddingTop: 10 }}>
           <h2 style={{ fontSize: 12, margin: "0 0 2px", letterSpacing: 0.3 }}>Descargar archivos</h2>
           <p style={{ fontSize: 11, opacity: 0.6, margin: "0 0 8px", lineHeight: 1.35 }}>
@@ -451,6 +462,7 @@ export default function ModeladoViewer() {
             ))}
           </div>
         </div>
+        )}
       </div>
     </div>
   );

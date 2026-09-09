@@ -194,11 +194,15 @@ const SLIDES = [
     render: () => (
       <div className="pz-slide">
         <Kicker>Resultados · Capítulo 5</Kicker>
-        <h2 className="pz-title">Nerfacto vs. Splatfacto, en los tres casos</h2>
+        <h2 className="pz-title">SfM, Nerfacto y Splatfacto, en los tres casos</h2>
         <div className="pz-render-gallery">
           <div className="pz-render-gallery-col">
             <h3>Los Paraguas</h3>
             <div className="pz-render-compare pz-render-compare-stacked">
+              <div>
+                <img src={`${W}paraguas-sfm-render.gif`} alt="Nube de puntos SfM de Los Paraguas" />
+                <span>SfM</span>
+              </div>
               <div>
                 <img src={`${W}paraguas-nerfacto-render.gif`} alt="Render Nerfacto de Los Paraguas" />
                 <span>Nerfacto</span>
@@ -213,6 +217,10 @@ const SLIDES = [
             <h3>Templete Central</h3>
             <div className="pz-render-compare pz-render-compare-stacked">
               <div>
+                <img src={`${W}templete-sfm-render.gif`} alt="Nube de puntos SfM de Templete Central" />
+                <span>SfM</span>
+              </div>
+              <div>
                 <img src={`${W}templete-nerfacto-render.gif`} alt="Render Nerfacto del Templete Central" />
                 <span>Nerfacto</span>
               </div>
@@ -225,6 +233,10 @@ const SLIDES = [
           <div className="pz-render-gallery-col">
             <h3>Panteón Asoc. Catalana</h3>
             <div className="pz-render-compare pz-render-compare-stacked">
+              <div>
+                <img src={`${W}panteon-sfm-render.gif`} alt="Nube de puntos SfM de Panteón Asociación Catalana" />
+                <span>SfM</span>
+              </div>
               <div>
                 <img src={`${W}panteon-nerfacto-render.gif`} alt="Render Nerfacto del Panteón Asociación Catalana" />
                 <span>Nerfacto</span>
@@ -337,9 +349,8 @@ const SLIDES = [
         </div>
         <div className="pz-split-media pz-split-media-frame">
           <iframe
-            title="Archivo digital — Los Paraguas"
-            src="/archivo-digital/paraguas/index.html"
-            loading="lazy"
+            title="Archivo digital — Los Paraguas, las tres representaciones"
+            src="/modelado?site=paraguas&embed=1"
           />
         </div>
       </div>
