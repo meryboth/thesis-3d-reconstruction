@@ -84,6 +84,8 @@ La otra rama del pipeline propone utilizar entrenamiento de Gaussian Splatting p
 
 **<u>6.3 Detalle de implementación: segmentación semántica de la nube de puntos</u>**
 
+**6.3.1 Propuesta y antecedentes en la literatura**
+
 Como mencionamos con anterioridad, una de las propuestas de esta tesis es sumar una capa de segmentación al resultado de SfM para poder enriquecer el proceso de BIM. Esta segmentación semántica contó con dos exploraciones: por un lado la segmentación con un script y por otro la exploración de una capa adicional de inteligencia utilizando un VLM como modelo interpretativo de la geometría. Durante esta sección se desarrolla en profundidad los resultados de las dos exploraciones. 
 
 Ese paso de conversión no es del todo nuevo en la literatura: [Lyu et al. (2025)](#ref-lyu-2025) propone implementar una capa división semántica de gaussianas utilizando distancia con signo (SDF) dentro de las propias gaussianas para extraer superficies explícitas de un modelo 3DGS entrenado. Lo interesante de esta propuesta es que, si bien es una línea de investigación activa y no un terreno sobre el que haya certezas, la evolución en modos de segmentación de escenas gaussianas puede derivar en la construcción de una ruta directa de Splatfacto a BIM en el futuro.

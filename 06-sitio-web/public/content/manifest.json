@@ -725,6 +725,11 @@
         "title": "Detalle de implementación: segmentación semántica de la nube de puntos",
         "children": [
           {
+            "id": "cap6-6-3-1",
+            "num": "6.3.1",
+            "title": "Propuesta y antecedentes en la literatura"
+          },
+          {
             "id": "cap6-6-3-2",
             "num": "6.3.2",
             "title": "Implementación: segmentación semántica de la nube de puntos"
