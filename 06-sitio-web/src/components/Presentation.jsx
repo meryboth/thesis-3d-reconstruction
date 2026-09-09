@@ -16,6 +16,20 @@ function Source({ children }) {
   return <span className="pz-source">{children}</span>;
 }
 
+function Nodo({ n, archivo, titulo, pie }) {
+  return (
+    <figure className="pz-nodo" style={{ "--paso": n }}>
+      <img src={`${W}${archivo}`} alt={`${titulo}: ${pie}`} />
+      <figcaption>
+        <strong>
+          <span className="pz-nodo-n">{n}</span> {titulo}
+        </strong>
+        <span>{pie}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 const SLIDES = [
   {
     id: "portada",
@@ -159,28 +173,42 @@ const SLIDES = [
     render: () => (
       <div className="pz-slide">
         <Kicker>El recorrido completo · Capítulos 3 a 6</Kicker>
-        <h2 className="pz-title">De las fotos al modelo, paso a paso</h2>
-        <ol className="pz-recorrido">
-          {[
-            ["pipeline-1-dataset.jpg", "Dataset", "1232 fotogramas de un vuelo con DJI Neo 2"],
-            ["pipeline-2-sfm.gif", "SfM", "Poses de cámara recuperadas del recorrido"],
-            ["pipeline-3-nube.jpg", "Nube densa", "La geometría del edificio, punto a punto"],
-            ["pipeline-4-splat.gif", "Gaussian Splatting", "La escena navegable en el archivo web"],
-            ["pipeline-5-segmentacion.jpg", "Segmentación", "Cada parte etiquetada, de cara a BIM"],
-            ["pipeline-6-modelo.jpg", "Modelo 3D", "Geometría paramétrica ajustada por un agente"],
-          ].map(([archivo, titulo, pie], i) => (
-            <li key={archivo}>
-              <img src={`${W}${archivo}`} alt={`${titulo}: ${pie}`} />
-              <h3>
-                <span className="pz-recorrido-n">{i + 1}</span> {titulo}
-              </h3>
-              <p>{pie}</p>
-            </li>
-          ))}
-        </ol>
+        <h2 className="pz-title">Un tronco común, dos destinos</h2>
+        <div className="pz-recorrido">
+          <div className="pz-recorrido-tronco">
+            <Nodo n="1" archivo="pipeline-1-dataset.jpg" titulo="Dataset"
+                  pie="1232 fotogramas de un vuelo con DJI Neo 2" />
+            <Nodo n="2" archivo="pipeline-2-sfm.gif" titulo="SfM"
+                  pie="Poses de cámara y geometría de la escena" />
+          </div>
+
+          <div className="pz-recorrido-ramas">
+            <div className="pz-rama pz-rama-bim">
+              <span className="pz-rama-tag">Rama 1 · hacia BIM</span>
+              <div className="pz-rama-nodos">
+                <Nodo n="3" archivo="pipeline-3-nube.jpg" titulo="Nube densa"
+                      pie="La geometría, punto a punto" />
+                <Nodo n="4" archivo="pipeline-5-segmentacion.jpg" titulo="Segmentación"
+                      pie="Cada parte etiquetada por clase" />
+                <Nodo n="5" archivo="pipeline-6-modelo.jpg" titulo="Modelo 3D"
+                      pie="Geometría paramétrica, lista para Revit" />
+              </div>
+            </div>
+
+            <div className="pz-rama pz-rama-web">
+              <span className="pz-rama-tag">Rama 2 · hacia el archivo digital</span>
+              <div className="pz-rama-nodos">
+                <Nodo n="6" archivo="pipeline-4-splat.gif" titulo="Gaussian Splatting"
+                      pie="La escena, en .splat" />
+                <Nodo n="7" archivo="pipeline-7-archivo.jpg" titulo="Archivo digital"
+                      pie="Las tres obras, navegables y descargables" />
+              </div>
+            </div>
+          </div>
+        </div>
         <Source>
-          Un mismo caso —el Templete Central— de punta a punta. Capítulo 3 (captura),
-          Capítulo 5 (reconstrucción) y Capítulo 6 (segmentación y modelado).
+          Un mismo caso —el Templete Central— de punta a punta. La bifurcación es el hallazgo
+          del Capítulo 6: el pipeline del archivo web no es el mismo que el de la integración BIM.
         </Source>
       </div>
     ),
