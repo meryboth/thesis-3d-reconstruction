@@ -466,29 +466,6 @@ const SLIDES = [
     ),
   },
   {
-    id: "sfm-animado",
-    render: () => (
-      <div className="pz-slide">
-        <Kicker>Reconstrucción SfM · Capítulo 5</Kicker>
-        <h2 className="pz-title">De la nube dispersa a la malla texturizada</h2>
-        <div className="pz-render-gallery">
-          <div className="pz-render-gallery-col">
-            <h3>Los Paraguas</h3>
-            <img className="pz-diagram" src={`${W}paraguas-sfm-render.gif`} alt="Reconstrucción SfM de Los Paraguas" />
-          </div>
-          <div className="pz-render-gallery-col">
-            <h3>Templete Central</h3>
-            <img className="pz-diagram" src={`${A}cap5-templete-central-sfm.gif`} alt="Reconstrucción SfM del Templete Central" />
-          </div>
-          <div className="pz-render-gallery-col">
-            <h3>Panteón Asoc. Catalana</h3>
-            <img className="pz-diagram" src={`${W}panteon-sfm-render.gif`} alt="Reconstrucción SfM del Panteón Asociación Catalana" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
     id: "conclusiones",
     render: () => (
       <div className="pz-slide">
@@ -534,6 +511,35 @@ const SLIDES = [
           <li>Se recomendó una estrategia de captura sólida, basada en un único dispositivo de fácil acceso y con alcance aéreo.</li>
           <li>Se validó que hay técnicas —SfM y Gaussian Splatting— que permiten reconstruir obras de complejidad geométrica y ornamental elevada.</li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    id: "archivo-cierre",
+    render: () => (
+      <div className="pz-slide pz-slide-center">
+        <Kicker>El archivo digital · Capítulo 6</Kicker>
+        <h2 className="pz-title">Tres obras, un archivo que empieza</h2>
+        <a
+          className="pz-cierre-archivo"
+          href="https://thesis-3d-reconstruction.vercel.app/archivo-digital"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {[
+            ["paraguas", "Los Paraguas"],
+            ["templete-central", "Templete Central"],
+            ["panteon", "Panteón Asoc. Catalana"],
+          ].map(([id, nombre]) => (
+            <figure key={id}>
+              <img src={`/archivo-digital/${id}/preview.gif`} alt={`Modelo reconstruido de ${nombre}`} />
+              <figcaption>{nombre}</figcaption>
+            </figure>
+          ))}
+          <span className="pz-cierre-archivo-pie">
+            Nube de puntos, modelo 3D y splat, descargables en el archivo digital →
+          </span>
+        </a>
         <p className="pz-subtitle">
           Esperamos que la tecnología sea una disciplina que permita tender puentes y generar
           soluciones para otras áreas de conocimiento, como la arquitectura.

@@ -535,3 +535,46 @@
     display: none;
   }
 }
+
+/* Cierre: las tres obras reconstruidas, como sintesis del aporte de la tesis.
+   Van chicas a proposito -- la slide ya carga la lista de aportes y el cierre. */
+.pz-cierre-archivo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.6rem auto 0.4rem;
+  max-width: 720px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.pz-cierre-archivo figure {
+  margin: 0;
+}
+
+.pz-cierre-archivo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+}
+
+.pz-cierre-archivo figcaption {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.4rem;
+  opacity: 0.8;
+}
+
+.pz-cierre-archivo-pie {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-top: 0.2rem;
+}
