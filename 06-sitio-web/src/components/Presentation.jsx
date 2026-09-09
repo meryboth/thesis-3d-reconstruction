@@ -210,10 +210,6 @@ const SLIDES = [
                   pie="Modelo, nube y splat: los tres descargables" />
           </div>
         </div>
-        <Source>
-          Un mismo caso —el Templete Central— de punta a punta. Las dos ramas del Capítulo 6 vuelven a
-          encontrarse en el archivo: cada obra se publica con el modelo, la nube y el splat.
-        </Source>
       </div>
     ),
   },
