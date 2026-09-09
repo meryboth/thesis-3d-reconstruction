@@ -96,7 +96,7 @@ A simple vista los resultados de NeRF y 3DGS son bastante similares y ambos logr
 
 Como última instancia vamos a comparar los resultados de SfM, el video/gif a continuación contiene una animación del recorrido generado por el procesamiento, donde no solo puede visualizarse la nube de puntos sino también el camino establecido por las imágenes y sus posicionamientos. Como puede verse en la animación SfM logró una representación fiel del edificio y también puede visualizarse con detalle las reproducciones de su geometría y su materialidad. En general la captura es fiel a la obra y solo pueden identificarse defectos menores como la ausencia de puntos en algunas zonas de la cubierta, un defecto que puede estar relacionado con la presencia de sombras específicas al momento de la captura que pueden haber sido identificadas como vacíos.
 
-![templete-central-sfm-2.gif](C:\nerfstudio_work\thesis\00-auditoria\relevamiento-videos\templete-central-sfm-2.gif)
+![templete-central-sfm-2.gif](../../00-auditoria/relevamiento-videos/templete-central-sfm-2.gif)
 
 *Figura 5.6 — Templete Central, reconstrucción SfM en RealityScan: vista a nivel del suelo de la nube de puntos junto a las posiciones de cámara recuperadas del recorrido con DJI, que rodean el edificio en anillos a distinta altura.*
 
@@ -116,7 +116,7 @@ Como mencionamos con anterioridad, el output de SfM no puede ser comparable con 
 
 Algo importante a considerar sobre el output de SfM, es que su nube de puntos y su malla 3D podrían utilizarse en flujos HBIM: en Autocad, Revit, Sketchup, y Blender, por mencionar algunos de los software más utilizados que permiten abrir este tipo de archivos con alta compatibilidad. Por otro lado, si evaluamos el output de NeRF y de 3DGS, si bien el segundo es bastante más liviano por su formato .ply lo cierto es que habría que encarar un proceso de conversión para hacer compatible estos archivos con un flujo de reconstrucción BIM. 
 
-![templete-central-sfm.gif](C:\nerfstudio_work\thesis\00-auditoria\relevamiento-videos\templete-central-sfm.gif)
+![templete-central-sfm.gif](../../00-auditoria/relevamiento-videos/templete-central-sfm.gif)
 
 *Figura 5.9 — Templete Central, reconstrucción SfM en RealityScan: vista aérea de la nube de puntos y del anillo de posiciones de cámara que envuelve al edificio.*
 
