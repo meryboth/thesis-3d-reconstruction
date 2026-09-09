@@ -698,9 +698,34 @@
 }
 
 .pz-rama-nodos {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 146px);
   gap: 1.3rem;
   align-items: start;
+}
+
+/* la rama 2 tiene un solo nodo: sin esto quedaba un hueco hasta la llave de
+   cierre y no se leia que tambien desemboca en el archivo */
+.pz-rama-linea {
+  grid-column: 2 / -1;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.5;
+  align-self: start;
+  margin-top: 48px;
+  position: relative;
+}
+
+.pz-rama-linea::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: -5px;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform: rotate(45deg);
 }
 
 /* --- nodo --- */
@@ -721,7 +746,7 @@
 }
 
 /* flecha hacia el nodo siguiente de la misma fila */
-.pz-nodo:not(:last-child)::after {
+.pz-nodo:has(+ .pz-nodo)::after {
   content: "";
   position: absolute;
   top: 30%;

@@ -200,6 +200,7 @@ const SLIDES = [
               <div className="pz-rama-nodos">
                 <Nodo n="6" archivo="pipeline-4-splat.gif" titulo="Gaussian Splatting"
                       pie="La escena, en .splat" />
+                <span className="pz-rama-linea" aria-hidden="true" />
               </div>
             </div>
           </div>
