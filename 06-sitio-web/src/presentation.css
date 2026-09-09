@@ -649,17 +649,18 @@
    el diagrama se "arme" a la vista en vez de aparecer entero de golpe. */
 .pz-recorrido {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   justify-content: center;
-  gap: 1.6rem;
-  align-items: center;
+  gap: 1.1rem;
+  align-items: stretch;
   margin-top: 1.2rem;
 }
 
 .pz-recorrido-tronco {
   display: flex;
-  gap: 1.6rem;
+  gap: 1.3rem;
   align-items: center;
+  align-self: center;
   position: relative;
 }
 
@@ -698,7 +699,7 @@
 
 .pz-rama-nodos {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.3rem;
   align-items: start;
 }
 
@@ -708,7 +709,7 @@
   position: relative;
   /* ancho fijo: si el tronco crece con flex, sus dos nodos se comen la fila y
      los de las ramas quedan diminutos */
-  flex: 0 0 168px;
+  flex: 0 0 146px;
   min-width: 0;
   animation: pz-nodo-entra 0.45s ease-out backwards;
   animation-delay: calc(var(--paso) * 0.11s);
@@ -768,4 +769,31 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pz-nodo { animation: none; }
+}
+
+/* Las dos ramas convergen: el archivo digital publica el modelo de la rama BIM
+   y el splat de la rama web, asi que cierra las dos. */
+.pz-recorrido-convergencia {
+  position: relative;
+  padding-left: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.pz-recorrido-convergencia::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 22%;
+  bottom: 22%;
+  border-right: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  width: 0.7rem;
+  opacity: 0.45;
+}
+
+.pz-recorrido-convergencia .pz-nodo {
+  align-self: center;
 }

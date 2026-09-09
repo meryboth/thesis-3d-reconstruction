@@ -183,7 +183,7 @@ const SLIDES = [
           </div>
 
           <div className="pz-recorrido-ramas">
-            <div className="pz-rama pz-rama-bim">
+            <div className="pz-rama">
               <span className="pz-rama-tag">Rama 1 · hacia BIM</span>
               <div className="pz-rama-nodos">
                 <Nodo n="3" archivo="pipeline-3-nube.jpg" titulo="Nube densa"
@@ -195,20 +195,23 @@ const SLIDES = [
               </div>
             </div>
 
-            <div className="pz-rama pz-rama-web">
-              <span className="pz-rama-tag">Rama 2 · hacia el archivo digital</span>
+            <div className="pz-rama">
+              <span className="pz-rama-tag">Rama 2 · escena navegable</span>
               <div className="pz-rama-nodos">
                 <Nodo n="6" archivo="pipeline-4-splat.gif" titulo="Gaussian Splatting"
                       pie="La escena, en .splat" />
-                <Nodo n="7" archivo="pipeline-7-archivo.jpg" titulo="Archivo digital"
-                      pie="Las tres obras, navegables y descargables" />
               </div>
             </div>
           </div>
+
+          <div className="pz-recorrido-convergencia">
+            <Nodo n="7" archivo="pipeline-7-archivo.jpg" titulo="Archivo digital"
+                  pie="Modelo, nube y splat: los tres descargables" />
+          </div>
         </div>
         <Source>
-          Un mismo caso —el Templete Central— de punta a punta. La bifurcación es el hallazgo
-          del Capítulo 6: el pipeline del archivo web no es el mismo que el de la integración BIM.
+          Un mismo caso —el Templete Central— de punta a punta. Las dos ramas del Capítulo 6 vuelven a
+          encontrarse en el archivo: cada obra se publica con el modelo, la nube y el splat.
         </Source>
       </div>
     ),
