@@ -349,7 +349,7 @@ const SLIDES = [
     render: () => (
       <div className="pz-slide">
         <Kicker>Motivación · Capítulo 1</Kicker>
-        <h2 className="pz-title">No hay planes de restauración que permitan entender el estado actual de las obras</h2>
+        <h2 className="pz-title">Problema y propuesta</h2>
         <p className="pz-pitch">
           El patrimonio arquitectónico argentino se sigue documentando con fotografías y planos
           CAD: un registro costoso en tiempo y recursos, difícil de reproducir con fidelidad ante
@@ -358,7 +358,7 @@ const SLIDES = [
           de las obras y sirva de punto de partida para un plan de preservación.
         </p>
         <div className="pz-pitch-solucion">
-          <span className="pz-pitch-tag">La oportunidad</span>
+          <span className="pz-pitch-tag">La propuesta</span>
           <p>
             Las técnicas de visión computacional —SfM, NeRF y Gaussian Splatting— reconstruyen
             edificios completos en 3D a partir de fotos o video, sin equipamiento de escaneo
