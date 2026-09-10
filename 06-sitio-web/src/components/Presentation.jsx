@@ -740,7 +740,7 @@ const SLIDES = [
       <div className="pz-split">
         <div className="pz-split-text">
           <Kicker>Exploración · Capítulo 6, sección 6.3.3</Kicker>
-          <h2 className="pz-title">Segmentación asistida por VLM: resultado negativo, honesto</h2>
+          <h2 className="pz-title">Segmentación asistida por VLM: resultado negativo</h2>
           <p className="pz-lead">
             Se probó reemplazar el umbral geométrico por un modelo de visión (Moondream2,
             Qwen2-VL) para distinguir columna de baranda. Ninguno superó al clasificador simple.
