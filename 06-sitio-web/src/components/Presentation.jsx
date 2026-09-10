@@ -772,8 +772,8 @@ const SLIDES = [
           </p>
           <ul className="pz-bullets">
             <li>GPT-6 Astra (OpenAI), operado desde Codex, conectado a Blender vía Blender MCP.</li>
-            <li>Precisión contra la nube: <strong>0,004</strong> unidades SfM de distancia mediana en Los Paraguas y <strong>0,015</strong> en el Templete; en el Panteón sube a <strong>0,058</strong> (p95 0,29) por la ornamentación.</li>
-            <li>Las métricas confirman que la reconstrucción es <strong>fiel a la nube de puntos</strong>: el modelo se apoya en la referencia SfM y cierra con topología limpia — 0 aristas no manifold en los tres sitios.</li>
+            <li>Recibe <strong>dos inputs</strong> y reconstruye a partir de ellos: la nube de puntos densa, para ajustar la geometría, y el dataset original de imágenes, para consultar detalles arquitectónicos y validar visualmente la obra.</li>
+            <li>Las métricas confirman que la reconstrucción es <strong>fiel a la nube de puntos</strong>: entre el <strong>66% y el 81%</strong> de los puntos quedan a menos de 0,02 unidades de la superficie ajustada, con topología limpia — 0 aristas no manifold en los tres sitios.</li>
           </ul>
           <Source>Capítulo 6, sección 6.3.4 y Tabla 6.4</Source>
         </div>
