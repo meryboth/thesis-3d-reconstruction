@@ -352,19 +352,17 @@ const SLIDES = [
         <h2 className="pz-title">Problema y propuesta</h2>
         <p className="pz-pitch">
           El patrimonio arquitectónico argentino se sigue documentando con fotografías y planos
-          CAD: un registro costoso en tiempo y recursos, difícil de reproducir con fidelidad ante
-          una intervención futura y que captura solo parcialmente la geometría y la materialidad
-          del edificio. No existe un archivo digital nacional que deje asentado el estado actual
-          de las obras y sirva de punto de partida para un plan de preservación.
+          CAD: costoso, difícil de reproducir con fidelidad ante una intervención futura y parcial
+          en geometría y materialidad. No existe un archivo digital nacional que deje asentado el
+          estado actual de las obras.
         </p>
         <div className="pz-pitch-solucion">
           <span className="pz-pitch-tag">La propuesta</span>
           <p>
-            Las técnicas de visión computacional —SfM, NeRF y Gaussian Splatting— reconstruyen
-            edificios completos en 3D a partir de fotos o video, sin equipamiento de escaneo
-            costoso. Su aplicación sistemática al patrimonio argentino permanece inexplorada y no
-            hay criterios locales para elegir entre ellas. Esta tesis las compara sobre tres obras
-            reales y propone un pipeline reproducible con hardware modesto y software libre.
+            Las técnicas de visión computacional —SfM, NeRF y 3DGS— reconstruyen edificios
+            completos en 3D desde fotos o video, sin escáner. Su aplicación al patrimonio argentino
+            sigue inexplorada y no hay criterios locales para elegir entre ellas. Esta tesis las
+            compara sobre tres obras reales y propone un pipeline reproducible con software libre.
           </p>
         </div>
         <p className="pz-pitch-pregunta">

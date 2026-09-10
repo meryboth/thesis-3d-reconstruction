@@ -825,8 +825,8 @@
   border-left: 3px solid var(--accent);
   background: var(--bg-panel);
   border-radius: 0 8px 8px 0;
-  padding: 0.95rem 1.15rem 1rem;
-  margin-bottom: 1.15rem;
+  padding: 0.9rem 1.15rem 0.95rem;
+  margin: 0 0 1.15rem calc(-1.15rem - 3px);
 }
 
 .pz-pitch-solucion p {
