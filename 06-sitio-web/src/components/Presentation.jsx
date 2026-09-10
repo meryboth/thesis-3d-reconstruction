@@ -713,66 +713,6 @@ const SLIDES = [
     ),
   },
   {
-    id: "recorrido",
-    render: () => (
-      <div className="pz-slide">
-        <Kicker>Pipeline definitivo · Capítulo 6</Kicker>
-        <h2 className="pz-title">Pipeline</h2>
-        <div className="pz-recorrido">
-          <div className="pz-recorrido-tronco">
-            <Nodo n="1" archivo="pipeline-1-dataset.jpg" titulo="Dataset"
-                  pie="1232 fotogramas de un vuelo con DJI Neo 2" />
-            <Nodo n="2" archivo="pipeline-2-sfm.gif" titulo="SfM"
-                  pie="Poses de cámara y geometría de la escena" />
-          </div>
-
-          <div className="pz-recorrido-ramas">
-            <div className="pz-rama">
-              <span className="pz-rama-tag">Rama 1 · hacia BIM</span>
-              <div className="pz-rama-nodos">
-                <Nodo n="3" archivo="pipeline-3-nube.jpg" titulo="Nube densa"
-                      pie="La geometría, punto a punto" />
-                <Nodo n="4" archivo="pipeline-5-segmentacion.jpg" titulo="Segmentación"
-                      pie="Cada parte etiquetada por clase" />
-                <Nodo n="5" archivo="pipeline-6-modelo.jpg" titulo="Modelo 3D"
-                      pie="Geometría paramétrica, lista para Revit" />
-              </div>
-            </div>
-
-            <div className="pz-rama">
-              <span className="pz-rama-tag">Rama 2 · escena navegable</span>
-              <div className="pz-rama-nodos">
-                <Nodo n="6" archivo="pipeline-4-splat.gif" titulo="Gaussian Splatting"
-                      pie="La escena, en .splat" />
-                <span className="pz-rama-linea" aria-hidden="true" />
-              </div>
-            </div>
-          </div>
-
-          <div className="pz-recorrido-convergencia">
-            <Nodo n="7" archivo="pipeline-7-archivo.jpg" titulo="Archivo digital"
-                  pie="Modelo, nube y splat: los tres descargables" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: "pipeline",
-    render: () => (
-      <div className="pz-slide">
-        <Kicker>Pipeline definitivo · Capítulo 6</Kicker>
-        <h2 className="pz-title">Un pipeline, dos rutas de destino</h2>
-        <DiagramaPipeline />
-        <p className="pz-footnote">
-          Captura con un único dispositivo, sin preprocesamiento, con verificación binaria de SfM.
-          A partir de ahí, una ruta orientada a la publicación web con Gaussian Splatting, y otra
-          al procesamiento con SfM para la integración con BIM.
-        </p>
-      </div>
-    ),
-  },
-  {
     id: "segmentacion",
     render: () => (
       <div className="pz-slide">
@@ -851,6 +791,66 @@ const SLIDES = [
             </figure>
           ))}
         </div>
+      </div>
+    ),
+  },
+  {
+    id: "recorrido",
+    render: () => (
+      <div className="pz-slide">
+        <Kicker>Pipeline definitivo · Capítulo 6</Kicker>
+        <h2 className="pz-title">Pipeline</h2>
+        <div className="pz-recorrido">
+          <div className="pz-recorrido-tronco">
+            <Nodo n="1" archivo="pipeline-1-dataset.jpg" titulo="Dataset"
+                  pie="1232 fotogramas de un vuelo con DJI Neo 2" />
+            <Nodo n="2" archivo="pipeline-2-sfm.gif" titulo="SfM"
+                  pie="Poses de cámara y geometría de la escena" />
+          </div>
+
+          <div className="pz-recorrido-ramas">
+            <div className="pz-rama">
+              <span className="pz-rama-tag">Rama 1 · hacia BIM</span>
+              <div className="pz-rama-nodos">
+                <Nodo n="3" archivo="pipeline-3-nube.jpg" titulo="Nube densa"
+                      pie="La geometría, punto a punto" />
+                <Nodo n="4" archivo="pipeline-5-segmentacion.jpg" titulo="Segmentación"
+                      pie="Cada parte etiquetada por clase" />
+                <Nodo n="5" archivo="pipeline-6-modelo.jpg" titulo="Modelo 3D"
+                      pie="Geometría paramétrica, lista para Revit" />
+              </div>
+            </div>
+
+            <div className="pz-rama">
+              <span className="pz-rama-tag">Rama 2 · escena navegable</span>
+              <div className="pz-rama-nodos">
+                <Nodo n="6" archivo="pipeline-4-splat.gif" titulo="Gaussian Splatting"
+                      pie="La escena, en .splat" />
+                <span className="pz-rama-linea" aria-hidden="true" />
+              </div>
+            </div>
+          </div>
+
+          <div className="pz-recorrido-convergencia">
+            <Nodo n="7" archivo="pipeline-7-archivo.jpg" titulo="Archivo digital"
+                  pie="Modelo, nube y splat: los tres descargables" />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "pipeline",
+    render: () => (
+      <div className="pz-slide">
+        <Kicker>Pipeline definitivo · Capítulo 6</Kicker>
+        <h2 className="pz-title">Un pipeline, dos rutas de destino</h2>
+        <DiagramaPipeline />
+        <p className="pz-footnote">
+          Captura con un único dispositivo, sin preprocesamiento, con verificación binaria de SfM.
+          A partir de ahí, una ruta orientada a la publicación web con Gaussian Splatting, y otra
+          al procesamiento con SfM para la integración con BIM.
+        </p>
       </div>
     ),
   },
