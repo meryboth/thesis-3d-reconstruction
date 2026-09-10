@@ -30,6 +30,127 @@ function Nodo({ n, archivo, titulo, pie }) {
   );
 }
 
+// Colores por tecnica -- se reusan en las tarjetas del marco teorico y en los
+// diagramas, para que cada columna se lea como una unidad.
+const SFM = "#2454ff";
+const NERF = "#c9820f";
+const GS = "#1f9e6d";
+
+// Los tres diagramas de abajo son esquemas propios de lo que pasa DENTRO de cada
+// tecnica (no del resultado), dibujados en SVG para que queden nitidos proyectados
+// y sigan el mismo lenguaje grafico del resto de la presentacion. Corresponden a
+// las Figuras 2.1, 2.2 y 2.3 del Capitulo 2.
+
+// nube dispersa con silueta de cubierta a dos aguas
+const NUBE_SFM = [
+  [196, 100], [205, 91], [214, 82], [223, 73], [232, 64], [241, 73], [250, 82],
+  [259, 91], [268, 100], [228, 56], [220, 66], [236, 66], [212, 76], [244, 76],
+  [204, 86], [252, 86], [216, 94], [240, 94], [228, 80], [228, 92], [200, 104],
+  [256, 104], [228, 104], [212, 106], [244, 106], [190, 106], [266, 106],
+];
+
+function DiagramaSfM() {
+  const foto = (y) => (
+    <rect x="8" y={y} width="62" height="46" rx="3" fill="none" stroke={SFM} strokeWidth="1.2" opacity="0.75" />
+  );
+  const kp = [[22, 16], [44, 10], [56, 30], [32, 36]];
+  return (
+    <svg className="pz-diagrama" viewBox="0 0 320 150" role="img"
+      aria-label="Esquema de fotogrametría: keypoints emparejados entre dos fotos, rayos que triangulan y nube de puntos resultante">
+      {foto(10)}
+      {foto(70)}
+      {kp.map(([x, y], i) => (
+        <g key={i}>
+          <circle cx={x} cy={10 + y} r="2.1" fill={SFM} />
+          <circle cx={x + 3} cy={70 + y + 4} r="2.1" fill={SFM} />
+          <line x1={x} y1={10 + y} x2={x + 3} y2={70 + y + 4} stroke={SFM} strokeWidth="0.8" strokeDasharray="2 2" opacity="0.55" />
+        </g>
+      ))}
+      {[[70, 22], [70, 48], [70, 82], [70, 108]].map(([x, y], i) => (
+        <line key={i} x1={x} y1={y} x2="196" y2={y < 65 ? 74 : 86} stroke={SFM} strokeWidth="0.7" opacity="0.35" />
+      ))}
+      {NUBE_SFM.map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="2" fill={SFM} opacity={i % 3 === 0 ? 0.9 : 0.55} />
+      ))}
+      <text className="pz-diagrama-t" x="39" y="140" textAnchor="middle">keypoints</text>
+      <text className="pz-diagrama-t" x="135" y="140" textAnchor="middle">matching + poses</text>
+      <text className="pz-diagrama-t" x="250" y="140" textAnchor="middle">nube de puntos</text>
+    </svg>
+  );
+}
+
+function DiagramaNeRF() {
+  const capas = [116, 150, 184];
+  const filas = [12, 27, 42];
+  const muestras = [[92, 1.5], [112, 2.1], [132, 3.2], [152, 3.8], [172, 2.9], [192, 2], [212, 1.5], [232, 1.2]];
+  return (
+    <svg className="pz-diagrama" viewBox="0 0 320 150" role="img"
+      aria-label="Esquema de NeRF: un rayo por píxel, muestreo de puntos, un MLP que predice color y densidad, e integración hasta el píxel">
+      {capas.map((x, ci) => filas.map((y, fi) => (
+        <circle key={`${ci}-${fi}`} cx={x} cy={y} r="3" fill="none" stroke={NERF} strokeWidth="1.1" />
+      )))}
+      {filas.map((y1, i) => filas.map((y2, j) => (
+        <g key={`e${i}-${j}`}>
+          <line x1={capas[0] + 3} y1={y1} x2={capas[1] - 3} y2={y2} stroke={NERF} strokeWidth="0.5" opacity="0.35" />
+          <line x1={capas[1] + 3} y1={y1} x2={capas[2] - 3} y2={y2} stroke={NERF} strokeWidth="0.5" opacity="0.35" />
+        </g>
+      )))}
+      <text className="pz-diagrama-t" x="100" y="30" textAnchor="end">MLP</text>
+      <text className="pz-diagrama-t pz-diagrama-t-fuerte" x="198" y="24">σ · RGB</text>
+      <line x1="152" y1="80" x2="152" y2="52" stroke={NERF} strokeWidth="0.9" strokeDasharray="3 2.5" />
+      <rect x="72" y="62" width="188" height="54" rx="4" fill="none" stroke={NERF} strokeWidth="0.9" strokeDasharray="4 3" opacity="0.5" />
+      <rect x="6" y="82" width="9" height="14" rx="1.5" fill={NERF} opacity="0.85" />
+      <polygon points="15,84 34,74 34,104 15,94" fill={NERF} opacity="0.35" />
+      <line x1="34" y1="89" x2="272" y2="89" stroke={NERF} strokeWidth="1" />
+      {muestras.map(([x, r], i) => (
+        <circle key={i} cx={x} cy="89" r={r} fill={NERF} opacity="0.85" />
+      ))}
+      <rect x="278" y="81" width="16" height="16" rx="2" fill={NERF} opacity="0.75" />
+      <text className="pz-diagrama-t" x="90" y="140" textAnchor="middle">rayo por píxel</text>
+      <text className="pz-diagrama-t" x="180" y="140" textAnchor="middle">muestreo 3D</text>
+      <text className="pz-diagrama-t" x="278" y="140" textAnchor="middle">píxel</text>
+    </svg>
+  );
+}
+
+// gaussianas: x, y, radio mayor, radio menor, rotacion
+const GAUSSIANAS = [
+  [128, 34, 11, 5, -32], [150, 30, 13, 5, 8], [172, 38, 10, 4, 34],
+  [116, 54, 9, 4, -14], [140, 50, 14, 6, -4], [166, 56, 11, 5, 22],
+  [124, 74, 8, 5, 40], [148, 70, 12, 5, -18], [174, 76, 9, 4, 6],
+  [136, 92, 10, 4, 16], [162, 94, 8, 4, -28],
+];
+
+function DiagramaGS() {
+  const flecha = (x) => (
+    <path d={`M${x} 62 h16 m-4 -3.5 l4 3.5 -4 3.5`} fill="none" stroke={GS} strokeWidth="1.2" />
+  );
+  return (
+    <svg className="pz-diagrama" viewBox="0 0 320 150" role="img"
+      aria-label="Esquema de Gaussian Splatting: cada punto de la nube se convierte en una gaussiana, se proyecta al plano de imagen y el ciclo clona, divide y poda">
+      {[[14, 40], [26, 32], [38, 44], [20, 58], [34, 62], [46, 54], [16, 76], [30, 82], [44, 74], [24, 94], [40, 92]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.8" fill={GS} opacity="0.8" />
+      ))}
+      {flecha(58)}
+      {GAUSSIANAS.map(([x, y, rx, ry, rot], i) => (
+        <ellipse key={i} cx={x} cy={y} rx={rx} ry={ry} fill={GS}
+          opacity={0.18 + (i % 4) * 0.12} transform={`rotate(${rot} ${x} ${y})`} />
+      ))}
+      {flecha(192)}
+      <rect x="224" y="22" width="84" height="84" rx="3" fill="none" stroke={GS} strokeWidth="1.2" opacity="0.75" />
+      {GAUSSIANAS.map(([x, y, rx, ry, rot], i) => (
+        <ellipse key={`p${i}`} cx={224 + (x - 110) * 0.86} cy={22 + (y - 22) * 0.9} rx={rx * 0.8} ry={ry * 0.8}
+          fill={GS} opacity={0.16 + (i % 4) * 0.11} transform={`rotate(${rot} ${224 + (x - 110) * 0.86} ${22 + (y - 22) * 0.9})`} />
+      ))}
+      <path d="M262 110 C 238 128, 176 128, 152 112" fill="none" stroke={GS} strokeWidth="1" strokeDasharray="4 3" />
+      <path d="M156 108 l-4 4.5 6 1.5" fill="none" stroke={GS} strokeWidth="1" />
+      <text className="pz-diagrama-t" x="30" y="140" textAnchor="middle">nube SfM</text>
+      <text className="pz-diagrama-t" x="150" y="140" textAnchor="middle">clonar · dividir · podar</text>
+      <text className="pz-diagrama-t" x="266" y="140" textAnchor="middle">rasterizado</text>
+    </svg>
+  );
+}
+
 const SLIDES = [
   {
     id: "portada",
@@ -60,15 +181,27 @@ const SLIDES = [
       <div className="pz-slide">
         <Kicker>Motivación · Capítulo 1</Kicker>
         <h2 className="pz-title">No hay planes de restauración que permitan entender el estado actual de las obras</h2>
-        <ul className="pz-bullets pz-bullets-lg">
-          <li>La documentación tradicional (fotografía, planos CAD) es costosa, lenta y difícil de reproducir ante intervenciones futuras.</li>
-          <li>Argentina no cuenta con un archivo digital nacional de referencia para su patrimonio arquitectónico.</li>
-          <li>Las técnicas de visión computacional (SfM, NeRF, 3DGS) prometen digitalizar edificios completos a partir de simples videos o fotos.</li>
-          <li>
-            <strong>Pregunta de investigación:</strong> ¿cuál de estas técnicas es la más adecuada
-            —y bajo qué criterios— para documentar patrimonio argentino?
-          </li>
-        </ul>
+        <p className="pz-pitch">
+          El patrimonio arquitectónico argentino se sigue documentando con fotografías y planos
+          CAD: un registro costoso en tiempo y recursos, difícil de reproducir con fidelidad ante
+          una intervención futura y que captura solo parcialmente la geometría y la materialidad
+          del edificio. No existe un archivo digital nacional que deje asentado el estado actual
+          de las obras y sirva de punto de partida para un plan de preservación.
+        </p>
+        <div className="pz-pitch-solucion">
+          <span className="pz-pitch-tag">La oportunidad</span>
+          <p>
+            Las técnicas de visión computacional —SfM, NeRF y Gaussian Splatting— reconstruyen
+            edificios completos en 3D a partir de fotos o video, sin equipamiento de escaneo
+            costoso. Su aplicación sistemática al patrimonio argentino permanece inexplorada y no
+            hay criterios locales para elegir entre ellas. Esta tesis las compara sobre tres obras
+            reales y propone un pipeline reproducible con hardware modesto y software libre.
+          </p>
+        </div>
+        <p className="pz-pitch-pregunta">
+          <strong>Pregunta de investigación:</strong> ¿cuál de estas técnicas es la más adecuada
+          —y bajo qué criterios— para documentar patrimonio argentino?
+        </p>
       </div>
     ),
   },
@@ -100,21 +233,42 @@ const SLIDES = [
       <div className="pz-slide">
         <Kicker>Marco teórico · Capítulo 2</Kicker>
         <h2 className="pz-title">Tres formas de reconstruir en 3D a partir de imágenes</h2>
-        <div className="pz-cols-3">
-          <div className="pz-card">
-            <span className="pz-card-tag" style={{ color: "#2454ff" }}>SfM</span>
+        <div className="pz-cols-3 pz-cols-tecnicas">
+          <div className="pz-card pz-card-tecnica">
+            <span className="pz-card-tag" style={{ color: SFM }}>SfM + MVS</span>
             <h3>Fotogrametría clásica</h3>
-            <p>Triangula puntos coincidentes entre fotos (COLMAP/RealityScan). Da nube de puntos + malla texturizada explícita, con topología real.</p>
+            <DiagramaSfM />
+            <ol className="pz-pasos">
+              <li>Detecta <strong>keypoints</strong> en cada foto con descriptores SIFT/SURF.</li>
+              <li>Empareja correspondencias entre pares y estima la <strong>pose de cada cámara</strong> con RANSAC.</li>
+              <li>Triangula esos puntos y corrige todo junto con <strong>bundle adjustment</strong>.</li>
+              <li>MVS densifica por correlación fotométrica entre vistas vecinas.</li>
+            </ol>
+            <p className="pz-salida"><span>Salida</span> geometría explícita: nube densa y malla con topología real.</p>
           </div>
-          <div className="pz-card">
-            <span className="pz-card-tag" style={{ color: "#c9820f" }}>NeRF</span>
+          <div className="pz-card pz-card-tecnica">
+            <span className="pz-card-tag" style={{ color: NERF }}>NeRF</span>
             <h3>Campo de radiancia neuronal</h3>
-            <p>Una red neuronal aprende a sintetizar vistas nuevas de la escena (Nerfacto). No produce geometría explícita.</p>
+            <DiagramaNeRF />
+            <ol className="pz-pasos">
+              <li>Parte de las poses de cámara que resolvió SfM.</li>
+              <li>Lanza <strong>un rayo por píxel</strong> y muestrea puntos 3D a lo largo del rayo.</li>
+              <li>Un <strong>MLP</strong> predice color y densidad en cada punto según posición y dirección de vista.</li>
+              <li>Integra el rayo, compara con el píxel real y retropropaga el error, millones de veces.</li>
+            </ol>
+            <p className="pz-salida"><span>Salida</span> los pesos de una red: la escena solo existe al renderizarla.</p>
           </div>
-          <div className="pz-card">
-            <span className="pz-card-tag" style={{ color: "#1f9e6d" }}>3DGS</span>
+          <div className="pz-card pz-card-tecnica">
+            <span className="pz-card-tag" style={{ color: GS }}>3DGS</span>
             <h3>Gaussian Splatting</h3>
-            <p>Representa la escena como millones de "gaussianas" 3D con color y opacidad (Splatfacto). Renderiza en tiempo real.</p>
+            <DiagramaGS />
+            <ol className="pz-pasos">
+              <li>Inicializa <strong>una gaussiana por punto</strong> de la nube dispersa de SfM.</li>
+              <li>Cada una lleva posición, covarianza, opacidad y color en armónicos esféricos.</li>
+              <li>Un <strong>rasterizador diferenciable</strong> las proyecta al plano de imagen y mide el error.</li>
+              <li>En cada iteración <strong>clona, divide y poda</strong> gaussianas donde falta o sobra detalle.</li>
+            </ol>
+            <p className="pz-salida"><span>Salida</span> millones de primitivas explícitas que se renderizan en tiempo real.</p>
           </div>
         </div>
       </div>
@@ -286,8 +440,8 @@ const SLIDES = [
         </div>
         <div className="pz-split-media pz-split-media-apilada">
           <figure>
-            <img src={`${W}preproc-distractores.jpg`} alt="Fotograma original y fotograma con las personas eliminadas" />
-            <figcaption>1 · Distractores: original arriba, con las personas borradas por YOLOv8-seg + LaMa abajo.</figcaption>
+            <img src={`${W}preproc-distractores.jpg`} alt="Fotograma original a la izquierda y el mismo fotograma con las personas eliminadas a la derecha" />
+            <figcaption>1 · Distractores: original (izq.) y con las personas borradas por YOLOv8-seg + LaMa (der.).</figcaption>
           </figure>
           <figure>
             <img src={`${W}preproc-mascara.jpg`} alt="Fotograma original, máscara de entrenamiento y edificio aislado del fondo" />
@@ -319,8 +473,8 @@ const SLIDES = [
         <div className="pz-split-media pz-split-media-apilada">
           <img src={`${A}cap5-07-psnr-vs-complejidad.png`} alt="PSNR vs. nivel de complejidad geométrica" />
           <figure>
-            <img src={`${W}panteon-nerf-vs-splat.jpg`} alt="Panteón Asociación Catalana: foto original, render de Nerfacto y render de Splatfacto" />
-            <figcaption>Panteón: foto · Nerfacto · Splatfacto. Nerfacto degenera en floaters; Splatfacto sostiene la geometría.</figcaption>
+            <img src={`${W}panteon-nerf-vs-splat.jpg`} alt="Panteón Asociación Catalana: render de Nerfacto junto al render de Splatfacto" />
+            <figcaption>Panteón, misma vista: Nerfacto degenera en floaters (izq.); Splatfacto sostiene la geometría (der.).</figcaption>
           </figure>
         </div>
       </div>
@@ -511,9 +665,8 @@ const SLIDES = [
           </p>
           <ul className="pz-bullets">
             <li>GPT-6 Astra (OpenAI), operado desde Codex, conectado a Blender vía Blender MCP.</li>
-            <li>Columnas: circunferencias en 9 cortes de altura. Cubiertas: grilla 34×34, superficie ajustada por cuantiles de altura.</li>
-            <li>Distancia mediana a la nube: 0,0044 unidades SfM — pero contra los mismos puntos usados para ajustar, no es validación independiente.</li>
-            <li>Los 3 sitios tienen modelo completo: Los Paraguas, Templete Central y Panteón Asoc. Catalana.</li>
+            <li>Ajusta bien donde la geometría es simple (Los Paraguas: 0,004 unidades SfM de distancia mediana a la nube) y se despega un orden de magnitud en la ornamentación (Panteón: 0,058; p95 0,29).</li>
+            <li>No es una medida de precisión: se compara contra la misma nube que se usó para ajustar. Dice que el ajuste cerró, no que el modelo sea fiel al edificio.</li>
           </ul>
           <Source>Capítulo 6, sección 6.3.4 y Tabla 6.4</Source>
         </div>

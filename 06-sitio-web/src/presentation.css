@@ -810,3 +810,138 @@
 .pz-recorrido-convergencia .pz-nodo {
   align-self: center;
 }
+
+/* ---- slide de motivacion: pitch en un parrafo + la salida debajo ---- */
+.pz-pitch {
+  font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+  line-height: 1.72;
+  color: var(--ink);
+  max-width: 62ch;
+  margin: 0 0 1.35rem;
+}
+
+.pz-pitch-solucion {
+  max-width: 62ch;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-panel);
+  border-radius: 0 8px 8px 0;
+  padding: 0.95rem 1.15rem 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.pz-pitch-solucion p {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.42vw, 1.16rem);
+  line-height: 1.68;
+  color: var(--ink);
+}
+
+.pz-pitch-tag {
+  display: block;
+  font-family: var(--mono-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.42rem;
+}
+
+.pz-pitch-pregunta {
+  max-width: 62ch;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.pz-pitch-pregunta strong {
+  color: var(--ink);
+}
+
+/* ---- marco teorico: que hace cada tecnica por dentro ---- */
+.pz-cols-tecnicas {
+  gap: 1rem;
+}
+
+.pz-card-tecnica {
+  padding: 1rem 1.05rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.pz-card-tecnica h3 {
+  margin: 0.32rem 0 0.55rem;
+  font-size: 1.02rem;
+}
+
+.pz-diagrama {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  margin-bottom: 0.7rem;
+}
+
+.pz-diagrama-t {
+  font-family: var(--mono-ui);
+  font-size: 8.5px;
+  letter-spacing: 0.02em;
+  fill: var(--ink-faint);
+}
+
+.pz-diagrama-t-fuerte {
+  fill: var(--ink-soft);
+}
+
+.pz-pasos {
+  list-style: none;
+  counter-reset: paso;
+  margin: 0 0 0.7rem;
+  padding: 0;
+  flex: 1;
+}
+
+.pz-pasos li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-bottom: 0.42rem;
+}
+
+.pz-pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0.06rem;
+  font-family: var(--mono-ui);
+  font-size: 0.66rem;
+  color: var(--ink-faint);
+}
+
+.pz-pasos strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pz-salida {
+  margin: 0;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+  font-size: 0.8rem !important;
+  line-height: 1.45;
+}
+
+.pz-salida span {
+  font-family: var(--mono-ui);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--ink-faint);
+  margin-right: 0.45rem;
+}
