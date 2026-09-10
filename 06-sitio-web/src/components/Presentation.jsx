@@ -593,7 +593,7 @@ const SLIDES = [
       <div className="pz-split">
         <div className="pz-split-text">
           <Kicker>H2 · Preprocesamiento</Kicker>
-          <h2 className="pz-title">No se sostiene</h2>
+          <h2 className="pz-title">El preprocesamiento perjudica la reconstrucción</h2>
           <p className="pz-lead">
             Se probaron dos variantes de limpieza con ComfyUI: eliminar distractores (YOLOv8-seg
             + inpainting LaMa) y aislar el edificio de su fondo. <strong>Ambas empeoraron los
