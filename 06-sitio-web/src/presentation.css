@@ -812,16 +812,18 @@
 }
 
 /* ---- slide de motivacion: pitch en un parrafo + la salida debajo ---- */
+.pz-slide-pitch {
+  max-width: 680px;
+}
+
 .pz-pitch {
   font-size: clamp(1.02rem, 1.5vw, 1.24rem);
   line-height: 1.72;
   color: var(--ink);
-  max-width: 62ch;
   margin: 0 0 1.35rem;
 }
 
 .pz-pitch-solucion {
-  max-width: 62ch;
   border-left: 3px solid var(--accent);
   background: var(--bg-panel);
   border-radius: 0 8px 8px 0;
@@ -847,7 +849,6 @@
 }
 
 .pz-pitch-pregunta {
-  max-width: 62ch;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(1rem, 1.45vw, 1.18rem);

@@ -347,7 +347,7 @@ const SLIDES = [
   {
     id: "motivacion",
     render: () => (
-      <div className="pz-slide">
+      <div className="pz-slide pz-slide-pitch">
         <Kicker>Motivación · Capítulo 1</Kicker>
         <h2 className="pz-title">Problema y propuesta</h2>
         <p className="pz-pitch">
