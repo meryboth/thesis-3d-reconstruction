@@ -653,7 +653,7 @@ const SLIDES = [
       <div className="pz-split">
         <div className="pz-split-text">
           <Kicker>H4 · Dataset multi-dispositivo · el hallazgo central</Kicker>
-          <h2 className="pz-title">No se sostiene — y por qué, a nivel geométrico</h2>
+          <h2 className="pz-title">Los datasets híbridos generan componentes desconectados</h2>
           <p className="pz-lead">
             Combinar DJI Neo 2 e Insta360 X5 en un mismo dataset introduce un riesgo real de
             fallo de registro, y aun logrando el registro, el resultado es peor que un único
