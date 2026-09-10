@@ -945,3 +945,326 @@
   color: var(--ink-faint);
   margin-right: 0.45rem;
 }
+
+/* ---- diagrama de arquitectura del pipeline definitivo (Cap. 6, 6.2) ---- */
+.pp {
+  --pp-captura: #c9820f;
+  --pp-sfm: #2454ff;
+  --pp-impl: #1f9e6d;
+  --pp-salida: #7a4fd0;
+  --pp-concepto: #8b8f98;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+}
+
+.pp-lane {
+  display: block;
+  font-family: var(--mono-ui);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.35rem;
+}
+
+.pp-tronco {
+  border: 1px dashed var(--rule);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem 0.65rem;
+}
+
+.pp-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.pp-fila > .pp-nodo {
+  flex: 1 1 0;
+}
+
+.pp-par-salidas {
+  flex: 1.15 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+/* --- nodos --- */
+.pp-nodo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--pp-c, var(--rule));
+  border-left-width: 3px;
+  border-radius: 5px;
+  background: var(--bg);
+  padding: 0.42rem 0.55rem;
+  min-width: 0;
+}
+
+.pp-captura { --pp-c: var(--pp-captura); }
+.pp-sfm { --pp-c: var(--pp-sfm); }
+.pp-impl { --pp-c: var(--pp-impl); }
+.pp-salida { --pp-c: var(--pp-salida); }
+.pp-concepto {
+  --pp-c: var(--pp-concepto);
+  border-style: dashed;
+  background: transparent;
+}
+
+.pp-ico {
+  flex: 0 0 auto;
+  display: flex;
+}
+
+.pp-ico svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: var(--pp-c);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* la nube y el splat se leen mejor macizos */
+.pp-nodo:has(.pp-ico svg circle[r="1.15"]) .pp-ico svg circle,
+.pp-nodo .pp-ico svg ellipse {
+  fill: var(--pp-c);
+  fill-opacity: 0.35;
+}
+
+.pp-txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pp-txt strong {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.pp-txt em {
+  font-family: var(--mono-ui);
+  font-style: normal;
+  font-size: 0.6rem;
+  line-height: 1.35;
+  color: var(--ink-faint);
+  margin-top: 0.1rem;
+}
+
+/* --- conectores --- */
+.pp-flecha {
+  flex: 0 0 20px;
+  height: 1px;
+  background: var(--ink-faint);
+  position: relative;
+}
+
+.pp-flecha::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2.5px;
+  border-left: 5px solid var(--ink-faint);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.pp-flecha-tenue {
+  background: repeating-linear-gradient(to right, var(--pp-concepto) 0 3px, transparent 3px 6px);
+}
+
+.pp-flecha-tenue::after {
+  border-left-color: var(--pp-concepto);
+}
+
+.pp-flecha-v {
+  display: block;
+  width: 1px;
+  height: 13px;
+  margin: 0 auto;
+  background: var(--ink-faint);
+  position: relative;
+}
+
+.pp-flecha-v::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  border-top: 5px solid var(--ink-faint);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.pp-bifurca {
+  text-align: center;
+  font-family: var(--mono-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  position: relative;
+}
+
+.pp-bifurca span {
+  background: var(--bg);
+  padding: 0 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.pp-bifurca::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  border-top: 1px dashed var(--rule);
+}
+
+/* --- ramas --- */
+.pp-ramas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  align-items: start;
+}
+
+.pp-rama {
+  border: 1px dashed var(--rule);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem 0.65rem;
+}
+
+.pp-lane-hbim { color: var(--pp-impl); }
+.pp-lane-web { color: var(--pp-sfm); }
+
+.pp-conceptual {
+  border: 1px dashed var(--pp-concepto);
+  border-radius: 5px;
+  padding: 0.4rem 0.55rem 0.45rem;
+  margin-top: 0.55rem;
+}
+
+.pp-conceptual-tag {
+  display: block;
+  font-family: var(--mono-ui);
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pp-concepto);
+  margin-bottom: 0.3rem;
+}
+
+.pp-conceptual ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pp-conceptual li {
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+  padding-left: 0.7rem;
+  position: relative;
+}
+
+.pp-conceptual li::before {
+  content: "·";
+  position: absolute;
+  left: 0.15rem;
+}
+
+/* --- convergencia --- */
+.pp-converge {
+  position: relative;
+  padding-top: 1.15rem;
+}
+
+.pp-cv-izq,
+.pp-cv-der,
+.pp-cv-baja {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 0.6rem;
+  background: var(--ink-faint);
+}
+
+.pp-cv-izq { left: 25%; }
+.pp-cv-der { left: 75%; }
+
+.pp-cv-h {
+  position: absolute;
+  top: 0.6rem;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background: var(--ink-faint);
+}
+
+.pp-cv-baja {
+  left: 50%;
+  top: 0.6rem;
+  height: 0.55rem;
+}
+
+.pp-cv-baja::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: -3px;
+  border-top: 5px solid var(--ink-faint);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+
+.pp-converge .pp-nodo {
+  justify-content: center;
+  border-left-width: 1px;
+  border-top-width: 3px;
+}
+
+/* --- leyenda --- */
+.pp-leyenda {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+  margin: 0.1rem 0 0;
+  padding: 0;
+  font-family: var(--mono-ui);
+  font-size: 0.58rem;
+  color: var(--ink-faint);
+}
+
+.pp-leyenda li {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+}
+
+.pp-leyenda li::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  border: 1px solid currentColor;
+  border-left-width: 3px;
+}
+
+.pp-l-captura::before { color: var(--pp-captura); }
+.pp-l-sfm::before { color: var(--pp-sfm); }
+.pp-l-impl::before { color: var(--pp-impl); }
+.pp-l-salida::before { color: var(--pp-salida); }
+.pp-l-concepto::before { color: var(--pp-concepto); border-style: dashed; }

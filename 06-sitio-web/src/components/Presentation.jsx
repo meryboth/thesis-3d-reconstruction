@@ -151,6 +151,175 @@ function DiagramaGS() {
   );
 }
 
+// Diagrama de arquitectura del pipeline definitivo (Cap. 6, seccion 6.2).
+// Reemplaza al PNG generado por build_pipeline_diagram.py: en HTML/CSS se lee a
+// cualquier tamano de proyeccion y cada nodo puede llevar el icono de la pieza
+// tecnica que le corresponde. El .md del Capitulo 6 sigue usando la Figura 6.2.
+
+const ICO = {
+  dron: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="5" cy="6" r="3" /><circle cx="19" cy="6" r="3" />
+      <circle cx="5" cy="18" r="3" /><circle cx="19" cy="18" r="3" />
+      <path d="M7.4 8.1 10 10.5h4l2.6-2.4M7.4 15.9 10 13.5h4l2.6 2.4" />
+      <rect x="9.5" y="10" width="5" height="4" rx="1" />
+    </svg>
+  ),
+  sfm: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M2 8v8l6-4z" /><path d="M8 12h4" />
+      <circle cx="16" cy="6" r="1.3" /><circle cx="20" cy="12" r="1.3" />
+      <circle cx="15" cy="17" r="1.3" /><circle cx="19.5" cy="4" r="1" />
+      <path d="M12 12 16 6M12 12l8 0M12 12l3 5" />
+    </svg>
+  ),
+  nube: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      {[[5, 16], [8, 12], [11, 8], [14, 12], [17, 16], [8, 18], [12, 15], [16, 18], [11, 19], [12, 5], [6, 19], [18, 19]].map(
+        ([x, y], i) => <circle key={i} cx={x} cy={y} r="1.15" />
+      )}
+    </svg>
+  ),
+  malla: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 6h18v12H3z" /><path d="M3 6l9 6 9-6M3 18l9-6 9 6M12 6v12" />
+    </svg>
+  ),
+  splat: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <ellipse cx="9" cy="9" rx="5" ry="2.6" transform="rotate(-28 9 9)" />
+      <ellipse cx="15" cy="13" rx="5.5" ry="2.8" transform="rotate(16 15 13)" />
+      <ellipse cx="9" cy="17" rx="4.5" ry="2.3" transform="rotate(-8 9 17)" />
+    </svg>
+  ),
+  capas: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3 21 7.5 12 12 3 7.5z" /><path d="M3 12l9 4.5L21 12" /><path d="M3 16.5 12 21l9-4.5" />
+    </svg>
+  ),
+  mano: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 4l7 16 2-6 6-2z" /><path d="M14 14l5 5" />
+    </svg>
+  ),
+  archivo: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="2.5" y="4" width="19" height="16" rx="2" /><path d="M2.5 8.5h19" />
+      <circle cx="5.5" cy="6.2" r="0.7" /><circle cx="8" cy="6.2" r="0.7" />
+    </svg>
+  ),
+  repo: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <ellipse cx="12" cy="6" rx="8" ry="3" />
+      <path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6" />
+      <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+    </svg>
+  ),
+  cubo: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2.8 21 7.4v9.2L12 21.2 3 16.6V7.4z" /><path d="M3 7.4 12 12l9-4.6M12 12v9.2" />
+    </svg>
+  ),
+  descarga: (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v11M7.5 9.5 12 14l4.5-4.5" /><path d="M4 18h16" />
+    </svg>
+  ),
+};
+
+function NodoPipe({ ico, titulo, detalle, tipo }) {
+  return (
+    <div className={`pp-nodo pp-${tipo}`}>
+      <span className="pp-ico">{ICO[ico]}</span>
+      <span className="pp-txt">
+        <strong>{titulo}</strong>
+        <em>{detalle}</em>
+      </span>
+    </div>
+  );
+}
+
+function DiagramaPipeline() {
+  return (
+    <div className="pp">
+      <div className="pp-tronco">
+        <span className="pp-lane">Tronco común</span>
+        <div className="pp-fila">
+          <NodoPipe tipo="captura" ico="dron" titulo="Captura"
+            detalle="DJI Neo 2 · Insta360 X5 — un solo dispositivo" />
+          <span className="pp-flecha" />
+          <NodoPipe tipo="sfm" ico="sfm" titulo="SfM"
+            detalle="RealityScan · COLMAP/Nerfstudio + verificación binaria" />
+          <span className="pp-flecha" />
+          <div className="pp-par-salidas">
+            <NodoPipe tipo="salida" ico="nube" titulo="Nube densa + dispersa" detalle=".ply / COLMAP" />
+            <NodoPipe tipo="salida" ico="malla" titulo="Malla texturizada" detalle=".obj + texturas" />
+          </div>
+          <span className="pp-flecha pp-flecha-tenue" />
+          <NodoPipe tipo="concepto" ico="cubo" titulo="Modelado asistido por IA"
+            detalle="Blender MCP — experimento, §6.3.4" />
+        </div>
+      </div>
+
+      <div className="pp-bifurca">
+        <span>bifurca según el destino</span>
+      </div>
+
+      <div className="pp-ramas">
+        <div className="pp-rama">
+          <span className="pp-lane pp-lane-hbim">Rama HBIM · 6.2.2</span>
+          <NodoPipe tipo="impl" ico="capas" titulo="Segmentación geométrica"
+            detalle="poc_segmentation_multi_site.py — 4 clases, sin ML" />
+          <span className="pp-flecha-v" />
+          <NodoPipe tipo="impl" ico="mano" titulo="Control de calidad humano"
+            detalle="visor /segmentador — edición manual" />
+          <span className="pp-flecha-v" />
+          <NodoPipe tipo="salida" ico="descarga" titulo="Nube segmentada por clase" detalle=".ply" />
+          <div className="pp-conceptual">
+            <span className="pp-conceptual-tag">Fuera de alcance · propuesta conceptual</span>
+            <ul>
+              <li>Importación a Revit / Recap como referencia scan-to-BIM</li>
+              <li>Modelado paramétrico: cada clase → categoría Revit</li>
+              <li>Vínculo documental con la malla y el SfM original</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pp-rama">
+          <span className="pp-lane pp-lane-web">Rama archivo digital web · 6.2.3</span>
+          <NodoPipe tipo="impl" ico="splat" titulo="Entrenamiento Splatfacto"
+            detalle="Nerfstudio — sin preprocesamiento, sin Nerfacto" />
+          <span className="pp-flecha-v" />
+          <NodoPipe tipo="impl" ico="mano" titulo="Edición en SuperSplat"
+            detalle="recorte de outliers y gaussianas de baja opacidad" />
+          <span className="pp-flecha-v" />
+          <NodoPipe tipo="salida" ico="descarga" titulo="Escena de gaussianas" detalle=".splat / .ply" />
+          <span className="pp-flecha-v" />
+          <NodoPipe tipo="impl" ico="archivo" titulo="Visor en navegador"
+            detalle="PlayCanvas — render en tiempo real" />
+        </div>
+      </div>
+
+      <div className="pp-converge">
+        <span className="pp-cv-izq" />
+        <span className="pp-cv-h" />
+        <span className="pp-cv-der" />
+        <span className="pp-cv-baja" />
+        <NodoPipe tipo="captura" ico="repo" titulo="Archivo digital web — descarga dual"
+          detalle=".splat limpio (rama web) + .ply segmentado (rama HBIM) · §6.4" />
+      </div>
+
+      <ul className="pp-leyenda">
+        <li className="pp-l-captura">Captura / publicación</li>
+        <li className="pp-l-sfm">SfM / reconstrucción</li>
+        <li className="pp-l-impl">Implementado y validado</li>
+        <li className="pp-l-salida">Output / descarga</li>
+        <li className="pp-l-concepto">Propuesta conceptual</li>
+      </ul>
+    </div>
+  );
+}
+
 const SLIDES = [
   {
     id: "portada",
@@ -594,7 +763,7 @@ const SLIDES = [
       <div className="pz-slide">
         <Kicker>Pipeline definitivo · Capítulo 6</Kicker>
         <h2 className="pz-title">Un pipeline, dos rutas de destino</h2>
-        <img className="pz-diagram" src={`${A}cap6-pipeline-definitivo.png`} alt="Diagrama del pipeline definitivo" />
+        <DiagramaPipeline />
         <p className="pz-footnote">
           Captura con un único dispositivo, sin preprocesamiento, con verificación binaria de SfM.
           A partir de ahí, una ruta orientada a la publicación web con Gaussian Splatting, y otra
