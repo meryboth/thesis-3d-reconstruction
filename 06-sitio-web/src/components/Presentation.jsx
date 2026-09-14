@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 // Presentacion de tesis, pensada para una exposicion oral de ~20 minutos.
 // Sintetiza los 7 capitulos sin dejar afuera ninguna hipotesis ni conclusion --
@@ -145,7 +145,7 @@ function DiagramaGS() {
       <path d="M262 110 C 238 128, 176 128, 152 112" fill="none" stroke={GS} strokeWidth="1" strokeDasharray="4 3" />
       <path d="M156 108 l-4 4.5 6 1.5" fill="none" stroke={GS} strokeWidth="1" />
       <text className="pz-diagrama-t" x="30" y="140" textAnchor="middle">nube SfM</text>
-      <text className="pz-diagrama-t" x="150" y="140" textAnchor="middle">clonar · dividir · podar</text>
+      <text className="pz-diagrama-t" x="150" y="140" textAnchor="middle">densificar · podar</text>
       <text className="pz-diagrama-t" x="266" y="140" textAnchor="middle">rasterizado</text>
     </svg>
   );
@@ -530,58 +530,34 @@ const SLIDES = [
       <div className="pz-slide">
         <Kicker>Resultados · Capítulo 5</Kicker>
         <h2 className="pz-title">SfM, Nerfacto y Splatfacto, en los tres casos</h2>
-        <div className="pz-render-gallery">
-          <div className="pz-render-gallery-col">
-            <h3>Los Paraguas</h3>
-            <div className="pz-render-compare pz-render-compare-stacked">
-              <div>
-                <img src={`${W}paraguas-sfm-render.gif`} alt="Nube de puntos SfM de Los Paraguas" />
-                <span>SfM</span>
-              </div>
-              <div>
-                <img src={`${W}paraguas-nerfacto-render.gif`} alt="Render Nerfacto de Los Paraguas" />
-                <span>Nerfacto</span>
-              </div>
-              <div>
-                <img src={`${W}paraguas-splatfacto-render.gif`} alt="Render Splatfacto de Los Paraguas" />
-                <span>Splatfacto</span>
-              </div>
-            </div>
-          </div>
-          <div className="pz-render-gallery-col">
-            <h3>Templete Central</h3>
-            <div className="pz-render-compare pz-render-compare-stacked">
-              <div>
-                <img src={`${W}templete-sfm-render.gif`} alt="Nube de puntos SfM de Templete Central" />
-                <span>SfM</span>
-              </div>
-              <div>
-                <img src={`${W}templete-nerfacto-render.gif`} alt="Render Nerfacto del Templete Central" />
-                <span>Nerfacto</span>
-              </div>
-              <div>
-                <img src={`${W}templete-splatfacto-render.gif`} alt="Render Splatfacto del Templete Central" />
-                <span>Splatfacto</span>
-              </div>
-            </div>
-          </div>
-          <div className="pz-render-gallery-col">
-            <h3>Panteón Asoc. Catalana</h3>
-            <div className="pz-render-compare pz-render-compare-stacked">
-              <div>
-                <img src={`${W}panteon-sfm-render.gif`} alt="Nube de puntos SfM de Panteón Asociación Catalana" />
-                <span>SfM</span>
-              </div>
-              <div>
-                <img src={`${W}panteon-nerfacto-render.gif`} alt="Render Nerfacto del Panteón Asociación Catalana" />
-                <span>Nerfacto</span>
-              </div>
-              <div>
-                <img src={`${W}panteon-splatfacto-render.gif`} alt="Render Splatfacto del Panteón Asociación Catalana" />
-                <span>Splatfacto</span>
-              </div>
-            </div>
-          </div>
+        {/* Matriz tecnica x sitio: la tecnica va una sola vez como encabezado de fila
+            en vez de repetirse debajo de cada uno de los nueve recuadros, y eso deja
+            entrar la grilla completa sin cortarse en pantallas de laptop. */}
+        <div className="pz-matriz">
+          <span />
+          {[
+            ["paraguas", "Los Paraguas"],
+            ["templete", "Templete Central"],
+            ["panteon", "Panteón Asoc. Catalana"],
+          ].map(([id, nombre]) => (
+            <h3 key={id}>{nombre}</h3>
+          ))}
+          {[
+            ["sfm", "SfM", "Nube de puntos SfM"],
+            ["nerfacto", "Nerfacto", "Render Nerfacto"],
+            ["splatfacto", "Splatfacto", "Render Splatfacto"],
+          ].map(([tecnica, etiqueta, tipo]) => (
+            <Fragment key={tecnica}>
+              <span className="pz-matriz-fila">{etiqueta}</span>
+              {[
+                ["paraguas", "Los Paraguas"],
+                ["templete", "Templete Central"],
+                ["panteon", "Panteón Asociación Catalana"],
+              ].map(([id, nombre]) => (
+                <img key={id} src={`${W}${id}-${tecnica}-render.gif`} alt={`${tipo} — ${nombre}`} />
+              ))}
+            </Fragment>
+          ))}
         </div>
         <Source>Capítulo 5 · Renders finales por sitio y técnica (dataset DJI)</Source>
       </div>
@@ -957,6 +933,50 @@ const SLIDES = [
   },
 ];
 
+// Cada slide se arma sobre un lienzo fijo de 1280 x 760 px y se escala entero para
+// entrar en la pantalla, como hacen Reveal.js o Google Slides. Antes los tamanos eran
+// fijos en rem y dependian del alto de la ventana: en laptops de 768 px de alto, o con
+// el escalado de Windows al 125-150 %, varias slides quedaban cortadas abajo. Ahora la
+// composicion es identica en cualquier compu y solo cambia el tamano.
+// En pantallas angostas (celular en vertical) escalar dejaria todo ilegible, asi que ahi
+// el contenido fluye en una columna con scroll.
+const LIENZO_ANCHO = 1280;
+const LIENZO_ALTO = 760;
+const ESCALA_MAX = 2;
+const ANCHO_FLUIDO = 720;
+
+function useLienzo(indice) {
+  const stageRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [estado, setEstado] = useState({ escala: 1, fluido: false });
+
+  useLayoutEffect(() => {
+    const stage = stageRef.current;
+    const canvas = canvasRef.current;
+    if (!stage || !canvas) return undefined;
+
+    const medir = () => {
+      const fluido = stage.clientWidth < ANCHO_FLUIDO;
+      // si una slide llegara a pasarse del alto de diseno, se achica un poco mas en vez de cortarse
+      const alto = Math.max(LIENZO_ALTO, canvas.scrollHeight);
+      const escala = Math.min(stage.clientWidth / LIENZO_ANCHO, stage.clientHeight / alto, ESCALA_MAX);
+      setEstado((previo) =>
+        previo.fluido === fluido && Math.abs(previo.escala - escala) < 0.001 ? previo : { escala, fluido }
+      );
+    };
+
+    medir();
+    // el tamano cambia al redimensionar la ventana, pero tambien cuando terminan de
+    // cargar las imagenes o las fuentes de la slide
+    const observador = new ResizeObserver(medir);
+    observador.observe(stage);
+    if (canvas.firstElementChild) observador.observe(canvas.firstElementChild);
+    return () => observador.disconnect();
+  }, [indice]);
+
+  return { stageRef, canvasRef, ...estado };
+}
+
 export default function Presentation() {
   const [index, setIndex] = useState(0);
   const total = SLIDES.length;
@@ -986,6 +1006,7 @@ export default function Presentation() {
 
   const slide = SLIDES[index];
   const progress = ((index + 1) / total) * 100;
+  const { stageRef, canvasRef, escala, fluido } = useLienzo(index);
 
   return (
     <div className="pz-root">
@@ -1001,7 +1022,15 @@ export default function Presentation() {
         </span>
       </header>
 
-      <main className="pz-stage">{slide.render()}</main>
+      <main className="pz-stage" ref={stageRef}>
+        <div
+          ref={canvasRef}
+          className={fluido ? "pz-canvas pz-canvas-fluido" : "pz-canvas"}
+          style={fluido ? undefined : { "--pz-escala": escala }}
+        >
+          {slide.render()}
+        </div>
+      </main>
 
       <nav className="pz-nav">
         <button type="button" onClick={() => goTo(index - 1)} disabled={index === 0} aria-label="Anterior">
