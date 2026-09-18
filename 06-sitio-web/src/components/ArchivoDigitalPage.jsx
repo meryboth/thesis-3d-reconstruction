@@ -53,14 +53,14 @@ function PlaceholderIcon() {
 // continua del resto del sitio.
 export default function ArchivoDigitalPage() {
   return (
-    <div className="ad-root">
-      <header className="ad-header">
-        <a href="/" className="ad-back">
+    <div className="archivo-root">
+      <header className="archivo-header">
+        <a href="/" className="archivo-back">
           ← Volver a la tesis
         </a>
-        <h1 className="ad-title">Archivo digital</h1>
+        <h1 className="archivo-title">Archivo digital</h1>
       </header>
-      <div className="ad-stage">
+      <div className="archivo-stage">
         <div className="splat-catalog">
           {SITES.map((site) => (
             <div key={site.id} id={`archivo-digital-${site.id}`} className="splat-card">

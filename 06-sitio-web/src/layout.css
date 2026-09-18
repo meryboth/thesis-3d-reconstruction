@@ -362,7 +362,7 @@
 
 /* ---------- Archivo Digital: pagina fullscreen (sin nav lateral) ---------- */
 
-.ad-root {
+.archivo-root {
   position: fixed;
   inset: 0;
   background: var(--bg);
@@ -373,7 +373,7 @@
   font-family: var(--sans);
 }
 
-.ad-header {
+.archivo-header {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -384,7 +384,7 @@
   top: 0;
 }
 
-.ad-back {
+.archivo-back {
   font-family: var(--mono-ui);
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -394,11 +394,11 @@
   flex-shrink: 0;
 }
 
-.ad-back:hover {
+.archivo-back:hover {
   color: var(--accent);
 }
 
-.ad-title {
+.archivo-title {
   font-family: var(--serif);
   font-size: 1.15rem;
   font-weight: 600;
@@ -406,7 +406,7 @@
   color: var(--ink);
 }
 
-.ad-stage {
+.archivo-stage {
   max-width: 1440px;
   margin: 0 auto;
   padding: 2.5rem 1.75rem 4rem;
